@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OutofSight Dashboard</title>
+
+<style>
+:root{
+  --bg:#111827;
+  --panel:#1f2937;
+  --muted:#9ca3af;
+  --accent-blue:#38bdf8;
+  --accent-purple:#6366f1;
+  --accent-orange:#f97316;
+  --muted-border:#374151;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+body {
+    margin: 0;
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: white;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    background: var(--panel);
+    position: fixed;
+    padding: 20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.sidebar h2 {
+    color: #ffffff; /* White Logo */
+    margin: 0 0 6px 0;
+    font-weight:700;
+    letter-spacing:0.4px;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 12px;
+    margin: 6px 0;
+    color: var(--muted);
+    text-decoration: none;
+    border-radius:8px;
+    cursor:pointer;
+    transition: all 160ms ease;
+    font-size:14px;
+}
+
+.nav-link:hover {
+    color: white;
+    background: rgba(255,255,255,0.02);
+}
+
+.nav-link.active {
+    color: white;
+    background: linear-gradient(90deg, rgba(56,189,248,0.08), rgba(249,115,22,0.03));
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    border-left: 3px solid var(--accent-blue);
+    padding-left: 9px;
+}
+
+/* MAIN */
+.main {
+    margin-left: 240px;
+    padding: 24px;
+    min-height: 100vh;
+}
+
+/* TOP STATS */
+.header-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.card {
+    background: var(--panel);
+    padding: 18px;
+    border-radius: 10px;
+    width: 220px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    transition: transform 160ms ease;
+}
+
+.card:hover{ transform: translateY(-4px); }
+
+.card h3 {
+    margin: 0;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight:600;
+}
+
+.card p {
+    font-size: 28px;
+    margin: 8px 0 0;
+    font-weight:700;
+}
+
+/* BLUR STYLES */
+.blurred {
+    filter: blur(8px);
+    user-select: none;
+    pointer-events: none;
+}
+
+.blur-btn {
+    font-size: 10px;
+    padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--muted-border);
+    color: var(--muted);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.blur-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* DASHBOARD COLOR STRIPS */
+.blue { border-top: 4px solid var(--accent-blue); }
+.grey { border-top: 4px solid var(--muted); }
+.purple { border-top: 4px solid var(--accent-purple); }
+.orange { border-top: 4px solid var(--accent-orange); }
+
+/* ORDERS COLOR STRIPS (Matching Status Pills) */
+.border-pending { border-top: 4px solid #f59e0b; } /* Amber */
+.border-processing { border-top: 4px solid #3b82f6; } /* Blue */
+.border-shipped { border-top: 4px solid #10b981; } /* Emerald */
+.border-cancelled { border-top: 4px solid #ef4444; } /* Red */
+
+/* COMMON PANELS */
+.panel {
+    margin-top: 22px;
+    background: var(--panel);
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+/* TABLE */
+.table {
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size:14px;
+}
+
+th, td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--muted-border);
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    color: var(--muted);
+    font-weight:600;
+    font-size:13px;
+}
+
+tr.clickable:hover{
+  background: rgba(255,255,255,0.02);
+  cursor:pointer;
+}
+
+/* STATUS PILLS (Vibrant) */
+.status-pill {
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.status-active { background: #f59e0b; color: #ffffff; }
+.status-processing { background: #3b82f6; color: #ffffff; }
+.status-shipped { background: #10b981; color: #ffffff; }
+.status-cancelled { background: #ef4444; color: #ffffff; }
+
+/* FORMS & BUTTONS */
+.form-row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 8px;
+    background: var(--glass);
+    color: white;
+    min-width: 160px;
+    outline: none;
+}
+
+input[type="text"]::placeholder{ color: #9ca3af; }
+
+button {
+    background: var(--accent-orange);
+    border: none;
+    padding: 10px 18px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight:700;
+    transition: opacity 120ms ease, transform 120ms ease, filter 120ms ease;
+}
+
+button:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+/* Custom Button Colors */
+button.btn-view { background: #4b5563; }
+button.btn-danger { background: #ef4444; }
+button.btn-lightblue { background: #38bdf8; color: #0f172a; }
+
+/* SEARCH / FILTER */
+.controls{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:12px;
+  flex-wrap:wrap;
+}
+
+/* MODAL */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background: rgba(2,6,23,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:60;
+}
+
+.modal{
+  width:720px;
+  max-width:94%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:12px;
+  padding:18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+.modal h3{ margin:0 0 8px 0; }
+.modal .meta{ color:var(--muted); font-size:13px; margin-bottom:12px; }
+
+/* small helpers */
+.kv{ color:var(--muted); font-size:13px; }
+.row{ display:flex; gap:12px; align-items:center; }
+.actions{ display:flex; gap:8px; align-items:center; }
+
+/* TARGETS */
+.progress-wrap{
+  background: rgba(255,255,255,0.03);
+  border-radius: 999px;
+  height: 18px;
+  overflow:hidden;
+  margin-top:8px;
+}
+.progress-bar{
+  height:100%;
+  background: linear-gradient(90deg,var(--accent-blue),var(--accent-orange));
+  width:0%;
+  transition: width 420ms ease;
+}
+
+/* responsive */
+@media (max-width:900px){
+  .card{ width: 48%; }
+  .sidebar{ width:200px; }
+  .main{ margin-left:220px; padding:16px; }
+}
+@media (max-width:640px){
+  .card{ width: 100%; }
+  .sidebar{ position:relative; width:100%; height:auto; flex-direction:row; gap:8px; padding:12px; }
+  .main{ margin-left:0; padding:12px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>OutofSight</h2>
+    <a class="nav-link active" id="dashboardLink" onclick="switchView('dashboard')">Dashboard</a>
+    <a class="nav-link" id="ordersLink" onclick="switchView('orders')">Orders</a>
+    <a class="nav-link" id="projectsLink" onclick="switchView('projects')">Projects</a>
+    <a class="nav-link" id="clientsLink" onclick="switchView('clients')">Clients</a>
+    <a class="nav-link" id="targetsLink" onclick="switchView('targets')">Targets</a>
+</div>
+
+<div class="main">
+
+    <div id="dashboardView" style="display: block;">
+      <div class="header-row">
+        <div>
+          <h1 style="margin:0 0 6px 0">Dashboard</h1>
+          <div style="color:var(--muted); font-size:14px">Overview of orders, projects and clients</div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="color:var(--muted); font-size:13px">Quick actions</div>
+          <button onclick="switchView('orders')">View Orders</button>
+        </div>
+      </div>
+
+      <div class="stats" style="margin-top:14px;">
+          <div class="card blue">
+              <h3>Active Orders</h3>
+              <p id="activeOrders">0</p>
+          </div>
+
+          <div class="card grey">
+              <h3>Completed Projects</h3>
+              <p id="completedProjects">0</p>
+          </div>
+
+          <div class="card purple">
+              <h3>Total Clients</h3>
+              <p id="totalClients">0</p>
+          </div>
+
+          <div class="card orange">
+              <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                <h3>Monthly Target</h3>
+                <button class="blur-btn" onclick="toggleTargetBlur(event)">Blur</button>
+              </div>
+              <p id="target" class="blurred">$0.00</p>
+          </div>
+      </div>
+
+      <div class="panel" id="projectsPanel" style="margin-top:18px;">
+          <h2 style="margin:0 0 8px 0">Recent Projects</h2>
+          <div class="table">
+              <table id="projectTable">
+                  <thead>
+                      <tr>
+                          <th>Client</th>
+                          <th>Service</th>
+                          <th>Status</th>
+                      </tr>
+                  </thead>
+                  <tbody></tbody>
+              </table>
+          </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px;">
+          <h2 style="margin:0 0 8px 0">Add New Project</h2>
+
+          <div class="form-row">
+            <input type="text" id="client" placeholder="Client Name">
+            
+            <select id="service">
+                <option>Website</option>
+                <option>Chatbot</option>
+                <option>Automation</option>
+            </select>
+
+            <select id="status">
+                <option>Active</option>
+                <option>Completed</option>
+            </select>
+
+            <button onclick="addProject()">Add Project</button>
+          </div>
+      </div>
+    </div>
+
+    <div id="ordersView" style="display: none;">
+      <div class="header-row">
+        <div>
+          <h1 style="margin:0 0 6px 0">Orders</h1>
+          <div style="color:var(--muted); font-size:14px">Manage and track customer orders</div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="color:var(--muted); font-size:13px">Total Orders: <strong id="ordersCount">0</strong></div>
+          <button onclick="document.getElementById('addOrderForm').scrollIntoView({behavior:'smooth'})">Add Order</button>
+        </div>
+      </div>
+
+      <div class="stats" style="margin-top:14px;">
+          <div class="card border-pending">
+              <h3>Pending</h3>
+              <p id="pendingCount">0</p>
+          </div>
+
+          <div class="card border-processing">
+              <h3>Processing</h3>
+              <p id="processingCount">0</p>
+          </div>
+
+          <div class="card border-shipped">
+              <h3>Shipped</h3>
+              <p id="shippedCount">0</p>
+          </div>
+
+          <div class="card border-cancelled">
+              <h3>Cancelled</h3>
+              <p id="cancelledCount">0</p>
+          </div>
+      </div>
+
+      <div class="panel" style="margin-top:18px;">
+        <div class="controls">
+          <input type="text" id="orderSearch" placeholder="Search by client, item or order id" oninput="renderOrders()" style="min-width:260px;">
+          <select id="statusFilter" onchange="renderOrders()">
+            <option value="">All statuses</option>
+            <option value="Pending">Pending</option>
+            <option value="Processing">Processing</option>
+            <option value="Shipped">Shipped</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <select id="sortBy" onchange="renderOrders()">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="price_desc">Price high → low</option>
+            <option value="price_asc">Price low → high</option>
+          </select>
+          <div style="flex:1"></div>
+          <button class="btn-lightblue" onclick="bulkMarkShipped()">Mark Selected Shipped</button>
+        </div>
+
+        <div class="table" style="margin-top:8px;">
+          <table id="ordersTable">
+            <thead>
+              <tr>
+                <th style="width:36px"><input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)"></th>
+                <th>Order ID</th>
+                <th>Client</th>
+                <th>Item</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Status</th>
+                <th style="width:140px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" id="addOrderForm">
+        <h3 style="margin:0 0 8px 0">Create New Order</h3>
+        <div class="form-row" style="align-items:flex-start;">
+          <input type="text" id="orderClient" placeholder="Client name">
+          <input type="text" id="orderItem" placeholder="Item description">
+          <input type="number" id="orderQty" placeholder="Qty" min="1" value="1" style="width:100px;">
+          <input type="number" id="orderPrice" placeholder="Price" min="0" value="0" style="width:120px;">
+          <select id="orderStatus">
+            <option>Pending</option>
+            <option>Processing</option>
+            <option>Shipped</option>
+            <option>Cancelled</option>
+          </select>
+          <button onclick="addOrder()">Add Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="projectsView" style="display: none;">
+      <div class="header-row">
+        <div>
+          <h1 style="margin:0 0 6px 0">Projects</h1>
+          <div style="color:var(--muted); font-size:14px">Create, filter and manage projects</div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="color:var(--muted); font-size:13px">Total Projects: <strong id="projectsCount">0</strong></div>
+          <button onclick="document.getElementById('addProjectPanel').scrollIntoView({behavior:'smooth'})">Add Project</button>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:14px;">
+        <div class="controls">
+          <input type="text" id="projectSearch" placeholder="Search by client or service" oninput="renderProjectsView()" style="min-width:260px;">
+          <select id="projectStatusFilter" onchange="renderProjectsView()">
+            <option value="">All statuses</option>
+            <option value="Active">Active</option>
+            <option value="Completed">Completed</option>
+          </select>
+          <select id="projectSort" onchange="renderProjectsView()">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+          </select>
+          <div style="flex:1"></div>
+          <button class="btn-lightblue" onclick="bulkCompleteProjects()">Mark Selected Completed</button>
+        </div>
+
+        <div class="table" style="margin-top:8px;">
+          <table id="projectsTableFull">
+            <thead>
+              <tr>
+                <th style="width:36px"><input type="checkbox" id="selectAllProjects" onclick="toggleSelectAllProjects(this)"></th>
+                <th>Client</th>
+                <th>Service</th>
+                <th>Status</th>
+                <th style="width:140px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="projectsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" id="addProjectPanel" style="margin-top:18px;">
+        <h3 style="margin:0 0 8px 0">Add Project</h3>
+        <div class="form-row">
+          <input type="text" id="projClient" placeholder="Client name">
+          <input type="text" id="projService" placeholder="Service / Description">
+          <select id="projStatus">
+            <option>Active</option>
+            <option>Completed</option>
+          </select>
+          <button onclick="addProjectFromProjectsView()">Add Project</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="clientsView" style="display: none;">
+      <div class="header-row">
+        <div>
+          <h1 style="margin:0 0 6px 0">Clients</h1>
+          <div style="color:var(--muted); font-size:14px">Manage client records and view related projects &amp; orders</div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="color:var(--muted); font-size:13px">Total Clients: <strong id="clientsCount">0</strong></div>
+          <button onclick="document.getElementById('addClientPanel').scrollIntoView({behavior:'smooth'})">Add Client</button>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:14px;">
+        <div class="controls">
+          <input type="text" id="clientSearch" placeholder="Search clients" oninput="renderClients()" style="min-width:260px;">
+          <div style="flex:1"></div>
+        </div>
+
+        <div class="table" style="margin-top:8px;">
+          <table id="clientsTable">
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Projects</th>
+                <th>Orders</th>
+                <th style="width:140px">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="clientsTbody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="panel" id="addClientPanel" style="margin-top:18px;">
+        <h3 style="margin:0 0 8px 0">Add Client</h3>
+        <div class="form-row">
+          <input type="text" id="newClientName" placeholder="Client name">
+          <input type="text" id="newClientEmail" placeholder="Email (optional)">
+          <button onclick="addClient()">Add Client</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="targetsView" style="display: none;">
+      <div class="header-row">
+        <div>
+          <h1 style="margin:0 0 6px 0">Targets</h1>
+          <div style="color:var(--muted); font-size:14px">Set monthly revenue targets and track progress</div>
+        </div>
+
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="color:var(--muted); font-size:13px">Current Target: <strong id="targetDisplay">$0.00</strong></div>
+          <button onclick="document.getElementById('targetForm').scrollIntoView({behavior:'smooth'})">Set Target</button>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:14px;">
+        <h3 style="margin:0 0 8px 0">Monthly Progress</h3>
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+          <div style="flex:1; min-width:220px;">
+            <div class="kv">Achieved (Shipped revenue)</div>
+            <div style="font-weight:700; font-size:20px;" id="achievedDisplay">$0.00</div>
+            <div class="progress-wrap" aria-hidden="true">
+              <div class="progress-bar" id="progressBar" style="width: 0%;"></div>
+            </div>
+            <div style="color:var(--muted); margin-top:6px;" id="progressText">0% of target</div>
+          </div>
+
+          <div style="min-width:320px;">
+            <div id="targetForm">
+              <div class="kv">Set Monthly Target</div>
+              <div style="display:flex; gap:8px; margin-top:8px;">
+                <input type="number" id="monthlyTargetInput" placeholder="Target amount" min="0" style="width:160px;">
+                <button onclick="setMonthlyTarget()">Save Target</button>
+              </div>
+            </div>
+            <div style="margin-top:12px; color:var(--muted); font-size:13px;">
+              Tip: Achieved amount is calculated from orders with status "Shipped".
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop" onclick="closeModal(event)" style="display: none;">
+  <div class="modal" role="dialog" aria-modal="true" id="entityModal" onclick="event.stopPropagation()">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+      <div>
+        <h3 id="modalTitle">Details</h3>
+        <div class="meta" id="modalMeta"></div>
+      </div>
+      <div class="actions">
+        <button onclick="closeModal()" style="background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03); padding:8px 10px; border-radius:8px;">Close</button>
+      </div>
+    </div>
+
+    <div id="modalBody" style="margin-top:12px;"></div>
+
+    <div style="margin-top:14px; display:flex; gap:8px; justify-content:flex-end;" id="modalFooter"></div>
+  </div>
+</div>
+
+<script>
+/* -------------------------
+   Data models and helpers
+   ------------------------- */
+let orders = []; 
+let projects = []; 
+let clients = new Set();
+let monthlyTarget = 5000;
+
+function genId(prefix='ID'){ return prefix + Math.random().toString(36).slice(2,8).toUpperCase(); }
+function fmtCurrency(n){ return '$' + Number(n).toFixed(2); }
+
+function escapeHtml(s){ return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/'/g,'&#39;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function unescapeHtml(s){ return String(s).replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>'); }
+
+/* -------------------------
+   Blur Logic
+   ------------------------- */
+function toggleTargetBlur(e) {
+  const targetEl = document.getElementById('target');
+  targetEl.classList.toggle('blurred');
+  if(e && e.target) {
+      e.target.innerText = targetEl.classList.contains('blurred') ? 'Unblur' : 'Blur';
+  }
+}
+
+/* -------------------------
+   View switching
+   ------------------------- */
+function switchView(view){
+  const views = ['dashboard','orders','projects','clients','targets'];
+  views.forEach(v=>{
+    const el = document.getElementById(v + 'View');
+    if(el) el.style.display = (v===view) ? 'block' : 'none';
+    const link = document.getElementById(v + 'Link');
+    if(link) link.classList.toggle('active', v===view);
+  });
+  renderAll();
+}
+
+/* -------------------------
+   Projects
+   ------------------------- */
+function addProject() {
+    let client = document.getElementById("client").value.trim();
+    let service = document.getElementById("service").value;
+    let status = document.getElementById("status").value;
+
+    if (!client) return alert("Enter client name");
+
+    projects.unshift({id: genId('PRJ'), client, service, status, createdAt: new Date(), notes:''});
+    clients.add(client);
+    document.getElementById("client").value = "";
+    renderAll();
+}
+
+function addProjectFromProjectsView(){
+  const client = document.getElementById('projClient').value.trim();
+  const service = document.getElementById('projService').value.trim();
+  const status = document.getElementById('projStatus').value;
+
+  if(!client || !service) return alert('Enter client and service');
+
+  projects.unshift({id: genId('PRJ'), client, service, status, createdAt: new Date(), notes:''});
+  clients.add(client);
+
+  document.getElementById('projClient').value = '';
+  document.getElementById('projService').value = '';
+  document.getElementById('projStatus').value = 'Active';
+
+  renderAll();
+}
+
+function renderProjectsView(){
+  const tbody = document.getElementById('projectsTbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+
+  const q = document.getElementById('projectSearch').value.trim().toLowerCase();
+  const statusFilter = document.getElementById('projectStatusFilter').value;
+  const sortBy = document.getElementById('projectSort').value;
+
+  let filtered = projects.filter(p=>{
+    if(statusFilter && p.status !== statusFilter) return false;
+    if(!q) return true;
+    return p.client.toLowerCase().includes(q) || p.service.toLowerCase().includes(q);
+  });
+
+  if(sortBy === 'oldest') filtered.sort((a,b)=>a.createdAt - b.createdAt);
+  else filtered.sort((a,b)=>b.createdAt - a.createdAt);
+
+  filtered.forEach(p=>{
+    const tr = document.createElement('tr');
+    tr.className = 'clickable';
+    tr.innerHTML = `
+      <td><input type="checkbox" class="projSelect" data-id="${p.id}"></td>
+      <td>${escapeHtml(p.client)}</td>
+      <td>${escapeHtml(p.service)}</td>
+      <td><span class="status-pill ${p.status === 'Active' ? 'status-active' : 'status-shipped'}">${p.status}</span></td>
+      <td>
+        <div style="display:flex; gap:8px;">
+          <button class="btn-view" onclick="openProjectModal(event,'${p.id}')">View</button>
+          <button class="btn-danger" onclick="deleteProject(event,'${p.id}')">Delete</button>
+        </div>
+      </td>
+    `;
+    tr.addEventListener('click', (e)=>{
+      if(e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+      openProjectModal(e, p.id);
+    });
+    tbody.appendChild(tr);
+  });
+
+  const pCount = document.getElementById('projectsCount');
+  if(pCount) pCount.innerText = projects.length;
+}
+
+function bulkCompleteProjects(){
+  const checked = Array.from(document.querySelectorAll('.projSelect:checked')).map(cb=>cb.dataset.id);
+  if(checked.length === 0) return alert('Select projects to mark completed');
+  checked.forEach(id=>{
+    const p = projects.find(x=>x.id===id);
+    if(p) p.status = 'Completed';
+  });
+  renderAll();
+}
+
+function toggleSelectAllProjects(cb){
+  const all = document.querySelectorAll('.projSelect');
+  all.forEach(c=> c.checked = cb.checked);
+}
+
+let currentProjectId = null;
+function openProjectModal(e, id){
+  if(e) e.stopPropagation();
+  const p = projects.find(x=>x.id===id);
+  if(!p) return;
+  currentProjectId = id;
+  currentModalOrderId = null;
+
+  document.getElementById('modalTitle').innerText = `Project ${p.id}`;
+  document.getElementById('modalMeta').innerText = `${p.client} • ${p.createdAt ? p.createdAt.toLocaleString() : ''}`;
+  
+  const body = document.getElementById('modalBody');
+  const relatedOrders = orders.filter(o=> o.client === p.client);
+  const ordersHtml = relatedOrders.length ? relatedOrders.map(o=>`${o.id} • ${o.item} • ${o.status}`).join('<br>') : 'No orders for this client';
+
+  body.innerHTML = `
+    <div class="kv">Service</div>
+    <div style="font-weight:700; margin-bottom:8px;">${escapeHtml(p.service)}</div>
+
+    <div class="kv">Status</div>
+    <div style="margin-bottom:8px;"><select id="modalProjectStatus">
+      <option ${p.status==='Active'?'selected':''}>Active</option>
+      <option ${p.status==='Completed'?'selected':''}>Completed</option>
+    </select></div>
+
+    <div class="kv">Notes</div>
+    <textarea id="modalProjectNotes" rows="4" style="width:100%; margin-top:6px;">${escapeHtml(p.notes || '')}</textarea>
+
+    <div style="margin-top:12px;">
+      <div class="kv">Related Orders</div>
+      <div id="modalProjectOrders" style="margin-top:6px; color:var(--muted)">${ordersHtml}</div>
+    </div>
+  `;
+
+  const footer = document.getElementById('modalFooter');
+  footer.innerHTML = `
+    <button onclick="saveProjectModal()">Save</button>
+    <button class="btn-danger" onclick="deleteProject(null,'${p.id}')">Delete</button>
+  `;
+
+  document.getElementById('modalBackdrop').style.display = 'flex';
+}
+
+function saveProjectModal(){
+  if(!currentProjectId) return;
+  const p = projects.find(x=>x.id===currentProjectId);
+  if(!p) return;
+  p.status = document.getElementById('modalProjectStatus').value;
+  p.notes = document.getElementById('modalProjectNotes').value.trim();
+  renderAll();
+  closeModal();
+}
+
+function deleteProject(e, id){
+  if(e) e.stopPropagation();
+  if(!confirm('Delete this project?')) return;
+  projects = projects.filter(x=>x.id !== id);
+  renderAll();
+  closeModal();
+}
+
+/* -------------------------
+   Orders
+   ------------------------- */
+function addOrder(){
+  const client = document.getElementById('orderClient').value.trim();
+  const item = document.getElementById('orderItem').value.trim();
+  const qty = Number(document.getElementById('orderQty').value) || 1;
+  const price = Number(document.getElementById('orderPrice').value) || 0;
+  const status = document.getElementById('orderStatus').value;
+
+  if(!client || !item) return alert('Please enter client and item');
+
+  const id = genId('OS');
+  orders.unshift({ id, client, item, qty, price, status, notes: '', createdAt: new Date() });
+  clients.add(client);
+
+  projects.push({id: genId('PRJ'), client: client, service: item, status: status === 'Shipped' ? 'Completed' : 'Active', createdAt: new Date(), notes:''});
+
+  document.getElementById('orderClient').value = '';
+  document.getElementById('orderItem').value = '';
+  document.getElementById('orderQty').value = 1;
+  document.getElementById('orderPrice').value = 0;
+  document.getElementById('orderStatus').value = 'Pending';
+
+  renderAll();
+}
+
+function renderOrders(){
+  const tbody = document.getElementById('ordersTbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+
+  const q = document.getElementById('orderSearch').value.trim().toLowerCase();
+  const statusFilter = document.getElementById('statusFilter').value;
+  const sortBy = document.getElementById('sortBy').value;
+
+  let filtered = orders.filter(o=>{
+    if(statusFilter && o.status !== statusFilter) return false;
+    if(!q) return true;
+    return o.client.toLowerCase().includes(q) || o.item.toLowerCase().includes(q) || o.id.toLowerCase().includes(q);
+  });
+
+  if(sortBy === 'price_desc') filtered.sort((a,b)=>b.price - a.price);
+  else if(sortBy === 'price_asc') filtered.sort((a,b)=>a.price - b.price);
+  else if(sortBy === 'oldest') filtered.sort((a,b)=>a.createdAt - b.createdAt);
+  else filtered.sort((a,b)=>b.createdAt - a.createdAt);
+
+  filtered.forEach(o=>{
+    const tr = document.createElement('tr');
+    tr.className = 'clickable';
+    tr.innerHTML = `
+      <td><input type="checkbox" class="rowSelect" data-id="${o.id}"></td>
+      <td>${o.id}</td>
+      <td>${escapeHtml(o.client)}</td>
+      <td>${escapeHtml(o.item)}</td>
+      <td>${o.qty}</td>
+      <td>${fmtCurrency(o.price)}</td>
+      <td><span class="status-pill ${statusClass(o.status)}">${o.status}</span></td>
+      <td>
+        <div style="display:flex; gap:8px;">
+          <button class="btn-view" onclick="openOrderModal(event,'${o.id}')">View</button>
+          <button class="btn-orange" style="background:var(--accent-orange)" onclick="quickToggleStatus(event,'${o.id}')">Toggle</button>
+        </div>
+      </td>
+    `;
+    tr.addEventListener('click', (e)=>{
+      if(e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+      openOrderModal(e, o.id);
+    });
+    tbody.appendChild(tr);
+  });
+
+  const oCount = document.getElementById('ordersCount');
+  if(oCount) oCount.innerText = orders.length;
+}
+
+function statusClass(status){
+  if(status === 'Pending') return 'status-active';
+  if(status === 'Processing') return 'status-processing';
+  if(status === 'Shipped') return 'status-shipped';
+  if(status === 'Cancelled') return 'status-cancelled';
+  return '';
+}
+
+function quickToggleStatus(e, id){
+  e.stopPropagation();
+  const o = orders.find(x=>x.id===id);
+  if(!o) return;
+  if(o.status === 'Pending') o.status = 'Processing';
+  else if(o.status === 'Processing') o.status = 'Shipped';
+  else if(o.status === 'Shipped') o.status = 'Pending';
+  renderAll();
+}
+
+function bulkMarkShipped(){
+  const checked = Array.from(document.querySelectorAll('.rowSelect:checked')).map(cb=>cb.dataset.id);
+  if(checked.length === 0) return alert('Select orders to mark shipped');
+  checked.forEach(id=>{
+    const o = orders.find(x=>x.id===id);
+    if(o) o.status = 'Shipped';
+  });
+  renderAll();
+}
+
+function toggleSelectAll(cb){
+  const all = document.querySelectorAll('.rowSelect');
+  all.forEach(c=> c.checked = cb.checked);
+}
+
+let currentModalOrderId = null;
+function openOrderModal(event, id){
+  if(event) event.stopPropagation();
+  const o = orders.find(x=>x.id===id);
+  if(!o) return;
+  currentModalOrderId = id;
+  currentProjectId = null;
+  
+  document.getElementById('modalTitle').innerText = `Order ${o.id}`;
+  document.getElementById('modalMeta').innerText = `${o.client} • ${o.createdAt ? o.createdAt.toLocaleString() : ''}`;
+  
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <div class="kv">Item</div>
+    <div style="font-weight:700; margin-bottom:8px;">${escapeHtml(o.item)}</div>
+
+    <div class="kv">Quantity</div>
+    <div style="margin-bottom:8px;">${o.qty}</div>
+
+    <div class="kv">Price</div>
+    <div style="margin-bottom:8px;">${fmtCurrency(o.price)}</div>
+
+    <div class="kv">Status</div>
+    <div style="margin-bottom:8px;"><select id="modalStatusSelect">
+      <option ${o.status==='Pending'?'selected':''}>Pending</option>
+      <option ${o.status==='Processing'?'selected':''}>Processing</option>
+      <option ${o.status==='Shipped'?'selected':''}>Shipped</option>
+      <option ${o.status==='Cancelled'?'selected':''}>Cancelled</option>
+    </select></div>
+
+    <div class="kv">Notes</div>
+    <textarea id="modalNotes" rows="4" style="width:100%; margin-top:6px;">${escapeHtml(o.notes || '')}</textarea>
+  `;
+
+  const footer = document.getElementById('modalFooter');
+  footer.innerHTML = `
+    <button onclick="saveOrderModal()">Save</button>
+    <button class="btn-danger" onclick="deleteOrderFromModal()">Delete</button>
+  `;
+
+  document.getElementById('modalBackdrop').style.display = 'flex';
+}
+
+function saveOrderModal(){
+  if(currentModalOrderId){
+    const o = orders.find(x=>x.id===currentModalOrderId);
+    if(!o) return;
+    o.status = document.getElementById('modalStatusSelect').value;
+    o.notes = document.getElementById('modalNotes').value.trim();
+    renderAll();
+    closeModal();
+  }
+}
+
+function deleteOrderFromModal(){
+  if(!currentModalOrderId) return;
+  if(!confirm('Delete this order?')) return;
+  orders = orders.filter(x=>x.id !== currentModalOrderId);
+  renderAll();
+  closeModal();
+}
+
+/* -------------------------
+   Clients
+   ------------------------- */
+function addClient(){
+  const name = document.getElementById('newClientName').value.trim();
+  const email = document.getElementById('newClientEmail').value.trim();
+  if(!name) return alert('Enter client name');
+  clients.add(name);
+  if(!window.clientMeta) window.clientMeta = {};
+  if(email) window.clientMeta[name] = {email};
+  document.getElementById('newClientName').value = '';
+  document.getElementById('newClientEmail').value = '';
+  renderAll();
+}
+
+function renderClients(){
+  const tbody = document.getElementById('clientsTbody');
+  if(!tbody) return;
+  tbody.innerHTML = '';
+
+  const q = document.getElementById('clientSearch').value.trim().toLowerCase();
+  const clientList = Array.from(clients).filter(c=> !q || c.toLowerCase().includes(q)).sort();
+
+  clientList.forEach(name=>{
+    const projCount = projects.filter(p=>p.client === name).length;
+    const orderCount = orders.filter(o=>o.client === name).length;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${escapeHtml(name)}</td>
+      <td>${projCount}</td>
+      <td>${orderCount}</td>
+      <td>
+        <div style="display:flex; gap:8px;">
+          <button class="btn-view" onclick="openClientModal(event,'${escapeHtml(name)}')">View</button>
+          <button class="btn-danger" onclick="removeClient(event,'${escapeHtml(name)}')">Remove</button>
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  const cCount = document.getElementById('clientsCount');
+  if(cCount) cCount.innerText = clients.size;
+}
+
+function removeClient(e, nameEscaped){
+  if(e) e.stopPropagation();
+  const name = unescapeHtml(nameEscaped);
+  if(!confirm(`Remove client "${name}" and all associated projects and orders?`)) return;
+  clients.delete(name);
+  projects = projects.filter(p=>p.client !== name);
+  orders = orders.filter(o=>o.client !== name);
+  renderAll();
+}
+
+function openClientModal(e, nameEscaped){
+  if(e) e.stopPropagation();
+  const name = unescapeHtml(nameEscaped);
+  const meta = (window.clientMeta && window.clientMeta[name]) ? window.clientMeta[name] : {};
+  document.getElementById('modalTitle').innerText = name;
+  document.getElementById('modalMeta').innerText = meta.email ? meta.email : 'Client record';
+
+  const clientProjects = projects.filter(p=>p.client === name);
+  const clientOrders = orders.filter(o=>o.client === name);
+
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <div class="kv">Projects (${clientProjects.length})</div>
+    <div style="margin-bottom:8px;">${clientProjects.length ? clientProjects.map(p=>`${escapeHtml(p.service)} • ${p.status}`).join('<br>') : 'No projects'}</div>
+
+    <div class="kv">Orders (${clientOrders.length})</div>
+    <div style="margin-bottom:8px; color:var(--muted)">${clientOrders.length ? clientOrders.map(o=>`${o.id} • ${escapeHtml(o.item)} • ${o.status}`).join('<br>') : 'No orders'}</div>
+
+    <div class="kv">Notes</div>
+    <textarea id="modalClientNotes" rows="4" style="width:100%; margin-top:6px;">${escapeHtml(meta.notes || '')}</textarea>
+  `;
+
+  const footer = document.getElementById('modalFooter');
+  footer.innerHTML = `<button onclick="saveClientModal('${escapeHtml(name)}')">Save</button>`;
+
+  document.getElementById('modalBackdrop').style.display = 'flex';
+}
+
+function saveClientModal(nameEscaped){
+  const name = unescapeHtml(nameEscaped);
+  const notes = document.getElementById('modalClientNotes').value.trim();
+  if(!window.clientMeta) window.clientMeta = {};
+  if(!window.clientMeta[name]) window.clientMeta[name] = {};
+  window.clientMeta[name].notes = notes;
+  closeModal();
+}
+
+/* -------------------------
+   Targets & Global Render
+   ------------------------- */
+function setMonthlyTarget(){
+  monthlyTarget = Number(document.getElementById('monthlyTargetInput').value) || 0;
+  document.getElementById('monthlyTargetInput').value = '';
+  renderAll();
+}
+
+function renderAll(){
+  /* Update global stats */
+  const counts = {Pending:0, Processing:0, Shipped:0, Cancelled:0};
+  orders.forEach(o=> counts[o.status] = (counts[o.status]||0) + 1);
+
+  if(document.getElementById('pendingCount')) document.getElementById('pendingCount').innerText = counts.Pending || 0;
+  if(document.getElementById('processingCount')) document.getElementById('processingCount').innerText = counts.Processing || 0;
+  if(document.getElementById('shippedCount')) document.getElementById('shippedCount').innerText = counts.Shipped || 0;
+  if(document.getElementById('cancelledCount')) document.getElementById('cancelledCount').innerText = counts.Cancelled || 0;
+
+  const actOrders = (counts.Pending || 0) + (counts.Processing || 0);
+  if(document.getElementById('activeOrders')) document.getElementById('activeOrders').innerText = actOrders;
+  
+  const compProjects = projects.filter(p=> p.status === 'Completed').length;
+  if(document.getElementById('completedProjects')) document.getElementById('completedProjects').innerText = compProjects;
+  
+  if(document.getElementById('totalClients')) document.getElementById('totalClients').innerText = clients.size;
+
+  /* Target UI */
+  const achieved = orders.filter(o=> o.status === 'Shipped').reduce((s,o)=> s + (Number(o.price) || 0), 0);
+  if(document.getElementById('achievedDisplay')) document.getElementById('achievedDisplay').innerText = fmtCurrency(achieved);
+  if(document.getElementById('targetDisplay')) document.getElementById('targetDisplay').innerText = fmtCurrency(monthlyTarget);
+  if(document.getElementById('target')) document.getElementById('target').innerText = fmtCurrency(monthlyTarget);
+  
+  if(document.getElementById('progressBar')){
+      const percent = monthlyTarget > 0 ? Math.min(100, Math.round((achieved / monthlyTarget) * 100)) : 0;
+      document.getElementById('progressBar').style.width = percent + '%';
+      document.getElementById('progressText').innerText = `${percent}% of target`;
+  }
+
+  /* Render Dashboard Project Table */
+  const dashProjBody = document.querySelector('#projectTable tbody');
+  if(dashProjBody){
+      dashProjBody.innerHTML = '';
+      projects.slice(0, 5).forEach(p => {
+        let row = dashProjBody.insertRow();
+        row.insertCell(0).innerText = p.client;
+        row.insertCell(1).innerText = p.service;
+        row.insertCell(2).innerText = p.status;
+      });
+  }
+
+  /* Render Sub-Views */
+  renderProjectsView();
+  renderOrders();
+  renderClients();
+}
+
+function closeModal(e){
+  if(e && e.target && e.target.id !== 'modalBackdrop') return;
+  document.getElementById('modalBackdrop').style.display = 'none';
+  currentProjectId = null;
+  currentModalOrderId = null;
+}
+
+/* -------------------------
+   Init
+   ------------------------- */
+function seedDemo(){
+  const sampleOrders = [
+    {client:'Acme Co', item:'Landing Page', qty:1, price:1200, status:'Processing'},
+    {client:'Bright Labs', item:'Chatbot Integration', qty:1, price:800, status:'Pending'},
+    {client:'Greenfield', item:'Automation Suite', qty:2, price:2400, status:'Shipped'},
+    {client:'Nova Media', item:'Website Redesign', qty:1, price:1500, status:'Cancelled'}
+  ];
+  sampleOrders.forEach(s=>{
+    orders.push({...s, id:genId('OS'), createdAt:new Date(Date.now() - Math.random()*1000*60*60*24*10), notes:''});
+    clients.add(s.client);
+    projects.push({id:genId('PRJ'), client:s.client, service:s.item, status: s.status === 'Shipped' ? 'Completed' : 'Active', createdAt:new Date(), notes:''});
+  });
+  renderAll();
+}
+
+seedDemo();
+switchView('orders'); // Starting on Orders page as per screenshot
+</script>
+
+</body>
+</html>
