@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>OutofSight&Co</title>
+
+<style>
+    /* =========================================
+       1. GLOBAL VARIABLES & BASE STYLES
+       ========================================= */
+    :root {
+        --color-pbody: #FBB03B; /* Orange brand color */
+        --color-atlas: #38BDF8; /* Blue brand color */
+    }
+
+    html {
+        scroll-behavior: smooth; /* Enables smooth scrolling when clicking nav links */
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #111827; /* Dark background */
+        color: white;
+    }
+
+    /* =========================================
+       2. HEADER & FLICKER ANIMATIONS
+       ========================================= */
+    header h1 { margin: 0; font-size: 24px; letter-spacing: -0.5px; }
+
+    /* The flickering text effect for the logo */
+    header h1 span.part-one {
+        color: var(--color-atlas);
+        animation: portalFlickerAtlas 3s infinite;
+    }
+
+    header h1 span.part-two {
+        color: var(--color-pbody);
+        animation: portalFlickerPbody 3s infinite;
+    }
+
+    @keyframes portalFlickerPbody {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            color: var(--color-pbody);
+            text-shadow: 0 0 5px rgba(251, 176, 59, 0.6), 0 0 10px rgba(251, 176, 59, 0.4);
+        }
+        20%, 22%, 24%, 55% {
+            color: #FFD700; 
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.7);
+        }
+    }
+
+    @keyframes portalFlickerAtlas {
+        0%, 29%, 31%, 33%, 35%, 64%, 66%, 100% {
+            color: var(--color-atlas);
+            text-shadow: 0 0 5px rgba(56, 189, 248, 0.6), 0 0 10px rgba(56, 189, 248, 0.4);
+        }
+        30%, 32%, 34%, 65% {
+            color: #A0E9FF;
+            text-shadow: 0 0 10px rgba(160, 233, 255, 0.9), 0 0 20px rgba(160, 233, 255, 0.7);
+        }
+    }
+
+    /* Top navigation bar layout */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        background: #1f2937;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .brand-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .brand-logo {
+        height: 40px;
+        width: auto;
+        border-radius: 6px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+    }
+
+    nav a {
+        margin-left: 25px;
+        text-decoration: none;
+        color: #9ca3af;
+        font-size: 14px;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    nav a:hover { color: white; }
+
+    /* =========================================
+       3. HERO SECTION
+       ========================================= */
+    .hero {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #1f2937, #38bdf8);
+        padding: 0 20px;
+    }
+
+    .hero h2 { font-size: 48px; max-width: 900px; margin-bottom: 10px; }
+    .hero p { color: #d1d5db; font-size: 18px; margin-bottom: 30px; }
+
+    /* General Button Styles */
+    .btn {
+        background: #f97316;
+        padding: 14px 34px;
+        border: none;
+        border-radius: 6px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover { background: #ea580c; transform: scale(1.05); }
+
+    /* =========================================
+       4. GENERAL SECTIONS & CARDS
+       ========================================= */
+    .section { padding: 80px 20px; text-align: center; }
+    .section h2 { margin-bottom: 40px; font-size: 32px; color: white; }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    /* SERVICES CARDS */
+    .card {
+        width: 300px;
+        padding: 28px;
+        border-radius: 10px;
+        background: #1f2937;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: default;
+        text-align: center;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        background: #242f3d;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Colored borders for service cards */
+    .website { border-top: 5px solid #9ca3af; }
+    .chatbot { border-top: 5px solid #38bdf8; }
+    .automation { border-top: 5px solid #6366f1; }
+
+    /* HOW IT WORKS STYLES */
+    .process-step {
+        background: #1f2937;
+        padding: 28px;
+        border-radius: 10px;
+        width: 300px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: default;
+        text-align: center;
+    }
+
+    .process-step:hover {
+        transform: translateY(-10px);
+        background: #242f3d;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .step1 { border-top: 5px solid #9ca3af; }
+    .step2 { border-top: 5px solid #38bdf8; }
+    .step3 { border-top: 5px solid #6366f1; }
+
+    /* =========================================
+       5. PRICING SECTION
+       ========================================= */
+    .pricing-card {
+        width: 300px;
+        padding: 28px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(31,41,55,0.9), rgba(31,41,55,0.85));
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .pricing-card h3 { margin: 0 0 8px 0; font-size: 20px; }
+    .pricing-card p { color: #d1d5db; margin: 0 0 14px 0; font-size: 14px; }
+
+    .pricing-card .price {
+        font-size: 32px;
+        font-weight: 700;
+        margin: 10px 0 5px 0;
+        color: #fff;
+    }
+
+    .price-label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #9ca3af;
+        margin-bottom: 15px;
+    }
+
+    .maintenance-tier {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 8px 10px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        font-size: 13px;
+        color: #d1d5db;
+    }
+
+    .maintenance-tier span { font-weight: bold; color: white; }
+
+    .pricing-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 18px 0;
+        color: #cbd5e1;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .pricing-card .cta-choose {
+        background: #f97316;
+        padding: 10px 18px;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+        width: 100%;
+        margin-top: auto; 
+        transition: background 0.3s;
+    }
+    
+    .pricing-card .cta-choose:hover { background: #ea580c; }
+
+    .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    .silver { border-top: 6px solid silver; }
+    .gold { 
+        border-top: 6px solid gold; 
+        background: linear-gradient(180deg, rgba(40,30,10,0.95), rgba(31,41,55,0.9));
+    }
+    .platinum { border-top: 6px solid #e5e4e2; }
+
+    .ribbon {
+        position: absolute;
+        top: -12px;
+        right: -12px;
+        color: #111;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 13px;
+    }
+
+    .gold .ribbon { background: linear-gradient(90deg, #ffd700, #ffb700); }
+    .platinum .ribbon { background: linear-gradient(90deg, #e5e4e2, #ffffff); }
+
+    /* =========================================
+       6. CALL TO ACTION & FOOTER
+       ========================================= */
+    .cta {
+        background: linear-gradient(135deg, #38bdf8, #111827);
+        padding: 100px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    footer {
+        background: #020617;
+        padding: 40px 20px;
+        text-align: center;
+        border-top: 1px solid #1f2937;
+    }
+
+    .footer-links a { color: #9ca3af; text-decoration: none; font-size: 13px; margin: 0 15px; }
+    .footer-links a:hover { color: white; }
+
+    /* =========================================
+       7. MODAL (POPUP FORM) STYLES
+       ========================================= */
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 2000;
+        backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+        background: #1f2937;
+        width: 95%;
+        max-width: 500px;
+        padding: 40px;
+        border-radius: 15px;
+        position: relative;
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 15px; right: 20px;
+        font-size: 24px;
+        color: #9ca3af;
+        cursor: pointer;
+    }
+
+    .form-group { margin-bottom: 15px; text-align: left; }
+    .form-group label { display: block; font-size: 13px; color: #9ca3af; margin-bottom: 5px; }
+    
+    .form-group input, .form-group select, .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        background: #111827;
+        border: 1px solid #374151;
+        border-radius: 6px;
+        color: white;
+        box-sizing: border-box;
+    }
+
+    /* =========================================
+       8. CHATBOT STYLES
+       ========================================= */
+    /* Floating Chat Button */
+    #chat-widget-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background: var(--color-atlas);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        transition: transform 0.3s, background 0.3s;
+    }
+
+    #chat-widget-btn:hover {
+        transform: scale(1.1);
+        background: #0ea5e9; 
+    }
+
+    #chat-widget-btn svg {
+        width: 30px;
+        height: 30px;
+        fill: #111827;
+    }
+
+    /* The Chat Window Container */
+    #chat-window {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 340px;
+        height: 520px;
+        background: #1f2937;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: none; 
+        flex-direction: column;
+        z-index: 9999;
+        overflow: hidden;
+        animation: chatSlideUp 0.3s ease-out;
+    }
+
+    @keyframes chatSlideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Chat Header */
+    .chat-header {
+        background: linear-gradient(135deg, var(--color-atlas), #2563eb);
+        padding: 15px;
+        color: white;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .close-chat {
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 1;
+        opacity: 0.8;
+    }
+    .close-chat:hover { opacity: 1; }
+
+    /* Sticky Menu Container inside Chat Body */
+    .sticky-menu-container {
+        position: sticky;
+        top: 0;
+        background: #111827;
+        padding: 12px 15px 8px 15px;
+        z-index: 10;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .chat-body-scroll {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: #111827;
+    }
+
+    .chat-msg {
+        max-width: 85%;
+        padding: 10px 14px;
+        border-radius: 15px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .msg-bot {
+        background: #374151;
+        color: white;
+        align-self: flex-start;
+        border-bottom-left-radius: 2px;
+    }
+
+    .msg-user {
+        background: var(--color-pbody); 
+        color: #111;
+        align-self: flex-end;
+        border-bottom-right-radius: 2px;
+        font-weight: bold;
+    }
+
+    /* Quick Reply Buttons */
+    .quick-replies {
+        display: flex;
+        gap: 6px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .quick-reply-btn {
+        background: #111827;
+        border: 1px solid var(--color-atlas);
+        color: var(--color-atlas);
+        padding: 6px 12px;
+        border-radius: 18px;
+        font-size: 11px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s;
+    }
+
+    .quick-reply-btn:hover {
+        background: var(--color-atlas);
+        color: #111;
+        font-weight: bold;
+    }
+
+    .chat-footer {
+        padding: 10px;
+        background: #1f2937;
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
+        border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .chat-footer textarea {
+        flex: 1;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid #374151;
+        background: #111827;
+        color: white;
+        outline: none;
+        resize: none;
+        font-family: inherit;
+        font-size: 14px;
+        min-height: 20px;
+        max-height: 80px;
+    }
+
+    .chat-footer button {
+        background: var(--color-atlas);
+        border: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        color: #111;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        margin-bottom: 1px; 
+    }
+</style>
+
+<div id="chat-widget-btn" onclick="toggleChat()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/>
+    </svg>
+</div>
+
+<div id="chat-window">
+    <div class="chat-header">
+        <span>OutofSight Assistant 🤖</span>
+        <span class="close-chat" onclick="toggleChat()">&times;</span>
+    </div>
+    
+    <div class="sticky-menu-container">
+        <div class="quick-replies">
+             <button class="quick-reply-btn" onclick="sendQuickReply('ℹ️ About Us')">ℹ️ About</button>
+             <button class="quick-reply-btn" onclick="sendQuickReply('🛠️ Our Services')">🛠️ Services</button>
+             <button class="quick-reply-btn" onclick="sendQuickReply('⚙️ How It Works')">⚙️ Process</button>
+             <button class="quick-reply-btn" onclick="sendQuickReply('💳 Pricing')">💳 Pricing</button>
+             <button class="quick-reply-btn" onclick="sendQuickReply('📞 Contact Us')">📞 Contact</button>
+        </div>
+    </div>
+
+    <div class="chat-body-scroll" id="chat-body">
+        </div>
+
+    <div class="chat-footer">
+        <textarea id="chat-input" rows="1" placeholder="Type a message..." onkeydown="handleKeydown(event)"></textarea>
+        <button onclick="sendMessage()">➤</button>
+    </div>
+</div>
+
+<script>
+    const chatWindow = document.getElementById('chat-window');
+    const chatBody = document.getElementById('chat-body');
+    const chatInput = document.getElementById('chat-input');
+    let isChatOpen = false;
+
+    function toggleChat() {
+        isChatOpen = !isChatOpen;
+        if (isChatOpen) {
+            chatWindow.style.display = 'flex';
+            // Only show initial greeting if chat is empty
+            if(chatBody.innerHTML.trim() === '') {
+                 setTimeout(() => {
+                     triggerBotMessage("Hey! 👋 I'm Jess, the OutofSight bot. Want to see how we can automate your customer service? 🚀");
+                 }, 300);
+            }
+        } else {
+            chatWindow.style.display = 'none';
+        }
+    }
+
+    function handleKeydown(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault(); 
+            sendMessage();
+        }
+    }
+
+    function sendQuickReply(text, btnElement) {
+        if (btnElement && btnElement.parentElement && btnElement.parentElement.id === 'dynamic-replies') {
+            btnElement.parentElement.style.display = 'none';
+        }
+        chatInput.value = text;
+        sendMessage();
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag)
+        );
+    }
+
+    function triggerBotMessage(htmlContent) {
+        const botDiv = document.createElement('div');
+        botDiv.className = 'chat-msg msg-bot';
+        botDiv.innerHTML = htmlContent;
+        chatBody.appendChild(botDiv);
+        scrollToBottom();
+    }
+
+    function sendMessage() {
+        const rawText = chatInput.value.trim();
+        if (!rawText) return;
+
+        // Add User Message
+        const userDiv = document.createElement('div');
+        userDiv.className = 'chat-msg msg-user';
+        userDiv.innerHTML = escapeHTML(rawText).replace(/\n/g, '<br>'); 
+        chatBody.appendChild(userDiv);
+        
+        chatInput.value = ''; 
+        scrollToBottom();
+
+        // Bot Logic
+        setTimeout(() => {
+            const lowerText = rawText.toLowerCase();
+            let replyText = "";
+
+            // --- GREETINGS ---
+            if (lowerText.match(/^(hello|hallo|hi|hey|howdy)/)) {
+                replyText = "Hey! 👋 I'm Jess, the OutofSight bot. Want to see how OutofSight can automate your customer service? ✨";
+            } 
+            
+            // --- ABOUT US ---
+            else if (lowerText.match(/about|who are you|story/)) {
+                replyText = "At OutofSight&Co, we are your dedicated outsourced team of elite developers! 🌍 We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation. 💡";
+            }
+
+            // --- CONTACT INFO ---
+            else if (lowerText.match(/contact|email|number|cell|support|touch/)) {
+                replyText = "You can reach us directly here:<br><br>🛠️ <b>Support@oosco.com</b><br>📧 <b>Services@oosco.com</b><br>📞 <b>OOS Team - 0781200888</b>";
+            }
+
+            // --- COMPLAINTS ---
+            else if (lowerText.match(/complaint|log complaint|issue|unhappy|complain/)) {
+                replyText = "I am so sorry to hear that. 😔 Please email us directly at <b>Support@oosco.com</b> with the subject 'URGENT: Complaint' so we can investigate immediately.<br><br>If you prefer to speak with someone, you can reach the <b>OOS Team - 0781200888</b>. 📞<br><br>" +
+                `<div class="quick-replies" id="dynamic-replies" style="margin-top:10px;">
+                    <a href="mailto:Support@oosco.com?subject=URGENT:%20Complaint" style="text-decoration:none; width:100%;"><button class="quick-reply-btn" style="width:100%;">✉️ Email Support Now</button></a>
+                </div>`;
+            }
+
+            // --- GENERAL FAQ RESPONSES (from quick menu) ---
+            else if (lowerText.includes('what do you do') || lowerText.includes('services')) {
+                 replyText = "We build lightning-fast Websites 🌐, create AI Chatbots 🤖 (like me!), and set up Automation systems ⚡ to help your business run smoothly.";
+            }
+            else if (lowerText.includes('how does it work') || lowerText.includes('process')) {
+                 replyText = "It's simple! ✨<br><br>🗣️ 1. Tell us what you need.<br>🤝 2. We match you with the right developers.<br>🚀 3. We manage the project and deliver the final result.";
+            }
+            else if (lowerText.includes('price') || lowerText.includes('pricing')) {
+                 replyText = "Our packages are Once-Off:<br><br>🥈 Silver ($800 - $1,500)<br>🥇 Gold ($1,500 - $3,000)<br>💎 Platinum ($3,000+).<br><br>We also offer low monthly maintenance plans starting at $80/mo. 📈";
+            }
+            // Catch all
+            else {
+                replyText = "I'm here to help you scale! 🚀 Let me know if you need info on our web dev, bots, pricing, or if you just want to get in touch. 📞";
+            }
+
+            triggerBotMessage(replyText);
+        }, 1000);
+    }
+
+    function scrollToBottom() {
+        chatBody.scrollTop = chatBody.scrollHeight;
+    }
+</script>
+
+<header>
+    <div class="brand-container">
+        <h1><span class="part-one">OutofSight</span><span class="part-two">&Co</span><span style="font-size: 14px; vertical-align: super; color: var(--color-atlas);">&trade;</span></h1>
+        <img src="Copilot_20260417_085553.jpg" alt="OutofSight&Co Logo" class="brand-logo" />
+    </div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>We Connect Businesses With <span>Developers</span></h2>
+    <p>Your outsourced team for websites & chatbot automation</p>
+    <button class="btn" onclick="openModal()">Start Project</button>
+</section>
+
+<section class="section" id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+        <div class="card website">
+            <h3>Website Development</h3>
+            <p>Modern, fast, responsive websites.</p>
+        </div>
+        <div class="card chatbot">
+            <h3>AI Chatbots</h3>
+            <p>Automate support and generate leads.</p>
+        </div>
+        <div class="card automation">
+            <h3>Automation</h3>
+            <p>Smart systems to scale your business.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="process">
+    <h2>How It Works</h2>
+    <div class="cards">
+        <div class="process-step step1">
+            <h3>1. Tell Us</h3>
+            <p>We understand your needs.</p>
+        </div>
+        <div class="process-step step2">
+            <h3>2. We Match</h3>
+            <p>We connect you with the right developers.</p>
+        </div>
+        <div class="process-step step3">
+            <h3>3. We Deliver</h3>
+            <p>We manage everything for you.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="pricing">
+    <h2>Our Pricing</h2>
+    <div class="cards pricing-cards">
+        <div class="pricing-card silver">
+            <h3>Silver</h3>
+            <p>Essential features to get started.</p>
+            <div class="price">$800 - $1,500</div>
+            <div class="price-label">Once-off</div>
+            <div class="maintenance-tier">Maintenance: <span>$80 - $150 /mo</span></div>
+            <ul>
+                <li>Basic website setup</li>
+                <li>Email support</li>
+            </ul>
+            <button class="cta-choose" onclick="openModal()">Choose Silver</button>
+        </div>
+
+        <div class="pricing-card gold">
+            <div class="ribbon">Popular</div>
+            <h3>Gold</h3>
+            <p>Advanced features for growing teams.</p>
+            <div class="price">$1,500 - $3,000</div>
+            <div class="price-label">Once-off</div>
+            <div class="maintenance-tier">Maintenance: <span>$150 - $200 /mo</span></div>
+            <ul>
+                <li>Everything in Silver</li>
+                <li>Priority support</li>
+            </ul>
+            <button class="cta-choose" onclick="openModal()">Choose Gold</button>
+        </div>
+
+        <div class="pricing-card platinum">
+            <div class="ribbon">Elite</div>
+            <h3>Platinum</h3>
+            <p>Full-service package for enterprise.</p>
+            <div class="price">$3,000+</div>
+            <div class="price-label">Once-off</div>
+            <div class="maintenance-tier">Maintenance: <span>$250 /mo</span></div>
+            <ul>
+                <li>Everything in Gold</li>
+                <li>Dedicated manager</li>
+            </ul>
+            <button class="cta-choose" onclick="openModal()">Choose Platinum</button>
+        </div>
+    </div>
+</section>
+
+<section class="cta" id="contact">
+    <h2>Ready to Build?</h2>
+    <p>Let’s create your website or chatbot today.</p>
+    <button class="btn" onclick="openModal()">Get Started</button>
+</section>
+
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <h3 style="color: #38bdf8; margin-top: 0;">Project Requirements</h3>
+        <form id="projectForm">
+            <div class="form-group">
+                <label>Customer / Company Name</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Cell Number</label>
+                <input type="tel" required>
+            </div>
+            <div class="form-group">
+                <label>Looking for / Package</label>
+                <select required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option>Silver Package</option>
+                    <option>Gold Package</option>
+                    <option>Platinum Package</option>
+                    <option>AI Chatbot</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Notes / Comments</label>
+                <textarea rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn" style="width:100%;">Submit Details</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="OutofSightCo_Privacy_Policy.pdf" target="_blank" download>Privacy Policy</a>
+        <a href="OutofSightCo_Terms_and_Conditions.pdf" target="_blank" download>Terms & Conditions</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+    <div style="font-size: 12px; color: #4b5563; margin-top: 15px;">
+        © 2026 OutofSight&Co&trade; — All Rights Reserved.
+    </div>
+</footer>
+
+<script>
+    const modal = document.getElementById('modalOverlay');
+    function openModal() { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
+    window.onclick = function(event) { if (event.target == modal) closeModal(); }
+</script>
+
+</body>
+</html>
