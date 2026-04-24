@@ -1641,15 +1641,46 @@
 
 
 <script>
-
     const modal = document.getElementById('modalOverlay');
+    const projectForm = document.getElementById('projectForm');
 
     function openModal() { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-
     function closeModal() { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
-
     window.onclick = function(event) { if (event.target == modal) closeModal(); }
 
+    // --- NEW: SEND DATA TO PYTHON ---
+    projectForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Stop the page from refreshing
+
+        // 1. Grab the data from your form fields
+        const formData = {
+            client: projectForm.querySelector('input[placeholder="Name / Company Name"]').value,
+            email: projectForm.querySelector('input[placeholder="Email Address"]').value,
+            cell: projectForm.querySelector('input[placeholder="Cell Number"]').value,
+            package: projectForm.querySelector('select').value,
+            notes: projectForm.querySelector('textarea').value
+        };
+
+        try {
+            // 2. Send it to your Python server (running on port 5000)
+            const response = await fetch('http://127.0.0.1:5000/add_order', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert("Success! Your details have been sent to our database.");
+                closeModal();
+                projectForm.reset();
+            } else {
+                alert("Server error. Make sure app.py is running!");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Could not connect to the server. Is Python running?");
+        }
+    });
 </script>
 
 
