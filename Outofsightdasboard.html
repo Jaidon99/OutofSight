@@ -1200,6 +1200,52 @@ function seedDemo(){
 
 seedDemo();
 switchView('orders'); // Starting on Orders page as per screenshot
+  /* -------------------------
+   STEP 2: The Backend Listener
+   ------------------------- */
+
+// 1. THIS PULLS DATA FROM YOUR DATABASE
+async function fetchOrdersFromBackend() {
+    try {
+        // REPLACE THE URL BELOW WITH YOUR FORWARDED ADDRESS LINK
+        const response = await fetch('https://your-unique-link-5000.app.github.dev/get_orders');
+        const data = await response.json();
+        
+        // This updates the local 'orders' list in your dashboard
+        orders = data; 
+        renderAll(); // Refreshes the screen with new data
+    } catch (error) {
+        console.error("Dashboard couldn't reach the brain:", error);
+    }
+}
+
+// 2. THIS MAKES THE DASHBOARD REFRESH EVERY 5 SECONDS
+// So you don't have to hit refresh to see new orders!
+setInterval(fetchOrdersFromBackend, 5000);
+
+// 3. INITIAL LOAD
+window.onload = () => {
+    fetchOrdersFromBackend();
+    renderAll();
+};
+
+/* -------------------------
+   MODAL & UI HELPERS (Required for the dashboard to work)
+   ------------------------- */
+function closeModal() {
+    document.getElementById('modalBackdrop').style.display = 'none';
+}
+
+function renderAll() {
+    renderOrders();
+    renderProjectsView();
+    updateStats();
+}
+
+function updateStats() {
+    document.getElementById('activeOrders').innerText = orders.filter(o => o.status !== 'Shipped').length;
+    document.getElementById('totalClients').innerText = new Set(orders.map(o => o.client)).size;
+}
 </script>
 
 </body>
