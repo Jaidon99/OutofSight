@@ -1554,64 +1554,43 @@
 
         <h3 style="color: #38bdf8; margin-top: 0;">Project Requirements</h3>
 
-        <form id="projectForm">
+        <form id="orderForm">
 
-            <div class="form-group">
+    <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" name="company_name" placeholder="Company Name" required>
+    </div>
 
-                <label>Customer / Company Name</label>
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Email" required>
+    </div>
 
-                <input type="text" required>
+    <div class="form-group">
+        <label>Cell Number</label>
+        <input type="text" name="cell" placeholder="Cell (+27...)" required>
+    </div>
 
-            </div>
+    <div class="form-group">
+        <label>Order Number</label>
+        <input type="text" name="order_number" placeholder="Order Number" required>
+    </div>
 
-            <div class="form-group">
+    <div class="form-group">
+        <label>Select Package</label>
+        <select name="package" required>
+            <option value="">Select Package</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+            <option value="Platinum">Platinum</option>
+        </select>
+    </div>
 
-                <label>Email Address</label>
+    <button type="submit" class="btn" style="width:100%;">Submit</button>
 
-                <input type="email" required>
+</form>
 
-            </div>
-
-            <div class="form-group">
-
-                <label>Cell Number</label>
-
-                <input type="tel" required>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>Looking for / Package</label>
-
-                <select required>
-
-                    <option value="" disabled selected>Select an option</option>
-
-                    <option>Silver Package</option>
-
-                    <option>Gold Package</option>
-
-                    <option>Platinum Package</option>
-
-                    <option>AI Chatbot</option>
-
-                </select>
-
-            </div>
-
-            <div class="form-group">
-
-                <label>Notes / Comments</label>
-
-                <textarea rows="4"></textarea>
-
-            </div>
-
-            <button type="submit" class="btn" style="width:100%;">Submit Details</button>
-
-        </form>
-
+<div id="dashboard" style="margin-top:20px;"></div>
     </div>
 
 </div>
@@ -1642,47 +1621,78 @@
 
 <script>
     const modal = document.getElementById('modalOverlay');
-    const projectForm = document.getElementById('projectForm');
+    const orderForm = document.getElementById('orderForm');
+    const dashboard = document.getElementById('dashboard');
 
-    function openModal() { modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
-    function closeModal() { modal.style.display = 'none'; document.body.style.overflow = 'auto'; }
-    window.onclick = function(event) { if (event.target == modal) closeModal(); }
+    function openModal() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 
-    // --- NEW: SEND DATA TO PYTHON ---
-    projectForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Stop the page from refreshing
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 
-        // 1. Grab the data from your form fields
+    window.onclick = function(event) {
+        if (event.target == modal) closeModal();
+    };
+
+    orderForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Generate order number automatically if blank
+        let orderNumber = orderForm.order_number.value.trim();
+        if (!orderNumber) {
+            orderNumber = "OOS-" + Math.floor(Math.random() * 1000000);
+        }
+
+        // Collect form data
         const formData = {
-            client: projectForm.querySelector('input[placeholder="Name / Company Name"]').value,
-            email: projectForm.querySelector('input[placeholder="Email Address"]').value,
-            cell: projectForm.querySelector('input[placeholder="Cell Number"]').value,
-            package: projectForm.querySelector('select').value,
-            notes: projectForm.querySelector('textarea').value
+            company_name: orderForm.company_name.value,
+            email: orderForm.email.value,
+            cell: orderForm.cell.value,
+            order_number: orderNumber,
+            package: orderForm.package.value
         };
 
         try {
-            // 2. Send it to your Python server (running on port 5000)
-         const response = await fetch('https://pjxft3mf-5000.inc1.devtunnels.ms/add_order', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-});
+            const response = await fetch('https://pjxft3mf-5000.inc1.devtunnels.ms/add_order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const result = await response.json();
 
             if (response.ok) {
-                alert("Success! Your details have been sent to our database.");
-                closeModal();
-                projectForm.reset();
+
+                dashboard.innerHTML = `
+                    <div style="background:#111827; padding:20px; border-radius:10px; border:1px solid #38bdf8;">
+                        <h4 style="color:#38bdf8; margin-top:0;">Order Submitted Successfully 🚀</h4>
+                        <p><strong>Company:</strong> ${formData.company_name}</p>
+                        <p><strong>Email:</strong> ${formData.email}</p>
+                        <p><strong>Cell:</strong> ${formData.cell}</p>
+                        <p><strong>Order #:</strong> ${formData.order_number}</p>
+                        <p><strong>Package:</strong> ${formData.package}</p>
+                    </div>
+                `;
+
+                alert("Success! Order added to database.");
+                orderForm.reset();
+
             } else {
-                alert("Server error. Make sure app.py is running!");
+                alert(result.error || "Server error.");
             }
+
         } catch (error) {
             console.error("Error:", error);
-            alert("Could not connect to the server. Is Python running?");
+            alert("Could not connect to server. Make sure Python backend is running.");
         }
     });
 </script>
-
 
 
 </body>
