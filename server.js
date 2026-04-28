@@ -9,6 +9,7 @@ const db = new sqlite3.Database("./business.db");
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname));
 
 // Serve your static HTML/JS files
 app.use(express.static(path.join(__dirname)));
