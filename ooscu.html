@@ -718,18 +718,13 @@
         <h3 id="regionModalTitle" style="color: #38bdf8; margin-top: 0;">Project Request</h3>
         <form id="regionProjectForm">
             <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Name</label><input type="text" id="fname" required></div>
-                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Surname</label><input type="text" id="sname" required></div>
+                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Name</label><input type="text" required></div>
+                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Surname</label><input type="text" required></div>
             </div>
-            <div class="form-group"><label>Email Address</label><input type="email" id="emailAdd" required></div>
+            <div class="form-group"><label>Email Address</label><input type="email" required></div>
             <div class="form-group"><label>Country</label><select id="countrySelect" onchange="updatePhonePrefix()" required></select></div>
             <div class="form-group"><label>Cell Number</label><div class="phone-input-wrapper"><span id="phonePrefix"></span><input type="tel" id="phoneInput" required></div></div>
-            <div class="form-group"><label>Selected Package</label><select id="packageSelect" required>
-                <option value="Silver">Silver</option>
-                <option value="Gold">Gold</option>
-                <option value="Platinum">Platinum</option>
-                <option value="Custom">Custom</option>
-            </select></div>
+            <div class="form-group"><label>Selected Package</label><select id="packageSelect" required></select></div>
             <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><input type="checkbox" id="customPkgCheck" style="width: auto; margin: 0; cursor: pointer;"><label for="customPkgCheck" style="margin: 0; cursor: pointer; color: white;">Request a Custom Package</label></div>
             <div class="form-group" id="customNotesGroup" style="display: none;"><label>Custom Requirements</label><textarea rows="3" placeholder="Tell us about your specific needs..."></textarea></div>
             <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
@@ -782,19 +777,45 @@
         <h3>4. REFUND POLICY</h3>
         <p>Due to the custom nature of digital services, all payments are non-refundable once work has commenced, unless otherwise agreed in writing.</p>
         <h3>5. INTELLECTUAL PROPERTY</h3>
-        <p>All intellectual property remains the property of OutofSight&Co until full payment has been received, at which point ownership transfers to the client as outlined in the project scope.</p>
+        <p>All intellectual property remains the property of OutofSight&Co™ until full payment is received. Upon payment, ownership transfers to the client, excluding proprietary frameworks.</p>
+        <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">&copy; 2026 OutofSight&Co™ All Rights Reserved.<br>Elite Web Development | AI Chatbots | Automation Systems</p>
     </div>
 </div>
-
+<div class="modal-overlay" id="contactModalOverlay">
+    <div class="modal-content legal-content">
+        <span class="close-modal" onclick="closeContactModal()">&times;</span>
+        <h2>Contact Us</h2>
+        
+        <div class="contact-card">
+            <h4>Jaidon Vermeulen</h4>
+            <p>Email: Jaidonvermeulen@gmail.com</p>
+            <p>Phone: 078 120 0888</p>
+        </div>
+        <div class="contact-card" style="border-left-color: var(--color-pbody);">
+            <h4>Ronaldo Austin</h4>
+            <p>Email: Ronaldoaustin44@gmail.com</p>
+            <p>Phone: 071 665 5960</p>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="footer-links">
+        <a onclick="openPrivacyModal()">Privacy Policy</a>
+        <a onclick="openTermsModal()">Terms & Conditions</a>
+        <a onclick="openContactModal()">Contact Us</a>
+    </div>
+    <div style="font-size: 12px; color: #4b5563; margin-top: 15px;">
+        © 2026 OutofSight&Co&trade; — All Rights Reserved.
+    </div>
+</footer>
 <div id="chat-widget-btn" onclick="toggleChat()">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/>
     </svg>
 </div>
-
 <div id="chat-window">
     <div class="chat-header">
-        <span>OutofSight Assistant 🤖</span>
+        <span>OutofSight AI</span>
         <span class="close-chat" onclick="toggleChat()">&times;</span>
     </div>
     
@@ -807,22 +828,172 @@
              <button class="quick-reply-btn" onclick="sendQuickReply('📞 Contact Us')">📞 Contact</button>
         </div>
     </div>
-
     <div class="chat-body-scroll" id="chat-body"></div>
-
     <div class="chat-footer">
         <textarea id="chat-input" rows="1" placeholder="Type a message..." onkeydown="handleKeydown(event)"></textarea>
         <button onclick="sendMessage()">➤</button>
     </div>
 </div>
-
 <script>
-    // --- CHATBOT LOGIC ---
+    // Country and dialing code configuration
+    const africanCountries = [
+        {name: 'Algeria', code: '+213'}, {name: 'Angola', code: '+244'}, {name: 'Benin', code: '+229'}, 
+        {name: 'Botswana', code: '+267'}, {name: 'Burkina Faso', code: '+226'}, {name: 'Burundi', code: '+257'}, 
+        {name: 'Cabo Verde', code: '+238'}, {name: 'Cameroon', code: '+237'}, {name: 'Central African Republic', code: '+236'}, 
+        {name: 'Chad', code: '+235'}, {name: 'Comoros', code: '+269'}, {name: 'Congo (DRC)', code: '+243'}, 
+        {name: 'Congo (Republic)', code: '+242'}, {name: 'Côte d\'Ivoire', code: '+225'}, {name: 'Djibouti', code: '+253'}, 
+        {name: 'Egypt', code: '+20'}, {name: 'Equatorial Guinea', code: '+240'}, {name: 'Eritrea', code: '+291'}, 
+        {name: 'Eswatini', code: '+268'}, {name: 'Ethiopia', code: '+251'}, {name: 'Gabon', code: '+241'}, 
+        {name: 'Gambia', code: '+220'}, {name: 'Ghana', code: '+233'}, {name: 'Guinea', code: '+224'}, 
+        {name: 'Guinea-Bissau', code: '+245'}, {name: 'Kenya', code: '+254'}, {name: 'Lesotho', code: '+266'}, 
+        {name: 'Liberia', code: '+231'}, {name: 'Libya', code: '+218'}, {name: 'Madagascar', code: '+261'}, 
+        {name: 'Malawi', code: '+265'}, {name: 'Mali', code: '+223'}, {name: 'Mauritania', code: '+222'}, 
+        {name: 'Mauritius', code: '+230'}, {name: 'Morocco', code: '+212'}, {name: 'Mozambique', code: '+258'}, 
+        {name: 'Namibia', code: '+264'}, {name: 'Niger', code: '+227'}, {name: 'Nigeria', code: '+234'}, 
+        {name: 'Rwanda', code: '+250'}, {name: 'Sao Tome and Principe', code: '+239'}, {name: 'Senegal', code: '+221'}, 
+        {name: 'Seychelles', code: '+248'}, {name: 'Sierra Leone', code: '+232'}, {name: 'Somalia', code: '+252'}, 
+        {name: 'South Africa', code: '+27'}, {name: 'South Sudan', code: '+211'}, {name: 'Sudan', code: '+249'}, 
+        {name: 'Tanzania', code: '+255'}, {name: 'Togo', code: '+228'}, {name: 'Tunisia', code: '+216'}, 
+        {name: 'Uganda', code: '+256'}, {name: 'Zambia', code: '+260'}, {name: 'Zimbabwe', code: '+263'}
+    ].sort((a, b) => a.name.localeCompare(b.name));
+    const internationalCountries = [
+        {name: 'Afghanistan', code: '+93'}, {name: 'Albania', code: '+355'}, {name: 'Andorra', code: '+376'},
+        {name: 'Antigua and Barbuda', code: '+1'}, {name: 'Argentina', code: '+54'}, {name: 'Armenia', code: '+374'},
+        {name: 'Australia', code: '+61'}, {name: 'Austria', code: '+43'}, {name: 'Azerbaijan', code: '+994'},
+        {name: 'Bahamas', code: '+1'}, {name: 'Bahrain', code: '+973'}, {name: 'Bangladesh', code: '+880'},
+        {name: 'Barbados', code: '+1'}, {name: 'Belarus', code: '+375'}, {name: 'Belgium', code: '+32'},
+        {name: 'Belize', code: '+501'}, {name: 'Bhutan', code: '+975'}, {name: 'Bolivia', code: '+591'},
+        {name: 'Bosnia and Herzegovina', code: '+387'}, {name: 'Brazil', code: '+55'}, {name: 'Brunei', code: '+673'},
+        {name: 'Bulgaria', code: '+359'}, {name: 'Cambodia', code: '+855'}, {name: 'Canada', code: '+1'},
+        {name: 'Chile', code: '+56'}, {name: 'China', code: '+86'}, {name: 'Colombia', code: '+57'},
+        {name: 'Costa Rica', code: '+506'}, {name: 'Croatia', code: '+385'}, {name: 'Cuba', code: '+53'},
+        {name: 'Cyprus', code: '+357'}, {name: 'Czechia', code: '+420'}, {name: 'Denmark', code: '+45'},
+        {name: 'Dominican Republic', code: '+1'}, {name: 'Ecuador', code: '+593'}, {name: 'El Salvador', code: '+503'},
+        {name: 'Estonia', code: '+372'}, {name: 'Fiji', code: '+679'}, {name: 'Finland', code: '+358'},
+        {name: 'France', code: '+33'}, {name: 'Georgia', code: '+995'}, {name: 'Germany', code: '+49'},
+        {name: 'Greece', code: '+30'}, {name: 'Grenada', code: '+1'}, {name: 'Guatemala', code: '+502'},
+        {name: 'Guyana', code: '+592'}, {name: 'Haiti', code: '+509'}, {name: 'Honduras', code: '+504'},
+        {name: 'Hungary', code: '+36'}, {name: 'Iceland', code: '+354'}, {name: 'India', code: '+91'},
+        {name: 'Indonesia', code: '+62'}, {name: 'Iran', code: '+98'}, {name: 'Iraq', code: '+964'},
+        {name: 'Ireland', code: '+353'}, {name: 'Israel', code: '+972'}, {name: 'Italy', code: '+39'},
+        {name: 'Jamaica', code: '+1'}, {name: 'Japan', code: '+81'}, {name: 'Jordan', code: '+962'},
+        {name: 'Kazakhstan', code: '+7'}, {name: 'Kuwait', code: '+965'}, {name: 'Kyrgyzstan', code: '+996'},
+        {name: 'Laos', code: '+856'}, {name: 'Latvia', code: '+371'}, {name: 'Lebanon', code: '+961'},
+        {name: 'Liechtenstein', code: '+423'}, {name: 'Lithuania', code: '+370'}, {name: 'Luxembourg', code: '+352'},
+        {name: 'Malaysia', code: '+60'}, {name: 'Maldives', code: '+960'}, {name: 'Malta', code: '+356'},
+        {name: 'Mexico', code: '+52'}, {name: 'Moldova', code: '+373'}, {name: 'Monaco', code: '+377'},
+        {name: 'Mongolia', code: '+976'}, {name: 'Montenegro', code: '+382'}, {name: 'Myanmar', code: '+95'},
+        {name: 'Nepal', code: '+977'}, {name: 'Netherlands', code: '+31'}, {name: 'New Zealand', code: '+64'},
+        {name: 'Nicaragua', code: '+505'}, {name: 'North Korea', code: '+850'}, {name: 'North Macedonia', code: '+389'},
+        {name: 'Norway', code: '+47'}, {name: 'Oman', code: '+968'}, {name: 'Pakistan', code: '+92'},
+        {name: 'Palestine', code: '+970'}, {name: 'Panama', code: '+507'}, {name: 'Papua New Guinea', code: '+675'},
+        {name: 'Paraguay', code: '+595'}, {name: 'Peru', code: '+51'}, {name: 'Philippines', code: '+63'},
+        {name: 'Poland', code: '+48'}, {name: 'Portugal', code: '+351'}, {name: 'Qatar', code: '+974'},
+        {name: 'Romania', code: '+40'}, {name: 'Russia', code: '+7'}, {name: 'Samoa', code: '+685'},
+        {name: 'San Marino', code: '+378'}, {name: 'Saudi Arabia', code: '+966'}, {name: 'Serbia', code: '+381'},
+        {name: 'Singapore', code: '+65'}, {name: 'Slovakia', code: '+421'}, {name: 'Slovenia', code: '+386'},
+        {name: 'South Korea', code: '+82'}, {name: 'Spain', code: '+34'}, {name: 'Sri Lanka', code: '+94'},
+        {name: 'Sweden', code: '+46'}, {name: 'Switzerland', code: '+41'}, {name: 'Syria', code: '+963'},
+        {name: 'Taiwan', code: '+886'}, {name: 'Tajikistan', code: '+992'}, {name: 'Thailand', code: '+66'},
+        {name: 'Trinidad and Tobago', code: '+1'}, {name: 'Turkey', code: '+90'}, {name: 'Turkmenistan', code: '+993'},
+        {name: 'Ukraine', code: '+380'}, {name: 'United Arab Emirates', code: '+971'}, {name: 'United Kingdom', code: '+44'},
+        {name: 'United States', code: '+1'}, {name: 'Uruguay', code: '+598'}, {name: 'Uzbekistan', code: '+998'},
+        {name: 'Vatican City', code: '+379'}, {name: 'Venezuela', code: '+58'}, {name: 'Vietnam', code: '+84'},
+        {name: 'Yemen', code: '+967'}
+    ].sort((a, b) => a.name.localeCompare(b.name));
+    
+    const packageDetailsContent = {
+        'Silver': { 
+            subtitle: 'Essential features to get started.', 
+            features: [
+                'Basic Landing Page Design.', 
+                'Basic Website Design.', 
+                'Basic Chatbot Design.', 
+                'Essential features to get started.', 
+                'All Included Silver Package.'
+            ], 
+            description: 'Perfect for new businesses.' 
+        },
+        'Gold': { 
+            subtitle: 'Advanced features for growing teams or run businesses.', 
+            features: [
+                'Custom Website Design.', 
+                'AI Chatbot Design.', 
+                'Advanced features for growing teams or run businesses.', 
+                'All options included in the Silver Package come as standard in the Gold Package.', 
+                'Priority support.'
+            ], 
+            description: 'Ideal for scaling businesses.' 
+        },
+        'Platinum': { 
+            subtitle: 'Full-service package for enterprise with a Dedicated Manager.', 
+            features: [
+                'Custom Website Design and AI Integration.', 
+                'AI Chatbot Design.', 
+                'Full-service package for enterprise with a Dedicated Manager.', 
+                'All options included in the Gold Package come as standard in the Platinum Package.', 
+                'The ultimate solution.'
+            ], 
+            description: 'The ultimate solution.' 
+        }
+    };
+    
+    let selectedRegion = 'International';
+    let selectedPackage = 'Silver';
+    function openWelcomeModal() { document.getElementById('detailsModalOverlay').style.display = 'flex'; }
+    function closeDetailsModal() { document.getElementById('detailsModalOverlay').style.display = 'none'; }
+    
+    function openDetailsModal(region, pkg) {
+        selectedRegion = region; selectedPackage = pkg;
+        const content = packageDetailsContent[pkg];
+        document.getElementById('detailsModalTitle').innerText = `${pkg} Package (${region})`;
+        document.getElementById('detailsSubtitle').innerText = content.subtitle;
+        document.getElementById('detailsDescription').innerText = content.description;
+        const list = document.getElementById('detailsFeatures');
+        list.innerHTML = '';
+        content.features.forEach(f => { const li = document.createElement('li'); li.innerText = f; list.appendChild(li); });
+        document.getElementById('welcomeActionBtn').onclick = continueToForm;
+        document.getElementById('detailsModalOverlay').style.display = 'flex';
+    }
+    function openCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'flex'; }
+    function closeCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'none'; }
+    function openFinalForm(region) {
+        selectedRegion = region; selectedPackage = 'Custom';
+        closeCustomPlanModal(); openRegionModal();
+    }
+    function continueToForm() { closeDetailsModal(); openRegionModal(); }
+    function openRegionModal() {
+        document.getElementById('regionModalOverlay').style.display = 'flex';
+        document.getElementById('regionModalTitle').innerText = `${selectedRegion} Project Request`;
+        updateCountryList();
+    }
+    function updateCountryList() {
+        const sel = document.getElementById('countrySelect'); sel.innerHTML = '';
+        let list = (selectedRegion === 'Africa') ? africanCountries : internationalCountries;
+        list.forEach(c => { const opt = document.createElement('option'); opt.value = c.name; opt.innerText = c.name; opt.setAttribute('data-code', c.code); sel.appendChild(opt); });
+        updatePhonePrefix();
+    }
+    function updatePhonePrefix() {
+        const sel = document.getElementById('countrySelect');
+        const prefix = document.getElementById('phonePrefix');
+        const opt = sel.options[sel.selectedIndex];
+        if (opt) prefix.innerText = opt.getAttribute('data-code');
+    }
+    function closeRegionModal() { document.getElementById('regionModalOverlay').style.display = 'none'; }
+    /* Legal & Contact Controls */
+    function openPrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'flex'; }
+    function closePrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'none'; }
+    function openTermsModal() { document.getElementById('termsModalOverlay').style.display = 'flex'; }
+    function closeTermsModal() { document.getElementById('termsModalOverlay').style.display = 'none'; }
+    function openContactModal() { document.getElementById('contactModalOverlay').style.display = 'flex'; }
+    function closeContactModal() { document.getElementById('contactModalOverlay').style.display = 'none'; }
+    /* =========================================
+       10. CHATBOT FUNCTIONALITY
+       ========================================= */
     const chatWindow = document.getElementById('chat-window');
     const chatBody = document.getElementById('chat-body');
     const chatInput = document.getElementById('chat-input');
     let isChatOpen = false;
-
     function toggleChat() {
         isChatOpen = !isChatOpen;
         if (isChatOpen) {
@@ -836,14 +1007,12 @@
             chatWindow.style.display = 'none';
         }
     }
-
     function handleKeydown(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault(); 
             sendMessage();
         }
     }
-
     function sendQuickReply(text, btnElement) {
         if (btnElement && btnElement.parentElement && btnElement.parentElement.id === 'dynamic-replies') {
             btnElement.parentElement.style.display = 'none';
@@ -851,7 +1020,6 @@
         chatInput.value = text;
         sendMessage();
     }
-
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g, 
             tag => ({
@@ -863,7 +1031,6 @@
             }[tag] || tag)
         );
     }
-
     function triggerBotMessage(htmlContent) {
         const botDiv = document.createElement('div');
         botDiv.className = 'chat-msg msg-bot';
@@ -871,11 +1038,9 @@
         chatBody.appendChild(botDiv);
         scrollToBottom();
     }
-
     function sendMessage() {
         const rawText = chatInput.value.trim();
         if (!rawText) return;
-
         const userDiv = document.createElement('div');
         userDiv.className = 'chat-msg msg-user';
         userDiv.innerHTML = escapeHTML(rawText).replace(/\n/g, '<br>'); 
@@ -883,11 +1048,9 @@
         
         chatInput.value = ''; 
         scrollToBottom();
-
         setTimeout(() => {
             const lowerText = rawText.toLowerCase();
             let replyText = "";
-
             if (lowerText.match(/^(hello|hallo|hi|hey|howdy)/)) {
                 replyText = "Hey! 👋 I'm Jess, the OutofSight bot. Want to see how OutofSight can automate your customer service? ✨";
             } 
@@ -895,7 +1058,7 @@
                 replyText = "At OutofSight&Co, we are your dedicated outsourced team of elite developers! 🌍 We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation. 💡";
             }
             else if (lowerText.match(/contact|email|number|cell|support|touch/)) {
-                replyText = "You can reach us directly here:<br><br>🛠️ <b>Support@oosco.com</b><br>📧 <b>Services@oosco.com</b><br>📞 <b>OOS Team - 0781200888</b>";
+                replyText = "You can reach us directly here:<br><br><b>Jaidon Vermeulen</b><br>Email: Jaidonvermeulen@gmail.com<br>Phone: 078 120 0888<br><br><b>Ronaldo Austin</b><br>Email: Ronaldoaustin44@gmail.com<br>Phone: 071 665 5960";
             }
             else if (lowerText.match(/complaint|log complaint|issue|unhappy|complain/)) {
                 replyText = "I am so sorry to hear that. 😔 Please email us directly at <b>Support@oosco.com</b> with the subject 'URGENT: Complaint' so we can investigate immediately.<br><br>If you prefer to speak with someone, you can reach the <b>OOS Team - 0781200888</b>. 📞<br><br>" +
@@ -910,116 +1073,17 @@
                  replyText = "It's simple! ✨<br><br>🗣️ 1. Tell us what you need.<br>🤝 2. We match you with the right developers.<br>🚀 3. We manage the project and deliver the final result.";
             }
             else if (lowerText.includes('price') || lowerText.includes('pricing')) {
-                 replyText = "Our packages are Once-Off:<br><br>🥈 Silver ($800 - $1,500)<br>🥇 Gold ($1,500 - $3,000)<br>💎 Platinum ($3,000+).<br><br>We also offer low monthly maintenance plans starting at $80/mo. 📈";
+                 replyText = "Our packages are once-off. Packages Include:<br><br>🥈 Silver <br>🥇 Gold <br>💎 Platinum<br>☑️ Custom <br><br>We also offer low monthly maintenance plans for all our packages 🚀";
             }
             else {
                 replyText = "I'm here to help you scale! 🚀 Let me know if you need info on our web dev, bots, pricing, or if you just want to get in touch. 📞";
             }
-
             triggerBotMessage(replyText);
         }, 1000);
     }
-
     function scrollToBottom() {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
-
-    // --- MODAL LOGIC & FORM LOGIC ---
-    function openWelcomeModal() {
-        document.getElementById('detailsModalOverlay').style.display = 'flex';
-        document.getElementById('detailsFeatures').innerHTML = "<li>Website Development</li><li>AI Chatbots</li><li>Business Automation</li>";
-        document.getElementById('welcomeActionBtn').onclick = function() {
-            closeDetailsModal();
-            window.location.hash = "#pricing";
-        };
-    }
-
-    function openDetailsModal(region, pkg) {
-        document.getElementById('detailsModalOverlay').style.display = 'flex';
-        document.getElementById('detailsModalTitle').innerText = pkg + ' Package (' + region + ')';
-        document.getElementById('welcomeActionBtn').innerText = "Continue to Request";
-        
-        const f = document.getElementById('detailsFeatures');
-        if(pkg === 'Silver') f.innerHTML = "<li>Basic Setup</li><li>Standard Support</li>";
-        if(pkg === 'Gold') f.innerHTML = "<li>Priority Support</li><li>Advanced UI</li>";
-        if(pkg === 'Platinum') f.innerHTML = "<li>Dedicated Manager</li><li>Full Automation</li>";
-
-        document.getElementById('welcomeActionBtn').onclick = function() {
-            closeDetailsModal();
-            openFinalForm(region, pkg);
-        };
-    }
-
-    function closeDetailsModal() { document.getElementById('detailsModalOverlay').style.display = 'none'; }
-    function openCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'flex'; }
-    function closeCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'none'; }
-    function closeRegionModal() { document.getElementById('regionModalOverlay').style.display = 'none'; }
-    
-    function openPrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'flex'; }
-    function closePrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'none'; }
-    function openTermsModal() { document.getElementById('termsModalOverlay').style.display = 'flex'; }
-    function closeTermsModal() { document.getElementById('termsModalOverlay').style.display = 'none'; }
-
-    // Final Form setup
-    function openFinalForm(region, pkg = 'Custom') {
-        closeCustomPlanModal();
-        const m = document.getElementById('regionModalOverlay');
-        m.style.display = 'flex';
-        
-        // Setup countries based on region
-        const cSelect = document.getElementById('countrySelect');
-        cSelect.innerHTML = '';
-        if(region === 'Africa') {
-            cSelect.innerHTML = '<option value="+27">South Africa (+27)</option><option value="+234">Nigeria (+234)</option>';
-        } else {
-            cSelect.innerHTML = '<option value="+1">United States (+1)</option><option value="+44">United Kingdom (+44)</option>';
-        }
-        
-        document.getElementById('packageSelect').value = pkg;
-        updatePhonePrefix();
-    }
-
-    function updatePhonePrefix() {
-        document.getElementById('phonePrefix').innerText = document.getElementById('countrySelect').value;
-    }
-
-    document.getElementById('customPkgCheck').addEventListener('change', function(e) {
-        document.getElementById('customNotesGroup').style.display = e.target.checked ? 'block' : 'none';
-        if(e.target.checked) document.getElementById('packageSelect').value = 'Custom';
-    });
-
-    // Handle the Form Submit to your Python backend
-    document.getElementById('regionProjectForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        
-        const formData = {
-            company_name: document.getElementById('fname').value + ' ' + document.getElementById('sname').value,
-            email: document.getElementById('emailAdd').value,
-            cell: document.getElementById('phonePrefix').innerText + document.getElementById('phoneInput').value,
-            order_number: "OOS-" + Math.floor(Math.random() * 1000000), // Auto-generate order number
-            package: document.getElementById('packageSelect').value,
-            notes: document.getElementById('customNotesGroup').style.display === 'block' ? document.querySelector('#customNotesGroup textarea').value : ''
-        };
-
-        try {
-            const response = await fetch('https://pjxft3mf-5000.inc1.devtunnels.ms/add_order', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                alert("Success! Order added to database. We will be in touch soon.");
-                closeRegionModal();
-                this.reset();
-            } else {
-                alert("Server error processing your request.");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Could not connect to server. Make sure Python backend is running.");
-        }
-    });
 </script>
 </body>
 </html>
