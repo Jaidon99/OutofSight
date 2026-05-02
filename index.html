@@ -14,94 +14,6 @@
 
 <style>
 
-    /* NEW: Package Details Styles */
-    #detailsView {
-        display: none; /* Hidden by default */
-        flex-direction: column;
-    }
-
-    .details-header {
-        color: #38bdf8;
-        font-size: 28px;
-        margin-bottom: 20px;
-        font-weight: bold;
-    }
-
-    .details-subtitle {
-        color: #d1d5db;
-        margin-bottom: 25px;
-        font-size: 16px;
-    }
-
-    .details-list {
-        list-style: none;
-        padding: 0;
-        margin-bottom: 30px;
-        text-align: left;
-    }
-
-    .details-list li {
-        margin-bottom: 12px;
-        padding-left: 25px;
-        position: relative;
-        color: #cbd5e1;
-    }
-
-    .details-list li::before {
-        content: "•";
-        color: #38bdf8;
-        position: absolute;
-        left: 0;
-        font-size: 20px;
-    }
-
-    .details-footer-text {
-        font-size: 14px;
-        color: #9ca3af;
-        line-height: 1.6;
-        margin-bottom: 30px;
-    }
-
-    .modal-footer-btns {
-        display: flex;
-        gap: 15px;
-    }
-
-    .btn-back {
-        background: #4b5563;
-        flex: 1;
-    }
-
-    .btn-continue {
-        background: #f97316;
-        flex: 2;
-    }
-
-    /* Region Switcher for Pricing Section */
-    .region-switcher {
-        margin-bottom: 30px;
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .region-btn {
-        background: #1f2937;
-        border: 1px solid #374151;
-        color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .region-btn.active {
-        background: var(--color-atlas);
-        border-color: var(--color-atlas);
-        color: #111;
-        font-weight: bold;
-    }
-
     /* =========================================
 
        1. GLOBAL VARIABLES & BASE STYLES
@@ -741,49 +653,7 @@
         border: 1px solid rgba(255,255,255,0.1);
 
     }
-/* --- BULLETPROOF BUTTON LAYOUT --- */
-    .modal-footer-btns { 
-        display: flex; 
-        flex-direction: row; /* Force side-by-side by default */
-        gap: 15px; 
-        margin-top: 25px; 
-        width: 100%;
-    }
-    
-    .btn-back, .btn-continue { 
-        padding: 14px 10px !important; /* Control padding so they don't bloat */
-        font-size: 15px !important; 
-        text-align: center; 
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        line-height: 1.2;
-    }
 
-    .btn-back { 
-        background: #4b5563; 
-        flex: 1; /* Takes up 1 part of the space */
-    }
-    
-    .btn-continue { 
-        background: #f97316; 
-        flex: 1.5; /* Takes up 1.5 parts of the space (slightly wider for the longer text) */
-    }
-
-    /* MOBILE FIX: Stack buttons vertically on small screens */
-    @media (max-width: 450px) {
-        .modal-footer-btns {
-            flex-direction: column;
-            gap: 10px;
-        }
-        .btn-back, .btn-continue {
-            width: 100%;
-            flex: none;
-        }
-    }
-    /* --------------------------------- */
-    
 
 
     .close-modal {
@@ -1182,23 +1052,6 @@
 
     }
 
-    /* Package Details Page Styles (UPDATED) */
-    #detailsView { display: none; flex-direction: column; padding-top: 10px; }
-    .details-header { color: #38bdf8; font-size: 24px; margin-bottom: 15px; font-weight: bold; line-height: 1.3; padding-right: 20px; }
-    .details-list { list-style: none; padding: 0; margin-bottom: 30px; text-align: left; }
-    .details-list li { margin-bottom: 12px; padding-left: 20px; position: relative; color: #cbd5e1; font-size: 15px; line-height: 1.5; }
-    .details-list li::before { content: "•"; color: #38bdf8; position: absolute; left: 0; font-size: 18px; top: -2px; }
-    
-    /* Button Layout Fixes */
-    .modal-footer-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-    .btn-back { background: #4b5563; flex: 1; padding: 12px !important; min-width: 100px; text-align: center; }
-    .btn-continue { background: #f97316; flex: 2; padding: 12px !important; min-width: 180px; text-align: center; }
-
-    /* Region Switcher Styles */
-    .region-switcher { margin-bottom: 35px; display: flex; justify-content: center; gap: 15px; }
-    .region-btn { background: #1f2937; border: 1px solid #374151; color: white; padding: 10px 25px; border-radius: 25px; cursor: pointer; transition: 0.3s; font-size: 15px; }
-    .region-btn.active { background: var(--color-atlas); color: #111; font-weight: bold; border-color: var(--color-atlas); }
-
 </style>
 
 
@@ -1590,65 +1443,95 @@
 
 
 <section class="section" id="pricing">
+
     <h2>Our Pricing</h2>
+
     <div class="cards pricing-cards">
+
         <div class="pricing-card silver">
-            <h3>Silver Package</h3>
+
+            <h3>Silver</h3>
+
+            <p>Essential features to get started.</p>
+
             <div class="price">$800 - $1,500</div>
+
             <div class="price-label">Once-off</div>
+
             <div class="maintenance-tier">Maintenance: <span>$80 - $150 /mo</span></div>
+
             <ul>
-                <li>Basic Landing Page Design or Website Design.</li>
-                <li>Basic Chatbot Design.</li>
-                <li>Essential features to get started.</li>
+
+                <li>Basic website setup</li>
+
+                <li>Email support</li>
+
             </ul>
-            <div class="button-group">
-                <button class="cta-choose" onclick="openDetailsModal('Africa', 'Silver')">Africa</button>
-                <button class="cta-choose cta-choose-intl" onclick="openDetailsModal('International', 'Silver')">International</button>
-            </div>
+
+            <button class="cta-choose" onclick="openModal()">Choose Silver</button>
+
         </div>
+
+
 
         <div class="pricing-card gold">
+
             <div class="ribbon">Popular</div>
-            <h3>Gold Package</h3>
+
+            <h3>Gold</h3>
+
+            <p>Advanced features for growing teams.</p>
+
             <div class="price">$1,500 - $3,000</div>
+
             <div class="price-label">Once-off</div>
+
             <div class="maintenance-tier">Maintenance: <span>$150 - $200 /mo</span></div>
+
             <ul>
-                <li>Custom Website Design.</li>
-                <li>AI Chatbot Design.</li>
-                <li>Advanced features for growing teams or running businesses.</li>
+
+                <li>Everything in Silver</li>
+
+                <li>Priority support</li>
+
             </ul>
-            <div class="button-group">
-                <button class="cta-choose" onclick="openDetailsModal('Africa', 'Gold')">Africa</button>
-                <button class="cta-choose cta-choose-intl" onclick="openDetailsModal('International', 'Gold')">International</button>
-            </div>
+
+            <button class="cta-choose" onclick="openModal()">Choose Gold</button>
+
         </div>
+
+
 
         <div class="pricing-card platinum">
+
             <div class="ribbon">Elite</div>
-            <h3>Platinum Package</h3>
+
+            <h3>Platinum</h3>
+
+            <p>Full-service package for enterprise.</p>
+
             <div class="price">$3,000+</div>
+
             <div class="price-label">Once-off</div>
+
             <div class="maintenance-tier">Maintenance: <span>$250 /mo</span></div>
+
             <ul>
-                <li>Custom Website Design and AI Integration.</li>
-                <li>AI Chatbot Design.</li>
-                <li>Full-service package for enterprise with a Dedicated Manager.</li>
+
+                <li>Everything in Gold</li>
+
+                <li>Dedicated manager</li>
+
             </ul>
-            <div class="button-group">
-                <button class="cta-choose" onclick="openDetailsModal('Africa', 'Platinum')">Africa</button>
-                <button class="cta-choose cta-choose-intl" onclick="openDetailsModal('International', 'Platinum')">International</button>
-            </div>
+
+            <button class="cta-choose" onclick="openModal()">Choose Platinum</button>
+
         </div>
+
     </div>
+
 </section>
 
-<section class="cta" id="contact">
-    <h2>Ready to Build?</h2>
-    <p>Let’s create your website or chatbot today.</p>
-    <button class="btn" onclick="openCustomPlanModal()">Create Custom Plan</button>
-</section>
 
 
 <section class="cta" id="contact">
@@ -1664,52 +1547,54 @@
 
 
 <div class="modal-overlay" id="modalOverlay">
+
     <div class="modal-content">
+
         <span class="close-modal" onclick="closeModal()">&times;</span>
-        
-        <div id="detailsView">
-            <div class="details-header" id="detailsTitle">Package Details</div>
-            <ul class="details-list" id="detailsBullets"></ul>
-            <div class="modal-footer-btns">
-                <button class="btn btn-back" onclick="closeModal()">Back</button>
-                <button class="btn btn-continue" onclick="showRequestForm()">Continue to Request</button>
-            </div>
-        </div>
 
-        <div id="requestFormView" style="display: none;">
-            <h3 style="color: #38bdf8; margin-top: 0; margin-bottom: 20px;">Project Requirements</h3>
-            <form id="orderForm">
-                <div class="form-group">
-                    <label>Company Name</label>
-                    <input type="text" name="company_name" placeholder="Company Name" required>
-                </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <label>Cell Number</label>
-                    <input type="text" name="cell" placeholder="Cell (+27...)" required>
-                </div>
-                <div class="form-group">
-                    <label>Order Number</label>
-                    <input type="text" name="order_number" placeholder="Order Number" required>
-                </div>
-                <div class="form-group">
-                    <label>Selected Package</label>
-                    <select name="package" id="formPackageSelect" required>
-                        <option value="Silver">Silver</option>
-                        <option value="Gold">Gold</option>
-                        <option value="Platinum">Platinum</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Request</button>
-            </form>
-        </div>
+        <h3 style="color: #38bdf8; margin-top: 0;">Project Requirements</h3>
 
-        <div id="dashboard" style="margin-top:20px;"></div>
+        <form id="orderForm">
+
+    <div class="form-group">
+        <label>Company Name</label>
+        <input type="text" name="company_name" placeholder="Company Name" required>
     </div>
+
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Cell Number</label>
+        <input type="text" name="cell" placeholder="Cell (+27...)" required>
+    </div>
+
+    <div class="form-group">
+        <label>Order Number</label>
+        <input type="text" name="order_number" placeholder="Order Number" required>
+    </div>
+
+    <div class="form-group">
+        <label>Select Package</label>
+        <select name="package" required>
+            <option value="">Select Package</option>
+            <option value="Silver">Silver</option>
+            <option value="Gold">Gold</option>
+            <option value="Platinum">Platinum</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn" style="width:100%;">Submit</button>
+
+</form>
+
+<div id="dashboard" style="margin-top:20px;"></div>
+    </div>
+
 </div>
+
 
 
 <footer>
@@ -1739,67 +1624,15 @@
     const orderForm = document.getElementById('orderForm');
     const dashboard = document.getElementById('dashboard');
 
-    let currentRegion = 'Africa';
-
-    function setRegion(region) {
-        currentRegion = region;
-        // Update button visual state
-        document.querySelectorAll('.region-btn').forEach(btn => {
-            btn.classList.toggle('active', btn.innerText === region);
-        });
-        alert("Region set to: " + region); 
-    }
-
-    function openModal(pkg = 'Silver') {
-        const modal = document.getElementById('modalOverlay');
-        const detailsView = document.getElementById('detailsView');
-        const requestFormView = document.getElementById('requestFormView');
-        const bulletContainer = document.getElementById('detailsBullets');
-        const pkgSelect = document.getElementById('formPackageSelect');
-
-        // Set the content based on package
-        document.getElementById('detailsTitle').innerText = pkg + " Package (" + currentRegion + ")";
-        
-        // Example details based on your screenshot
-        const details = {
-            'Silver': ["Basic Setup", "Standard Support"],
-            'Gold': ["Priority Support", "Advanced UI"],
-            'Platinum': ["Dedicated Manager", "Full Automation"]
-        };
-        
-        bulletContainer.innerHTML = details[pkg].map(item => `<li>${item}</li>`).join('');
-        pkgSelect.value = pkg;
-
+    function openModal() {
         modal.style.display = 'flex';
-        detailsView.style.display = 'flex'; // Show details first
-        requestFormView.style.display = 'none'; // Hide form
         document.body.style.overflow = 'hidden';
-    }
-
-    function showRequestForm() {
-        document.getElementById('detailsView').style.display = 'none';
-        document.getElementById('requestFormView').style.display = 'block';
     }
 
     function closeModal() {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-
-    function setRegion(region) {
-    // 1. Update button visual state
-    const buttons = document.querySelectorAll('.region-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
-
-    // 2. Example: Change prices if region is Africa (Optional logic)
-    if (region === 'Africa') {
-        document.getElementById('price-silver').innerText = "R15,000 - R28,000";
-        // ... update others
-    } else {
-        document.getElementById('price-silver').innerText = "$800 - $1,500";
-    }
-}
 
     window.onclick = function(event) {
         if (event.target == modal) closeModal();
