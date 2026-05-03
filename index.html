@@ -14,6 +14,14 @@
 
 <style>
 
+    /* Add this to your <style> area */
+.pricing-cards.blurred {
+    filter: blur(12px);
+    pointer-events: none; /* Prevents clicking the buttons while blurred */
+    transition: filter 0.5s ease; /* Makes it fade in smoothly when unblurred */
+    user-select: none; /* Prevents people from highlighting the text */
+}
+
     /* =========================================
 
        1. GLOBAL VARIABLES & BASE STYLES
@@ -1446,7 +1454,7 @@
 
     <h2>Our Pricing</h2>
 
-    <div class="cards pricing-cards">
+<div class="cards pricing-cards blurred" id="pricingCards">
 
         <div class="pricing-card silver">
 
@@ -1668,7 +1676,8 @@
             const result = await response.json();
 
             if (response.ok) {
-
+                // Add this line inside the 'if (response.ok)' block
+document.getElementById('pricingCards').classList.remove('blurred');
                 dashboard.innerHTML = `
                     <div style="background:#111827; padding:20px; border-radius:10px; border:1px solid #38bdf8;">
                         <h4 style="color:#38bdf8; margin-top:0;">Order Submitted Successfully 🚀</h4>
