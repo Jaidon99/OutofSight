@@ -211,12 +211,13 @@
         user-select: none;
     }
     .pricing-card ul {
-        list-style: none;
-        padding: 0;
+        list-style: disc;
+        padding: 0 0 0 24px;
         margin: 0 0 18px 0;
         color: #cbd5e1;
         font-size: 14px;
         line-height: 1.6;
+        text-align: left;
     }
     .button-group {
         display: flex;
@@ -619,11 +620,10 @@
             <div class="price-label">Once-off</div>
             <div class="maintenance-tier">Maintenance: <span>$80 - $150 /mo</span></div>
             <ul>
-                <li>Basic Landing Page Design.</li>
-                <li>Basic Website Design.</li>
+                <li>Basic Landing Page Design or Website Design.</li>
                 <li>Basic Chatbot Design.</li>
                 <li>Essential features to get started.</li>
-                <li>All Included Silver Package.</li>
+                <li>Read More.</li>
             </ul>
             <div class="button-group">
                 <button class="cta-choose" onclick="openDetailsModal('Africa', 'Silver')">Africa</button>
@@ -640,9 +640,8 @@
             <ul>
                 <li>Custom Website Design.</li>
                 <li>AI Chatbot Design.</li>
-                <li>Advanced features for growing teams or run businesses.</li>
-                <li>All options included in the Silver Package come as standard in the Gold Package.</li>
-                <li>Priority support.</li>
+                <li>Advanced features for growing teams or running businesses.</li>
+                <li>Read More.</li>
             </ul>
             <div class="button-group">
                 <button class="cta-choose" onclick="openDetailsModal('Africa', 'Gold')">Africa</button>
@@ -660,8 +659,7 @@
                 <li>Custom Website Design and AI Integration.</li>
                 <li>AI Chatbot Design.</li>
                 <li>Full-service package for enterprise with a Dedicated Manager.</li>
-                <li>All options included in the Gold Package come as standard in the Platinum Package.</li>
-                <li>The ultimate solution.</li>
+                <li>Read More.</li>
             </ul>
             <div class="button-group">
                 <button class="cta-choose" onclick="openDetailsModal('Africa', 'Platinum')">Africa</button>
@@ -673,7 +671,7 @@
 <section class="cta" id="contact">
     <h2>Ready to Build?</h2>
     <p>Let’s create your website or chatbot today.</p>
-    <button class="btn" onclick="openCustomPlanModal()">Continue to Request</button>
+    <button class="btn" onclick="openCustomPlanModal()">Create Custom Plan</button>
 </section>
 <div class="modal-overlay" id="detailsModalOverlay">
     <div class="modal-content">
@@ -906,22 +904,20 @@
         'Silver': { 
             subtitle: 'Essential features to get started.', 
             features: [
-                'Basic Landing Page Design.', 
-                'Basic Website Design.', 
+                'Basic Landing Page Design or Website Design.', 
                 'Basic Chatbot Design.', 
                 'Essential features to get started.', 
-                'All Included Silver Package.'
+                'Read More.'
             ], 
             description: 'Perfect for new businesses.' 
         },
         'Gold': { 
-            subtitle: 'Advanced features for growing teams or run businesses.', 
+            subtitle: 'Advanced features for growing teams or running businesses.', 
             features: [
                 'Custom Website Design.', 
                 'AI Chatbot Design.', 
-                'Advanced features for growing teams or run businesses.', 
-                'All options included in the Silver Package come as standard in the Gold Package.', 
-                'Priority support.'
+                'Advanced features for growing teams or running businesses.', 
+                'Read More.'
             ], 
             description: 'Ideal for scaling businesses.' 
         },
@@ -931,8 +927,7 @@
                 'Custom Website Design and AI Integration.', 
                 'AI Chatbot Design.', 
                 'Full-service package for enterprise with a Dedicated Manager.', 
-                'All options included in the Gold Package come as standard in the Platinum Package.', 
-                'The ultimate solution.'
+                'Read More.'
             ], 
             description: 'The ultimate solution.' 
         }
@@ -1087,3 +1082,4 @@
 </script>
 </body>
 </html>
+
