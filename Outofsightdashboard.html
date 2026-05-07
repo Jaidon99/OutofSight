@@ -1207,15 +1207,21 @@ switchView('orders'); // Starting on Orders page as per screenshot
 // 1. THIS PULLS DATA FROM YOUR DATABASE
 async function fetchOrdersFromBackend() {
     try {
-        // Point this to the same 'middleman' where your main site sends orders
-        const response = await fetch('YOUR_MIDDLEMAN_URL/get_orders');
+        // We use your form ID here to pull the data back out
+        const response = await fetch('https://formspree.io/api/0/forms/xjglevqk/submissions', {
+            headers: {
+                'Accept': 'application/json',
+                // You will find your API Key in your Formspree Account Settings
+                'Authorization': 'Bearer YOUR_FORMSPREE_API_KEY' 
+            }
+        });
         const data = await response.json();
         
-        // This updates your 'Total Orders' and 'Revenue' automatically
-        orders = data; 
+        // This updates your stats and list
+        orders = data.submissions; 
         renderAll(); 
     } catch (error) {
-        console.error("Dashboard couldn't reach the database.");
+        console.error("Dashboard connection error:", error);
     }
 }
 
