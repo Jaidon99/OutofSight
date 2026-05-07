@@ -11,7 +11,7 @@ document.getElementById('regionProjectForm').addEventListener('submit', async (e
 
     try {
         // This sends the order to your middleman
-        const response = await fetch('YOUR_MIDDLEMAN_URL', {
+        const response = await fetch('https://formspree.io/f/xjglevqk', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
