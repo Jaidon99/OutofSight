@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,21 +68,87 @@
         display: flex;
         align-items: center;
     }
-    nav {
-        display: flex;
-        align-items: center;
+    /* =========================================
+       3. NEW NAVIGATION & DROPDOWN STYLES
+       ========================================= */
+    .menu-container {
+        position: relative;
     }
-    nav a {
-        margin-left: 25px;
+    /* The Hamburger Button */
+    .hamburger-btn {
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        border-radius: 6px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 44px;
+        height: 38px;
+        padding: 10px;
+        transition: all 0.3s ease;
+    }
+    /* Hover effect on Button */
+    .hamburger-btn:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: var(--color-atlas);
+        transform: scale(1.05);
+        box-shadow: 0 0 12px rgba(56, 189, 248, 0.3);
+    }
+    .hamburger-btn span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: white;
+        border-radius: 2px;
+        transition: background 0.3s;
+    }
+    .hamburger-btn:hover span {
+        background: var(--color-atlas);
+    }
+    /* The Dropdown Menu */
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 15px);
+        right: 0;
+        background: #1f2937;
+        min-width: 220px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 1001;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+    .dropdown-menu.show {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .dropdown-menu a {
+        padding: 16px 24px;
         text-decoration: none;
         color: #9ca3af;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: bold;
-        transition: color 0.3s;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    nav a:hover { color: white; }
+    .dropdown-menu a:last-child {
+        border-bottom: none;
+    }
+    /* Hover effect on Options */
+    .dropdown-menu a:hover {
+        background: linear-gradient(90deg, #2563eb, var(--color-atlas));
+        color: white;
+        padding-left: 32px; /* Slight slide effect */
+    }
     /* =========================================
-       3. HERO SECTION & BUTTONS
+       4. HERO SECTION & BUTTONS
        ========================================= */
     .hero {
         height: 80vh;
@@ -120,7 +185,7 @@
     }
     .btn-secondary:hover { background: #374151; transform: scale(1.05); }
     /* =========================================
-       4. GENERAL SECTIONS & CARDS
+       5. GENERAL SECTIONS & CARDS
        ========================================= */
     .section { padding: 80px 20px; text-align: center; }
     .section h2 { margin-bottom: 40px; font-size: 32px; color: white; }
@@ -166,7 +231,7 @@
     .step2 { border-top: 5px solid #38bdf8; }
     .step3 { border-top: 5px solid #6366f1; }
     /* =========================================
-       5. PRICING SECTION
+       6. PRICING SECTION
        ========================================= */
     .pricing-card {
         width: 300px;
@@ -270,7 +335,7 @@
     .gold .ribbon { background: linear-gradient(90deg, #ffd700, #ffb700); }
     .platinum .ribbon { background: linear-gradient(90deg, #e5e4e2, #ffffff); }
     /* =========================================
-       6. CALL TO ACTION & FOOTER
+       7. CALL TO ACTION & FOOTER
        ========================================= */
     .cta {
         background: linear-gradient(135deg, #38bdf8, #111827);
@@ -289,7 +354,7 @@
     .footer-links a { color: #9ca3af; text-decoration: none; font-size: 13px; margin: 0 15px; cursor: pointer; }
     .footer-links a:hover { color: white; }
     /* =========================================
-       7. MODAL (POPUP FORM) STYLES
+       8. MODAL (POPUP FORM) STYLES
        ========================================= */
     .modal-overlay {
         position: fixed;
@@ -398,7 +463,7 @@
     .contact-card h4 { margin: 0 0 5px 0; color: white; font-size: 18px; }
     .contact-card p { margin: 2px 0; color: #9ca3af; }
     /* =========================================
-       8. CHATBOT STYLES
+       9. CHATBOT STYLES
        ========================================= */
     #chat-widget-btn {
         position: fixed;
@@ -564,13 +629,22 @@
     <div class="brand-container">
         <h1><span class="part-one">OutofSight</span><span class="part-two">&Co</span><span style="font-size: 14px; vertical-align: super; color: var(--color-atlas);">&trade;</span></h1>
     </div>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    
+    <!-- NEW: Hamburger Menu Component -->
+    <div class="menu-container">
+        <button class="hamburger-btn" id="navToggleBtn" onclick="toggleNavMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="dropdown-menu" id="navDropdown">
+            <a href="#home" onclick="toggleNavMenu()">Home</a>
+            <a href="#services" onclick="toggleNavMenu()">Services</a>
+            <a href="#process" onclick="toggleNavMenu()">Process</a>
+            <a href="#pricing" onclick="toggleNavMenu()">Pricing</a>
+            <a href="#contact" onclick="toggleNavMenu()">Contact</a>
+        </div>
+    </div>
 </header>
 <section class="hero" id="home">
     <h2>We Connect Businesses With <span>Developers</span></h2>
@@ -737,7 +811,8 @@
         <p><strong>Last Updated: April 17, 2026</strong></p>
         <p>At OutofSight&Co, we are your dedicated in-house and outsourced team of elite developers! We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
         <h3>1. INTRODUCTION</h3>
-        <p>OutofSight&Co ("the Company," "we," "us," or "our") is committed to protecting the privacy and security of our clients' personal and business data. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information through our website, development services, AI chatbot implementations, and automation systems. By engaging our services, you acknowledge and agree to the terms of this Privacy Policy in conjunction with our Terms & Conditions.</p>
+        <p>OutofSight&Co ("the Company," "we," "us," or "our") is committed to protecting the privacy and security of our clients' personal and business data. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information through our website, development services, AI chatbot implementations, and automation systems.</p>
+        <p>By engaging our services, you acknowledge and agree to the terms of this Privacy Policy in conjunction with our Terms & Conditions.</p>
         <h3>2. COMPLIANCE WITH GOVERNING LAW</h3>
         <p>This policy is governed by the laws of South Africa. We comply with the Protection of Personal Information Act (POPIA) and other applicable data protection regulations. We ensure that personal information is processed lawfully, transparently, and only for the specific purposes for which it was collected.</p>
         <h3>3. INFORMATION WE COLLECT</h3>
@@ -755,9 +830,33 @@
             <li><strong>Security:</strong> Our AI implementations prioritize secure API integrations and encryption to protect sensitive data flows.</li>
         </ul>
         <h3>5. USE OF INFORMATION</h3>
-        <p>Your information is used to develop, test, and deploy high-converting websites and automation workflows, communicate updates, and ensure billing accuracy.</p>
+        <p>Your information is used to:</p>
+        <ul>
+            <li>Develop, test, and deploy high-converting websites and automation workflows.</li>
+            <li>Communicate project updates and provide technical support.</li>
+            <li>Ensure billing accuracy and fulfill contractual obligations.</li>
+            <li>Improve our proprietary frameworks and AI tools (using anonymized or aggregated data).</li>
+        </ul>
         <h3>6. CONFIDENTIALITY & DATA SHARING</h3>
-        <p>In line with our Terms & Conditions, all confidential information shared during a project shall remain private. We do not sell or lease your data to third parties.</p>
+        <p>In line with our Terms & Conditions, all confidential information shared during a project shall remain private. We do not sell or lease your data to third parties. Data may only be shared with:</p>
+        <ul>
+            <li>Verified third-party service providers (e.g., hosting, API services) necessary for project delivery.</li>
+            <li>Legal authorities when required by law or to protect our legal rights.</li>
+        </ul>
+        <h3>7. DATA SECURITY</h3>
+        <p>We implement industry-standard technical and organizational measures to safeguard your data against unauthorized access, loss, or destruction. This includes secure development environments and encrypted communication channels.</p>
+        <h3>8. YOUR RIGHTS</h3>
+        <p>Under POPIA and applicable international laws, you have the right to:</p>
+        <ul>
+            <li>Access the personal information we hold about you.</li>
+            <li>Request the correction or deletion of inaccurate data.</li>
+            <li>Object to the processing of your data for marketing purposes.</li>
+        </ul>
+        <h3>9. CONTACT US</h3>
+        <p>For any questions regarding this Privacy Policy or your data, please contact our support team:</p>
+        <p><strong>Email:</strong> Support@oosco.com<br>
+        <strong>Phone:</strong> 0781200888<br>
+        <strong>Address:</strong> South Africa</p>
         <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">&copy; 2026 OutofSight&Co™ All Rights Reserved.<br>Elite Web Development | AI Chatbots | Automation Systems</p>
     </div>
 </div>
@@ -770,13 +869,57 @@
         <h3>1. AGREEMENT</h3>
         <p>By engaging OutofSight&Co, you agree to these Terms & Conditions. These terms form a legally binding agreement governing all services provided.</p>
         <h3>2. SCOPE OF SERVICES</h3>
-        <p>Services include but are not limited to website development, AI chatbot implementation, and automation systems. Each project scope will be defined in a written proposal or agreement.</p>
+        <ul>
+            <li>Services include but are not limited to website development, AI chatbot implementation, and automation systems.</li>
+            <li>Each project scope will be defined in a written proposal or agreement.</li>
+        </ul>
         <h3>3. PAYMENT & FEES</h3>
-        <p>A non-refundable deposit may be required before work begins. Remaining balances must be paid as agreed. Failure to pay may result in suspension or termination of services.</p>
+        <ul>
+            <li>A non-refundable deposit may be required before work begins. Remaining balances must be paid as agreed.</li>
+            <li>Failure to pay may result in suspension or termination of services. All fees are exclusive of applicable taxes.</li>
+        </ul>
         <h3>4. REFUND POLICY</h3>
         <p>Due to the custom nature of digital services, all payments are non-refundable once work has commenced, unless otherwise agreed in writing.</p>
         <h3>5. INTELLECTUAL PROPERTY</h3>
-        <p>All intellectual property remains the property of OutofSight&Co™ until full payment is received. Upon payment, ownership transfers to the client, excluding proprietary frameworks.</p>
+        <ul>
+            <li>All intellectual property remains the property of OutofSight&Co™ until full payment is received.</li>
+            <li>Upon full payment, ownership of final deliverables transfers to the client, excluding proprietary frameworks, tools, and pre-existing assets.</li>
+        </ul>
+        <h3>6. REVISIONS & SCOPE CHANGES</h3>
+        <p>Projects include a defined number of revisions. Any work outside the agreed scope will be billed additionally at standard rates.</p>
+        <h3>7. CLIENT OBLIGATIONS</h3>
+        <ul>
+            <li>The client agrees to provide accurate information, timely approvals, and required content.</li>
+            <li>Delays caused by the client may impact delivery timelines.</li>
+        </ul>
+        <h3>8. LIMITATION OF LIABILITY</h3>
+        <p>OutofSight&Co™ shall not be liable for indirect, incidental, or consequential damages, including loss of revenue, data, or business opportunities.</p>
+        <h3>9. AI & AUTOMATION DISCLAIMER</h3>
+        <ul>
+            <li>Clients acknowledge that AI chatbot and automation systems are not guaranteed to be error-free.</li>
+            <li>OutofSight&Co is not responsible for decisions, outputs, or business outcomes resulting from AI usage.</li>
+        </ul>
+        <h3>10. DATA PROTECTION & PRIVACY</h3>
+        <p>Both parties agree to comply with applicable data protection laws, including POPIA where applicable. Sensitive data must be handled responsibly by both parties.</p>
+        <h3>11. CONFIDENTIALITY</h3>
+        <p>All confidential information shared during the project shall remain private and not disclosed to third parties without consent.</p>
+        <h3>12. TERMINATION</h3>
+        <p>Either party may terminate the agreement with written notice. All outstanding payments become immediately due upon termination.</p>
+        <h3>13. SERVICE AVAILABILITY</h3>
+        <p>OutofSight&Co™ does not guarantee uninterrupted or error-free service, particularly for third-party integrations or hosting environments.</p>
+        <h3>14. THIRD-PARTY SERVICES</h3>
+        <p>OutofSight&Co is not responsible for failures, downtime, or issues caused by third-party platforms, hosting providers, or integrations.</p>
+        <h3>15. INDEMNIFICATION</h3>
+        <p>The client agrees to indemnify and hold OutofSight&Co™ harmless from any claims, damages, or legal actions arising from the use of delivered services.</p>
+        <h3>16. GOVERNING LAW</h3>
+        <p>These Terms shall be governed by the laws of South Africa. Any disputes shall be resolved within the applicable courts of jurisdiction.</p>
+        <h3>17. AMENDMENTS</h3>
+        <ul>
+            <li>OutofSight&Co™ reserves the right to modify these Terms at any time.</li>
+            <li>Continued use of services constitutes acceptance of the updated Terms.</li>
+        </ul>
+        <h3>18. ACCEPTANCE</h3>
+        <p>By proceeding with services, the client confirms they have read, understood, and agreed to these Terms & Conditions.</p>
         <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">&copy; 2026 OutofSight&Co™ All Rights Reserved.<br>Elite Web Development | AI Chatbots | Automation Systems</p>
     </div>
 </div>
@@ -834,6 +977,24 @@
     </div>
 </div>
 <script>
+    /* =========================================
+       10. NAVIGATION CONTROLS (NEW)
+       ========================================= */
+    function toggleNavMenu() {
+        const dropdown = document.getElementById('navDropdown');
+        dropdown.classList.toggle('show');
+    }
+    // Close menu when clicking outside
+    window.onclick = function(event) {
+        if (!event.target.closest('.menu-container')) {
+            const dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (let i = 0; i < dropdowns.length; i++) {
+                if (dropdowns[i].classList.contains('show')) {
+                    dropdowns[i].classList.remove('show');
+                }
+            }
+        }
+    }
     // Country and dialing code configuration
     const africanCountries = [
         {name: 'Algeria', code: '+213'}, {name: 'Angola', code: '+244'}, {name: 'Benin', code: '+229'}, 
@@ -984,7 +1145,7 @@
     function openContactModal() { document.getElementById('contactModalOverlay').style.display = 'flex'; }
     function closeContactModal() { document.getElementById('contactModalOverlay').style.display = 'none'; }
     /* =========================================
-       10. CHATBOT FUNCTIONALITY
+       11. CHATBOT FUNCTIONALITY
        ========================================= */
     const chatWindow = document.getElementById('chat-window');
     const chatBody = document.getElementById('chat-body');
