@@ -1020,13 +1020,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projectForm = document.getElementById('regionProjectForm');
 
+    // This checks if the 'mailman' found the 'house'
     if (projectForm) {
-        projectForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        console.log("Connection Successful: Form found!");
 
+        projectForm.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Stops the page from refreshing
+            
             const formData = new FormData(projectForm);
 
             try {
+                // Sending the mail to Formspree
                 const response = await fetch('https://formspree.io/f/xjglevqk', {
                     method: 'POST',
                     body: formData,
@@ -1036,21 +1040,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert("Success! Your prices are now unlocked.");
                     
-                    // UNBLUR LOGIC
-                    const blurred = document.querySelectorAll('.price, .maintenance-tier span');
-                    blurred.forEach(el => {
-                        el.style.filter = 'none';
+                    // This unblurs the prices instantly
+                    const prices = document.querySelectorAll('.price, .maintenance-tier span');
+                    prices.forEach(p => {
+                        p.style.filter = 'none';
                     });
 
+                    // Close the popup
                     if (typeof closeRegionModal === 'function') closeRegionModal();
                     projectForm.reset();
                 } else {
-                    alert("Submission failed. Please check your Formspree settings.");
+                    alert("There was an error. Please check your Formspree account.");
                 }
             } catch (err) {
-                alert("Connection error. Please check your internet.");
+                alert("Connection error. Is your internet working?");
             }
         });
+    } else {
+        console.error("Connection Failed: JavaScript could not find the form ID.");
     }
 });
 </script>
