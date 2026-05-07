@@ -13,12 +13,12 @@
         --color-atlas: #38BDF8; /* Blue brand color */
     }
     html {
-        scroll-behavior: smooth; 
+        scroll-behavior: smooth;
     }
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #111827; 
+        background: #111827;
         color: white;
     }
     /* =========================================
@@ -39,7 +39,7 @@
             text-shadow: 0 0 5px rgba(251, 176, 59, 0.6), 0 0 10px rgba(251, 176, 59, 0.4);
         }
         20%, 22%, 24%, 55% {
-            color: #FFD700; 
+            color: #FFD700;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.9), 0 0 20px rgba(255, 215, 0, 0.7);
         }
     }
@@ -68,13 +68,10 @@
         display: flex;
         align-items: center;
     }
-    /* =========================================
-       3. NEW NAVIGATION & DROPDOWN STYLES
-       ========================================= */
+    /* Hamburger Menu Styles */
     .menu-container {
         position: relative;
     }
-    /* The Hamburger Button */
     .hamburger-btn {
         background: transparent;
         border: 2px solid rgba(255, 255, 255, 0.1);
@@ -88,7 +85,6 @@
         padding: 10px;
         transition: all 0.3s ease;
     }
-    /* Hover effect on Button */
     .hamburger-btn:hover {
         background: rgba(255, 255, 255, 0.05);
         border-color: var(--color-atlas);
@@ -106,7 +102,6 @@
     .hamburger-btn:hover span {
         background: var(--color-atlas);
     }
-    /* The Dropdown Menu */
     .dropdown-menu {
         position: absolute;
         top: calc(100% + 15px);
@@ -141,7 +136,6 @@
     .dropdown-menu a:last-child {
         border-bottom: none;
     }
-    /* Hover effect on Options */
     .dropdown-menu a:hover {
         background: linear-gradient(90deg, #2563eb, var(--color-atlas));
         color: white;
@@ -251,7 +245,7 @@
         font-weight: 700;
         margin: 10px 0 5px 0;
         color: #fff;
-        filter: blur(8px); 
+        filter: blur(8px);
         user-select: none;
     }
     .price-label {
@@ -270,10 +264,10 @@
         font-size: 13px;
         color: #d1d5db;
     }
-    .maintenance-tier span { 
-        font-weight: bold; 
-        color: white; 
-        filter: blur(5px); 
+    .maintenance-tier span {
+        font-weight: bold;
+        color: white;
+        filter: blur(5px);
         user-select: none;
     }
     .pricing-card ul {
@@ -302,12 +296,10 @@
         width: 100%;
         transition: transform 0.2s, background 0.3s;
     }
-    
     .cta-choose:hover { background: #ea580c; transform: scale(1.05); }
     .cta-choose-intl {
         background: var(--color-atlas);
     }
-    
     .cta-choose-intl:hover {
         background: #0ea5e9;
         transform: scale(1.05);
@@ -317,8 +309,8 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
     .silver { border-top: 6px solid silver; }
-    .gold { 
-        border-top: 6px solid gold; 
+    .gold {
+        border-top: 6px solid gold;
         background: linear-gradient(180deg, rgba(40,30,10,0.95), rgba(31,41,55,0.9));
     }
     .platinum { border-top: 6px solid #e5e4e2; }
@@ -413,7 +405,6 @@
     .close-modal:hover { color: white; }
     .form-group { margin-bottom: 15px; text-align: left; }
     .form-group label { display: block; font-size: 13px; color: #9ca3af; margin-bottom: 5px; }
-    
     .form-group input, .form-group select, .form-group textarea {
         width: 100%;
         padding: 12px;
@@ -424,11 +415,11 @@
         box-sizing: border-box;
     }
     .phone-input-wrapper {
-        display: flex; 
-        align-items: center; 
-        background: #111827; 
-        border: 1px solid #374151; 
-        border-radius: 6px; 
+        display: flex;
+        align-items: center;
+        background: #111827;
+        border: 1px solid #374151;
+        border-radius: 6px;
         padding: 0 12px;
         box-sizing: border-box;
         width: 100%;
@@ -483,7 +474,7 @@
     }
     #chat-widget-btn:hover {
         transform: scale(1.1);
-        background: #0ea5e9; 
+        background: #0ea5e9;
     }
     #chat-widget-btn svg {
         width: 30px;
@@ -500,7 +491,7 @@
         border-radius: 12px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.1);
-        display: none; 
+        display: none;
         flex-direction: column;
         z-index: 9999;
         overflow: hidden;
@@ -557,7 +548,7 @@
         border-bottom-left-radius: 2px;
     }
     .msg-user {
-        background: var(--color-pbody); 
+        background: var(--color-pbody);
         color: #111;
         align-self: flex-end;
         border-bottom-right-radius: 2px;
@@ -620,7 +611,7 @@
         justify-content: center;
         align-items: center;
         font-weight: bold;
-        margin-bottom: 1px; 
+        margin-bottom: 1px;
     }
 </style>
 </head>
@@ -629,8 +620,6 @@
     <div class="brand-container">
         <h1><span class="part-one">OutofSight</span><span class="part-two">&Co</span><span style="font-size: 14px; vertical-align: super; color: var(--color-atlas);">&trade;</span></h1>
     </div>
-    
-    <!-- NEW: Hamburger Menu Component -->
     <div class="menu-container">
         <button class="hamburger-btn" id="navToggleBtn" onclick="toggleNavMenu()">
             <span></span>
@@ -797,9 +786,11 @@
             <div class="form-group"><label>Email Address</label><input type="email" required></div>
             <div class="form-group"><label>Country</label><select id="countrySelect" onchange="updatePhonePrefix()" required></select></div>
             <div class="form-group"><label>Cell Number</label><div class="phone-input-wrapper"><span id="phonePrefix"></span><input type="tel" id="phoneInput" required></div></div>
-            <div class="form-group"><label>Selected Package</label><select id="packageSelect" required></select></div>
-            <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><input type="checkbox" id="customPkgCheck" style="width: auto; margin: 0; cursor: pointer;"><label for="customPkgCheck" style="margin: 0; cursor: pointer; color: white;">Request a Custom Package</label></div>
+            
+            <div class="form-group" id="packageSelectGroup"><label>Selected Package</label><select id="packageSelect" required></select></div>
+            <div class="form-group" id="customPkgCheckGroup" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><input type="checkbox" id="customPkgCheck" style="width: auto; margin: 0; cursor: pointer;"><label for="customPkgCheck" style="margin: 0; cursor: pointer; color: white;">Request a Custom Package</label></div>
             <div class="form-group" id="customNotesGroup" style="display: none;"><label>Custom Requirements</label><textarea rows="3" placeholder="Tell us about your specific needs..."></textarea></div>
+            
             <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
         </form>
     </div>
@@ -809,12 +800,16 @@
         <span class="close-modal" onclick="closePrivacyModal()">&times;</span>
         <h2>PRIVACY POLICY</h2>
         <p><strong>Last Updated: April 17, 2026</strong></p>
-        <p>At OutofSight&Co, we are your dedicated in-house and outsourced team of elite developers! We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
+        <p>At OutofSight&Co, we are your dedicated in-house and outsourced team of elite developers!
+        We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
         <h3>1. INTRODUCTION</h3>
-        <p>OutofSight&Co ("the Company," "we," "us," or "our") is committed to protecting the privacy and security of our clients' personal and business data. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information through our website, development services, AI chatbot implementations, and automation systems.</p>
+        <p>OutofSight&Co ("the Company," "we," "us," or "our") is committed to protecting the privacy and security of our clients' personal and business data.
+        This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information through our website, development services, AI chatbot implementations, and automation systems.</p>
         <p>By engaging our services, you acknowledge and agree to the terms of this Privacy Policy in conjunction with our Terms & Conditions.</p>
         <h3>2. COMPLIANCE WITH GOVERNING LAW</h3>
-        <p>This policy is governed by the laws of South Africa. We comply with the Protection of Personal Information Act (POPIA) and other applicable data protection regulations. We ensure that personal information is processed lawfully, transparently, and only for the specific purposes for which it was collected.</p>
+        <p>This policy is governed by the laws of South Africa.
+        We comply with the Protection of Personal Information Act (POPIA) and other applicable data protection regulations.
+        We ensure that personal information is processed lawfully, transparently, and only for the specific purposes for which it was collected.</p>
         <h3>3. INFORMATION WE COLLECT</h3>
         <p>We collect information necessary to provide elite development and automation services, including:</p>
         <ul>
@@ -825,7 +820,8 @@
         <h3>4. AI & AUTOMATION DATA HANDLING</h3>
         <p>As specialists in AI Chatbots and Automation, we implement systems that may process third-party end-user data. Regarding these services:</p>
         <ul>
-            <li><strong>Data Processing:</strong> OutofSight&Co acts as the "Processor" or "Operator" of data collected by the bots we build. The Client remains the "Controller" or "Responsible Party."</li>
+            <li><strong>Data Processing:</strong> OutofSight&Co acts as the "Processor" or "Operator" of data collected by the bots we build.
+            The Client remains the "Controller" or "Responsible Party."</li>
             <li><strong>System Outputs:</strong> We do not claim ownership of data generated by AI interactions between our clients and their customers.</li>
             <li><strong>Security:</strong> Our AI implementations prioritize secure API integrations and encryption to protect sensitive data flows.</li>
         </ul>
@@ -838,13 +834,15 @@
             <li>Improve our proprietary frameworks and AI tools (using anonymized or aggregated data).</li>
         </ul>
         <h3>6. CONFIDENTIALITY & DATA SHARING</h3>
-        <p>In line with our Terms & Conditions, all confidential information shared during a project shall remain private. We do not sell or lease your data to third parties. Data may only be shared with:</p>
+        <p>In line with our Terms & Conditions, all confidential information shared during a project shall remain private.
+        We do not sell or lease your data to third parties. Data may only be shared with:</p>
         <ul>
             <li>Verified third-party service providers (e.g., hosting, API services) necessary for project delivery.</li>
             <li>Legal authorities when required by law or to protect our legal rights.</li>
         </ul>
         <h3>7. DATA SECURITY</h3>
-        <p>We implement industry-standard technical and organizational measures to safeguard your data against unauthorized access, loss, or destruction. This includes secure development environments and encrypted communication channels.</p>
+        <p>We implement industry-standard technical and organizational measures to safeguard your data against unauthorized access, loss, or destruction.
+        This includes secure development environments and encrypted communication channels.</p>
         <h3>8. YOUR RIGHTS</h3>
         <p>Under POPIA and applicable international laws, you have the right to:</p>
         <ul>
@@ -865,9 +863,11 @@
         <span class="close-modal" onclick="closeTermsModal()">&times;</span>
         <h2>TERMS & CONDITIONS</h2>
         <p><strong>Last Updated: April 17, 2026</strong></p>
-        <p>At OutofSight&Co, we are your dedicated in-house and outsourced team of elite developers! We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
+        <p>At OutofSight&Co, we are your dedicated in-house and outsourced team of elite developers!
+        We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
         <h3>1. AGREEMENT</h3>
-        <p>By engaging OutofSight&Co, you agree to these Terms & Conditions. These terms form a legally binding agreement governing all services provided.</p>
+        <p>By engaging OutofSight&Co, you agree to these Terms & Conditions.
+        These terms form a legally binding agreement governing all services provided.</p>
         <h3>2. SCOPE OF SERVICES</h3>
         <ul>
             <li>Services include but are not limited to website development, AI chatbot implementation, and automation systems.</li>
@@ -900,7 +900,8 @@
             <li>OutofSight&Co is not responsible for decisions, outputs, or business outcomes resulting from AI usage.</li>
         </ul>
         <h3>10. DATA PROTECTION & PRIVACY</h3>
-        <p>Both parties agree to comply with applicable data protection laws, including POPIA where applicable. Sensitive data must be handled responsibly by both parties.</p>
+        <p>Both parties agree to comply with applicable data protection laws, including POPIA where applicable.
+        Sensitive data must be handled responsibly by both parties.</p>
         <h3>11. CONFIDENTIALITY</h3>
         <p>All confidential information shared during the project shall remain private and not disclosed to third parties without consent.</p>
         <h3>12. TERMINATION</h3>
@@ -912,7 +913,8 @@
         <h3>15. INDEMNIFICATION</h3>
         <p>The client agrees to indemnify and hold OutofSight&Co™ harmless from any claims, damages, or legal actions arising from the use of delivered services.</p>
         <h3>16. GOVERNING LAW</h3>
-        <p>These Terms shall be governed by the laws of South Africa. Any disputes shall be resolved within the applicable courts of jurisdiction.</p>
+        <p>These Terms shall be governed by the laws of South Africa.
+        Any disputes shall be resolved within the applicable courts of jurisdiction.</p>
         <h3>17. AMENDMENTS</h3>
         <ul>
             <li>OutofSight&Co™ reserves the right to modify these Terms at any time.</li>
@@ -927,7 +929,6 @@
     <div class="modal-content legal-content">
         <span class="close-modal" onclick="closeContactModal()">&times;</span>
         <h2>Contact Us</h2>
-        
         <div class="contact-card">
             <h4>Jaidon Vermeulen</h4>
             <p>Email: Jaidonvermeulen@gmail.com</p>
@@ -960,14 +961,13 @@
         <span>OutofSight AI</span>
         <span class="close-chat" onclick="toggleChat()">&times;</span>
     </div>
-    
     <div class="sticky-menu-container">
         <div class="quick-replies">
-             <button class="quick-reply-btn" onclick="sendQuickReply('ℹ️ About Us')">ℹ️ About</button>
-             <button class="quick-reply-btn" onclick="sendQuickReply('🛠️ Our Services')">🛠️ Services</button>
-             <button class="quick-reply-btn" onclick="sendQuickReply('⚙️ How It Works')">⚙️ Process</button>
-             <button class="quick-reply-btn" onclick="sendQuickReply('💳 Pricing')">💳 Pricing</button>
-             <button class="quick-reply-btn" onclick="sendQuickReply('📞 Contact Us')">📞 Contact</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('ℹ️ About Us')">ℹ️ About</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('🛠️ Our Services')">🛠️ Services</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('⚙️ How It Works')">⚙️ Process</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('💳 Pricing')">💳 Pricing</button>
+            <button class="quick-reply-btn" onclick="sendQuickReply('📞 Contact Us')">📞 Contact</button>
         </div>
     </div>
     <div class="chat-body-scroll" id="chat-body"></div>
@@ -997,23 +997,23 @@
     }
     // Country and dialing code configuration
     const africanCountries = [
-        {name: 'Algeria', code: '+213'}, {name: 'Angola', code: '+244'}, {name: 'Benin', code: '+229'}, 
-        {name: 'Botswana', code: '+267'}, {name: 'Burkina Faso', code: '+226'}, {name: 'Burundi', code: '+257'}, 
-        {name: 'Cabo Verde', code: '+238'}, {name: 'Cameroon', code: '+237'}, {name: 'Central African Republic', code: '+236'}, 
-        {name: 'Chad', code: '+235'}, {name: 'Comoros', code: '+269'}, {name: 'Congo (DRC)', code: '+243'}, 
-        {name: 'Congo (Republic)', code: '+242'}, {name: 'Côte d\'Ivoire', code: '+225'}, {name: 'Djibouti', code: '+253'}, 
-        {name: 'Egypt', code: '+20'}, {name: 'Equatorial Guinea', code: '+240'}, {name: 'Eritrea', code: '+291'}, 
-        {name: 'Eswatini', code: '+268'}, {name: 'Ethiopia', code: '+251'}, {name: 'Gabon', code: '+241'}, 
-        {name: 'Gambia', code: '+220'}, {name: 'Ghana', code: '+233'}, {name: 'Guinea', code: '+224'}, 
-        {name: 'Guinea-Bissau', code: '+245'}, {name: 'Kenya', code: '+254'}, {name: 'Lesotho', code: '+266'}, 
-        {name: 'Liberia', code: '+231'}, {name: 'Libya', code: '+218'}, {name: 'Madagascar', code: '+261'}, 
-        {name: 'Malawi', code: '+265'}, {name: 'Mali', code: '+223'}, {name: 'Mauritania', code: '+222'}, 
-        {name: 'Mauritius', code: '+230'}, {name: 'Morocco', code: '+212'}, {name: 'Mozambique', code: '+258'}, 
-        {name: 'Namibia', code: '+264'}, {name: 'Niger', code: '+227'}, {name: 'Nigeria', code: '+234'}, 
-        {name: 'Rwanda', code: '+250'}, {name: 'Sao Tome and Principe', code: '+239'}, {name: 'Senegal', code: '+221'}, 
-        {name: 'Seychelles', code: '+248'}, {name: 'Sierra Leone', code: '+232'}, {name: 'Somalia', code: '+252'}, 
-        {name: 'South Africa', code: '+27'}, {name: 'South Sudan', code: '+211'}, {name: 'Sudan', code: '+249'}, 
-        {name: 'Tanzania', code: '+255'}, {name: 'Togo', code: '+228'}, {name: 'Tunisia', code: '+216'}, 
+        {name: 'Algeria', code: '+213'}, {name: 'Angola', code: '+244'}, {name: 'Benin', code: '+229'},
+        {name: 'Botswana', code: '+267'}, {name: 'Burkina Faso', code: '+226'}, {name: 'Burundi', code: '+257'},
+        {name: 'Cabo Verde', code: '+238'}, {name: 'Cameroon', code: '+237'}, {name: 'Central African Republic', code: '+236'},
+        {name: 'Chad', code: '+235'}, {name: 'Comoros', code: '+269'}, {name: 'Congo (DRC)', code: '+243'},
+        {name: 'Congo (Republic)', code: '+242'}, {name: 'Côte d\'Ivoire', code: '+225'}, {name: 'Djibouti', code: '+253'},
+        {name: 'Egypt', code: '+20'}, {name: 'Equatorial Guinea', code: '+240'}, {name: 'Eritrea', code: '+291'},
+        {name: 'Eswatini', code: '+268'}, {name: 'Ethiopia', code: '+251'}, {name: 'Gabon', code: '+241'},
+        {name: 'Gambia', code: '+220'}, {name: 'Ghana', code: '+233'}, {name: 'Guinea', code: '+224'},
+        {name: 'Guinea-Bissau', code: '+245'}, {name: 'Kenya', code: '+254'}, {name: 'Lesotho', code: '+266'},
+        {name: 'Liberia', code: '+231'}, {name: 'Libya', code: '+218'}, {name: 'Madagascar', code: '+261'},
+        {name: 'Malawi', code: '+265'}, {name: 'Mali', code: '+223'}, {name: 'Mauritania', code: '+222'},
+        {name: 'Mauritius', code: '+230'}, {name: 'Morocco', code: '+212'}, {name: 'Mozambique', code: '+258'},
+        {name: 'Namibia', code: '+264'}, {name: 'Niger', code: '+227'}, {name: 'Nigeria', code: '+234'},
+        {name: 'Rwanda', code: '+250'}, {name: 'Sao Tome and Principe', code: '+239'}, {name: 'Senegal', code: '+221'},
+        {name: 'Seychelles', code: '+248'}, {name: 'Sierra Leone', code: '+232'}, {name: 'Somalia', code: '+252'},
+        {name: 'South Africa', code: '+27'}, {name: 'South Sudan', code: '+211'}, {name: 'Sudan', code: '+249'},
+        {name: 'Tanzania', code: '+255'}, {name: 'Togo', code: '+228'}, {name: 'Tunisia', code: '+216'},
         {name: 'Uganda', code: '+256'}, {name: 'Zambia', code: '+260'}, {name: 'Zimbabwe', code: '+263'}
     ].sort((a, b) => a.name.localeCompare(b.name));
     const internationalCountries = [
@@ -1061,45 +1061,42 @@
         {name: 'Vatican City', code: '+379'}, {name: 'Venezuela', code: '+58'}, {name: 'Vietnam', code: '+84'},
         {name: 'Yemen', code: '+967'}
     ].sort((a, b) => a.name.localeCompare(b.name));
-    
     const packageDetailsContent = {
-        'Silver': { 
-            subtitle: 'Essential features to get started.', 
+        'Silver': {
+            subtitle: 'Essential features to get started.',
             features: [
-                'Basic Landing Page Design or Website Design.', 
-                'Basic Chatbot Design.', 
-                'Essential features to get started.', 
+                'Basic Landing Page Design or Website Design.',
+                'Basic Chatbot Design.',
+                'Essential features to get started.',
                 'Read More.'
-            ], 
-            description: 'Perfect for new businesses.' 
+            ],
+            description: 'Perfect for new businesses.'
         },
-        'Gold': { 
-            subtitle: 'Advanced features for growing teams or running businesses.', 
+        'Gold': {
+            subtitle: 'Advanced features for growing teams or running businesses.',
             features: [
-                'Custom Website Design.', 
-                'AI Chatbot Design.', 
-                'Advanced features for growing teams or running businesses.', 
+                'Custom Website Design.',
+                'AI Chatbot Design.',
+                'Advanced features for growing teams or running businesses.',
                 'Read More.'
-            ], 
-            description: 'Ideal for scaling businesses.' 
+            ],
+            description: 'Ideal for scaling businesses.'
         },
-        'Platinum': { 
-            subtitle: 'Full-service package for enterprise with a Dedicated Manager.', 
+        'Platinum': {
+            subtitle: 'Full-service package for enterprise with a Dedicated Manager.',
             features: [
-                'Custom Website Design and AI Integration.', 
-                'AI Chatbot Design.', 
-                'Full-service package for enterprise with a Dedicated Manager.', 
+                'Custom Website Design and AI Integration.',
+                'AI Chatbot Design.',
+                'Full-service package for enterprise with a Dedicated Manager.',
                 'Read More.'
-            ], 
-            description: 'The ultimate solution.' 
+            ],
+            description: 'The ultimate solution.'
         }
     };
-    
     let selectedRegion = 'International';
     let selectedPackage = 'Silver';
     function openWelcomeModal() { document.getElementById('detailsModalOverlay').style.display = 'flex'; }
     function closeDetailsModal() { document.getElementById('detailsModalOverlay').style.display = 'none'; }
-    
     function openDetailsModal(region, pkg) {
         selectedRegion = region; selectedPackage = pkg;
         const content = packageDetailsContent[pkg];
@@ -1119,11 +1116,33 @@
         closeCustomPlanModal(); openRegionModal();
     }
     function continueToForm() { closeDetailsModal(); openRegionModal(); }
+    
+    // Core functional logic for modals (with contextual changes)
     function openRegionModal() {
-        document.getElementById('regionModalOverlay').style.display = 'flex';
-        document.getElementById('regionModalTitle').innerText = `${selectedRegion} Project Request`;
+        const modal = document.getElementById('regionModalOverlay');
+        const title = document.getElementById('regionModalTitle');
+        const pkgSelGroup = document.getElementById('packageSelectGroup');
+        const custCheckGroup = document.getElementById('customPkgCheckGroup');
+        const custNotesGroup = document.getElementById('customNotesGroup');
+        const pkgSel = document.getElementById('packageSelect'); // Target the select itself, not group
+
+        modal.style.display = 'flex';
+        title.innerText = `${selectedRegion} Project Request`;
+
         updateCountryList();
+        
+        // Contextual logic for form flow
+        if (selectedPackage === 'Custom') {
+            pkgSelGroup.style.display = 'block';
+            custCheckGroup.style.display = 'flex';
+            custNotesGroup.style.display = 'block';
+        } else {
+            pkgSelGroup.style.display = 'none';
+            custCheckGroup.style.display = 'none';
+            custNotesGroup.style.display = 'none';
+        }
     }
+    
     function updateCountryList() {
         const sel = document.getElementById('countrySelect'); sel.innerHTML = '';
         let list = (selectedRegion === 'Africa') ? africanCountries : internationalCountries;
@@ -1156,9 +1175,9 @@
         if (isChatOpen) {
             chatWindow.style.display = 'flex';
             if(chatBody.innerHTML.trim() === '') {
-                 setTimeout(() => {
-                     triggerBotMessage("Hey! 👋 I'm Jess, the OutofSight bot. Want to see how we can automate your customer service? 🚀");
-                 }, 300);
+                setTimeout(() => {
+                    triggerBotMessage("Hey! 👋 I'm Jess, the OutofSight bot. Want to see how we can automate your customer service? 🚀");
+                }, 300);
             }
         } else {
             chatWindow.style.display = 'none';
@@ -1166,7 +1185,7 @@
     }
     function handleKeydown(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault(); 
+            e.preventDefault();
             sendMessage();
         }
     }
@@ -1178,7 +1197,7 @@
         sendMessage();
     }
     function escapeHTML(str) {
-        return str.replace(/[&<>'"]/g, 
+        return str.replace(/[&<>'"]/g,
             tag => ({
                 '&': '&amp;',
                 '<': '&lt;',
@@ -1200,17 +1219,16 @@
         if (!rawText) return;
         const userDiv = document.createElement('div');
         userDiv.className = 'chat-msg msg-user';
-        userDiv.innerHTML = escapeHTML(rawText).replace(/\n/g, '<br>'); 
+        userDiv.innerHTML = escapeHTML(rawText).replace(/\n/g, '<br>');
         chatBody.appendChild(userDiv);
-        
-        chatInput.value = ''; 
+        chatInput.value = '';
         scrollToBottom();
         setTimeout(() => {
             const lowerText = rawText.toLowerCase();
             let replyText = "";
             if (lowerText.match(/^(hello|hallo|hi|hey|howdy)/)) {
                 replyText = "Hey! 👋 I'm Jess, the OutofSight bot. Want to see how OutofSight can automate your customer service? ✨";
-            } 
+            }
             else if (lowerText.match(/about|who are you|story/)) {
                 replyText = "At OutofSight&Co, we are your dedicated outsourced team of elite developers! 🌍 We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation. 💡";
             }
@@ -1220,17 +1238,17 @@
             else if (lowerText.match(/complaint|log complaint|issue|unhappy|complain/)) {
                 replyText = "I am so sorry to hear that. 😔 Please email us directly at <b>Support@oosco.com</b> with the subject 'URGENT: Complaint' so we can investigate immediately.<br><br>If you prefer to speak with someone, you can reach the <b>OOS Team - 0781200888</b>. 📞<br><br>" +
                 `<div class="quick-replies" id="dynamic-replies" style="margin-top:10px;">
-                    <a href="mailto:Support@oosco.com?subject=URGENT:%20Complaint" style="text-decoration:none; width:100%;"><button class="quick-reply-btn" style="width:100%;">✉️ Email Support Now</button></a>
+                <a href="mailto:Support@oosco.com?subject=URGENT:%20Complaint" style="text-decoration:none; width:100%;"><button class="quick-reply-btn" style="width:100%;">✉️ Email Support Now</button></a>
                 </div>`;
             }
             else if (lowerText.includes('what do you do') || lowerText.includes('services')) {
-                 replyText = "We build lightning-fast Websites 🌐, create AI Chatbots 🤖 (like me!), and set up Automation systems ⚡ to help your business run smoothly.";
+                replyText = "We build lightning-fast Websites 🌐, create AI Chatbots 🤖 (like me!), and set up Automation systems ⚡ to help your business run smoothly.";
             }
             else if (lowerText.includes('how does it work') || lowerText.includes('process')) {
-                 replyText = "It's simple! ✨<br><br>🗣️ 1. Tell us what you need.<br>🤝 2. We match you with the right developers.<br>🚀 3. We manage the project and deliver the final result.";
+                replyText = "It's simple! ✨<br><br>🗣️ 1. Tell us what you need.<br>🤝 2. We match you with the right developers.<br>🚀 3. We manage the project and deliver the final result.";
             }
             else if (lowerText.includes('price') || lowerText.includes('pricing')) {
-                 replyText = "Our packages are once-off. Packages Include:<br><br>🥈 Silver <br>🥇 Gold <br>💎 Platinum<br>☑️ Custom <br><br>We also offer low monthly maintenance plans for all our packages 🚀";
+                replyText = "Our packages are once-off. Packages Include:<br><br>🥈 Silver <br>🥇 Gold <br>💎 Platinum<br>☑️ Custom <br><br>We also offer low monthly maintenance plans for all our packages 🚀";
             }
             else {
                 replyText = "I'm here to help you scale! 🚀 Let me know if you need info on our web dev, bots, pricing, or if you just want to get in touch. 📞";
@@ -1245,3 +1263,4 @@
     <script src="main.js"></script>
 </body>
 </html>
+
