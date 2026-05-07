@@ -778,21 +778,53 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeRegionModal()">&times;</span>
         <h3 id="regionModalTitle" style="color: #38bdf8; margin-top: 0;">Project Request</h3>
-        <form id="regionProjectForm">
-            <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Name</label><input type="text" required></div>
-                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Surname</label><input type="text" required></div>
-            </div>
-            <div class="form-group"><label>Email Address</label><input type="email" required></div>
-            <div class="form-group"><label>Country</label><select id="countrySelect" onchange="updatePhonePrefix()" required></select></div>
-            <div class="form-group"><label>Cell Number</label><div class="phone-input-wrapper"><span id="phonePrefix"></span><input type="tel" id="phoneInput" required></div></div>
-            
-            <div class="form-group" id="packageSelectGroup"><label>Selected Package</label><select id="packageSelect" required></select></div>
-            <div class="form-group" id="customPkgCheckGroup" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;"><input type="checkbox" id="customPkgCheck" style="width: auto; margin: 0; cursor: pointer;"><label for="customPkgCheck" style="margin: 0; cursor: pointer; color: white;">Request a Custom Package</label></div>
-            <div class="form-group" id="customNotesGroup" style="display: none;"><label>Custom Requirements</label><textarea rows="3" placeholder="Tell us about your specific needs..."></textarea></div>
-            
-            <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
-        </form>
+     <form id="regionProjectForm">
+    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+        <div class="form-group" style="margin-bottom: 0; flex: 1;">
+            <label>Name</label>
+            <input type="text" name="first_name" required>
+        </div>
+        <div class="form-group" style="margin-bottom: 0; flex: 1;">
+            <label>Surname</label>
+            <input type="text" name="last_name" required>
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" required>
+    </div>
+
+    <div class="form-group">
+        <label>Country</label>
+        <select id="countrySelect" name="country" onchange="updatePhonePrefix()" required></select>
+    </div>
+
+    <div class="form-group">
+        <label>Cell Number</label>
+        <div class="phone-input-wrapper">
+            <span id="phonePrefix"></span>
+            <input type="tel" id="phoneInput" name="phone" required>
+        </div>
+    </div>
+    
+    <div class="form-group" id="packageSelectGroup">
+        <label>Selected Package</label>
+        <select id="packageSelect" name="package_type" required></select>
+    </div>
+
+    <div class="form-group" id="customPkgCheckGroup" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+        <input type="checkbox" id="customPkgCheck" name="custom_package_toggle" style="width: auto; margin: 0; cursor: pointer;">
+        <label for="customPkgCheck" style="margin: 0; cursor: pointer; color: white;">Request a Custom Package</label>
+    </div>
+
+    <div class="form-group" id="customNotesGroup" style="display: none;">
+        <label>Custom Requirements</label>
+        <textarea name="requirements" rows="3" placeholder="Tell us about your specific needs..."></textarea>
+    </div>
+    
+    <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
+</form>
     </div>
 </div>
 <div class="modal-overlay" id="privacyModalOverlay">
@@ -1259,8 +1291,50 @@
     function scrollToBottom() {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
+    document.addEventListener('DOMContentLoaded', () => {
+    const projectForm = document.getElementById('regionProjectForm');
+
+    if (projectForm) {
+        projectForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log("Submit button detected!");
+
+            // 1. Gather the data
+            const formData = new FormData(projectForm);
+
+            try {
+                // 2. Send to Formspree
+                const response = await fetch('https://formspree.io/f/xjglevqk', {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert("Order Sent Successfully! Both you and your friend will get an email.");
+                    
+                    // 3. THE UNBLUR (Targets your specific prices)
+                    const prices = document.querySelectorAll('.price, .maintenance-tier span');
+                    prices.forEach(p => {
+                        p.style.filter = 'none';
+                    });
+
+                    closeRegionModal();
+                    projectForm.reset();
+                } else {
+                    alert("Formspree error. Check if your form is active.");
+                }
+            } catch (err) {
+                alert("Connection error. Check your internet.");
+            }
+        });
+    } else {
+        console.error("Form with ID 'regionProjectForm' not found!");
+    }
+});
+
+    
 </script>
     <script src="main.js"></script>
 </body>
 </html>
-
