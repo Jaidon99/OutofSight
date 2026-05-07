@@ -1207,21 +1207,20 @@ switchView('orders'); // Starting on Orders page as per screenshot
 // 1. THIS PULLS DATA FROM YOUR DATABASE
 async function fetchOrdersFromBackend() {
     try {
-        // REPLACE THE URL BELOW WITH YOUR FORWARDED ADDRESS LINK
-        const response = await fetch('https://pjxft3mf-5000.inc1.devtunnels.ms/get_orders');
+        // Point this to the same 'middleman' where your main site sends orders
+        const response = await fetch('YOUR_MIDDLEMAN_URL/get_orders');
         const data = await response.json();
         
-        // This updates the local 'orders' list in your dashboard
+        // This updates your 'Total Orders' and 'Revenue' automatically
         orders = data; 
-        renderAll(); // Refreshes the screen with new data
+        renderAll(); 
     } catch (error) {
-        console.error("Dashboard couldn't reach the brain:", error);
+        console.error("Dashboard couldn't reach the database.");
     }
 }
 
-// 2. THIS MAKES THE DASHBOARD REFRESH EVERY 5 SECONDS
-// So you don't have to hit refresh to see new orders!
-setInterval(fetchOrdersFromBackend, 5000);
+// This keeps the dashboard live!
+setInterval(fetchOrdersFromBackend, 10000); // Checks for new orders every 10 seconds
 
 // 3. INITIAL LOAD
 window.onload = () => {
