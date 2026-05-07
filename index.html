@@ -270,15 +270,6 @@
         filter: blur(5px);
         user-select: none;
     }
-    .pricing-card ul {
-        list-style: disc;
-        padding: 0 0 0 24px;
-        margin: 0 0 18px 0;
-        color: #cbd5e1;
-        font-size: 14px;
-        line-height: 1.6;
-        text-align: left;
-    }
     .button-group {
         display: flex;
         flex-direction: column;
@@ -683,12 +674,6 @@
             <div class="price">$800 - $1,500</div>
             <div class="price-label">Once-off</div>
             <div class="maintenance-tier">Maintenance: <span>$80 - $150 /mo</span></div>
-            <ul>
-                <li>Basic Landing Page Design or Website Design.</li>
-                <li>Basic Chatbot Design.</li>
-                <li>Essential features to get started.</li>
-                <li>Read More.</li>
-            </ul>
             <div class="button-group">
                 <button class="cta-choose" onclick="openDetailsModal('Africa', 'Silver')">Africa</button>
                 <button class="cta-choose cta-choose-intl" onclick="openDetailsModal('International', 'Silver')">International</button>
@@ -701,12 +686,6 @@
             <div class="price">$1,500 - $3,000</div>
             <div class="price-label">Once-off</div>
             <div class="maintenance-tier">Maintenance: <span>$150 - $200 /mo</span></div>
-            <ul>
-                <li>Custom Website Design.</li>
-                <li>AI Chatbot Design.</li>
-                <li>Advanced features for growing teams or running businesses.</li>
-                <li>Read More.</li>
-            </ul>
             <div class="button-group">
                 <button class="cta-choose" onclick="openDetailsModal('Africa', 'Gold')">Africa</button>
                 <button class="cta-choose cta-choose-intl" onclick="openDetailsModal('International', 'Gold')">International</button>
@@ -719,12 +698,6 @@
             <div class="price">$3,000+</div>
             <div class="price-label">Once-off</div>
             <div class="maintenance-tier">Maintenance: <span>$250 /mo</span></div>
-            <ul>
-                <li>Custom Website Design and AI Integration.</li>
-                <li>AI Chatbot Design.</li>
-                <li>Full-service package for enterprise with a Dedicated Manager.</li>
-                <li>Read More.</li>
-            </ul>
             <div class="button-group">
                 <button class="cta-choose" onclick="openDetailsModal('Africa', 'Platinum')">Africa</button>
                 <button class="cta-choose cta-choose-intl" onclick="openDetailsModal('International', 'Platinum')">International</button>
@@ -778,61 +751,19 @@
     <div class="modal-content">
         <span class="close-modal" onclick="closeRegionModal()">&times;</span>
         <h3 id="regionModalTitle" style="color: #38bdf8; margin-top: 0;">Project Request</h3>
-   <form id="regionProjectForm">
-    <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-        <div class="form-group" style="margin-bottom: 0; flex: 1;">
-            <label>Name</label>
-            <input type="text" name="first_name" required>
-        </div>
-        <div class="form-group" style="margin-bottom: 0; flex: 1;">
-            <label>Surname</label>
-            <input type="text" name="last_name" required>
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="email" required>
-    </div>
-
-    <div class="form-group">
-        <label>Country</label>
-        <select id="countrySelect" name="country" required>
-            <option value="South Africa">South Africa</option>
-            <option value="International">International</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label>Cell Number</label>
-        <div class="phone-input-wrapper">
-            <span id="phonePrefix"></span>
-            <input type="tel" name="phone" id="phoneInput" required>
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <label>Selected Package</label>
-        <select id="packageSelect" name="package_type" required>
-            <option value="Silver">Silver Package</option>
-            <option value="Gold">Gold Package</option>
-            <option value="Platinum">Platinum Package</option>
-            <option value="Custom">Custom Package</option>
-        </select>
-    </div>
-
-    <div class="form-group" style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-        <input type="checkbox" id="customPkgCheck" name="custom_toggle">
-        <label for="customPkgCheck" style="color: white;">Request a Custom Package</label>
-    </div>
-
-    <div class="form-group" id="customNotesGroup">
-        <label>Custom Requirements</label>
-        <textarea name="requirements" rows="3" placeholder="Tell us about your specific needs..."></textarea>
-    </div>
-    
-    <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
-</form>
+        <form id="regionProjectForm">
+            <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Name</label><input type="text" required></div>
+                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Surname</label><input type="text" required></div>
+            </div>
+            <div class="form-group"><label>Email Address</label><input type="email" required></div>
+            <div class="form-group"><label>Country</label><select id="countrySelect" onchange="updatePhonePrefix()" required></select></div>
+            <div class="form-group"><label>Cell Number</label><div class="phone-input-wrapper"><span id="phonePrefix"></span><input type="tel" id="phoneInput" required></div></div>
+            
+            <div class="form-group" id="customNotesGroup" style="display: none;"><label>Custom Requirements</label><textarea rows="3" placeholder="Tell us about your specific needs..."></textarea></div>
+            
+            <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
+        </form>
     </div>
 </div>
 <div class="modal-overlay" id="privacyModalOverlay">
@@ -892,7 +823,7 @@
         </ul>
         <h3>9. CONTACT US</h3>
         <p>For any questions regarding this Privacy Policy or your data, please contact our support team:</p>
-        <p><strong>Email:</strong> Support@oosco.com<br>
+        <p><strong>Email:</strong> Jaidon Vermeulen & Ronaldo Austin (Support@oosco.com)<br>
         <strong>Phone:</strong> 0781200888<br>
         <strong>Address:</strong> South Africa</p>
         <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">&copy; 2026 OutofSight&Co™ All Rights Reserved.<br>Elite Web Development | AI Chatbots | Automation Systems</p>
@@ -1105,10 +1036,10 @@
         'Silver': {
             subtitle: 'Essential features to get started.',
             features: [
-                'Basic Landing Page Design or Website Design.',
+                'Basic Landing Page Design.',
+                'Basic Website Design.',
                 'Basic Chatbot Design.',
-                'Essential features to get started.',
-                'Read More.'
+                'Essential features to get started.'
             ],
             description: 'Perfect for new businesses.'
         },
@@ -1118,7 +1049,8 @@
                 'Custom Website Design.',
                 'AI Chatbot Design.',
                 'Advanced features for growing teams or running businesses.',
-                'Read More.'
+                'All options included in the Silver Package come as standard in the Gold Package.',
+                'Priority support.'
             ],
             description: 'Ideal for scaling businesses.'
         },
@@ -1126,9 +1058,9 @@
             subtitle: 'Full-service package for enterprise with a Dedicated Manager.',
             features: [
                 'Custom Website Design and AI Integration.',
-                'AI Chatbot Design.',
+                'Full OOS AI Chatbot Design Package.',
                 'Full-service package for enterprise with a Dedicated Manager.',
-                'Read More.'
+                'All options included in the Gold Package come as standard in the Platinum Package.'
             ],
             description: 'The ultimate solution.'
         }
@@ -1161,24 +1093,16 @@
     function openRegionModal() {
         const modal = document.getElementById('regionModalOverlay');
         const title = document.getElementById('regionModalTitle');
-        const pkgSelGroup = document.getElementById('packageSelectGroup');
-        const custCheckGroup = document.getElementById('customPkgCheckGroup');
         const custNotesGroup = document.getElementById('customNotesGroup');
-        const pkgSel = document.getElementById('packageSelect'); // Target the select itself, not group
-
+        
         modal.style.display = 'flex';
         title.innerText = `${selectedRegion} Project Request`;
-
         updateCountryList();
-        
+
         // Contextual logic for form flow
         if (selectedPackage === 'Custom') {
-            pkgSelGroup.style.display = 'block';
-            custCheckGroup.style.display = 'flex';
             custNotesGroup.style.display = 'block';
         } else {
-            pkgSelGroup.style.display = 'none';
-            custCheckGroup.style.display = 'none';
             custNotesGroup.style.display = 'none';
         }
     }
@@ -1299,87 +1223,6 @@
     function scrollToBottom() {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
-    document.addEventListener('DOMContentLoaded', () => {
-    const projectForm = document.getElementById('regionProjectForm');
-
-    if (projectForm) {
-        projectForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            console.log("Submit button detected!");
-
-            // 1. Gather the data
-            const formData = new FormData(projectForm);
-
-            try {
-                // 2. Send to Formspree
-                const response = await fetch('https://formspree.io/f/xjglevqk', {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert("Order Sent Successfully! Both you and your friend will get an email.");
-                    
-                    // 3. THE UNBLUR (Targets your specific prices)
-                    const prices = document.querySelectorAll('.price, .maintenance-tier span');
-                    prices.forEach(p => {
-                        p.style.filter = 'none';
-                    });
-
-                    closeRegionModal();
-                    projectForm.reset();
-                } else {
-                    alert("Formspree error. Check if your form is active.");
-                }
-            } catch (err) {
-                alert("Connection error. Check your internet.");
-            }
-        });
-    } else {
-        console.error("Form with ID 'regionProjectForm' not found!");
-    }
-});
-
-    
-</script>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const projectForm = document.getElementById('regionProjectForm');
-
-    if (projectForm) {
-        projectForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const formData = new FormData(projectForm);
-
-            try {
-                const response = await fetch('https://formspree.io/f/xjglevqk', {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    alert("Success! Check your email. Your prices are now unlocked.");
-                    
-                    // The Unblur Logic
-                    const prices = document.querySelectorAll('.price, .maintenance-tier span');
-                    prices.forEach(p => {
-                        p.style.filter = 'none';
-                    });
-
-                    if (typeof closeRegionModal === 'function') closeRegionModal();
-                    projectForm.reset();
-                } else {
-                    alert("Formspree error. Please try again.");
-                }
-            } catch (err) {
-                alert("Connection error. Is your internet working?");
-            }
-        });
-    }
-});
 </script>
 </body>
 </html>
