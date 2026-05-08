@@ -9,8 +9,8 @@
        1. GLOBAL VARIABLES & BASE STYLES
        ========================================= */
     :root {
-        --color-pbody: #FBB03B; /* Orange brand color */
-        --color-atlas: #38BDF8; /* Blue brand color */
+        --color-pbody: #FBB03B;
+        --color-atlas: #38BDF8;
     }
     html {
         scroll-behavior: smooth;
@@ -68,7 +68,6 @@
         display: flex;
         align-items: center;
     }
-    /* Hamburger Menu Styles */
     .menu-container {
         position: relative;
     }
@@ -139,7 +138,7 @@
     .dropdown-menu a:hover {
         background: linear-gradient(90deg, #2563eb, var(--color-atlas));
         color: white;
-        padding-left: 32px; /* Slight slide effect */
+        padding-left: 32px;
     }
     /* =========================================
        4. HERO SECTION & BUTTONS
@@ -424,7 +423,6 @@
         background: #1f2937 !important;
         border-radius: 15px;
     }
-    /* Legal & Contact Modal Styles */
     .legal-content {
         text-align: left;
         line-height: 1.6;
@@ -626,11 +624,13 @@
         </div>
     </div>
 </header>
+
 <section class="hero" id="home">
     <h2>We Connect Businesses With <span>Developers</span></h2>
     <p>Your outsourced team for websites & chatbot automation</p>
     <button class="btn" onclick="openWelcomeModal()">Start Project</button>
 </section>
+
 <section class="section" id="services">
     <h2>Our Services</h2>
     <div class="cards">
@@ -648,6 +648,7 @@
         </div>
     </div>
 </section>
+
 <section class="section" id="process">
     <h2>How It Works</h2>
     <div class="cards">
@@ -665,6 +666,7 @@
         </div>
     </div>
 </section>
+
 <section class="section" id="pricing">
     <h2>Our Pricing</h2>
     <div class="cards pricing-cards">
@@ -705,24 +707,42 @@
         </div>
     </div>
 </section>
+
 <section class="cta" id="contact">
     <h2>Ready to Build?</h2>
-    <p>Let’s create your website or chatbot today.</p>
+    <p>Let's create your website or chatbot today.</p>
     <button class="btn" onclick="openCustomPlanModal()">Create Custom Plan</button>
 </section>
-<div class="modal-overlay" id="detailsModalOverlay">
+
+<!-- Welcome Modal (triggered by Start Project button) -->
+<div class="modal-overlay" id="welcomeModalOverlay">
     <div class="modal-content">
-        <span class="close-modal" onclick="closeDetailsModal()">&times;</span>
-        <h3 id="detailsModalTitle" style="color: #38bdf8; margin-top: 0; font-size: 22px;">Welcome to OutofSight&Co!</h3>
-        <p id="detailsSubtitle" style="font-weight: bold; margin-top: 15px; margin-bottom: 10px;">At OutofSight&Co, we are your dedicated team of elite developers! 🌍</p>
-        <ul id="detailsFeatures" style="list-style-type: disc; padding-left: 20px; color: #d1d5db; line-height: 1.8; margin-bottom: 20px;"></ul>
-        <p id="detailsDescription" style="color: #d1d5db; line-height: 1.6; margin-bottom: 30px; font-size: 15px;">We build lightning-fast Websites, create AI chatbots, just like Jess 👋; and set up Automation systems to help your business run smoothly.</p>
+        <span class="close-modal" onclick="closeWelcomeModal()">&times;</span>
+        <h3 style="color: #38bdf8; margin-top: 0; font-size: 22px;">Welcome to OutofSight&Co!</h3>
+        <p style="font-weight: bold; margin-top: 15px; margin-bottom: 10px;">At OutofSight&Co, we are your dedicated team of elite developers! 🌍</p>
+        <p style="color: #d1d5db; line-height: 1.6; margin-bottom: 30px; font-size: 15px;">We build lightning-fast Websites, create AI chatbots, just like Jess 👋; and set up Automation systems to help your business run smoothly.</p>
         <div style="display: flex; gap: 15px;">
-            <button class="btn-secondary" style="flex: 1;" onclick="closeDetailsModal()">Back</button>
-            <button class="btn" style="flex: 2;" id="welcomeActionBtn" onclick="closeDetailsModal()">Awesome, let's go!</button>
+            <button class="btn-secondary" style="flex: 1;" onclick="closeWelcomeModal()">Back</button>
+            <button class="btn" style="flex: 2;" onclick="closeWelcomeModal()">Awesome, let's go!</button>
         </div>
     </div>
 </div>
+
+<!-- Package Details Modal -->
+<div class="modal-overlay" id="detailsModalOverlay">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeDetailsModal()">&times;</span>
+        <h3 id="detailsModalTitle" style="color: #38bdf8; margin-top: 0; font-size: 22px;">Package Details</h3>
+        <p id="detailsSubtitle" style="font-weight: bold; margin-top: 15px; margin-bottom: 10px;"></p>
+        <ul id="detailsFeatures" style="list-style-type: disc; padding-left: 20px; color: #d1d5db; line-height: 1.8; margin-bottom: 20px;"></ul>
+        <p id="detailsDescription" style="color: #d1d5db; line-height: 1.6; margin-bottom: 30px; font-size: 15px;"></p>
+        <div style="display: flex; gap: 15px;">
+            <button class="btn-secondary" style="flex: 1;" onclick="closeDetailsModal()">Back</button>
+            <button class="btn" style="flex: 2;" id="welcomeActionBtn" onclick="continueToForm()">Awesome, let's go!</button>
+        </div>
+    </div>
+</div>
+
 <div class="modal-overlay" id="customPlanModalOverlay">
     <div class="modal-content full-page-modal">
         <span class="close-modal" onclick="closeCustomPlanModal()">&times;</span>
@@ -747,6 +767,7 @@
         </div>
     </div>
 </div>
+
 <div class="modal-overlay" id="regionModalOverlay">
     <div class="modal-content">
         <span class="close-modal" onclick="closeRegionModal()">&times;</span>
@@ -766,6 +787,7 @@
         </form>
     </div>
 </div>
+
 <div class="modal-overlay" id="privacyModalOverlay">
     <div class="modal-content legal-content">
         <span class="close-modal" onclick="closePrivacyModal()">&times;</span>
@@ -829,6 +851,7 @@
         <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">&copy; 2026 OutofSight&Co™ All Rights Reserved.<br>Elite Web Development | AI Chatbots | Automation Systems</p>
     </div>
 </div>
+
 <div class="modal-overlay" id="termsModalOverlay">
     <div class="modal-content legal-content">
         <span class="close-modal" onclick="closeTermsModal()">&times;</span>
@@ -896,6 +919,7 @@
         <p style="margin-top: 20px; font-size: 12px; color: #9ca3af;">&copy; 2026 OutofSight&Co™ All Rights Reserved.<br>Elite Web Development | AI Chatbots | Automation Systems</p>
     </div>
 </div>
+
 <div class="modal-overlay" id="contactModalOverlay">
     <div class="modal-content legal-content">
         <span class="close-modal" onclick="closeContactModal()">&times;</span>
@@ -912,6 +936,7 @@
         </div>
     </div>
 </div>
+
 <footer>
     <div class="footer-links">
         <a onclick="openPrivacyModal()">Privacy Policy</a>
@@ -922,11 +947,13 @@
         © 2026 OutofSight&Co&trade; — All Rights Reserved.
     </div>
 </footer>
+
 <div id="chat-widget-btn" onclick="toggleChat()">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/>
     </svg>
 </div>
+
 <div id="chat-window">
     <div class="chat-header">
         <span>OutofSight AI</span>
@@ -947,15 +974,13 @@
         <button onclick="sendMessage()">➤</button>
     </div>
 </div>
+
 <script>
-    /* =========================================
-       10. NAVIGATION CONTROLS (NEW)
-       ========================================= */
     function toggleNavMenu() {
         const dropdown = document.getElementById('navDropdown');
         dropdown.classList.toggle('show');
     }
-    // Close menu when clicking outside
+
     window.onclick = function(event) {
         if (!event.target.closest('.menu-container')) {
             const dropdowns = document.getElementsByClassName("dropdown-menu");
@@ -966,7 +991,7 @@
             }
         }
     }
-    // Country and dialing code configuration
+
     const africanCountries = [
         {name: 'Algeria', code: '+213'}, {name: 'Angola', code: '+244'}, {name: 'Benin', code: '+229'},
         {name: 'Botswana', code: '+267'}, {name: 'Burkina Faso', code: '+226'}, {name: 'Burundi', code: '+257'},
@@ -987,6 +1012,7 @@
         {name: 'Tanzania', code: '+255'}, {name: 'Togo', code: '+228'}, {name: 'Tunisia', code: '+216'},
         {name: 'Uganda', code: '+256'}, {name: 'Zambia', code: '+260'}, {name: 'Zimbabwe', code: '+263'}
     ].sort((a, b) => a.name.localeCompare(b.name));
+
     const internationalCountries = [
         {name: 'Afghanistan', code: '+93'}, {name: 'Albania', code: '+355'}, {name: 'Andorra', code: '+376'},
         {name: 'Antigua and Barbuda', code: '+1'}, {name: 'Argentina', code: '+54'}, {name: 'Armenia', code: '+374'},
@@ -1032,6 +1058,7 @@
         {name: 'Vatican City', code: '+379'}, {name: 'Venezuela', code: '+58'}, {name: 'Vietnam', code: '+84'},
         {name: 'Yemen', code: '+967'}
     ].sort((a, b) => a.name.localeCompare(b.name));
+
     const packageDetailsContent = {
         'Silver': {
             subtitle: 'Essential features to get started.',
@@ -1065,31 +1092,61 @@
             description: 'The ultimate solution.'
         }
     };
+
     let selectedRegion = 'International';
     let selectedPackage = 'Silver';
-    function openWelcomeModal() { document.getElementById('detailsModalOverlay').style.display = 'flex'; }
-    function closeDetailsModal() { document.getElementById('detailsModalOverlay').style.display = 'none'; }
+
+    // NEW: Welcome Modal Functions
+    function openWelcomeModal() { 
+        document.getElementById('welcomeModalOverlay').style.display = 'flex'; 
+    }
+    
+    function closeWelcomeModal() { 
+        document.getElementById('welcomeModalOverlay').style.display = 'none'; 
+    }
+
+    // Package Details Modal Functions
     function openDetailsModal(region, pkg) {
-        selectedRegion = region; selectedPackage = pkg;
+        selectedRegion = region; 
+        selectedPackage = pkg;
         const content = packageDetailsContent[pkg];
         document.getElementById('detailsModalTitle').innerText = `${pkg} Package (${region})`;
         document.getElementById('detailsSubtitle').innerText = content.subtitle;
         document.getElementById('detailsDescription').innerText = content.description;
         const list = document.getElementById('detailsFeatures');
         list.innerHTML = '';
-        content.features.forEach(f => { const li = document.createElement('li'); li.innerText = f; list.appendChild(li); });
-        document.getElementById('welcomeActionBtn').onclick = continueToForm;
+        content.features.forEach(f => { 
+            const li = document.createElement('li'); 
+            li.innerText = f; 
+            list.appendChild(li); 
+        });
         document.getElementById('detailsModalOverlay').style.display = 'flex';
     }
-    function openCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'flex'; }
-    function closeCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'none'; }
-    function openFinalForm(region) {
-        selectedRegion = region; selectedPackage = 'Custom';
-        closeCustomPlanModal(); openRegionModal();
+
+    function closeDetailsModal() { 
+        document.getElementById('detailsModalOverlay').style.display = 'none'; 
     }
-    function continueToForm() { closeDetailsModal(); openRegionModal(); }
+
+    function openCustomPlanModal() { 
+        document.getElementById('customPlanModalOverlay').style.display = 'flex'; 
+    }
     
-    // Core functional logic for modals (with contextual changes)
+    function closeCustomPlanModal() { 
+        document.getElementById('customPlanModalOverlay').style.display = 'none'; 
+    }
+
+    function openFinalForm(region) {
+        selectedRegion = region; 
+        selectedPackage = 'Custom';
+        closeCustomPlanModal(); 
+        openRegionModal();
+    }
+
+    function continueToForm() { 
+        closeDetailsModal(); 
+        openRegionModal(); 
+    }
+    
     function openRegionModal() {
         const modal = document.getElementById('regionModalOverlay');
         const title = document.getElementById('regionModalTitle');
@@ -1098,8 +1155,7 @@
         modal.style.display = 'flex';
         title.innerText = `${selectedRegion} Project Request`;
         updateCountryList();
-
-        // Contextual logic for form flow
+        
         if (selectedPackage === 'Custom') {
             custNotesGroup.style.display = 'block';
         } else {
@@ -1108,32 +1164,60 @@
     }
     
     function updateCountryList() {
-        const sel = document.getElementById('countrySelect'); sel.innerHTML = '';
+        const sel = document.getElementById('countrySelect'); 
+        sel.innerHTML = '';
         let list = (selectedRegion === 'Africa') ? africanCountries : internationalCountries;
-        list.forEach(c => { const opt = document.createElement('option'); opt.value = c.name; opt.innerText = c.name; opt.setAttribute('data-code', c.code); sel.appendChild(opt); });
+        list.forEach(c => { 
+            const opt = document.createElement('option'); 
+            opt.value = c.name; 
+            opt.innerText = c.name; 
+            opt.setAttribute('data-code', c.code); 
+            sel.appendChild(opt); 
+        });
         updatePhonePrefix();
     }
+    
     function updatePhonePrefix() {
         const sel = document.getElementById('countrySelect');
         const prefix = document.getElementById('phonePrefix');
         const opt = sel.options[sel.selectedIndex];
         if (opt) prefix.innerText = opt.getAttribute('data-code');
     }
-    function closeRegionModal() { document.getElementById('regionModalOverlay').style.display = 'none'; }
-    /* Legal & Contact Controls */
-    function openPrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'flex'; }
-    function closePrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'none'; }
-    function openTermsModal() { document.getElementById('termsModalOverlay').style.display = 'flex'; }
-    function closeTermsModal() { document.getElementById('termsModalOverlay').style.display = 'none'; }
-    function openContactModal() { document.getElementById('contactModalOverlay').style.display = 'flex'; }
-    function closeContactModal() { document.getElementById('contactModalOverlay').style.display = 'none'; }
-    /* =========================================
-       11. CHATBOT FUNCTIONALITY
-       ========================================= */
+    
+    function closeRegionModal() { 
+        document.getElementById('regionModalOverlay').style.display = 'none'; 
+    }
+
+    function openPrivacyModal() { 
+        document.getElementById('privacyModalOverlay').style.display = 'flex'; 
+    }
+    
+    function closePrivacyModal() { 
+        document.getElementById('privacyModalOverlay').style.display = 'none'; 
+    }
+    
+    function openTermsModal() { 
+        document.getElementById('termsModalOverlay').style.display = 'flex'; 
+    }
+    
+    function closeTermsModal() { 
+        document.getElementById('termsModalOverlay').style.display = 'none'; 
+    }
+    
+    function openContactModal() { 
+        document.getElementById('contactModalOverlay').style.display = 'flex'; 
+    }
+    
+    function closeContactModal() { 
+        document.getElementById('contactModalOverlay').style.display = 'none'; 
+    }
+
+    // CHATBOT FUNCTIONALITY
     const chatWindow = document.getElementById('chat-window');
     const chatBody = document.getElementById('chat-body');
     const chatInput = document.getElementById('chat-input');
     let isChatOpen = false;
+
     function toggleChat() {
         isChatOpen = !isChatOpen;
         if (isChatOpen) {
@@ -1147,12 +1231,14 @@
             chatWindow.style.display = 'none';
         }
     }
+
     function handleKeydown(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             sendMessage();
         }
     }
+
     function sendQuickReply(text, btnElement) {
         if (btnElement && btnElement.parentElement && btnElement.parentElement.id === 'dynamic-replies') {
             btnElement.parentElement.style.display = 'none';
@@ -1160,6 +1246,7 @@
         chatInput.value = text;
         sendMessage();
     }
+
     function escapeHTML(str) {
         return str.replace(/[&<>'"]/g,
             tag => ({
@@ -1171,6 +1258,7 @@
             }[tag] || tag)
         );
     }
+
     function triggerBotMessage(htmlContent) {
         const botDiv = document.createElement('div');
         botDiv.className = 'chat-msg msg-bot';
@@ -1178,18 +1266,22 @@
         chatBody.appendChild(botDiv);
         scrollToBottom();
     }
+
     function sendMessage() {
         const rawText = chatInput.value.trim();
         if (!rawText) return;
+
         const userDiv = document.createElement('div');
         userDiv.className = 'chat-msg msg-user';
         userDiv.innerHTML = escapeHTML(rawText).replace(/\n/g, '<br>');
         chatBody.appendChild(userDiv);
         chatInput.value = '';
         scrollToBottom();
+
         setTimeout(() => {
             const lowerText = rawText.toLowerCase();
             let replyText = "";
+
             if (lowerText.match(/^(hello|hallo|hi|hey|howdy)/)) {
                 replyText = "Hey! 👋 I'm Jess, the OutofSight bot. Want to see how OutofSight can automate your customer service? ✨";
             }
@@ -1217,9 +1309,11 @@
             else {
                 replyText = "I'm here to help you scale! 🚀 Let me know if you need info on our web dev, bots, pricing, or if you just want to get in touch. 📞";
             }
+
             triggerBotMessage(replyText);
         }, 1000);
     }
+
     function scrollToBottom() {
         chatBody.scrollTop = chatBody.scrollHeight;
     }
