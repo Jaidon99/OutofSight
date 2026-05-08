@@ -746,8 +746,7 @@
         <p id="detailsDescription" style="color: #d1d5db; line-height: 1.6; margin-bottom: 30px; font-size: 15px;">We build lightning-fast Websites, create AI chatbots, just like Jess 👋; and set up Automation systems to help your business run smoothly.</p>
         <div style="display: flex; gap: 15px;">
             <button class="btn-secondary" style="flex: 1;" onclick="closeDetailsModal()">Back</button>
-            <button class="btn" style="flex: 2;" id="welcomeActionBtn" onclick="closeDetailsModal()">Awesome, let's go!</button>
-        </div>
+            <button class="btn" style="flex: 2;" id="welcomeActionBtn" onclick="goToForm()">Awesome, let's go!</button>
     </div>
 </div>
 <div class="modal-overlay" id="customPlanModalOverlay">
@@ -1018,16 +1017,20 @@
 </div>
 <script>
 /* =========================================
-   1. NAVIGATION & MODAL CONTROLS
+   OOSCO MASTER CONTROL - FINAL VERSION
    ========================================= */
+console.log("🚀 OOSCO: Master Script is live.");
+
 let selectedRegion = 'Africa';
 let selectedPackage = 'Silver';
 
+// 1. NAVIGATION & MODAL CONTROLS
 function toggleNavMenu() {
     const dropdown = document.getElementById('navDropdown');
     if(dropdown) dropdown.classList.toggle('show');
 }
 
+// Close dropdown when clicking outside
 window.onclick = function(event) {
     if (!event.target.closest('.menu-container')) {
         const dropdowns = document.getElementsByClassName("dropdown-menu");
@@ -1037,29 +1040,63 @@ window.onclick = function(event) {
     }
 }
 
-function openWelcomeModal() { document.getElementById('welcomeModalOverlay').style.display = 'flex'; }
-function closeWelcomeModal() { document.getElementById('welcomeModalOverlay').style.display = 'none'; }
+// Modal Open/Close Logic
+function openWelcomeModal() { document.getElementById('detailsModalOverlay').style.display = 'flex'; }
+function closeWelcomeModal() { document.getElementById('detailsModalOverlay').style.display = 'none'; }
+
 function openDetailsModal(region, pkg) {
     selectedRegion = region;
     selectedPackage = pkg;
-    document.getElementById('detailsModalTitle').innerText = `${pkg} Package (${region})`;
+    const title = document.getElementById('detailsModalTitle');
+    if(title) title.innerText = `${pkg} Package (${region})`;
     document.getElementById('detailsModalOverlay').style.display = 'flex';
 }
 function closeDetailsModal() { document.getElementById('detailsModalOverlay').style.display = 'none'; }
+
+// This moves the user from the "Info" popup to the actual "Form"
+function goToForm() {
+    closeDetailsModal();
+    openRegionModal();
+}
+
+function openCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'flex'; }
+function closeCustomPlanModal() { document.getElementById('customPlanModalOverlay').style.display = 'none'; }
+
+// This fixes the Custom Plan buttons
+function openFinalForm(region) {
+    selectedRegion = region;
+    selectedPackage = 'Custom';
+    closeCustomPlanModal();
+    openRegionModal();
+}
+
 function openRegionModal() {
     const modal = document.getElementById('regionModalOverlay');
     if(modal) {
         modal.style.display = 'flex';
+        const title = document.getElementById('regionModalTitle');
+        if(title) title.innerText = `${selectedRegion} Project Request`;
+        
+        // Sync the package dropdown
+        const pkgSelect = document.getElementById('packageSelect');
+        if(pkgSelect) pkgSelect.value = selectedPackage;
+        
         updateCountryList();
     }
 }
 function closeRegionModal() { document.getElementById('regionModalOverlay').style.display = 'none'; }
 
-/* =========================================
-   2. COUNTRY & PHONE LOGIC
-   ========================================= */
-const africanCountries = [{name: 'South Africa', code: '+27'}, {name: 'Nigeria', code: '+234'}, {name: 'Kenya', code: '+254'}];
-const internationalCountries = [{name: 'USA', code: '+1'}, {name: 'UK', code: '+44'}, {name: 'Australia', code: '+61'}];
+// 2. COUNTRY & PHONE LOGIC
+const africanCountries = [
+    {name: 'South Africa', code: '+27'}, 
+    {name: 'Nigeria', code: '+234'}, 
+    {name: 'Kenya', code: '+254'}
+];
+const internationalCountries = [
+    {name: 'USA', code: '+1'}, 
+    {name: 'UK', code: '+44'}, 
+    {name: 'Australia', code: '+61'}
+];
 
 function updateCountryList() {
     const sel = document.getElementById('countrySelect');
@@ -1084,21 +1121,22 @@ function updatePhonePrefix() {
     }
 }
 
-/* =========================================
-   3. THE WORKING SUBMIT LOGIC
-   ========================================= */
+// 3. THE SUBMISSION LOGIC
 document.addEventListener('DOMContentLoaded', () => {
     const projectForm = document.getElementById('regionProjectForm');
+    
+    const countrySel = document.getElementById('countrySelect');
+    if(countrySel) {
+        countrySel.addEventListener('change', updatePhonePrefix);
+    }
 
     if (projectForm) {
-        console.log("SUCCESS: Form is connected and listening!");
+        console.log("✅ OOSCO: Form connected!");
 
         projectForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const formData = new FormData(projectForm);
-            formData.append("Region", selectedRegion);
-            formData.append("Package", selectedPackage);
+            formData.append("Selected_Region", selectedRegion);
 
             try {
                 const response = await fetch('https://formspree.io/f/xjglevqk', {
@@ -1108,35 +1146,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (response.ok) {
-                    alert("Order Sent! Check your inbox. Prices are now unlocked.");
-                    
-                    // UNBLUR LOGIC
+                    alert("Order Sent! Prices are now unlocked.");
                     const prices = document.querySelectorAll('.price, .maintenance-tier span');
                     prices.forEach(p => p.style.filter = 'none');
-
                     closeRegionModal();
                     projectForm.reset();
                 } else {
-                    alert("Formspree Error. Check your dashboard.");
+                    alert("Submission failed.");
                 }
             } catch (err) {
-                alert("Connection error. Check your internet.");
+                alert("Connection error.");
             }
         });
     }
 });
 
-/* =========================================
-   4. CHATBOT
-   ========================================= */
+// 4. CHATBOT
 function toggleChat() {
     const win = document.getElementById('chat-window');
-    win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+    if(win) win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
 }
 function sendMessage() {
     const input = document.getElementById('chat-input');
     const body = document.getElementById('chat-body');
-    if(!input.value.trim()) return;
+    if(!input || !input.value.trim()) return;
     const msg = document.createElement('div');
     msg.className = 'chat-msg msg-user';
     msg.innerText = input.value;
