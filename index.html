@@ -1713,32 +1713,23 @@
 
         <h3 id="regionModalTitle" style="color: #38bdf8; margin-top: 0;">Project Request</h3>
 
-        <form id="regionProjectForm">
-
-            <div style="display: flex; gap: 15px; margin-bottom: 15px;">
-
-                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Name</label><input type="text" required></div>
-
-                <div class="form-group" style="margin-bottom: 0; flex: 1;"><label>Surname</label><input type="text" required></div>
-
-            </div>
-
-            <div class="form-group"><label>Email Address</label><input type="email" required></div>
-
-            <div class="form-group"><label>Country</label><select id="countrySelect" onchange="updatePhonePrefix()" required></select></div>
-
-            <div class="form-group"><label>Cell Number</label><div class="phone-input-wrapper"><span id="phonePrefix"></span><input type="tel" id="phoneInput" required></div></div>
-
-            
-
-            <div class="form-group" id="customNotesGroup" style="display: none;"><label>Custom Requirements</label><textarea rows="3" placeholder="Tell us about your specific needs..."></textarea></div>
-
-            
-
-            <button type="submit" class="btn" style="width:100%; margin-top: 10px;">Submit Details</button>
-
-        </form>
-
+        <form action="https://formspree.io/f/xjglevqk" method="POST">
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+    </div>
+    <div class="form-group">
+        <select id="package-select" name="package" required>
+            <option value="" disabled selected>Select a package</option>
+            <option value="Silver">Silver Package</option>
+            <option value="Gold">Gold Package</option>
+            <option value="Platinum">Platinum Package</option>
+            <option value="Custom">Custom Quote</option>
+        </select>
+    </div>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit" class="submit-btn">Send Message</button>
+</form>
     </div>
 
 </div>
