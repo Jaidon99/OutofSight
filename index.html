@@ -1715,28 +1715,42 @@
 
     <!-- <form action="https://formspree.io/f/xjglevqk" method="POST" class="oosco-custom-form"> -->
      <!--    <form action="https://formspree.io/f/xjglevqk" method="POST"></form>-->
-       <form action="https://formspree.io/f/xjglevqk" method="POST" class="oosco-custom-form">
+       <form action="https://formspree.io/f/xjglevqk" method="POST" role="form" class="oosco-custom-form">
   <div class="row">
     <div class="col-md-6 form-group">
-      <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
     </div>
     <div class="col-md-6 form-group mt-3 mt-md-0">
-  <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone (e.g. +27...)" required>
-</div>
+      <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+    </div>
   </div>
+
+  <div class="row mt-3">
+    <div class="col-md-6 form-group">
+      <input type="text" name="company" class="form-control" id="company" placeholder="Company Name">
+    </div>
+    <div class="col-md-6 form-group mt-3 mt-md-0">
+      <input type="tel" name="phone" class="form-control" id="phone" placeholder="Cell Number (e.g. +27...)" required>
+    </div>
+  </div>
+
   <div class="form-group mt-3">
-  <select name="package" class="form-control" required>
-  <option value="">Select a Package</option>
-  <option value="Silver">Silver Package</option>
-  <option value="Gold">Gold Package</option>
-  <option value="Platinum">Platinum Package</option>
-</select>
+    <select name="package" class="form-control" required style="background-color: #2b2b2b; color: white;">
+      <option value="" disabled selected>Select a Package</option>
+      <option value="Silver">Silver Package</option>
+      <option value="Gold">Gold Package</option>
+      <option value="Platinum">Platinum Package</option>
+    </select>
   </div>
+
   <div class="form-group mt-3">
-    <textarea class="form-control" name="message" rows="5" placeholder="Project Details" required></textarea>
+    <textarea class="form-control" name="message" rows="5" placeholder="Project Details / Notes" required></textarea>
   </div>
+
   <div class="text-center mt-3">
-    <button type="submit" style="background: #ff4a17; color: #fff; padding: 10px 30px; border: 0; border-radius: 4px;">Send Message</button>
+    <button type="submit" class="btn-get-started" style="background: #ff4a17; color: #fff; padding: 10px 30px; border: 0; border-radius: 4px; transition: 0.4s; cursor: pointer;">
+      Send Message
+    </button>
   </div>
 </form>
     </div>
