@@ -1713,43 +1713,53 @@
 
         <span class="close-modal" onclick="closeRegionModal()">&times;</span>
 
-        <h3 id="regionModalTitle" style="color: #38bdf8; margin-top: 0;">Project Request</h3>
+        <h3 id="regionModalTitle" style="color: #38bdf8; margin-top: 0; font-size: 22px;">Africa Project Request</h3>
 
-    <!-- <form action="https://formspree.io/f/xjglevqk" method="POST" class="oosco-custom-form"> -->
-     <!--    <form action="https://formspree.io/f/xjglevqk" method="POST"></form>-->
-       <form action="https://formspree.io/f/xjglevqk" method="POST" role="form" id="oosco-project-form">
-  <div class="row">
-    <div class="col-md-6 form-group">
-      <input type="text" name="first_name" class="form-control" placeholder="First Name" required>
-    </div>
-    <div class="col-md-6 form-group mt-3 mt-md-0">
-      <input type="text" name="last_name" class="form-control" placeholder="Surname" required>
-    </div>
-  </div>
+        <form action="https://formspree.io/f/xjglevqk" method="POST" id="oosco-project-form">
 
-  <div class="row mt-3">
-    <div class="col-md-6 form-group">
-      <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-    </div>
-    <div class="col-md-6 form-group mt-3 mt-md-0">
-      <input type="tel" id="phone" name="phone" class="form-control" style="width: 100% !important;" required>
-    </div>
-  </div>
+            <div style="display: flex; gap: 15px;">
+                <div class="form-group" style="flex: 1;">
+                    <label>Name</label>
+                    <input type="text" name="first_name" placeholder="" required>
+                </div>
+                <div class="form-group" style="flex: 1;">
+                    <label>Surname</label>
+                    <input type="text" name="last_name" placeholder="" required>
+                </div>
+            </div>
 
-  <div class="form-group mt-3">
-    <input type="text" name="company" class="form-control" placeholder="Company Name (Optional)">
-  </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="" required>
+            </div>
 
-  <div class="form-group mt-3">
-    <textarea class="form-control" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
-  </div>
+            <div class="form-group">
+                <label>Country</label>
+                <select id="countrySelect" name="country" onchange="updatePhonePrefix()">
+                </select>
+            </div>
 
-  <div class="text-center mt-3">
-    <button type="submit" class="btn-get-started" style="background: #ff4a17; color: #fff; padding: 10px 30px; border: 0; border-radius: 4px; cursor: pointer;">
-      Send Message
-    </button>
-  </div>
-</form>
+            <div class="form-group">
+                <label>Cell Number</label>
+                <div class="phone-input-wrapper">
+                    <span id="phonePrefix">+213</span>
+                    <input type="tel" name="phone" id="phoneNumber" placeholder="" required>
+                </div>
+            </div>
+
+            <div id="customNotesGroup" style="display:none;">
+                <div class="form-group">
+                    <label>Custom Notes</label>
+                    <textarea name="notes" rows="3" placeholder="Tell us about your project..."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" style="width: 100%; background: #f97316; color: white; padding: 16px; border: none; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: background 0.2s;" onmouseover="this.style.background='#ea580c'" onmouseout="this.style.background='#f97316'">
+                Submit Details
+            </button>
+
+        </form>
+
     </div>
 
 </div>
