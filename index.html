@@ -1798,6 +1798,127 @@ box-shadow: 0 15px 30px rgba(225, 48, 108, 0.4);
 
 }
 
+/* =========================================
+MOBILE + LAPTOP RESPONSIVE FIX
+Paste at bottom of <style>
+========================================= */
+
+html, body{
+  overflow-x:hidden;
+  width:100%;
+}
+
+/* Better laptop spacing */
+.container,
+section{
+  width:100%;
+  max-width:100%;
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px){
+
+  section{
+    padding-left:24px !important;
+    padding-right:24px !important;
+  }
+
+  .hero-content{
+    width:100%;
+    max-width:100%;
+    padding:80px 24px !important;
+    text-align:center;
+  }
+
+  .hero-content h1,
+  .hero-content h2{
+    font-size:48px !important;
+    line-height:1.1;
+  }
+
+  .hero-content p{
+    font-size:18px !important;
+    max-width:700px;
+    margin:0 auto 24px;
+  }
+
+  .service-grid-modern{
+    grid-template-columns:repeat(2,1fr) !important;
+    gap:24px !important;
+  }
+}
+
+
+/* Mobile */
+@media screen and (max-width: 768px){
+
+  section{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .hero-content{
+    padding:70px 18px !important;
+    text-align:center;
+  }
+
+  .hero-content h1,
+  .hero-content h2{
+    font-size:34px !important;
+    line-height:1.15 !important;
+    letter-spacing:-0.02em;
+  }
+
+  .hero-content p{
+    font-size:16px !important;
+    line-height:1.6;
+    max-width:100%;
+  }
+
+  .service-grid-modern{
+    grid-template-columns:1fr !important;
+    gap:20px !important;
+  }
+
+  .contact-card,
+  .service-card,
+  .card{
+    width:100% !important;
+    padding:24px !important;
+  }
+
+  img{
+    max-width:100%;
+    height:auto;
+  }
+
+  .btn,
+  button,
+  a.button{
+    width:100%;
+    justify-content:center;
+  }
+}
+
+
+/* Small phones */
+@media screen and (max-width: 480px){
+
+  .hero-content h1,
+  .hero-content h2{
+    font-size:28px !important;
+  }
+
+  .hero-content p{
+    font-size:15px !important;
+  }
+
+  section{
+    padding-left:16px !important;
+    padding-right:16px !important;
+  }
+}
+
 </style>
 
 </head>
@@ -1808,17 +1929,18 @@ box-shadow: 0 15px 30px rgba(225, 48, 108, 0.4);
 
 <!-- LOGO -->
 <div class="brand-container">
- 
-<!-- This matches the visual height of the CTA button without expanding the navbar container -->
-<img 
-  src="YOUR-LOGO.png" 
-  alt="OutofSight Logo" 
-  class="h-10 md:h-11 w-auto object-contain"
-/>
+  <img
+    src="YOUR-LOGO.png"
+    alt="OutofSight Logo"
+    style="
+      height: 84px;
+      width: auto;
+      display: block;
+      background: transparent;
+      mix-blend-mode: screen;
+    "
+  />
 </div>
-
-<div class="menu-container">
-
 <button class="schedule-btn" onclick="openScheduleModal()">
 
     <i class="far fa-calendar-alt" style="font-size: 18px;"></i> SCHEDULE INTRO CALL
