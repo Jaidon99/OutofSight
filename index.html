@@ -1839,23 +1839,43 @@ box-shadow: 0 15px 30px rgba(225, 48, 108, 0.4);
 />
 </div>
 
-<div class="menu-container">
+<div class="menu-container" style="display: flex; align-items: center;">
 
-<button class="schedule-btn" onclick="openScheduleModal()">
+  <div class="nav-social-buttons" style="display: flex; align-items: center; gap: 15px; margin-right: 20px;">
+      <a href="https://www.instagram.com/outofsightco" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="@outofsightco">
+          <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61590196366888&sk=about" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="Facebook">
+          <i class="fab fa-facebook-square"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/outofsight" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.ooscu.com" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="Website">
+          <i class="fab fa-google"></i>
+      </a>
+  </div>
 
-    <i class="far fa-calendar-alt" style="font-size: 18px;"></i> SCHEDULE INTRO CALL
+  <button class="schedule-btn" onclick="openScheduleModal()">
+      <i class="far fa-calendar-alt" style="font-size: 18px;"></i> SCHEDULE INTRO CALL
+  </button>
 
-</button>
+  <button class="hamburger-btn" id="navToggleBtn" onclick="toggleNavMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+  </button>
 
-<button class="hamburger-btn" id="navToggleBtn" onclick="toggleNavMenu()">
+  <div class="dropdown-menu" id="navDropdown">
+      <a href="#home" onclick="toggleNavMenu()">Home</a>
+      <a href="#services" onclick="toggleNavMenu()">Services</a>
+      <a href="#process" onclick="toggleNavMenu()">Process</a>
+      <a href="#portfolio" onclick="toggleNavMenu()">Portfolio</a>
+      <a href="#quote-section" onclick="toggleNavMenu()">Request a Quote</a>
+      <a href="#contact" onclick="toggleNavMenu()">Contact</a>
+  </div>
 
-<span></span>
-
-<span></span>
-
-<span></span>
-
-</button>
+</div>
 
 <div class="dropdown-menu" id="navDropdown">
 
@@ -2026,7 +2046,7 @@ box-shadow: 0 15px 30px rgba(225, 48, 108, 0.4);
 
             <div class="card-text">
 
-                <h3>Solar Power Installers</h3>
+                <h3>SOLAR CARIBBEAN</h3>
 
                 <p>View Site Design <i class="fas fa-external-link-alt" style="margin-left: 5px;"></i></p>
 
@@ -2976,64 +2996,131 @@ Phone: 071 665 5960</p>
 
 </footer>
 
-<div id="chat-widget-btn" onclick="toggleChat()">
+<!-- ======================================================= -->
+<!-- BRAND NEW CHATBOT SYSTEM - BULLETPROOF & SELF-CONTAINED -->
+<!-- ======================================================= -->
 
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-
-<path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/>
-
-</svg>
-
+<!-- Floating Chat Widget Button -->
+<div id="chat-widget-btn" onclick="oosToggleChat()">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/>
+  </svg>
 </div>
 
-<div id="chat-window">
+<!-- Main Chat Window Container -->
+<div id="chat-window" style="transform: none !important; z-index: 99999 !important;">
 
-<div class="chat-header">
+  <!-- 1. Chat Header (with Back/Close Button) -->
+  <div class="chat-header">
+      <span><i class="fas fa-robot" style="margin-right: 8px; color: #38bdf8;"></i> OutofSight Solar AI ☀️</span>
+      <span class="close-chat" onclick="oosToggleChat()" title="Close Chat">×</span>
+  </div>
 
-<span><i class="fas fa-robot" style="margin-right: 8px; color: #38bdf8;"></i> OutofSight Solar AI ☀️</span>
+  <!-- 2. Option Buttons (Quick Replies) -->
+  <div class="sticky-menu-container">
+      <div class="quick-replies">
+          <button class="quick-reply-btn" onclick="oosSendReply('ℹ️ About')">ℹ️ About</button>
+          <button class="quick-reply-btn" onclick="oosSendReply('🛠️ Services')">🛠️ Services</button>
+          <button class="quick-reply-btn" onclick="oosSendReply('⚙️ Process')">⚙️ Process</button>
+          <button class="quick-reply-btn" onclick="oosSendReply('📞 Contact')">📞 Contact</button>
+      </div>
+  </div>
 
-<span class="close-chat" onclick="toggleChat()">×</span>
+  <!-- 3. Chat Body -->
+  <div class="chat-body-scroll" id="chat-body"></div>
 
-</div>
-
-<div class="sticky-menu-container">
-
-<div class="quick-replies">
-
-<button class="quick-reply-btn" onclick="sendQuickReply('ℹ️ About', this)">ℹ️ About</button>
-
-<button class="quick-reply-btn" onclick="sendQuickReply('🛠️ Services', this)">🛠️ Services</button>
-
-<button class="quick-reply-btn" onclick="sendQuickReply('⚙️ Process', this)">⚙️ Process</button>
-
-<button class="quick-reply-btn" onclick="sendQuickReply('📞 Contact', this)">📞 Contact</button>
-
-</div>
-
-</div>
-
-<div class="chat-body-scroll" id="chat-body"></div>
-
-<div class="chat-footer-container">
-
-  <a class="whatsapp-chat-embed-btn" href="https://wa.me/27781200888?text=Initialize%20Comm%20Link" target="_blank" title="Establish Secure Comm">
-
-    <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Chat on WhatsApp
-
-  </a>
-
-  <div class="chat-footer">
-
-    <textarea id="chat-input" rows="1" placeholder="Type a message..." onkeydown="handleKeydown(event)"></textarea>
-
-    <button onclick="sendMessage()"><i class="fas fa-paper-plane" style="color: #1e293b; padding-right: 2px;"></i></button>
-
+  <!-- 4. Footer & WhatsApp Embed -->
+  <div class="chat-footer-container">
+      <a class="whatsapp-chat-embed-btn" href="https://wa.me/27781200888?text=Initialize%20Comm%20Link" target="_blank" title="Establish Secure Comm">
+          <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Chat on WhatsApp
+      </a>
+      
+      <!-- Send Message Input ('Search' / Enter) -->
+      <div class="chat-footer">
+          <textarea id="chat-input" rows="1" placeholder="Type a message..." onkeydown="oosHandleKey(event)"></textarea>
+          <button onclick="oosSendMessage()"><i class="fas fa-paper-plane" style="color: #1e293b; padding-right: 2px;"></i></button>
+      </div>
   </div>
 
 </div>
 
-</div>
+<!-- NEW ISOLATED JAVASCRIPT LOGIC -->
+<script>
+  window.oosChatState = false;
 
+  function oosToggleChat() {
+      const win = document.getElementById('chat-window');
+      const bod = document.getElementById('chat-body');
+      window.oosChatState = !window.oosChatState;
+      
+      if (window.oosChatState) {
+          win.style.display = 'flex';
+          // Greet if empty
+          if (bod.innerHTML.trim() === '') {
+              setTimeout(() => { oosAppendBot("Hey! 👋 I'm Jess, OutofSight's solar AI. Want to see how we can get your solar business dominating online? ☀️🚀"); }, 300);
+          }
+      } else {
+          win.style.display = 'none';
+      }
+  }
+
+  function oosHandleKey(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          oosSendMessage();
+      }
+  }
+
+  function oosSendMessage() {
+      const inp = document.getElementById('chat-input');
+      const text = inp.value.trim();
+      if (!text) return;
+      oosAppendUser(text);
+      inp.value = '';
+      setTimeout(() => { oosBotLogic(text); }, 600);
+  }
+
+  function oosSendReply(text) {
+      oosAppendUser(text);
+      setTimeout(() => { oosBotLogic(text); }, 600);
+  }
+
+  function oosAppendUser(text) {
+      const bod = document.getElementById('chat-body');
+      const div = document.createElement('div');
+      div.className = 'chat-msg msg-user';
+      div.textContent = text;
+      bod.appendChild(div);
+      bod.scrollTop = bod.scrollHeight;
+  }
+
+  function oosAppendBot(text) {
+      const bod = document.getElementById('chat-body');
+      const div = document.createElement('div');
+      div.className = 'chat-msg msg-bot';
+      div.textContent = text;
+      bod.appendChild(div);
+      bod.scrollTop = bod.scrollHeight;
+  }
+
+  function oosBotLogic(input) {
+      const lower = input.toLowerCase();
+      let reply = "I'm experiencing a high volume of traffic right now! Click the green WhatsApp button above to speak directly with our core team.";
+      
+      if (lower.includes('about')) {
+          reply = "We are an elite digital systems agency helping Solar Companies completely dominate their local territory online.";
+      } else if (lower.includes('services')) {
+          reply = "We deploy custom Web Infrastructure, automated Lead Qualification Chatbots, and high-converting Sales Funnels.";
+      } else if (lower.includes('process')) {
+          reply = "1. Diagnostic Call 2. Custom Strategy Architecture 3. Rapid Deployment 4. Scale your leads aggressively.";
+      } else if (lower.includes('contact')) {
+          reply = "Establish a secure comm link by clicking the WhatsApp button above, or by using the contact form on our site.";
+      }
+      
+      oosAppendBot(reply);
+  }
+</script>
+<!-- ======================================================= -->
 <script>
 
 /* Navigation Logic */
