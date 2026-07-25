@@ -2,732 +2,3930 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OutofSight | Elite Digital Systems</title>
-  <meta name="description" content="OutofSight builds high-converting websites, AI chatbots, social media systems, branding, SEO, and digital infrastructure for small and medium businesses across Africa.">
-  <meta name="keywords" content="OutofSight, web design, AI chatbot, digital agency, social media, SEO, website development">
 
-  <link href="assets/img/oos/favicons/favicon.ico" rel="icon" sizes="any">
-  <link href="assets/img/oos/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
-  <link href="assets/img/oos/favicons/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/outofsight.css" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2T3DT2JT5">
+  </script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-L2T3DT2JT5');
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init({ publicKey: "_htAG19WmxDMQwkxv" });
+  })();
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>OutofSight | Elite Digital Systems for Solar</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* =========================================
+   PORTFOLIO SECTION - LOGO & LAPTOP CARDS
+========================================= */
+.portfolio-section {
+  background-color: #050505; 
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.portfolio-header {
+  margin-bottom: 60px;
+}
+
+.portfolio-header h2 {
+  color: #ffffff;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Rajdhani', sans-serif; 
+}
+
+.portfolio-header p {
+  color: #888;
+  font-size: 1.2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* 3-Column Grid */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* The Dark Cards */
+/* Card Container */
+.portfolio-card {
+  background: #111111; 
+  border: 1px solid #222222;
+  border-radius: 20px;
+  padding: 30px; /* Padding handles space for logo, laptop, and text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+/* Logo Placeholder Area */
+.logo-slot {
+  height: 60px; /* Fixed height for consistent logo alignment */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.logo-slot img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Makes stock images white/clean */
+  opacity: 0.7;
+}
+
+/* Laptop Image Area */
+.portfolio-image {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.portfolio-image img {
+  width: 100%;
+  max-width: 350px; /* Laptop size */
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5));
+}
+
+/* Text Styling */
+.portfolio-text p {
+  color: #38bdf8; /* Blue text */
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+/* =========================================
+   NEW PORTFOLIO CARDS (logo + laptop, no links)
+========================================= */
+
+/* Override the grid to always be 3 cols */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+}
+
+/* Dark card — rich layered look */
+.pf-card {
+  background: linear-gradient(160deg, #161b27 0%, #0d1017 100%);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  padding: 24px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px rgba(0,0,0,0.4),
+    0 10px 30px rgba(0,0,0,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+
+/* Subtle radial glow in corner */
+.pf-card::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(56,189,248,0.07) 0%, transparent 70%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Bottom accent line */
+.pf-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 10%; right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pf-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  border-color: rgba(56,189,248,0.3);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(56,189,248,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    0 0 40px rgba(56,189,248,0.06);
+}
+
+.pf-card:hover::before { opacity: 1.5; }
+.pf-card:hover::after  { opacity: 1; }
+
+/* Logo strip at top-left */
+.pf-logo-area {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.pf-logo-img {
+  max-height: 48px;
+  max-width: 200px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* Laptop wrapper — dark stage with inner glow */
+.pf-laptop-area {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: linear-gradient(180deg, rgba(5,11,20,0.55) 0%, rgba(0,0,0,0.8) 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 18px 10px 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 12px rgba(0,0,0,0.5);
+}
+
+/* Subtle screen-glow on stage */
+.pf-laptop-area::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 20%; right: 20%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(56,189,248,0.2), transparent);
+}
+
+.pf-laptop-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 -4px 12px rgba(56,189,248,0.12))
+    drop-shadow(0 10px 30px rgba(0,0,0,0.8));
+  transform: translateY(4px);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.pf-card:hover .pf-laptop-img {
+  filter:
+    drop-shadow(0 -6px 18px rgba(56,189,248,0.2))
+    drop-shadow(0 14px 36px rgba(0,0,0,0.9));
+  transform: translateY(0px);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+
+/* =========================================
+
+1. GLOBAL VARIABLES & BASE STYLES
+
+========================================= */
+
+:root {
+
+--color-pbody: #FBB03B;
+
+--color-atlas: #38BDF8;
+
+--color-bg-deep: #050b14;
+
+}
+
+html {
+
+scroll-behavior: smooth;
+
+}
+
+/* Change 1: Increased base font size */
+
+body {
+
+margin: 0;
+
+font-family: 'Inter', Arial, sans-serif;
+
+background: var(--color-bg-deep);
+
+color: white;
+
+overflow-x: hidden;
+
+font-size: 18px; 
+
+}
+
+h1, h2, h3, h4 {
+
+font-family: 'Rajdhani', 'Space Grotesk', sans-serif;
+
+}
+
+/* =========================================
+
+2. HEADER & FLICKER ANIMATIONS
+
+========================================= */
+
+header h1 { margin: 0; font-size: 26px; letter-spacing: 1px; font-weight: 700; text-transform: uppercase;}
+
+header h1 span.part-one {
+
+color: var(--color-atlas);
+
+animation: portalFlickerAtlas 3s infinite;
+
+}
+
+header h1 span.part-two {
+
+color: #FF8C00;
+
+animation: portalFlickerOrange 3s infinite;
+
+}
+
+@keyframes portalFlickerOrange {
+
+0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+color: #FF8C00;
+
+text-shadow: 0 0 5px rgba(255, 140, 0, 0.6), 0 0 10px rgba(255, 140, 0, 0.4);
+
+}
+
+20%, 22%, 24%, 55% {
+
+color: #FFA500;
+
+text-shadow: 0 0 10px rgba(255, 165, 0, 0.9), 0 0 20px rgba(255, 165, 0, 0.7);
+
+}
+
+}
+
+@keyframes portalFlickerAtlas {
+
+0%, 29%, 31%, 33%, 35%, 64%, 66%, 100% {
+
+color: var(--color-atlas);
+
+text-shadow: 0 0 5px rgba(56, 189, 248, 0.6), 0 0 10px rgba(56, 189, 248, 0.4);
+
+}
+
+30%, 32%, 34%, 65% {
+
+color: #A0E9FF;
+
+text-shadow: 0 0 10px rgba(160, 233, 255, 0.9), 0 0 20px rgba(160, 233, 255, 0.7);
+
+}
+
+}
+
+header {
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+padding: 28px 50px;
+
+background: rgba(10, 15, 26, 0.85);
+
+backdrop-filter: blur(12px);
+
+position: sticky;
+
+top: 0;
+
+z-index: 1000;
+
+border-bottom: 1px solid rgba(56,189,248,0.15);
+
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+
+}
+
+.brand-container {
+
+display: flex;
+
+align-items: center;
+
+}
+
+.menu-container {
+
+position: relative;
+
+display: flex;
+
+align-items: center;
+
+gap: 20px;
+
+}
+
+/* Change 2: Schedule Intro Call Button Styling */
+
+.schedule-btn {
+
+background: #22c55e;
+
+color: #000;
+
+font-weight: 800;
+
+font-family: 'Inter', sans-serif;
+
+border: 2px solid #fff;
+
+outline: 2px solid #16a34a;
+
+border-radius: 10px;
+
+padding: 12px 22px;
+
+cursor: pointer;
+
+display: flex;
+
+align-items: center;
+
+gap: 10px;
+
+font-size: 15px;
+
+text-transform: uppercase;
+
+transition: transform 0.2s;
+
+}
+
+.schedule-btn:hover {
+
+transform: scale(1.05);
+
+}
+
+.hamburger-btn {
+
+background: transparent;
+
+border: 1px solid rgba(56, 189, 248, 0.3);
+
+border-radius: 4px;
+
+cursor: pointer;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-between;
+
+width: 54px;
+
+height: 48px;
+
+padding: 12px;
+
+transition: all 0.3s ease;
+
+}
+
+.hamburger-btn:hover {
+
+background: rgba(56, 189, 248, 0.1);
+
+border-color: var(--color-atlas);
+
+transform: scale(1.05);
+
+box-shadow: 0 0 15px rgba(56, 189, 248, 0.4) inset;
+
+}
+
+.hamburger-btn span {
+
+display: block;
+
+width: 100%;
+
+height: 2px;
+
+background: #38bdf8;
+
+border-radius: 2px;
+
+transition: background 0.3s;
+
+}
+
+.hamburger-btn:hover span {
+
+background: white;
+
+}
+
+.dropdown-menu {
+
+position: absolute;
+
+top: calc(100% + 15px);
+
+right: 0;
+
+background: rgba(10, 15, 26, 0.95);
+
+backdrop-filter: blur(10px);
+
+min-width: 220px;
+
+border-radius: 8px;
+
+border: 1px solid rgba(56, 189, 248, 0.2);
+
+box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.1);
+
+display: none;
+
+flex-direction: column;
+
+overflow: hidden;
+
+z-index: 1001;
+
+opacity: 0;
+
+transform: translateY(-10px);
+
+transition: all 0.3s ease;
+
+}
+
+.dropdown-menu.show {
+
+display: flex;
+
+opacity: 1;
+
+transform: translateY(0);
+
+}
+
+.dropdown-menu a {
+
+padding: 16px 24px;
+
+text-decoration: none;
+
+color: #94a3b8;
+
+font-size: 17px;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 600;
+
+text-transform: uppercase;
+
+letter-spacing: 1px;
+
+transition: all 0.3s ease;
+
+border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+}
+
+.dropdown-menu a:last-child {
+
+border-bottom: none;
+
+}
+
+.dropdown-menu a:hover {
+
+background: rgba(56, 189, 248, 0.1);
+
+color: #38bdf8;
+
+padding-left: 32px;
+
+border-left: 3px solid #38bdf8;
+
+}
+
+/* =========================================
+
+4. HERO SECTION & BUTTONS
+
+========================================= */
+
+.hero {
+
+position: relative;
+
+min-height: 90vh;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+text-align: center;
+
+padding: 0 20px;
+
+overflow: hidden;
+
+}
+
+.hero-overlay {
+
+position: absolute;
+
+top: 0; left: 0; width: 100%; height: 100%;
+
+background: linear-gradient(180deg, rgba(5, 11, 20, 0.9) 0%, rgba(5, 11, 20, 0.7) 50%, rgba(5, 11, 20, 1) 100%),
+
+            url('https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=2072&auto=format&fit=crop') center/cover no-repeat;
+
+z-index: 1;
+
+}
+
+.hero-grid {
+
+position: absolute;
+
+bottom: -50%; left: -50%; width: 200%; height: 200%;
+
+background-image: 
+
+    linear-gradient(rgba(56, 189, 248, 0.05) 2px, transparent 2px),
+
+    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 2px, transparent 2px);
+
+background-size: 60px 60px;
+
+z-index: 2;
+
+transform: perspective(600px) rotateX(75deg) translateY(-100px);
+
+animation: gridMove 15s linear infinite;
+
+pointer-events: none;
+
+}
+
+@keyframes gridMove {
+
+0% { transform: perspective(600px) rotateX(75deg) translateY(0); }
+
+100% { transform: perspective(600px) rotateX(75deg) translateY(60px); }
+
+}
+
+.hero-content {
+
+position: relative;
+
+z-index: 3;
+
+width: 100%;
+
+max-width: 1000px;
+
+margin-top: -5vh;
+
+}
+
+.hero-content h2 { 
+
+font-size: 4vw; 
+
+font-weight: 700;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+margin-bottom: 20px;
+
+line-height: 1.1;
+
+text-shadow: 0 0 20px rgba(0,0,0,0.8);
+
+}
+
+@media (min-width: 1200px) { .hero-content h2 { font-size: 52px; } }
+
+@media (max-width: 768px) { .hero-content h2 { font-size: 34px; } }
+
+.hero-content p { 
+
+color: #94a3b8; 
+
+font-size: 18px; 
+
+font-weight: 400;
+
+margin-bottom: 40px; 
+
+max-width: 800px; 
+
+margin-left: auto;
+
+margin-right: auto;
+
+line-height: 1.6;
+
+}
+
+.btn {
+
+background: linear-gradient(90deg, #ea580c, #f97316);
+
+padding: 16px 40px;
+
+border: 1px solid #ffaa77;
+
+border-radius: 4px;
+
+color: white;
+
+cursor: pointer;
+
+font-weight: 700;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-size: 18px;
+
+text-transform: uppercase;
+
+letter-spacing: 1.5px;
+
+transition: all 0.3s ease;
+
+box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+
+position: relative;
+
+overflow: hidden;
+
+}
+
+.btn::before {
+
+content: '';
+
+position: absolute;
+
+top: 0; left: -100%;
+
+width: 50%; height: 100%;
+
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+
+transform: skewX(-25deg);
+
+transition: 0.5s;
+
+}
+
+.btn:hover::before {
+
+left: 150%;
+
+}
+
+.btn:hover { 
+
+background: linear-gradient(90deg, #f97316, #fb923c); 
+
+transform: translateY(-2px);
+
+box-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+
+}
+
+.btn-secondary {
+
+background: rgba(15, 23, 42, 0.6);
+
+padding: 16px 40px;
+
+border: 1px solid var(--color-atlas);
+
+border-radius: 4px;
+
+color: var(--color-atlas);
+
+cursor: pointer;
+
+font-weight: 700;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-size: 18px;
+
+text-transform: uppercase;
+
+letter-spacing: 1.5px;
+
+backdrop-filter: blur(5px);
+
+transition: all 0.3s ease;
+
+}
+
+.btn-secondary:hover { 
+
+background: rgba(56, 189, 248, 0.15); 
+
+color: white;
+
+box-shadow: 0 0 20px rgba(56, 189, 248, 0.4) inset;
+
+}
+
+.hero-badge {
+
+background: rgba(5, 11, 20, 0.7);
+
+border: 1px solid rgba(56, 189, 248, 0.3);
+
+padding: 10px 20px;
+
+border-radius: 2px; 
+
+font-size: 15px;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 600;
+
+text-transform: uppercase;
+
+letter-spacing: 1.5px;
+
+color: #e2e8f0;
+
+box-shadow: 0 0 10px rgba(56, 189, 248, 0.1) inset;
+
+backdrop-filter: blur(4px);
+
+display: flex;
+
+align-items: center;
+
+gap: 8px;
+
+}
+
+.hero-badge i {
+
+color: #38bdf8;
+
+font-size: 16px;
+
+}
+
+.logo-marquee {
+
+overflow: hidden;
+
+white-space: nowrap;
+
+background: rgba(10, 15, 26, 0.95);
+
+padding: 20px 0;
+
+border-top: 1px solid rgba(56, 189, 248, 0.1);
+
+border-bottom: 1px solid rgba(56, 189, 248, 0.1);
+
+position: relative;
+
+}
+
+.logo-marquee::before, .logo-marquee::after {
+
+content: '';
+
+position: absolute;
+
+top: 0; width: 150px; height: 100%;
+
+z-index: 2;
+
+}
+
+.logo-marquee::before {
+
+left: 0; background: linear-gradient(to right, var(--color-bg-deep), transparent);
+
+}
+
+.logo-marquee::after {
+
+right: 0; background: linear-gradient(to left, var(--color-bg-deep), transparent);
+
+}
+
+.logo-marquee-content {
+
+display: inline-block;
+
+animation: marquee 30s linear infinite;
+
+}
+
+.logo-marquee-content span {
+
+display: inline-block;
+
+padding: 0 40px;
+
+font-size: 20px;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 600;
+
+color: #64748b;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+}
+
+@keyframes marquee {
+
+0% { transform: translateX(0); }
+
+100% { transform: translateX(-50%); }
+
+}
+
+.marquee-title {
+
+text-align: center;
+
+font-size: 14px;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 700;
+
+letter-spacing: 4px;
+
+color: #38bdf8;
+
+text-transform: uppercase;
+
+padding: 30px 0 10px 0;
+
+background: var(--color-bg-deep);
+
+margin: 0;
+
+}
+
+/* =========================================
+
+5. GENERAL SECTIONS & CARDS
+
+========================================= */
+
+.section { 
+
+padding: 100px 20px; 
+
+text-align: center; 
+
+position: relative;
+
+z-index: 5;
+
+}
+
+.section h2 { 
+
+margin-bottom: 50px; 
+
+font-size: 42px; 
+
+font-weight: 700;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+color: white; 
+
+}
+
+.cards {
+
+display: flex;
+
+flex-wrap: wrap;
+
+justify-content: center;
+
+gap: 30px;
+
+margin-top: 30px;
+
+}
+
+/* Change 4: Portfolio Custom Card Styles */
+
+.portfolio-card {
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: flex-end;
+
+align-items: center;
+
+width: 340px;
+
+height: 220px;
+
+background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(10, 15, 26, 0.9));
+
+background-size: cover;
+
+background-position: center top;
+
+border: 1px solid rgba(56, 189, 248, 0.2);
+
+border-radius: 8px;
+
+text-decoration: none;
+
+transition: all 0.3s ease;
+
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+padding: 0;
+
+overflow: hidden;
+
+position: relative;
+
+}
+
+.portfolio-card .card-overlay {
+
+position: absolute;
+
+top: 0; left: 0; width: 100%; height: 100%;
+
+background: rgba(0,0,0,0.55);
+
+transition: background 0.3s ease;
+
+}
+
+.portfolio-card:hover .card-overlay {
+
+background: rgba(0,0,0,0.35);
+
+}
+
+.portfolio-card .card-text {
+
+position: relative;
+
+z-index: 2;
+
+text-align: center;
+
+padding: 20px;
+
+width: 100%;
+
+}
+
+.portfolio-card:hover {
+
+transform: translateY(-10px);
+
+border-color: #38bdf8;
+
+box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 20px rgba(56,189,248,0.2) inset;
+
+}
+
+.portfolio-card h3 {
+
+color: white;
+
+font-size: 22px;
+
+margin-bottom: 10px;
+
+text-transform: uppercase;
+
+letter-spacing: 1px;
+
+text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+
+}
+
+.portfolio-card p {
+
+color: #38bdf8;
+
+font-size: 16px;
+
+font-weight: bold;
+
+text-transform: uppercase;
+
+text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+
+}
+
+.title-font {
+
+  font-family: 'Rajdhani', sans-serif;
+
+}
+
+.neon-text {
+
+  text-shadow: 0 0 20px rgba(56, 189, 248, 0.5), 0 0 40px rgba(56, 189, 248, 0.3);
+
+  color: #38bdf8;
+
+}
+
+.form-input-futuristic {
+
+  background: rgba(10, 15, 26, 0.8);
+
+  border: 1px solid rgba(56, 189, 248, 0.3);
+
+  color: white;
+
+  font-family: 'Inter', sans-serif;
+
+  transition: all 0.3s ease;
+
+}
+
+.form-input-futuristic:focus {
+
+  border-color: #38bdf8;
+
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1), 0 0 15px rgba(56, 189, 248, 0.2) inset;
+
+  background: rgba(10, 15, 26, 0.95);
+
+}
+
+.submit-btn-futuristic {
+
+  background: linear-gradient(90deg, #38bdf8, #0284c7);
+
+  font-family: 'Rajdhani', sans-serif;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  transition: all 0.4s ease;
+
+  border: 1px solid #7dd3fc;
+
+}
+
+.submit-btn-futuristic:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+
+}
+
+.glow-form {
+
+  background: rgba(10, 15, 26, 0.7) !important;
+
+  border: 1px solid rgba(56, 189, 248, 0.2);
+
+  box-shadow: 0 0 40px rgba(56, 189, 248, 0.1) inset, 0 0 30px rgba(0,0,0,0.8);
+
+  border-radius: 4px;
+
+}
+
+.card, .process-step {
+
+  width: 340px;
+
+  padding: 40px 30px;
+
+  border-radius: 4px; 
+
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.8) 0%, rgba(10, 15, 26, 0.9) 100%) !important;
+
+  backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+
+  border-top: 3px solid #38bdf8 !important; 
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.05) inset;
+
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  cursor: default;
+
+  text-align: left;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.card::after, .process-step::after {
+
+  content: '';
+
+  position: absolute;
+
+  bottom: 0; right: 0;
+
+  width: 20px; height: 20px;
+
+  border-bottom: 2px solid #38bdf8;
+
+  border-right: 2px solid #38bdf8;
+
+  opacity: 0.5;
+
+  transition: 0.3s;
+
+}
+
+.card:hover::after, .process-step:hover::after {
+
+  opacity: 1;
+
+  width: 30px; height: 30px;
+
+  box-shadow: inset -5px -5px 10px rgba(56, 189, 248, 0.3);
+
+}
+
+.card:hover, .process-step:hover {
+
+  transform: translateY(-10px);
+
+  border-color: rgba(56, 189, 248, 0.5) !important;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.8), 0 0 30px rgba(56, 189, 248, 0.15) inset;
+
+}
+
+.card h3, .process-step h3 {
+
+  font-size: 24px;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 16px;
+
+  color: #e0f2fe;
+
+}
+
+.cta {
+
+background: linear-gradient(180deg, var(--color-bg-deep) 0%, rgba(15, 23, 42, 1) 100%);
+
+padding: 120px 20px;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+text-align: center;
+
+position: relative;
+
+border-top: 1px solid rgba(56,189,248,0.1);
+
+}
+
+.cta::before {
+
+content: '';
+
+position: absolute;
+
+top: 0; left: 0; width: 100%; height: 100%;
+
+background-image: radial-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px);
+
+background-size: 30px 30px;
+
+opacity: 0.5;
+
+pointer-events: none;
+
+}
+
+.cta h2 {
+
+font-size: 48px;
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+margin-bottom: 20px;
+
+text-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+
+position: relative;
+
+z-index: 2;
+
+}
+
+.cta p {
+
+position: relative;
+
+z-index: 2;
+
+}
+
+.cta-buttons {
+
+position: relative;
+
+z-index: 2;
+
+}
+
+.faq-item{background:rgba(15,23,42,.75);border:1px solid rgba(56,189,248,.25);margin-bottom:16px;border-radius:12px;overflow:hidden}
+
+.faq-question{width:100%;background:none;border:none;color:#fff;padding:22px;font-size:20px;font-family:'Rajdhani',sans-serif;text-align:left;cursor:pointer}
+
+.faq-answer{display:none;padding:0 22px 22px;color:#cbd5e1;line-height:1.7}
+
+.faq-item.active .faq-answer{display:block}
+
+.service-grid-modern{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;max-width:1200px;margin:auto}
+
+.service-grid-modern .card{width:auto;border:2px solid #38bdf8;box-shadow:0 0 15px rgba(56,189,248,.25)}
+
+.service-grid-modern .card:hover{box-shadow:0 0 35px rgba(56,189,248,.8),0 0 60px rgba(56,189,248,.25)}
+
+.service-grid-modern .process-step{width:auto;border:2px solid #38bdf8;box-shadow:0 0 15px rgba(56,189,248,.25)}
+
+.service-grid-modern .process-step:hover{box-shadow:0 0 35px rgba(56,189,248,.8),0 0 60px rgba(56,189,248,.25)}
+
+@media(max-width:900px){.service-grid-modern{grid-template-columns:1fr}}
+
+footer {
+
+background: #020617;
+
+padding: 60px 20px 40px;
+
+text-align: center;
+
+border-top: 1px solid rgba(56, 189, 248, 0.2);
+
+position: relative;
+
+}
+
+.footer-links a { 
+
+color: #94a3b8; 
+
+text-decoration: none; 
+
+font-size: 16px; 
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 600;
+
+text-transform: uppercase;
+
+letter-spacing: 1px;
+
+margin: 0 15px; 
+
+cursor: pointer;
+
+transition: color 0.2s;
+
+}
+
+.footer-links a:hover { color: #38bdf8; text-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+
+/* =========================================
+
+8. MODAL (POPUP FORM) STYLES
+
+========================================= */
+
+.modal-overlay {
+
+position: fixed;
+
+top: 0; left: 0;
+
+width: 100%; height: 100%;
+
+background: rgba(2, 6, 23, 0.9);
+
+display: none;
+
+justify-content: center;
+
+align-items: center;
+
+z-index: 2000;
+
+backdrop-filter: blur(12px);
+
+}
+
+.modal-content {
+
+background: rgba(15, 23, 42, 0.95);
+
+width: 95%;
+
+max-width: 600px;
+
+padding: 50px;
+
+border-radius: 4px;
+
+position: relative;
+
+border: 1px solid rgba(56,189,248,0.3);
+
+max-height: 90vh;
+
+overflow-y: auto;
+
+box-shadow: 0 0 50px rgba(0,0,0,0.8), 0 0 20px rgba(56, 189, 248, 0.1) inset;
+
+}
+
+.close-modal {
+
+position: absolute;
+
+top: 20px; right: 25px;
+
+font-size: 32px;
+
+color: #64748b;
+
+cursor: pointer;
+
+z-index: 100;
+
+transition: all 0.3s;
+
+font-family: 'Rajdhani', sans-serif;
+
+}
+
+.close-modal:hover { color: #ef4444; transform: rotate(90deg); }
+
+.legal-content {
+
+text-align: left;
+
+line-height: 1.6;
+
+color: #cbd5e1;
+
+font-size: 17px;
+
+}
+
+.legal-content h2 { 
+
+color: #38bdf8; 
+
+margin-top: 0; 
+
+margin-bottom: 20px; 
+
+font-size: 32px; 
+
+text-align: center; 
+
+text-transform: uppercase;
+
+letter-spacing: 2px;
+
+}
+
+.legal-content h3 { 
+
+color: white; 
+
+font-size: 20px; 
+
+margin-top: 30px; 
+
+margin-bottom: 15px; 
+
+border-bottom: 1px solid rgba(56,189,248,0.2); 
+
+padding-bottom: 8px; 
+
+text-transform: uppercase;
+
+letter-spacing: 1px;
+
+}
+
+.legal-content ul { padding-left: 20px; }
+
+.legal-content li { margin-bottom: 10px; }
+
+.contact-card {
+
+background: rgba(10, 15, 26, 0.8);
+
+padding: 25px;
+
+border-radius: 4px;
+
+margin-bottom: 20px;
+
+border-left: 3px solid var(--color-atlas);
+
+border-top: 1px solid rgba(255,255,255,0.05);
+
+border-right: 1px solid rgba(255,255,255,0.05);
+
+border-bottom: 1px solid rgba(255,255,255,0.05);
+
+}
+
+.contact-card h4 { margin: 0 0 10px 0; color: white; font-size: 22px; text-transform: uppercase; letter-spacing: 1px;}
+
+.contact-card p { margin: 5px 0; color: #94a3b8; font-family: 'Inter', sans-serif;}
+
+/* =========================================
+
+9. CHATBOT STYLES
+
+========================================= */
+
+#chat-widget-btn {
+
+position: fixed;
+
+bottom: 30px;
+
+right: 30px;
+
+width: 64px;
+
+height: 64px;
+
+background: linear-gradient(135deg, #38bdf8, #0284c7);
+
+border-radius: 50%;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+cursor: pointer;
+
+box-shadow: 0 10px 25px rgba(2, 132, 199, 0.5), 0 0 0 4px rgba(56, 189, 248, 0.2);
+
+z-index: 9999;
+
+transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+#chat-widget-btn:hover {
+
+transform: scale(1.1) rotate(5deg);
+
+background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+
+}
+
+#chat-widget-btn svg {
+
+width: 32px;
+
+height: 32px;
+
+fill: #0f172a;
+
+}
+
+#chat-window {
+
+position: fixed;
+
+bottom: 110px;
+
+right: 30px;
+
+width: 360px;
+
+height: 560px;
+
+background: rgba(15, 23, 42, 0.95);
+
+backdrop-filter: blur(15px);
+
+border-radius: 8px;
+
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(56, 189, 248, 0.15);
+
+border: 1px solid rgba(56, 189, 248, 0.3);
+
+display: none;
+
+flex-direction: column;
+
+z-index: 9999;
+
+overflow: hidden;
+
+animation: chatSlideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+}
+
+@keyframes chatSlideUp {
+
+from { opacity: 0; transform: translateY(40px) scale(0.9); }
+
+to { opacity: 1; transform: translateY(0) scale(1); }
+
+}
+
+.chat-header {
+
+background: linear-gradient(90deg, #0f172a, #1e293b);
+
+padding: 18px 20px;
+
+color: white;
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 700;
+
+font-size: 18px;
+
+letter-spacing: 1px;
+
+text-transform: uppercase;
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+
+}
+
+.chat-header span:first-child {
+
+text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+
+}
+
+.close-chat {
+
+cursor: pointer;
+
+font-size: 24px;
+
+line-height: 1;
+
+color: #64748b;
+
+transition: color 0.2s;
+
+}
+
+.close-chat:hover { color: #ef4444; }
+
+.sticky-menu-container {
+
+position: sticky;
+
+top: 0;
+
+background: rgba(15, 23, 42, 0.9);
+
+padding: 12px 15px;
+
+z-index: 10;
+
+border-bottom: 1px solid rgba(56,189,248,0.1);
+
+}
+
+.chat-body-scroll {
+
+flex: 1;
+
+padding: 20px 15px;
+
+overflow-y: auto;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 12px;
+
+background: rgba(5, 11, 20, 0.5);
+
+}
+
+.chat-msg {
+
+max-width: 85%;
+
+padding: 12px 16px;
+
+border-radius: 8px;
+
+font-size: 15px;
+
+line-height: 1.5;
+
+font-family: 'Inter', sans-serif;
+
+}
+
+.msg-bot {
+
+background: rgba(30, 41, 59, 0.8);
+
+border: 1px solid rgba(56, 189, 248, 0.2);
+
+color: #e2e8f0;
+
+align-self: flex-start;
+
+border-bottom-left-radius: 0;
+
+box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+
+}
+
+.msg-user {
+
+background: linear-gradient(135deg, #f59e0b, #d97706);
+
+color: #fff;
+
+align-self: flex-end;
+
+border-bottom-right-radius: 0;
+
+font-weight: 500;
+
+box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+
+}
+
+/* Change 9: Chatbot Buttons aligned next to each other */
+
+.quick-replies {
+
+display: flex;
+
+gap: 8px;
+
+flex-direction: row;
+
+flex-wrap: wrap;
+
+justify-content: center;
+
+align-items: center;
+
+}
+
+.quick-reply-btn {
+
+background: rgba(10, 15, 26, 0.8);
+
+border: 1px solid rgba(56, 189, 248, 0.4);
+
+color: #38bdf8;
+
+padding: 8px 14px;
+
+border-radius: 20px; /* Pill shaped to match image closely */
+
+font-family: 'Rajdhani', sans-serif;
+
+font-weight: 600;
+
+letter-spacing: 0.5px;
+
+font-size: 14px;
+
+cursor: pointer;
+
+text-align: center;
+
+transition: all 0.2s;
+
+}
+
+.quick-reply-btn:hover {
+
+background: rgba(56, 189, 248, 0.15);
+
+box-shadow: 0 0 10px rgba(56, 189, 248, 0.3) inset;
+
+color: white;
+
+}
+
+.chat-footer-container {
+
+background: #0f172a;
+
+border-top: 1px solid rgba(56,189,248,0.2);
+
+display: flex;
+
+flex-direction: column;
+
+}
+
+.whatsapp-chat-embed-btn {
+
+background: #25D366;
+
+color: white;
+
+text-decoration: none;
+
+font-family: 'Inter', sans-serif;
+
+font-size: 15px;
+
+font-weight: 600;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+gap: 8px;
+
+padding: 12px 0;
+
+margin: 10px 15px 5px 15px;
+
+border-radius: 8px;
+
+transition: all 0.3s ease;
+
+box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+
+}
+
+.whatsapp-chat-embed-btn:hover {
+
+background: #20ba5a;
+
+transform: translateY(-2px);
+
+box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+
+}
+
+.chat-footer {
+
+padding: 15px;
+
+display: flex;
+
+align-items: flex-end;
+
+gap: 12px;
+
+}
+
+.chat-footer textarea {
+
+flex: 1;
+
+padding: 12px;
+
+border-radius: 24px; /* Matches rounded input in image */
+
+border: 1px solid rgba(56, 189, 248, 0.3);
+
+background: rgba(5, 11, 20, 0.8);
+
+color: white;
+
+outline: none;
+
+resize: none;
+
+font-family: 'Inter', sans-serif;
+
+font-size: 15px;
+
+min-height: 20px;
+
+max-height: 80px;
+
+transition: border-color 0.3s;
+
+}
+
+.chat-footer textarea:focus {
+
+border-color: #38bdf8;
+
+box-shadow: 0 0 10px rgba(56, 189, 248, 0.1) inset;
+
+}
+
+.chat-footer button {
+
+background: linear-gradient(135deg, #38bdf8, #0284c7);
+
+border: none;
+
+width: 44px;
+
+height: 44px;
+
+border-radius: 50%; /* Make send button circular */
+
+color: white;
+
+cursor: pointer;
+
+display: flex;
+
+justify-content: center;
+
+align-items: center;
+
+font-size: 18px;
+
+transition: all 0.2s;
+
+}
+
+.chat-footer button:hover {
+
+transform: scale(1.05);
+
+box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+
+}
+
+.instagram-button:hover {
+
+transform: translateY(-5px) scale(1.02);
+
+box-shadow: 0 15px 30px rgba(225, 48, 108, 0.4);
+
+}
+
+</style>
+
+<!-- Google tag (gtag.js) -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L2T3DT2JT5">
+
+</script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+  gtag('config', 'G-L2T3DT2JT5');
+
+</script>
+
 </head>
 
 <body>
-  <header id="mainNav" class="site-header sticky-top">
-    <div class="topbar py-2">
-      <div class="container d-flex justify-content-center justify-content-md-between align-items-center gap-3">
-        <div class="d-flex align-items-center gap-3 flex-wrap justify-content-center">
-          <a href="mailto:hallo.outofsight@gmail.com"><i class="bi bi-envelope me-1"></i>hallo.outofsight@gmail.com</a>
-          <a href="tel:+27781200888"><i class="bi bi-telephone me-1"></i>078 120 0888</a>
-          <span><i class="bi bi-geo-alt me-1"></i>Fairland, Randburg</span>
-        </div>
-        <div class="d-none d-md-flex align-items-center gap-3">
-          <a href="https://www.instagram.com/outofsightco" target="_blank" rel="noopener" aria-label="OutofSight Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61590196366888&sk=about" target="_blank" rel="noopener" aria-label="OutofSight Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.linkedin.com/in/outofsight" target="_blank" rel="noopener" aria-label="OutofSight LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="https://www.ooscu.com" target="_blank" rel="noopener" aria-label="OutofSight website"><i class="bi bi-globe2"></i></a>
-        </div>
-      </div>
-    </div>
 
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="OutofSight home">
-          <img src="assets/img/oos/outofsight-logo.png" alt="OutofSight logo">
-        </a>
+<header>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="bi bi-list"></i>
-        </button>
+<!-- LOGO -->
 
-        <div class="collapse navbar-collapse navmenu" id="navmenu">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-            <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="#systems">Systems</a></li>
-            <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="about-outofsight.html">About OutofSight</a></li>
-                <li><a class="dropdown-item" href="oos-vision-mission.html">OOS Vision &amp; Mission</a></li>
-                <li><a class="dropdown-item" href="why-we-do-what-we-do.html">Why We Do What We Do</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-            <li class="nav-item ms-lg-2 mt-3 mt-lg-0"><a class="btn btn-oos" href="#contact"><i class="bi bi-stars"></i>Free Custom Design</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
+<div class="brand-container">
 
-  <main>
-    <section id="home" class="hero-section hero-section-centered">
-      <div class="container">
-        <div class="hero-content hero-content-centered mx-auto" id="heroTextBlock" data-aos="fade-up">
-          <div class="eyebrow">Elite digital systems for African businesses</div>
-          <h1 class="hero-title">Creating <span class="neon-white">digital magic</span> for <span class="text-cyan neon-blue">business growth</span></h1>
-          <p class="hero-copy mx-auto">
-            Custom-built digital presence, AI chatbots, social media systems, branding, SEO, and conversion infrastructure designed to help small and medium businesses stand out online.
-          </p>
+ 
 
-          <div class="hero-badges hero-badges-centered" aria-label="OutofSight service highlights">
-            <span class="hero-badge"><i class="bi bi-check2-circle"></i>Websites</span>
-            <span class="hero-badge"><i class="bi bi-check2-circle"></i>AI Chatbots</span>
-            <span class="hero-badge"><i class="bi bi-check2-circle"></i>Social Media</span>
-            <span class="hero-badge"><i class="bi bi-check2-circle"></i>Branding</span>
-          </div>
+<!-- This matches the visual height of the CTA button without expanding the navbar container -->
 
-          <div class="hero-actions hero-actions-centered">
-            <a class="btn btn-oos-gold" href="#contact"><i class="bi bi-lightning-charge-fill"></i>Get Your Free Custom Design</a>
-            <a class="btn btn-oos-outline" href="#portfolio"><i class="bi bi-arrow-up-right-circle"></i>View Client Work</a>
-          </div>
-        </div>
-      </div>
-    </section>
+<img 
 
-    <section class="metric-strip">
-      <div class="container">
-        <div class="row row-cols-2 row-cols-lg-4 g-0 text-center">
-          <div class="col metric-item" data-aos="zoom-in" data-aos-delay="0">
-            <span class="metric-icon-badge"><i class="bi bi-star-fill metric-icon"></i></span>
-            <span class="metric-value">5.0</span>
-            <span class="metric-label">Client-focused delivery</span>
-          </div>
-          <div class="col metric-item" data-aos="zoom-in" data-aos-delay="75">
-            <span class="metric-icon-badge"><i class="bi bi-calendar2-week-fill metric-icon"></i></span>
-            <span class="metric-value">3-4</span>
-            <span class="metric-label">Week standard build window</span>
-          </div>
-          <div class="col metric-item" data-aos="zoom-in" data-aos-delay="150">
-            <span class="metric-icon-badge"><i class="bi bi-robot metric-icon"></i></span>
-            <span class="metric-value">24/7</span>
-            <span class="metric-label">AI lead capture</span>
-          </div>
-          <div class="col metric-item" data-aos="zoom-in" data-aos-delay="225">
-            <span class="metric-icon-badge"><i class="bi bi-hexagon-fill metric-icon"></i></span>
-            <span class="metric-value">360</span>
-            <span class="metric-label">Digital ecosystem support</span>
-          </div>
-        </div>
-      </div>
-    </section>
+  src="YOUR-LOGO.png" 
 
-    <section id="services" class="section-band">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Our services</span>
-          <h2>Websites, bots, content, and visibility</h2>
-          <p class="mx-auto">OutofSight builds the digital assets a modern business needs to look credible, capture demand, and turn visitors into enquiries.</p>
-        </div>
+  alt="OutofSight Logo" 
 
-        <div class="services-carousel swiper" data-aos="fade-up" data-aos-delay="50">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="assets/img/oos/custom-built-websites.jpeg" alt="Custom website displayed on a laptop">
-                </div>
-                <div class="service-body">
-                  <h3>Custom Website Design</h3>
-                  <p>High-converting websites built around trust, speed, mobile performance, and clear calls to action.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>Landing pages and full websites</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Responsive layouts for mobile and desktop</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Launch-ready SEO structure</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
+  class="h-13 md:h-11 w-auto object-contain"
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="assets/img/oos/google-domination-suite.jpeg" alt="Google domination suite visual">
-                </div>
-                <div class="service-body">
-                  <h3>Google Domination Suite</h3>
-                  <p>Local search infrastructure that helps customers find you when they are already looking for a solution.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>SEO and local keyword strategy</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Google profile optimisation</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Content structure for rankings</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
+/>
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="assets/img/oos/social-media-domination.jpeg" alt="Social media domination visual">
-                </div>
-                <div class="service-body">
-                  <h3>Social Media Systems</h3>
-                  <p>Designed content, brand presence, and campaign structures that keep your business visible and consistent.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>Branded content templates</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Offer-driven social campaigns</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Consistent visual identity</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
+</div>
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="assets/img/oos/paid-ads-management.jpeg" alt="Paid ads management visual">
-                </div>
-                <div class="service-body">
-                  <h3>Paid Ads And Funnels</h3>
-                  <p>Campaign pages, lead magnets, and conversion paths built to make marketing spend easier to measure.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>Offer and landing page strategy</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Lead capture forms and follow-up paths</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Analytics-friendly structure</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
+<div class="menu-container" style="display: flex; align-items: center;">
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="assets/img/oos/outofsight-mark.png" alt="OutofSight brand mark">
-                </div>
-                <div class="service-body">
-                  <h3>AI Chatbots And Automation</h3>
-                  <p>Smart assistants and automated follow-up systems that answer questions, qualify leads, and keep conversations moving.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>AI chatbot design and integration</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Lead qualification scripts</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>CRM and email workflow support</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-          </div>
+  <div class="nav-social-buttons" style="display: flex; align-items: center; gap: 15px; margin-right: 20px;">
 
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </div>
-    </section>
+      <a href="https://www.instagram.com/outofsightco" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="@outofsightco">
 
-    <div class="marquee-title">Deploying Digital Infrastructure Across</div>
-    <div class="logo-marquee">
-      <div class="logo-marquee-content">
-        <span>🇿🇦 South Africa</span><span>🇳🇬 Nigeria</span><span>🇰🇪 Kenya</span><span>🇬🇭 Ghana</span><span>🇧🇼 Botswana</span><span>🇿🇼 Zimbabwe</span><span>🇳🇦 Namibia</span><span>🇲🇿 Mozambique</span><span>🇹🇿 Tanzania</span><span>🇺🇬 Uganda</span>
-        <span>🇿🇦 South Africa</span><span>🇳🇬 Nigeria</span><span>🇰🇪 Kenya</span><span>🇬🇭 Ghana</span><span>🇧🇼 Botswana</span><span>🇿🇼 Zimbabwe</span><span>🇳🇦 Namibia</span><span>🇲🇿 Mozambique</span><span>🇹🇿 Tanzania</span><span>🇺🇬 Uganda</span>
-      </div>
-    </div>
+          <i class="fab fa-instagram"></i>
 
-    <section id="process" class="section-band">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Our process</span>
-          <h2>A clear path from idea to launch</h2>
-          <p class="mx-auto">Each project starts with strategy, then moves into a build process that keeps the final system practical, polished, and launch-ready.</p>
-        </div>
+      </a>
 
-        <div class="row g-4 process-grid">
-          <div class="col-md-6 col-xl-3" data-aos="fade-up">
-            <div class="process-item">
-              <h3>Diagnostic</h3>
-              <p>We map the business, current lead flow, target customer, service area, and the biggest visibility gaps.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="75">
-            <div class="process-item">
-              <h3>Blueprint</h3>
-              <p>We create the page structure, offer, conversion journey, visual direction, and system plan.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="150">
-            <div class="process-item">
-              <h3>Build</h3>
-              <p>We design and develop the website, chatbot, content assets, and supporting automation.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="225">
-            <div class="process-item">
-              <h3>Deploy</h3>
-              <p>We launch, test, refine, and hand over a digital system ready for growth.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <a href="https://www.facebook.com/profile.php?id=61590196366888&sk=about" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="Facebook">
 
-    <section id="infrastructure" class="section-band">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Built for SMBs</span>
-          <h2>Digital infrastructure for growing enterprises</h2>
-          <p class="mx-auto">Every build is engineered around the same goal: turn an unknown local business into a credible, searchable, lead-capturing brand.</p>
-        </div>
+          <i class="fab fa-facebook-square"></i>
 
-        <div class="row g-4 process-grid">
-          <div class="col-md-6 col-xl-4" data-aos="fade-up">
-            <div class="process-item">
-              <h3>SMB Web Engineering</h3>
-              <p>Custom, industry-specific, high-converting websites designed to build authoritative trust and turn everyday visitors into paying customers.</p>
-            </div>
-          </div>
+      </a>
 
-          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="75">
-            <div class="process-item">
-              <h3>AI Lead Qualification</h3>
-              <p>Deployed AI chatbots that engage traffic 24/7, instantly answering questions and pre-qualifying prospects based on need, location, and budget.</p>
-            </div>
-          </div>
+      <a href="https://www.linkedin.com/in/outofsight" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="LinkedIn">
 
-          <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="150">
-            <div class="process-item">
-              <h3>Sales Automation</h3>
-              <p>Smart follow-up and CRM-friendly workflows that keep enquiries moving so leads never slip through the cracks.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <i class="fab fa-linkedin"></i>
 
-    <section id="portfolio" class="section-band alt split-line">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Client work</span>
-          <h2>Digital systems already in motion</h2>
-          <p class="mx-auto">Portfolio cards use the current OOS project logos and laptop mockups from the uploaded redesign pack.</p>
-        </div>
+      </a>
 
-        <div class="portfolio-filter" aria-label="Portfolio filters" data-aos="fade-up">
-          <button class="active" type="button" data-portfolio-filter="all">All</button>
-          <button type="button" data-portfolio-filter="solar">Solar</button>
-          <button type="button" data-portfolio-filter="engineering">Engineering</button>
-          <button type="button" data-portfolio-filter="plumbing">Plumbing</button>
-        </div>
+      <a href="https://www.ooscu.com" target="_blank" rel="noopener noreferrer" style="color: white; font-size: 22px; display: flex; justify-content: center; width: 24px; transition: color 0.3s;" title="Website">
 
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-4.png" alt="Dhaka City Solar logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-dhaka-city-solar.png" alt="Dhaka City Solar website mockup"></div>
-              <div class="portfolio-meta"><h3>Dhaka City Solar</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
-          </div>
+          <i class="fab fa-google"></i>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-3.png" alt="SunnyMac Solar logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-sunnymac-solar.png" alt="SunnyMac Solar website mockup"></div>
-              <div class="portfolio-meta"><h3>SunnyMac Solar</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
-          </div>
+      </a>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-2.png" alt="Unique Solar Residential logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-unique-solar.png" alt="Unique Solar Residential website mockup"></div>
-              <div class="portfolio-meta"><h3>Unique Solar Residential</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
-          </div>
+  </div>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-1.png" alt="Solar Caribbean logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-solar-caribbean.png" alt="Solar Caribbean website mockup"></div>
-              <div class="portfolio-meta"><h3>Solar Caribbean</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
-          </div>
+  <button class="schedule-btn" onclick="openScheduleModal()">
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="engineering" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-5.png" alt="PramanCAD Engineering logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-praman-cad.png" alt="PramanCAD Engineering website mockup"></div>
-              <div class="portfolio-meta"><h3>PramanCAD Engineering</h3><span class="portfolio-tag">Engineering</span></div>
-            </article>
-          </div>
+      <i class="far fa-calendar-alt" style="font-size: 18px;"></i> SCHEDULE INTRO CALL
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="plumbing" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-6.png" alt="Hudini Plumbing logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-hudini-plumbing.png" alt="Hudini Plumbing website mockup"></div>
-              <div class="portfolio-meta"><h3>Hudini Plumbing</h3><span class="portfolio-tag">Plumbing</span></div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section-band alt split-line">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Start the build</span>
-          <h2>Your business. Our blueprint.</h2>
-          <p class="mx-auto">Fill in the form and OutofSight will come back with a clear, tailored plan for your website, chatbot, social presence, or full digital system.</p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-7" data-aos="fade-right">
-            <form id="quoteForm" class="contact-surface h-100 d-flex flex-column">
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label" for="name">Full name</label>
-                  <input class="form-control" id="name" name="name" type="text" placeholder="Your name" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="business">Business name</label>
-                  <input class="form-control" id="business" name="business" type="text" placeholder="Company or brand" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="email">Email</label>
-                  <input class="form-control" id="email" name="email" type="email" placeholder="you@example.com" required>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label" for="phone">Phone</label>
-                  <input class="form-control" id="phone" name="phone" type="tel" placeholder="+27 78 120 0888">
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="service">What do you need?</label>
-                  <select class="form-select" id="service" name="service" required>
-                    <option value="">Select a focus</option>
-                    <option>New website</option>
-                    <option>Website redesign</option>
-                    <option>AI chatbot</option>
-                    <option>Social media system</option>
-                    <option>SEO and Google visibility</option>
-                    <option>Full digital ecosystem</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label class="form-label" for="message">Project notes</label>
-                  <textarea class="form-control" id="message" name="message" rows="5" placeholder="Tell us what you sell, where you operate, and what you want the website to achieve." required></textarea>
-                </div>
-              </div>
-              <div class="form-spacer"></div>
-              <div class="d-flex flex-wrap align-items-center gap-3">
-                <button class="btn btn-oos-gold" type="submit"><i class="bi bi-send-fill"></i>Send Strategy Request</button>
-                <span id="formStatus" class="text-cyan small fw-bold"></span>
-              </div>
-            </form>
-          </div>
-
-          <div class="col-lg-5" data-aos="fade-left">
-            <div class="contact-surface h-100">
-              <h3 class="fw-black mb-3">Secure comm links</h3>
-              <a class="contact-link" href="mailto:hallo.outofsight@gmail.com">
-                <i class="bi bi-envelope"></i>
-                <span><small>Email us</small><strong>hallo.outofsight@gmail.com</strong></span>
-              </a>
-              <a class="contact-link" href="tel:+27781200888">
-                <i class="bi bi-telephone"></i>
-                <span><small>Call us</small><strong>078 120 0888</strong></span>
-              </a>
-              <a class="contact-link" href="https://wa.me/27781200888?text=Hi%20OutofSight,%20I%20want%20to%20discuss%20a%20digital%20system" target="_blank" rel="noopener">
-                <i class="bi bi-whatsapp"></i>
-                <span><small>WhatsApp</small><strong>Start a direct chat</strong></span>
-              </a>
-              <div class="contact-link">
-                <i class="bi bi-geo-alt"></i>
-                <span><small>Headquarters</small><strong>5 13th Ave, Fairland, Randburg, 2170</strong></span>
-              </div>
-              <a class="contact-link" href="https://www.instagram.com/outofsightco" target="_blank" rel="noopener">
-                <i class="bi bi-instagram"></i>
-                <span><small>Instagram</small><strong>@outofsightco</strong></span>
-              </a>
-              <a class="contact-link" href="https://www.facebook.com/profile.php?id=61590196366888&sk=about" target="_blank" rel="noopener">
-                <i class="bi bi-facebook"></i>
-                <span><small>Facebook</small><strong>OutofSight</strong></span>
-              </a>
-              <a class="contact-link" href="https://www.linkedin.com/in/outofsight" target="_blank" rel="noopener">
-                <i class="bi bi-linkedin"></i>
-                <span><small>LinkedIn</small><strong>OutofSight</strong></span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section-band">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">FAQ</span>
-          <h2>Frequently asked questions</h2>
-          <p class="mx-auto">Pulled from the current OutofSight content and tightened for the new redesign.</p>
-        </div>
-
-        <div class="accordion mx-auto" id="faqAccordion" style="max-width: 980px;">
-          <div class="accordion-item" data-aos="fade-up">
-            <h3 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">What services does OutofSight offer?</button>
-            </h3>
-            <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">OutofSight provides website design and development, AI chatbot design and integration, hosting, maintenance, SEO, Google visibility, branding, social media design, and strategic online marketing support.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item" data-aos="fade-up">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">How does the website design process work?</button>
-            </h3>
-            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">The process starts by understanding your business, goals, audience, and current online gaps. From there, OutofSight creates the strategy, designs the structure, builds the system, tests it, and prepares it for launch.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item" data-aos="fade-up">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">How long does it take to design a website?</button>
-            </h3>
-            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Timelines depend on scope and complexity, but a typical standard website build is planned around a 3 to 4 week window.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item" data-aos="fade-up">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">Can you help update an existing website?</button>
-            </h3>
-            <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Yes. OutofSight can refresh, redesign, reposition, or rebuild an existing website so it better reflects your brand and captures enquiries more effectively.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item" data-aos="fade-up">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">Do you offer website hosting?</button>
-            </h3>
-            <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Yes. OutofSight offers hosting and maintenance support so your website stays reliable, secure, and easier to manage after launch.</div>
-            </div>
-          </div>
-
-          <div class="accordion-item" data-aos="fade-up">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSix" aria-expanded="false" aria-controls="faqSix">How do I get started?</button>
-            </h3>
-            <div id="faqSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Use the strategy form, send an email, or open the WhatsApp chat. The team will review your goals, map a plan, and outline the recommended build path.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="systems" class="section-band alt split-line">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">System diagnostics</span>
-          <h2>Stop leaving leads on the table</h2>
-          <p class="mx-auto">The redesign keeps the current OOS message intact: businesses need more than a pretty homepage. They need infrastructure that captures and converts.</p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-lg-6" data-aos="fade-right">
-            <div class="diagnostic-panel problem">
-              <h3>Critical errors</h3>
-              <ul class="diagnostic-list">
-                <li><i class="bi bi-x-circle-fill bad"></i><span>Your current website is not converting traffic into qualified enquiries.</span></li>
-                <li><i class="bi bi-x-circle-fill bad"></i><span>You are invisible when local customers search for your service.</span></li>
-                <li><i class="bi bi-x-circle-fill bad"></i><span>Your social media looks inconsistent and does not support a sales journey.</span></li>
-                <li><i class="bi bi-x-circle-fill bad"></i><span>Leads slip away because there is no automated follow-up or instant response.</span></li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-lg-6" data-aos="fade-left">
-            <div class="diagnostic-panel solution">
-              <h3>The OutofSight solution</h3>
-              <ul class="diagnostic-list">
-                <li><i class="bi bi-check-circle-fill good"></i><span>We engineer digital systems around measurable enquiries, not empty design promises.</span></li>
-                <li><i class="bi bi-check-circle-fill good"></i><span>We combine websites, AI chatbots, SEO, social media, and branding into one conversion path.</span></li>
-                <li><i class="bi bi-check-circle-fill good"></i><span>We create fast, professional assets built to make smaller businesses look established online.</span></li>
-                <li><i class="bi bi-check-circle-fill good"></i><span>We help you build more ways to capture customers before competitors do.</span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="strategy-cta" data-aos="fade-up">
-      <div class="container strategy-cta-inner">
-        <h2>Book Your Digital Infrastructure Strategy Call</h2>
-        <p>No obligations. No high-pressure sales. Just an analytical breakdown of your business and what our systems can achieve for your growth.</p>
-        <div class="strategy-cta-buttons">
-          <a class="btn-strategy" href="mailto:hallo.outofsight@gmail.com?subject=Strategy Call"><i class="bi bi-broadcast me-2"></i>Book Strategy Session</a>
-          <a class="btn-strategy-outline" href="#contact">Configure Custom System</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer-hover">
-    <div class="footer-gradient-bg"></div>
-    <div class="container position-relative footer-hover-inner">
-      <div class="row g-5 pb-4">
-        <div class="col-md-6 col-lg-3">
-          <img class="footer-brand-logo" src="assets/img/oos/outofsight-logo.png" alt="OutofSight logo">
-          <p class="footer-brand-copy">Elite web engineering, AI chatbots, social media systems, branding, SEO, and digital automation for businesses ready to look sharper and convert better online.</p>
-        </div>
-
-        <div class="col-6 col-lg-3">
-          <h4 class="footer-col-title">Company</h4>
-          <ul class="footer-link-list">
-            <li><a href="about-outofsight.html">About OutofSight</a></li>
-            <li><a href="oos-vision-mission.html">OOS Vision &amp; Mission</a></li>
-            <li><a href="why-we-do-what-we-do.html">Why We Do What We Do</a></li>
-            <li><a href="OutofSightIndex.html#portfolio">Portfolio</a></li>
-          </ul>
-        </div>
-
-        <div class="col-6 col-lg-3">
-          <h4 class="footer-col-title">Helpful Links</h4>
-          <ul class="footer-link-list">
-            <li><a href="OutofSightIndex.html#faq">FAQs</a></li>
-            <li><a href="OutofSightIndex.html#contact">Support</a></li>
-            <li class="position-relative"><a href="#" id="footerLiveChat">Live Chat<span class="footer-pulse"></span></a></li>
-          </ul>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <h4 class="footer-col-title">Contact Us</h4>
-          <ul class="footer-contact-list">
-            <li><a href="mailto:hallo.outofsight@gmail.com"><i class="bi bi-envelope"></i>hallo.outofsight@gmail.com</a></li>
-            <li><a href="tel:+27781200888"><i class="bi bi-telephone"></i>078 120 0888</a></li>
-            <li><span><i class="bi bi-geo-alt"></i>Fairland, Randburg</span></li>
-          </ul>
-        </div>
-      </div>
-
-      <hr class="footer-divider">
-
-      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 pb-4">
-        <div class="d-flex gap-3 footer-social-row">
-          <a href="https://www.instagram.com/outofsightco" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.facebook.com/profile.php?id=61590196366888&sk=about" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-          <a href="https://www.linkedin.com/in/outofsight" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-          <a href="https://www.ooscu.com" target="_blank" rel="noopener" aria-label="Website"><i class="bi bi-globe2"></i></a>
-        </div>
-        <div class="d-flex gap-3">
-          <button class="footer-legal-btn" type="button" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</button>
-          <button class="footer-legal-btn" type="button" data-bs-toggle="modal" data-bs-target="#termsModal">Terms</button>
-        </div>
-        <small class="text-secondary">2026 OutofSight. All rights reserved.</small>
-      </div>
-    </div>
-
-    <div class="footer-hover-text d-none d-md-block">
-      <svg id="footerHoverSvg" viewBox="0 0 800 160" xmlns="http://www.w3.org/2000/svg" class="hover-text-svg">
-        <defs>
-          <linearGradient id="footerTextGradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="800" y2="0">
-            <stop offset="0%" stop-color="#fbb03b"></stop>
-            <stop offset="50%" stop-color="#f7931e"></stop>
-            <stop offset="100%" stop-color="#38bdf8"></stop>
-          </linearGradient>
-          <radialGradient id="footerRevealMask" gradientUnits="userSpaceOnUse" r="22%" cx="50%" cy="50%">
-            <stop offset="0%" stop-color="white"></stop>
-            <stop offset="100%" stop-color="black"></stop>
-          </radialGradient>
-          <mask id="footerTextMask">
-            <rect x="0" y="0" width="100%" height="100%" fill="url(#footerRevealMask)"></rect>
-          </mask>
-        </defs>
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="hover-text-outline">OutofSight</text>
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="hover-text-draw">OutofSight</text>
-        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" mask="url(#footerTextMask)" class="hover-text-fill">OutofSight</text>
-      </svg>
-    </div>
-  </footer>
-
-  <button id="chatToggle" class="chat-toggle" type="button" aria-label="Open OutofSight chatbot" aria-controls="chatWindow" aria-expanded="false">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#0f172a">
-      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"></path>
-    </svg>
   </button>
 
-  <div id="chatWindow" class="chat-window" role="dialog" aria-label="OutofSight chatbot">
-    <div class="chat-header">
-      <strong><i class="bi bi-robot me-2 text-cyan"></i>OutofSight AI</strong>
-      <button id="chatClose" class="chat-close" type="button" aria-label="Close chatbot">&times;</button>
+  <button class="hamburger-btn" id="navToggleBtn" onclick="toggleNavMenu()">
+
+      <span></span>
+
+      <span></span>
+
+      <span></span>
+
+  </button>
+
+  <div class="dropdown-menu" id="navDropdown">
+
+      <a href="#home" onclick="toggleNavMenu()">Home</a>
+
+      <a href="#services" onclick="toggleNavMenu()">Services</a>
+
+      <a href="#process" onclick="toggleNavMenu()">Process</a>
+
+      <a href="#portfolio" onclick="toggleNavMenu()">Portfolio</a>
+
+      <a href="#quote-section" onclick="toggleNavMenu()">Request a Quote</a>
+
+      <a href="#contact" onclick="toggleNavMenu()">Contact</a>
+
+  </div>
+
+</div>
+
+<div class="dropdown-menu" id="navDropdown">
+
+<a href="#home" onclick="toggleNavMenu()">Home</a>
+
+<a href="#services" onclick="toggleNavMenu()">Services</a>
+
+<a href="#process" onclick="toggleNavMenu()">Process</a>
+
+<a href="#portfolio" onclick="toggleNavMenu()">Portfolio</a>
+
+<a href="#quote-section" onclick="toggleNavMenu()">Request a Quote</a>
+
+<a href="#contact" onclick="toggleNavMenu()">Contact</a>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="hero" id="home">
+
+<div class="hero-overlay"></div>
+
+<div class="hero-grid"></div>
+
+<div class="hero-content">
+
+  <h2>
+
+    <span style="color:#fbbf24; text-shadow:0 0 12px rgba(251,191,36,.45);">
+
+      SOLAR INDUSTRY DEDICATED🏆  
+
+      <br> 
+
+    </span>
+
+    High-Converting Web & AI Development Systems For
+
+    <br>
+
+    <span class="neon-text">Solar Companies And Solar Installers.</span>
+
+  </h2>
+
+  
+
+<p>Dominate your local territory. We engineer high-converting digital infrastructure, AI pre-qualification chatbots, and automated funnels strictly for scaling solar businesses.</p>
+
+<button class="btn" onclick="openWelcomeModal()">Deploy Your System</button>
+
+<div class="hero-options" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 40px;">
+
+    <div class="hero-badge"><i class="fas fa-bolt"></i> More Solar Leads</div>
+
+    <div class="hero-badge"><i class="fas fa-chart-line"></i> Better Conversions</div>
+
+    <div class="hero-badge"><i class="fas fa-home"></i> Sell More Installs</div>
+
+    <div class="hero-badge"><i class="fas fa-shield-alt"></i> 24/7 Agency Support</div>
+
+</div>
+
+</div>
+
+</section>
+
+<div class="marquee-title">Deploying Solar Digital Infrastructure Across</div>
+
+<div class="logo-marquee">
+
+  <div class="logo-marquee-content">
+
+    <span>🇺🇸 United States</span><span>🇬🇧 United Kingdom</span><span>🇩🇪 Germany</span><span>🇳🇬 Nigeria</span><span>🇦🇪 UAE</span><span>🇮🇳 India</span><span>🇧🇷 Brazil</span><span>🇰🇪 Kenya</span><span>🇵🇭 Philippines</span><span>🇿🇦 South Africa</span>
+
+    <span>🇺🇸 United States</span><span>🇬🇧 United Kingdom</span><span>🇩🇪 Germany</span><span>🇳🇬 Nigeria</span><span>🇦🇪 UAE</span><span>🇮🇳 India</span><span>🇧🇷 Brazil</span><span>🇰🇪 Kenya</span><span>🇵🇭 Philippines</span><span>🇿🇦 South Africa</span>
+
+  </div>
+
+</div>
+
+<section class="section" id="services">
+
+<h2>Digital Infrastructure for Solar Enterprises</h2>
+
+<div class="service-grid-modern">
+
+<div class="card">
+
+<h3>Solar Web Engineering</h3>
+
+<p style="color: #cbd5e1; line-height: 1.6; font-size: 17px;">Custom, industry-specific, high-converting digital platforms designed to build authoritative trust and secure high-ticket residential and commercial solar investments.</p>
+
+</div>
+
+<div class="card">
+
+<h3>AI Lead Qualification</h3>
+
+<p style="color: #cbd5e1; line-height: 1.6; font-size: 17px;">Automated lead capture protocols and deployed AI chatbots that engage traffic 24/7, instantly pre-qualifying prospects based on energy needs, location, and budget.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Sales Automation</h3>
+
+<p style="color: #cbd5e1; line-height: 1.6; font-size: 17px;">Smart CRM integrations to automate multi-channel follow-ups, seamlessly schedule site assessments, and stop high-value commercial leads from slipping through the cracks.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="process" style="background: rgba(10, 15, 26, 0.5); border-top: 1px solid rgba(56,189,248,0.1); border-bottom: 1px solid rgba(56,189,248,0.1);">
+
+<h2>How We Scale Your Operations</h2>
+
+<div class="service-grid-modern">
+
+  <!-- Step 1 -->
+
+  <div class="process-step">
+
+    <div style="flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #38bdf8); display: flex; align-items: center; justify-content: center; font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; color: #0f172a; box-shadow: 0 0 18px rgba(56,189,248,0.4); margin-bottom: 20px;">1</div>
+
+    <h3>Tactical Blueprint</h3>
+
+    <p style="color: #cbd5e1; line-height: 1.6; font-size: 17px;">We map your local territory, analyze your ideal solar customer profile, and identify exact lead flow bottlenecks to build a custom digital strategy.</p>
+
+  </div>
+
+  <!-- Step 2 -->
+
+  <div class="process-step">
+
+    <div style="flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #38bdf8); display: flex; align-items: center; justify-content: center; font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; color: #0f172a; box-shadow: 0 0 18px rgba(56,189,248,0.4); margin-bottom: 20px;">2</div>
+
+    <h3>System Integration</h3>
+
+    <p style="color: #cbd5e1; line-height: 1.6; font-size: 17px;">Our elite developers construct your premium digital presence and integrate the necessary AI protocols to filter out unqualified traffic instantly.</p>
+
+  </div>
+
+  <!-- Step 3 -->
+
+  <div class="process-step">
+
+    <div style="flex-shrink: 0; width: 54px; height: 54px; border-radius: 50%; background: linear-gradient(135deg, #0284c7, #38bdf8); display: flex; align-items: center; justify-content: center; font-family: 'Rajdhani', sans-serif; font-size: 24px; font-weight: 700; color: #0f172a; box-shadow: 0 0 18px rgba(56,189,248,0.4); margin-bottom: 20px;">3</div>
+
+    <h3>Dominate &amp; Scale</h3>
+
+    <p style="color: #cbd5e1; line-height: 1.6; font-size: 17px;">We push the system live. You stop worrying about a leaky online presence and shift 100% of your focus to closing high-ticket installations.</p>
+
+  </div>
+
+</div>
+
+</section>
+
+<section id="portfolio" class="section portfolio-section" style="background: var(--color-bg-deep);">
+  <div class="portfolio-container">
+    
+    <div style="text-align: center; margin-bottom: 50px;">
+      <h2 style="font-size: 42px; margin-bottom: 10px; text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);">
+        OutofSight <span class="neon-text">Portfolio</span>
+      </h2>
+      <p style="color: #94a3b8; font-size: 20px; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 1px;">
+        Check out our latest elite laptop configurations and system designs.
+      </p>
     </div>
-    <div class="chat-quick chat-quick-grid">
-      <button type="button" data-chat-reply="Tell me about OutofSight">ℹ️ About</button>
-      <button type="button" data-chat-reply="What services do you offer?">🛠️ Services</button>
-      <button type="button" data-chat-reply="How does the process work?">⚙️ Process</button>
-      <button type="button" data-chat-reply="How can I contact you?">📞 Contact</button>
+    
+    <div class="portfolio-grid">
+
+      <!-- Card 1 – Dhaka City Solar (Laptop_4) -->
+      <div class="pf-card">
+        <div class="pf-logo-area">
+          <img src="Laptop 4.png" alt="Dhaka City Solar Logo" class="pf-logo-img">
+        </div>
+        <div class="pf-laptop-area">
+          <img src="4.0.png" alt="Dhaka City Solar Website on Laptop" class="pf-laptop-img">
+        </div>
+      </div>
+
+      <!-- Card 2 – SunnyMac Solar (Laptop_3) -->
+      <div class="pf-card">
+        <div class="pf-logo-area">
+          <img src="Laptop 3.png" alt="SunnyMac Solar Logo" class="pf-logo-img">
+        </div>
+        <div class="pf-laptop-area">
+          <img src="3.0.png" alt="SunnyMac Solar Website on Laptop" class="pf-laptop-img">
+        </div>
+      </div>
+
+      <!-- Card 3 – Unique Solar Residential (Laptop_2) -->
+      <div class="pf-card">
+        <div class="pf-logo-area">
+          <img src="Laptop 2.png" alt="Unique Solar Residential Logo" class="pf-logo-img">
+        </div>
+        <div class="pf-laptop-area">
+          <img src="2.0.png" alt="Unique Solar Residential Website on Laptop" class="pf-laptop-img">
+        </div>
+      </div>
+
+      <!-- Card 4 – Solar Caribbean (Laptop_1) -->
+      <div class="pf-card">
+        <div class="pf-logo-area">
+          <img src="Laptop 1.png" alt="Solar Caribbean Logo" class="pf-logo-img">
+        </div>
+        <div class="pf-laptop-area">
+          <img src="1.0.png" alt="Solar Caribbean Website on Laptop" class="pf-laptop-img">
+        </div>
+      </div>
+
+      <!-- Card 5 – PramanCAD Engineering (Laptop_5) -->
+      <div class="pf-card">
+        <div class="pf-logo-area">
+          <img src="Laptop 5.png" alt="PramanCAD Engineering Services Logo" class="pf-logo-img">
+        </div>
+        <div class="pf-laptop-area">
+          <img src="5.0.png" alt="PramanCAD Engineering Services Website on Laptop" class="pf-laptop-img">
+        </div>
+      </div>
+
+      <!-- Card 6 – REPLACE with next client logo -->
+      <div class="pf-card">
+        <div class="pf-logo-area">
+          <img src="Laptop 6.png" alt="Hudini Plumbing" class="pf-logo-img">
+        </div>
+        <div class="pf-laptop-area">
+          <img src="6.0.png" alt="Client Website on Laptop" class="pf-laptop-img">
+        </div>
+      </div>
+
     </div>
-    <div id="chatBody" class="chat-body"></div>
-    <a class="chat-whatsapp" href="https://wa.me/27781200888?text=Hi%20OutofSight,%20I%20want%20to%20discuss%20a%20digital%20system" target="_blank" rel="noopener">
-      <i class="bi bi-whatsapp"></i>Chat on WhatsApp
-    </a>
-    <form id="chatForm" class="chat-form">
-      <textarea id="chatInput" rows="1" placeholder="Type a message..." aria-label="Type a chatbot message"></textarea>
-      <button type="submit" aria-label="Send message"><i class="bi bi-send-fill"></i></button>
+
+  </div>
+</section>
+
+<section class="section" style="background: var(--color-bg-deep);">
+
+    <h2>Solar Companies And Solar Installers' Frustrations — Solved.</h2>
+
+    <p style="color: #94a3b8; margin-bottom: 50px; font-size: 20px; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 1px;">System Diagnostics: Identifying The Problem</p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1200px; margin: 0 auto;">
+
+        
+
+        <div style="flex: 1; min-width: 340px; background: rgba(15, 23, 42, 0.6); padding: 50px 40px; border-radius: 4px; border: 1px solid rgba(239, 68, 68, 0.3); border-top: 3px solid #ef4444; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+
+            <h3 style="font-size: 26px; margin-top: 0; margin-bottom: 30px; color: #fca5a5; text-transform: uppercase; letter-spacing: 1px;">Critical Errors</h3>
+
+            <ul style="list-style: none; padding: 0; color: #cbd5e1; line-height: 1.8; font-size: 17px;">
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #ef4444; margin-right: 15px; font-weight: bold; font-size: 20px;">✗</span> Your current website isn't converting traffic into qualified solar leads.</li>
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #ef4444; margin-right: 15px; font-weight: bold; font-size: 20px;">✗</span> You're entirely invisible on local Google searches for solar installations.</li>
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #ef4444; margin-right: 15px; font-weight: bold; font-size: 20px;">✗</span> You've burned budget on agencies that delivered zero ROI.</li>
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #ef4444; margin-right: 15px; font-weight: bold; font-size: 20px;">✗</span> Competitors are capturing digital market share while you rely on referrals.</li>
+
+            </ul>
+
+        </div>
+
+        <div style="flex: 1; min-width: 340px; background: rgba(15, 23, 42, 0.6); padding: 50px 40px; border-radius: 4px; border: 1px solid rgba(34, 197, 94, 0.3); border-top: 3px solid #22c55e; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+
+            <h3 style="font-size: 26px; margin-top: 0; margin-bottom: 30px; color: #86efac; text-transform: uppercase; letter-spacing: 1px;">The OutofSight Solution</h3>
+
+            <ul style="list-style: none; padding: 0; color: #cbd5e1; line-height: 1.8; font-size: 17px;">
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #22c55e; margin-right: 15px; font-weight: bold; font-size: 20px;">✓</span> We engineer data-driven results, not empty agency promises.</li>
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #22c55e; margin-right: 15px; font-weight: bold; font-size: 20px;">✓</span> We build exclusively for the Solar Sector — we know your unit economics.</li>
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #22c55e; margin-right: 15px; font-weight: bold; font-size: 20px;">✓</span> Global-tier tech talent deployed at the most competitive rates in the industry.</li>
+
+                <li style="margin-bottom: 20px; display: flex;"><span style="color: #22c55e; margin-right: 15px; font-weight: bold; font-size: 20px;">✓</span> We build you more ways to capture leads dedicated to your industry.</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="section" style="background: rgba(10, 15, 26, 0.8);">
+
+    <div style="max-width: 900px; margin: 0 auto; text-align: left; background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 4px; padding: 60px; box-shadow: 0 20px 50px rgba(0,0,0,0.6), inset 0 0 40px rgba(56, 189, 248, 0.05); backdrop-filter: blur(10px); position: relative; overflow: hidden;">
+
+        
+
+        <div style="position: absolute; top: 0; right: 0; width: 150px; height: 150px; background-image: radial-gradient(rgba(56,189,248,0.2) 2px, transparent 2px); background-size: 15px 15px; clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>
+
+        <h2 style="text-align: left; font-size: 42px; margin-bottom: 35px; text-shadow: 0 0 20px rgba(56, 189, 248, 0.3); position: relative; z-index: 2;">Your Vision. Our Infrastructure.</h2>
+
+        <p style="color: #cbd5e1; line-height: 1.8; font-size: 18px; margin-bottom: 25px; position: relative; z-index: 2;">Hello — we're the elite team behind OutofSight. We've successfully engineered digital transitions for Solar Companies across the globe, transforming them from digitally invisible to dominant forces in their local markets.</p>
+
+        <p style="color: #cbd5e1; line-height: 1.8; font-size: 18px; margin-bottom: 25px; position: relative; z-index: 2;">We don't just "design websites." We've systematically dismantled the solar customer journey — analyzing how leads are generated, what objections cause drop-offs, and precisely what technical infrastructure converts traffic into confirmed site assessments.<br><br>We understand your operational reality.</p>
+
+        <p style="color: #cbd5e1; line-height: 1.8; font-size: 18px; margin-bottom: 35px; position: relative; z-index: 2;">From the initial strategy diagnostic to system deployment, our protocol focuses on one metric: measurable revenue growth for your solar company.<br><br>No generic templates. No recycled codebases. Just a precision-engineered digital machine built to capture and convert.</p>
+
+        
+
+        <div style="border-left: 3px solid #22c55e; padding-left: 25px; margin-top: 40px; background: linear-gradient(90deg, rgba(34, 197, 94, 0.1), transparent); padding-top: 15px; padding-bottom: 15px; position: relative; z-index: 2;">
+
+            <strong style="font-size: 20px; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 1px; color: #bbf7d0;">That is not just a claim. That is our operational promise.</strong>
+
+        </div>
+
+        <!-- Get To Know The Team Button -->
+
+        <div style="text-align: center; margin-top: 50px; position: relative; z-index: 2;">
+
+            <button id="teamModalBtn" onclick="openTeamModal()" style="
+
+                background: rgba(255, 100, 0, 0.25);
+
+                color: #38bdf8;
+
+                border: 1px solid rgba(255, 100, 0, 0.5);
+
+                border-radius: 6px;
+
+                padding: 14px 34px;
+
+                font-size: 15px;
+
+                font-family: 'Rajdhani', sans-serif;
+
+                font-weight: 700;
+
+                text-transform: uppercase;
+
+                letter-spacing: 2px;
+
+                cursor: pointer;
+
+                transition: all 0.3s ease;
+
+                outline: none;
+
+            "
+
+            onmouseover="this.style.boxShadow='0 0 20px rgba(255,100,0,0.7), 0 0 40px rgba(255,100,0,0.4), inset 0 0 20px rgba(255,100,0,0.1)'; this.style.background='rgba(255,100,0,0.35)'; this.style.borderColor='rgba(255,120,0,0.8)'; this.style.color='#FFA040';"
+
+            onmouseout="this.style.boxShadow='none'; this.style.background='rgba(255,100,0,0.25)'; this.style.borderColor='rgba(255,100,0,0.5)'; this.style.color='#FF8C00';">
+
+                Get To Know The Team
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- Team Modal Overlay -->
+
+<div id="teamModal" style="
+
+    display: none;
+
+    position: fixed;
+
+    top: 0; left: 0; right: 0; bottom: 0;
+
+    background: rgba(5, 11, 20, 0.92);
+
+    backdrop-filter: blur(10px);
+
+    z-index: 9999;
+
+    overflow-y: auto;
+
+    padding: 40px 20px;
+
+" onclick="closeTeamModalOutside(event)">
+
+    <div style="
+
+        max-width: 900px;
+
+        margin: 0 auto;
+
+        background: rgba(15, 23, 42, 0.95);
+
+        border: 1px solid rgba(56, 189, 248, 0.4);
+
+        border-radius: 4px;
+
+        padding: 60px;
+
+        box-shadow: 0 20px 60px rgba(0,0,0,0.8), inset 0 0 40px rgba(56,189,248,0.05);
+
+        position: relative;
+
+    " id="teamModalContent">
+
+        <!-- Close Button -->
+
+        <button onclick="closeTeamModal()" style="
+
+            position: absolute;
+
+            top: 20px; right: 24px;
+
+            background: transparent;
+
+            border: 1px solid rgba(56,189,248,0.3);
+
+            color: #38bdf8;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            width: 38px; height: 38px;
+
+            border-radius: 4px;
+
+            display: flex; align-items: center; justify-content: center;
+
+            transition: all 0.2s;
+
+        " onmouseover="this.style.background='rgba(56,189,248,0.1)'; this.style.borderColor='#38bdf8';"
+
+           onmouseout="this.style.background='transparent'; this.style.borderColor='rgba(56,189,248,0.3)';">✕</button>
+
+        <!-- Modal Heading -->
+
+        <div style="position: absolute; top: 0; right: 0; width: 120px; height: 120px; background-image: radial-gradient(rgba(56,189,248,0.2) 2px, transparent 2px); background-size: 15px 15px; clip-path: polygon(100% 0, 0 0, 100% 100%);"></div>
+
+        <h2 style="font-family: 'Rajdhani', sans-serif; font-size: 38px; margin: 0 0 50px 0; color: #fff; text-shadow: 0 0 20px rgba(56,189,248,0.4); letter-spacing: 1px;">Get To Know The <span style="color: #38bdf8;">OutofSight</span> Team.</h2>
+
+        <!-- Jaidon Section -->
+
+        <div style="display: flex; gap: 40px; margin-bottom: 50px; align-items: flex-start;">
+
+            <!-- Text Left -->
+
+            <div style="flex: 1;">
+
+                <h3 style="font-family: 'Rajdhani', sans-serif; font-size: 26px; color: #38bdf8; margin: 0 0 4px 0; text-transform: uppercase; letter-spacing: 1px;">Jaidon Vermeulen</h3>
+
+                <p style="font-family: 'Rajdhani', sans-serif; font-size: 14px; color: #00df16; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 18px 0;">Founder &amp; Developer</p>
+
+                <p style="color: #94a3b8; font-size: 16px; line-height: 1.8; margin: 0 0 14px 0; font-style: italic; border-left: 2px solid rgba(255,140,0,0.5); padding-left: 16px;">Driven by a passion for creating Solar Industry-Dominant Websites.</p>
+
+                <p style="color: #cbd5e1; font-size: 15px; line-height: 1.8; margin: 0 0 12px 0;">Jaidon Vermeulen graduated with a Degree in Business Innovation and Entrepreneurship, specializing in User Interface and User Experience Design alongside a foundation in Marketing and Graphic Design.</p>
+
+                <p style="color: #cbd5e1; font-size: 15px; line-height: 1.8; margin: 0;">Jaidon has spent years in the Solar ndustry field, from working with one of the biggest Solar Manufacturing Companies in Africa to working with Award-Winning Manufacturers of the Year Companies.</p>
+
+            </div>
+
+            <!-- Image Frame Right -->
+
+            <div style="
+
+                width: 190px;
+
+                min-width: 190px;
+
+                height: 230px;
+
+                border: 1px solid rgba(0, 255, 72, 0.4);
+
+                border-radius: 4px;
+
+                background: rgba(255,140,0,0.05);
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                box-shadow: 0 0 20px rgba(255,140,0,0.1);
+
+                position: relative;
+
+                overflow: hidden;
+                
+
+            ">
+
+<div class="relative w-full max-w-2xl mx-auto my-8 p-1 rounded-2xl bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f] shadow-2xl">
+  <div class="absolute inset-0 bg-black-200 rounded-2xl blur-md opacity-20 group-hover:opacity-40 transition duration-300"></div>
+  
+
+    <img src="Jaidon.png" alt="Jaidon Vermeulen" style="width: 100%; height: 100%; object-fit: cover; border-radius: 4px;">
+
+</div>
+</div>
+
+        <!-- Divider -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function openTeamModal() {
+
+    document.getElementById('teamModal').style.display = 'block';
+
+    document.body.style.overflow = 'hidden';
+
+}
+
+function closeTeamModal() {
+
+    document.getElementById('teamModal').style.display = 'none';
+
+    document.body.style.overflow = '';
+
+}
+
+function closeTeamModalOutside(event) {
+
+    if (event.target === document.getElementById('teamModal')) {
+
+        closeTeamModal();
+
+    }
+
+}
+
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === 'Escape') closeTeamModal();
+
+});
+
+</script>
+
+<section class="section bg-zinc-950 text-white py-16 px-6" id="quote-section">
+
+  <div class="max-w-2xl mx-auto position-relative z-10">
+
+    <div class="text-center mb-12">
+
+      <h2 class="title-font text-5xl font-semibold tracking-tighter neon-text text-cyan-300 m-0" style="margin-bottom: 15px !important;">
+
+        Request a Quote
+
+      </h2>
+
+      <p class="text-xl mt-4 text-zinc-400 font-rajdhani uppercase tracking-widest text-sm" style="white-space: nowrap;">
+
+        Take The First Step Toward Scaling Your Company 🚀
+
+      </p>
+
+    </div>
+
+    <form action="https://formspree.io/f/xjglevqk" method="POST" id="quoteForm" class="bg-zinc-900/70 backdrop-blur-xl border border-cyan-500/20 p-10 text-left glow-form" style="border-radius: 4px;">
+
+      
+
+      <div class="mb-8">
+
+        <label class="block text-sm font-bold font-rajdhani tracking-widest text-zinc-400 mb-2">OPERATIVE NAME / COMPANY ENTITY</label>
+
+        <input 
+
+          type="text" 
+
+          name="name_or_company"
+
+          required
+
+          class="form-input-futuristic w-full px-6 py-4 rounded text-lg focus:outline-none" 
+
+          placeholder="Alex Rivera / Quantum Solar Dynamics">
+
+      </div>
+
+      <div class="mb-8">
+
+        <label class="block text-sm font-bold font-rajdhani tracking-widest text-zinc-400 mb-2">SECURE EMAIL ADDRESS</label>
+
+        <input 
+
+          type="email" 
+
+          name="email"
+
+          required
+
+          class="form-input-futuristic w-full px-6 py-4 rounded text-lg focus:outline-none" 
+
+          placeholder="systems@company.com">
+
+      </div>
+
+      <div class="mb-8 grid grid-cols-1 md:grid-cols-12 gap-4">
+
+        <div class="md:col-span-5">
+
+          <label class="block text-sm font-bold font-rajdhani tracking-widest text-zinc-400 mb-2">OPERATIONAL REGION</label>
+
+          <select 
+
+            id="futuristicCountry"
+
+            name="country"
+
+            class="form-input-futuristic w-full px-6 py-4 rounded text-lg focus:outline-none">
+
+            <option value="South Africa" data-code="+27">🇿🇦 South Africa</option>
+
+            <option value="United States" data-code="+1">🇺🇸 United States</option>
+
+            <option value="United Kingdom" data-code="+44">🇬🇧 United Kingdom</option>
+
+            <option value="Germany" data-code="+49">🇩🇪 Germany</option>
+
+            <option value="France" data-code="+33">🇫🇷 France</option>
+
+            <option value="India" data-code="+91">🇮🇳 India</option>
+
+            <option value="UAE" data-code="+971">🇦🇪 UAE</option>
+
+            <option value="Australia" data-code="+61">🇦🇺 Australia</option>
+
+          </select>
+
+        </div>
+
+        <div class="md:col-span-7">
+
+          <label class="block text-sm font-bold font-rajdhani tracking-widest text-zinc-400 mb-2">COMM LINK (NUMBER)</label>
+
+          <div class="flex">
+
+            <div id="futuristic-country-code" class="form-input-futuristic px-5 py-4 rounded-l text-lg font-medium text-cyan-300 flex items-center border-r-0">
+
+              +27
+
+            </div>
+
+            <input 
+
+              type="tel" 
+
+              name="phone"
+
+              required
+
+              class="form-input-futuristic flex-1 px-6 py-4 rounded-r text-lg focus:outline-none" 
+
+              placeholder="82 123 4567">
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="mb-10">
+
+        <label class="block text-sm font-bold font-rajdhani tracking-widest text-zinc-400 mb-2">SYSTEM REQUIREMENTS (PROJECT DATA)</label>
+
+        <textarea 
+
+          name="message"
+
+          rows="6"
+
+          required
+
+          class="form-input-futuristic w-full px-6 py-4 rounded text-lg focus:outline-none resize-none"
+
+          placeholder="Transmit your project parameters, territorial goals, and timeline objectives..."></textarea>
+
+      </div>
+
+      <button 
+
+        type="submit"
+
+        class="submit-btn-futuristic w-full text-black font-bold text-xl py-5 rounded flex items-center justify-center gap-3">
+
+        <i class="fas fa-server"></i>
+
+        TRANSMIT DATA
+
+      </button>
+
+      <p class="text-center text-xs text-zinc-500 mt-6 font-rajdhani tracking-wider uppercase">
+
+        Data encrypted & forwarded to central servers • Response protocol < 24 hrs
+
+      </p>
+
     </form>
+
   </div>
 
-  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-4" id="privacyModalLabel">Privacy Policy</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>Last updated: May 13, 2026</strong></p>
-          <p>OutofSight is committed to protecting the privacy and security of client, project, and business information shared through our website, development services, AI chatbot implementations, and automation systems.</p>
-          <h3 class="h5 text-white mt-4">Information We Collect</h3>
-          <p>We may collect contact details, company details, project requirements, branding assets, website usage data, and information needed to deliver digital services.</p>
-          <h3 class="h5 text-white mt-4">AI And Automation Data</h3>
-          <p>When implementing chatbots or automated workflows, OutofSight acts as a processor of the data handled by those systems. Clients remain responsible for the data they collect from their customers.</p>
-          <h3 class="h5 text-white mt-4">How Information Is Used</h3>
-          <p>Information is used to plan, build, test, deploy, support, and improve websites, chatbots, automation workflows, and related digital systems.</p>
-          <h3 class="h5 text-white mt-4">Contact</h3>
-          <p>For privacy questions, contact Jaidon Vermeulen at <a href="mailto:hallo.outofsight@gmail.com">hallo.outofsight@gmail.com</a> or <a href="tel:+27781200888">078 120 0888</a>.</p>
-        </div>
-      </div>
+</section>
+
+<section class="section" id="faq" style="max-width:1100px;margin:auto;">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item"><button class="faq-question">What Services Does OutofSight Offer?</button><div class="faq-answer">OutofSight is your go-to full-service web design partner. Our services include website design using our ULTIMATE TESTED BLUEPRINT, development, hosting, maintenance, AI Chatbot design and integrations and strategic online marketing solutions such as SEO and social media management.</div></div>
+
+<div class="faq-item"><button class="faq-question">How Does The Website Design Process Work With OutofSight?</button><div class="faq-answer">Our website design process is a collaborative journey. We begin by understanding your vision, and then our team creates a strategy for you. From conceptualization to launch, we ensure transparency and client involvement every step of the way.</div></div>
+
+<div class="faq-item"><button class="faq-question">How Long Does It Take To Design A Website?</button><div class="faq-answer">The timeline varies based on the project’s complexity. We prioritize quality and effectiveness, ensuring your website meets and exceeds expectations within a reasonable timeframe. However, if we are speaking in actual time? We’d get it done between 3-4 weeks.</div></div>
+
+<div class="faq-item"><button class="faq-question">Can You Help Me Update My Existing Website?</button><div class="faq-answer">Absolutely! We specialize in refreshing and updating existing websites.</div></div>
+
+<div class="faq-item"><button class="faq-question">Do You Offer Website Hosting Services?</button><div class="faq-answer">Yes, we do. Our hosting services guarantee a secure and reliable online presence for your website. Any problems? You contact us directly. Our team will keep your store running smoothly.</div></div>
+
+<div class="faq-item"><button class="faq-question">How Do You Ensure My Website Is Optimized For Search Engines?</button><div class="faq-answer">Optimizing for search engines is ingrained in our process. From strategic keyword placement to responsive design, we employ best practices to ensure your website ranks high and attracts the right audience.</div></div>
+
+<div class="faq-item"><button class="faq-question">How Do I Get Started With OutofSight?</button><div class="faq-answer">Getting started is easy! Contact us to schedule an initial consultation. We’ll discuss your goals, outline a plan, and embark on the journey together to transform your business.</div></div>
+
+</section>
+
+<script>
+
+document.addEventListener('click',e=>{if(e.target.classList.contains('faq-question'))e.target.parentElement.classList.toggle('active')})
+
+</script>
+
+<section class="cta" id="contact">
+
+<div class="cta-content" style="position: relative; z-index: 3;">
+
+<h2 style="font-size: 48px; margin-bottom: 25px;">Book Your Digital Infrastructure Strategy Call</h2>
+
+<p style="font-size: 22px; margin-bottom: 40px; color: #cbd5e1; max-width: 700px; line-height: 1.6; text-align: center; margin-left: auto; margin-right: auto;">No obligations. No high-pressure sales. Just an analytical breakdown of your solar operation and what our systems can achieve in your territory.</p>
+
+<div class="cta-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+
+    <a href="mailto:Jaidonvermeulen@gmail.com?subject=Strategy Call" class="btn" style="text-decoration: none; display: inline-block;"><i class="fas fa-satellite-dish" style="margin-right: 8px;"></i> Book Strategy Session</a>
+
+    <a href="#quote-section" class="btn-secondary" style="text-decoration: none; display: inline-block;">Configure Custom System</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section" style="padding-bottom: 0;">
+
+    <h2 style="margin-bottom: 20px;">Headquarters</h2>
+
+    <p style="color: #cbd5e1; margin-bottom: 30px; font-size: 18px;">5 13th Ave, Fairland, Randburg, 2170</p>
+
+    <div style="width: 100%; height: 450px; border-top: 1px solid rgba(56,189,248,0.3);">
+
+        <iframe src="https://maps.google.com/maps?q=5%2013th%20Ave,%20Fairland,%20Randburg,%202170&t=k&z=17&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
     </div>
-  </div>
 
-  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-4" id="termsModalLabel">Terms And Conditions</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p><strong>Last updated: May 13, 2026</strong></p>
-          <p>By engaging OutofSight, clients agree that each project scope, timeline, fee, revision allowance, deliverable, and responsibility will be defined in a proposal or written agreement.</p>
-          <h3 class="h5 text-white mt-4">Services</h3>
-          <p>Services may include website development, AI chatbot implementation, automation systems, branding, SEO, social media design, hosting, and maintenance.</p>
-          <h3 class="h5 text-white mt-4">Payments And Revisions</h3>
-          <p>Deposits may be required before work begins. Work outside the agreed scope may be billed separately. Due to the custom nature of digital services, payments are generally non-refundable once work has commenced unless otherwise agreed in writing.</p>
-          <h3 class="h5 text-white mt-4">AI And Third-Party Services</h3>
-          <p>AI chatbot, automation, hosting, analytics, and third-party integrations may depend on external providers. OutofSight cannot guarantee uninterrupted third-party service availability.</p>
-          <h3 class="h5 text-white mt-4">Confidentiality</h3>
-          <p>Project information shared during the work will be treated confidentially and used only for service delivery, support, and agreed project purposes.</p>
-        </div>
-      </div>
+</section>
+
+<div class="modal-overlay" id="welcomeModalOverlay">
+
+<div class="modal-content">
+
+<span class="close-modal" onclick="closeWelcomeModal()">×</span>
+
+<h3 style="color: #38bdf8; margin-top: 0; font-size: 28px; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Access Granted</h3>
+
+<p style="font-weight: bold; margin-top: 20px; margin-bottom: 15px; font-size: 20px;">Welcome to OutofSight. We are your dedicated technical squad. 🌍</p>
+
+<p style="color: #cbd5e1; line-height: 1.7; margin-bottom: 35px; font-size: 18px;">We engineer high-performance platforms, deploy AI conversion bots (like Jess 👋), and establish automation protocols to streamline your solar acquisitions.</p>
+
+<div style="display: flex; gap: 20px;">
+
+<button class="btn-secondary" style="flex: 1;" onclick="closeWelcomeModal()">Abort</button>
+
+<button class="btn" style="flex: 2;" onclick="closeWelcomeModal()">Initialize System</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-overlay" id="scheduleModalOverlay">
+
+<div class="modal-content" style="background: #000; text-align: center; max-width: 800px; padding: 50px 30px;">
+
+    <span class="close-modal" onclick="closeScheduleModal()">×</span>
+
+    
+
+    <h1 style="font-size: 40px; font-weight: bold; margin-bottom: 30px; font-family: 'Rajdhani', sans-serif;">
+
+        <span style="color:white">Outof</span><span style="color:#FBB03B">Sight</span><sup style="font-size: 16px; color: #38BDF8;">®</sup>
+
+    </h1>
+
+    
+
+    <h2 style="font-size: 42px; font-weight: 800; text-transform: uppercase; line-height: 1.1; margin-bottom: 30px; font-family: 'Space Grotesk', sans-serif;">
+
+        You're One Step Away From Gaining Leads Every Month Without Endless Quotes, Missed Deadlines, Or Wasted Time
+
+    </h2>
+
+    
+
+    <div style="background: white; border-radius: 8px; padding: 40px 30px; max-width: 450px; margin: 30px auto 0;">
+
+        <h3 style="color: #0f172a; margin-top: 0; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Select a Date & Time</h3>
+
+        <input type="text" id="intro-name" placeholder="Your Full Name" style="width: 100%; padding: 15px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 18px; color: #334155; font-family: 'Inter', sans-serif; margin-bottom: 15px; box-sizing: border-box;">
+
+        <input type="datetime-local" id="intro-date" style="width: 100%; padding: 15px; border: 1px solid #cbd5e1; border-radius: 4px; font-size: 18px; color: #334155; font-family: 'Inter', sans-serif; box-sizing: border-box;">
+
+        <div id="schedule-msg" style="display:none; margin-top: 15px; font-size: 15px; font-family: 'Inter', sans-serif;"></div>
+
+        <button class="btn" id="confirm-date-btn" style="width: 100%; margin-top: 25px; background: #2563eb; box-shadow: none; border-color: #1d4ed8;" onclick="confirmSchedule()">Confirm Date</button>
+
     </div>
+
+</div>
+
+</div>
+
+<div class="modal-overlay" id="privacyModalOverlay">
+
+<div class="modal-content legal-content">
+
+<span class="close-modal" onclick="closePrivacyModal()">×</span>
+
+<h2>PRIVACY POLICY</h2>
+
+<p><strong>Last Updated: May 13, 2026</strong></p>
+
+<p>At OutofSight, we are your dedicated in-house and outsourced team of elite developers! We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
+
+<h3>1. INTRODUCTION</h3>
+
+<p>OutofSight™ ("the Company," "we," "us," or "our") is committed to protecting the privacy and security of our clients' personal and business data. This Privacy Policy outlines our practices regarding the collection, use, and disclosure of information through our website, development services, AI chatbot implementations, and automation systems.</p>
+
+<p>By engaging our services, you acknowledge and agree to the terms of this Privacy Policy in conjunction with our Terms & Conditions.</p>
+
+<h3>2. COMPLIANCE WITH GOVERNING LAW</h3>
+
+<p>This policy is governed by the laws of South Africa. We comply with the Protection of Personal Information Act (POPIA) and other applicable data protection regulations. We ensure that personal information is processed lawfully, transparently, and only for the specific purposes for which it was collected.</p>
+
+<h3>3. INFORMATION WE COLLECT</h3>
+
+<p>We collect information necessary to provide elite development and automation services, including:</p>
+
+<ul>
+
+<li><strong>Personal Identification:</strong> Name, email address, phone number, and company details provided during project onboarding or inquiries.</li>
+
+<li><strong>Project Content:</strong> Data, branding assets, and technical documentation required to build your digital solutions.</li>
+
+<li><strong>Usage Data:</strong> Information about how you interact with our website and delivered systems, including IP addresses and diagnostic data.</li>
+
+</ul>
+
+<h3>4. AI & AUTOMATION DATA HANDLING</h3>
+
+<p>As specialists in AI Chatbots and Automation, we implement systems that may process third-party end-user data. Regarding these services:</p>
+
+<ul>
+
+<li><strong>Data Processing:</strong> OutofSight acts as the "Processor" or "Operator" of data collected by the bots we build. The Client remains the "Controller" or "Responsible Party."</li>
+
+<li><strong>System Outputs:</strong> We do not claim ownership of data generated by AI interactions between our clients and their customers.</li>
+
+<li><strong>Security:</strong> Our AI implementations prioritize secure API integrations and encryption to protect sensitive data flows.</li>
+
+</ul>
+
+<h3>5. USE OF INFORMATION</h3>
+
+<p>Your information is used to:</p>
+
+<ul>
+
+<li>Develop, test, and deploy high-converting websites and automation workflows.</li>
+
+<li>Communicate project updates and provide technical support.</li>
+
+<li>Ensure billing accuracy and fulfill contractual obligations.</li>
+
+<li>Improve our proprietary frameworks and AI tools (using anonymized or aggregated data).</li>
+
+</ul>
+
+<h3>6. CONFIDENTIALITY & DATA SHARING</h3>
+
+<p>In line with our Terms & Conditions, all confidential information shared during a project shall remain private. We do not sell or lease your data to third parties. Data may only be shared with:</p>
+
+<ul>
+
+<li>Verified third-party service providers (e.g., hosting, API services) necessary for project delivery.</li>
+
+<li>Legal authorities when required by law or to protect our legal rights.</li>
+
+</ul>
+
+<h3>7. DATA SECURITY</h3>
+
+<p>We implement industry-standard technical and organizational measures to safeguard your data against unauthorized access, loss, or destruction. This includes secure development environments and encrypted communication channels.</p>
+
+<h3>8. YOUR RIGHTS</h3>
+
+<p>Under POPIA and applicable international laws, you have the right to:</p>
+
+<ul>
+
+<li>Access the personal information we hold about you.</li>
+
+<li>Request the correction or deletion of inaccurate data.</li>
+
+<li>Object to the processing of your data for marketing purposes.</li>
+
+</ul>
+
+<h3>9. CONTACT US</h3>
+
+<p>For any questions regarding this Privacy Policy or your data, please contact our support team:</p>
+
+<p><strong>Jaidon Vermeulen</strong><br>
+
+Email: Jaidonvermeulen@gmail.com<br>
+
+Phone: 078 120 0888</p>
+
+
+<p style="margin-top: 30px; font-size: 15px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-family: 'Rajdhani', sans-serif;">© 2026 OutofSight™ — All Rights Reserved.<br>Elite Web Engineering | AI Chatbots | System Automation</p>
+
+</div>
+
+</div>
+
+<div class="modal-overlay" id="termsModalOverlay">
+
+<div class="modal-content legal-content">
+
+<span class="close-modal" onclick="closeTermsModal()">×</span>
+
+<h2>TERMS & CONDITIONS</h2>
+
+<p><strong>Last Updated: May 13, 2026</strong></p>
+
+<p>At OutofSight, we are your dedicated in-house and outsourced team of elite developers! We specialize in helping businesses scale by delivering high-converting websites, smart AI chatbots, and seamless automation.</p>
+
+<h3>1. AGREEMENT</h3>
+
+<p>By engaging OutofSight, you agree to these Terms & Conditions. These terms form a legally binding agreement governing all services provided.</p>
+
+<h3>2. SCOPE OF SERVICES</h3>
+
+<ul>
+
+<li>Services include but are not limited to website development, AI chatbot implementation, and automation systems.</li>
+
+<li>Each project scope will be defined in a written proposal or agreement.</li>
+
+</ul>
+
+<h3>3. PAYMENT & FEES</h3>
+
+<ul>
+
+<li>A non-refundable deposit may be required before work begins. Remaining balances must be paid as agreed.</li>
+
+<li>Failure to pay may result in suspension or termination of services. All fees are exclusive of applicable taxes.</li>
+
+</ul>
+
+<h3>4. REFUND POLICY</h3>
+
+<p>Due to the custom nature of digital services, all payments are non-refundable once work has commenced, unless otherwise agreed in writing.</p>
+
+<h3>5. INTELLECTUAL PROPERTY</h3>
+
+<ul>
+
+<li>All intellectual property remains the property of OutofSight™ until full payment is received.</li>
+
+<li>Upon full payment, ownership of final deliverables transfers to the client, excluding proprietary frameworks, tools, and pre-existing assets.</li>
+
+</ul>
+
+<h3>6. REVISIONS & SCOPE CHANGES</h3>
+
+<p>Projects include a defined number of revisions. Any work outside the agreed scope will be billed additionally at standard rates.</p>
+
+<h3>7. CLIENT OBLIGATIONS</h3>
+
+<ul>
+
+<li>The client agrees to provide accurate information, timely approvals, and required content.</li>
+
+<li>Delays caused by the client may impact delivery timelines.</li>
+
+</ul>
+
+<h3>8. LIMITATION OF LIABILITY</h3>
+
+<p>OutofSight™ shall not be liable for indirect, incidental, or consequential damages, including loss of revenue, data, or business opportunities.</p>
+
+<h3>9. AI & AUTOMATION DISCLAIMER</h3>
+
+<ul>
+
+<li>Clients acknowledge that AI chatbot and automation systems are not guaranteed to be error-free.</li>
+
+<li>OutofSight™ is not responsible for decisions, outputs, or business outcomes resulting from AI usage.</li>
+
+</ul>
+
+<h3>10. DATA PROTECTION & PRIVACY</h3>
+
+<p>Both parties agree to comply with applicable data protection laws, including POPIA where applicable. Sensitive data must be handled responsibly by both parties.</p>
+
+<h3>11. CONFIDENTIALITY</h3>
+
+<p>All confidential information shared during the project shall remain private and not disclosed to third parties without consent.</p>
+
+<h3>12. TERMINATION</h3>
+
+<p>Either party may terminate the agreement with written notice. All outstanding payments become immediately due upon termination.</p>
+
+<h3>13. SERVICE AVAILABILITY</h3>
+
+<p>OutofSight™ does not guarantee uninterrupted or error-free service, particularly for third-party integrations or hosting environments.</p>
+
+<h3>14. THIRD-PARTY SERVICES</h3>
+
+<p>OutofSight™ is not responsible for failures, downtime, or issues caused by third-party platforms, hosting providers, or integrations.</p>
+
+<h3>15. INDEMNIFICATION</h3>
+
+<p>The client agrees to indemnify and hold OutofSight™ harmless from any claims, damages, or legal actions arising from the use of delivered services.</p>
+
+<h3>16. GOVERNING LAW</h3>
+
+<p>These Terms shall be governed by the laws of South Africa. Any disputes shall be resolved within the applicable courts of jurisdiction.</p>
+
+<h3>17. AMENDMENTS</h3>
+
+<ul>
+
+<li>OutofSight™ reserves the right to modify these Terms at any time.</li>
+
+<li>Continued use of services constitutes acceptance of the updated Terms.</li>
+
+</ul>
+
+<h3>18. ACCEPTANCE</h3>
+
+<p>By proceeding with services, the client confirms they have read, understood, and agreed to these Terms & Conditions.</p>
+
+<p style="margin-top: 30px; font-size: 15px; color: #64748b; text-transform: uppercase; letter-spacing: 1px; font-family: 'Rajdhani', sans-serif;">© 2026 OutofSight™ — All Rights Reserved.<br>Elite Web Engineering | AI Chatbots | System Automation</p>
+
+</div>
+
+</div>
+
+<div class="modal-overlay" id="contactModalOverlay">
+
+<div class="modal-content legal-content">
+
+<span class="close-modal" onclick="closeContactModal()">×</span>
+
+<h2>Secure Comm Links</h2>
+
+<div class="contact-card">
+
+<h4>Jaidon Vermeulen</h4>
+
+<p><i class="fas fa-envelope" style="margin-right: 10px; color: #38bdf8;"></i> Jaidon.outofsight@gmail.com</p>
+
+<p><i class="fas fa-phone-alt" style="margin-right: 10px; color: #38bdf8;"></i> 078 120 0888</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal-overlay" id="socialsModalOverlay">
+
+<div class="modal-content legal-content">
+
+<span class="close-modal" onclick="closeSocialsModal()">×</span>
+
+<h2>Network Links</h2>
+
+<div style="text-align: center; padding: 30px 0;">
+
+  <a href="https://www.instagram.com/outofsightco/" target="_blank" style="display: flex; align-items: center; gap: 20px; background: rgba(30, 41, 59, 0.5); padding: 20px; border-radius: 12px; margin-bottom: 15px; text-decoration: none; border: 1px solid rgba(56, 189, 248, 0.2);">
+
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="#E1306C" xmlns="http://www.w3.org/2000/svg">
+
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+
+    </svg>
+
+    <div style="text-align: left;">
+
+        <div style="color: white; font-size: 22px; font-weight: bold; font-family: 'Rajdhani', sans-serif; text-transform: uppercase;">Instagram</div>
+
+        <div style="color: rgba(255,255,255,0.9); font-size: 14px; letter-spacing: 1px;">@outofsightco</div>
+
+    </div>
+
+</a>
+
+<!-- LINKEDIN -->
+
+<a href="https://www.linkedin.com/in/outofsight" target="_blank" style="display: flex; align-items: center; gap: 20px; background: rgba(30, 41, 59, 0.5); padding: 20px; border-radius: 12px; margin-bottom: 15px; text-decoration: none; border: 1px solid rgba(56, 189, 248, 0.2);">
+
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="#0077B5" xmlns="http://www.w3.org/2000/svg">
+
+      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+
+  </svg>
+
+  <div style="text-align: left;">
+
+      <div style="color: white; font-size: 22px; font-weight: bold; font-family: 'Rajdhani', sans-serif; text-transform: uppercase;">LinkedIn</div>
+
+      <div style="color: rgba(255,255,255,0.9); font-size: 14px; letter-spacing: 1px;">/in/outofsight</div>
+
   </div>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/outofsight.js"></script>
+</a>
+
+<!-- FACEBOOK -->
+
+<a href="https://www.facebook.com/profile.php?id=61590196366888&sk=about" target="_blank" style="display: flex; align-items: center; gap: 20px; background: rgba(30, 41, 59, 0.5); padding: 20px; border-radius: 12px; margin-bottom: 15px; text-decoration: none; border: 1px solid rgba(56, 189, 248, 0.2);">
+
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874V12h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+
+  </svg>
+
+  <div style="text-align: left;">
+
+      <div style="color: white; font-size: 22px; font-weight: bold; font-family: 'Rajdhani', sans-serif; text-transform: uppercase;">Facebook</div>
+
+      <div style="color: rgba(255,255,255,0.9); font-size: 14px; letter-spacing: 1px;">@outofsight</div>
+
+  </div>
+
+</a>
+
+<!-- GOOGLE -->
+
+<a href="https://www.ooscu.com" target="_blank" style="display: flex; align-items: center; gap: 20px; background: rgba(30, 41, 59, 0.5); padding: 20px; border-radius: 12px; margin-bottom: 15px; text-decoration: none; border: 1px solid rgba(56, 189, 248, 0.2);">
+
+  <svg width="40" height="40" viewBox="0 0 24 24" fill="#4285F4" xmlns="http://www.w3.org/2000/svg">
+
+      <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.037 1.61 15.457 0 12.24 0 5.48 0 0 5.389 0 12.002s5.48 12.002 12.24 12.002c7.062 0 11.744-4.963 11.744-11.96 0-.804-.085-1.417-.188-2.022H12.24z"/>
+
+  </svg>
+
+  <div style="text-align: left;">
+
+      <div style="color: white; font-size: 22px; font-weight: bold; font-family: 'Rajdhani', sans-serif; text-transform: uppercase;">Website</div>
+
+      <div style="color: rgba(255,255,255,0.9); font-size: 14px; letter-spacing: 1px;">ooscu.com</div>
+
+  </div>
+
+</a>
+
+</div>
+
+<p style="text-align: center; color: #64748b; margin-top: 20px; text-transform: uppercase; font-size: 14px; letter-spacing: 1px; font-family: 'Rajdhani', sans-serif;">Monitor our feeds for operational updates.</p>
+
+</div>
+
+</div>
+
+<footer>
+
+    <div style="color: #e2e8f0; font-size: 20px; margin-bottom: 15px; font-family: 'Rajdhani', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
+
+        OutofSight™ | Elite Digital Solar Infrastructure | ooscu.com
+
+    </div>
+
+    <div style="color: #64748b; font-size: 16px; margin-bottom: 40px; text-transform: uppercase; letter-spacing: 1px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+
+        Deploying high-converting systems for Solar Operations across South Africa, Australia, USA, UK, Europe, Middle East, & Africa.
+
+    </div>
+
+    <div class="footer-links" style="margin-bottom: 30px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px;">
+
+        <a onclick="openPrivacyModal()">Privacy Protocol</a>
+
+        <a onclick="openTermsModal()">Terms & Conditions</a>
+
+        <a onclick="openContactModal()">Secure Comm</a>
+
+        <a onclick="openSocialsModal()">Network Links</a>
+
+    </div>
+
+    <div style="font-size: 14px; color: #334155; font-family: 'Rajdhani', sans-serif; text-transform: uppercase; letter-spacing: 2px;">
+
+        © 2026 OutofSight™ — All Rights Reserved. The Global Solar Tech Agency.
+
+    </div>
+
+</footer>
+
+<!-- ======================================================= -->
+
+<!-- BRAND NEW CHATBOT SYSTEM - BULLETPROOF & SELF-CONTAINED -->
+
+<!-- ======================================================= -->
+
+<!-- Floating Chat Widget Button -->
+
+<div id="chat-widget-btn" onclick="oosToggleChat()">
+
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+
+      <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z"/>
+
+  </svg>
+
+</div>
+
+<!-- Main Chat Window Container -->
+
+<div id="chat-window" style="transform: none !important; z-index: 99999 !important;">
+
+  <!-- 1. Chat Header (with Back/Close Button) -->
+
+  <div class="chat-header">
+
+      <span><i class="fas fa-robot" style="margin-right: 8px; color: #38bdf8;"></i> OutofSight Solar AI ☀️</span>
+
+      <span class="close-chat" onclick="oosToggleChat()" title="Close Chat">×</span>
+
+  </div>
+
+  <!-- 2. Option Buttons (Quick Replies) -->
+
+  <div class="sticky-menu-container">
+
+      <div class="quick-replies">
+
+          <button class="quick-reply-btn" onclick="oosSendReply('ℹ️ About')">ℹ️ About</button>
+
+          <button class="quick-reply-btn" onclick="oosSendReply('🛠️ Services')">🛠️ Services</button>
+
+          <button class="quick-reply-btn" onclick="oosSendReply('⚙️ Process')">⚙️ Process</button>
+
+          <button class="quick-reply-btn" onclick="oosSendReply('📞 Contact')">📞 Contact</button>
+
+      </div>
+
+  </div>
+
+  <!-- 3. Chat Body -->
+
+  <div class="chat-body-scroll" id="chat-body"></div>
+
+  <!-- 4. Footer & WhatsApp Embed -->
+
+  <div class="chat-footer-container">
+
+      <a class="whatsapp-chat-embed-btn" href="https://wa.me/27781200888?text=Initialize%20Comm%20Link" target="_blank" title="Establish Secure Comm">
+
+          <i class="fab fa-whatsapp" style="font-size: 20px;"></i> Chat on WhatsApp
+
+      </a>
+
+      
+
+      <!-- Send Message Input ('Search' / Enter) -->
+
+      <div class="chat-footer">
+
+          <textarea id="chat-input" rows="1" placeholder="Type a message..." onkeydown="oosHandleKey(event)"></textarea>
+
+          <button onclick="oosSendMessage()"><i class="fas fa-paper-plane" style="color: #1e293b; padding-right: 2px;"></i></button>
+
+      </div>
+
+  </div>
+
+</div>
+
+<!-- NEW ISOLATED JAVASCRIPT LOGIC -->
+
+<script>
+
+  window.oosChatState = false;
+
+  function oosToggleChat() {
+
+      const win = document.getElementById('chat-window');
+
+      const bod = document.getElementById('chat-body');
+
+      window.oosChatState = !window.oosChatState;
+
+      
+
+      if (window.oosChatState) {
+
+          win.style.display = 'flex';
+
+          // Greet if empty
+
+          if (bod.innerHTML.trim() === '') {
+
+              setTimeout(() => { oosAppendBot("Hey! 👋 I'm Jess, OutofSight's solar AI. Want to see how we can get your solar business dominating online? ☀️🚀"); }, 300);
+
+          }
+
+      } else {
+
+          win.style.display = 'none';
+
+      }
+
+  }
+
+  function oosHandleKey(e) {
+
+      if (e.key === 'Enter' && !e.shiftKey) {
+
+          e.preventDefault();
+
+          oosSendMessage();
+
+      }
+
+  }
+
+  function oosSendMessage() {
+
+      const inp = document.getElementById('chat-input');
+
+      const text = inp.value.trim();
+
+      if (!text) return;
+
+      oosAppendUser(text);
+
+      inp.value = '';
+
+      setTimeout(() => { oosBotLogic(text); }, 600);
+
+  }
+
+  function oosSendReply(text) {
+
+      oosAppendUser(text);
+
+      setTimeout(() => { oosBotLogic(text); }, 600);
+
+  }
+
+  function oosAppendUser(text) {
+
+      const bod = document.getElementById('chat-body');
+
+      const div = document.createElement('div');
+
+      div.className = 'chat-msg msg-user';
+
+      div.textContent = text;
+
+      bod.appendChild(div);
+
+      bod.scrollTop = bod.scrollHeight;
+
+  }
+
+  function oosAppendBot(text) {
+
+      const bod = document.getElementById('chat-body');
+
+      const div = document.createElement('div');
+
+      div.className = 'chat-msg msg-bot';
+
+      div.textContent = text;
+
+      bod.appendChild(div);
+
+      bod.scrollTop = bod.scrollHeight;
+
+  }
+
+  function oosBotLogic(input) {
+
+      const lower = input.toLowerCase();
+
+      let reply = "I'm experiencing a high volume of traffic right now! Click the green WhatsApp button above to speak directly with our core team.";
+
+      
+
+      if (lower.includes('about')) {
+
+          reply = "We are an elite digital systems agency helping Solar Companies completely dominate their local territory online.";
+
+      } else if (lower.includes('services')) {
+
+          reply = "We deploy custom Web Infrastructure, automated Lead Qualification Chatbots, and high-converting Sales Funnels.";
+
+      } else if (lower.includes('process')) {
+
+          reply = "1. Diagnostic Call 2. Custom Strategy Architecture 3. Rapid Deployment 4. Scale your leads aggressively.";
+
+      } else if (lower.includes('contact')) {
+
+          reply = "Establish a secure comm link by clicking the WhatsApp button above, or by using the contact form on our site.";
+
+      }
+
+      
+
+      oosAppendBot(reply);
+
+  }
+
+</script>
+
+<!-- ======================================================= -->
+
+<script>
+
+/* Navigation Logic */
+
+function toggleNavMenu() {
+
+const dropdown = document.getElementById('navDropdown');
+
+dropdown.classList.toggle('show');
+
+}
+
+window.onclick = function(event) {
+
+if (!event.target.closest('.menu-container')) {
+
+const dropdowns = document.getElementsByClassName("dropdown-menu");
+
+for (let i = 0; i < dropdowns.length; i++) {
+
+if (dropdowns[i].classList.contains('show')) {
+
+dropdowns[i].classList.remove('show');
+
+}
+
+}
+
+}
+
+}
+
+/* Update futuristic form country prefix codes dynamically */
+
+document.getElementById('futuristicCountry').addEventListener('change', function() {
+
+  const code = this.options[this.selectedIndex].getAttribute('data-code') || '+27';
+
+  document.getElementById('futuristic-country-code').textContent = code;
+
+});
+
+/* Modal Open/Close Controls */
+
+function openWelcomeModal() { document.getElementById('welcomeModalOverlay').style.display = 'flex'; }
+
+function closeWelcomeModal() { document.getElementById('welcomeModalOverlay').style.display = 'none'; }
+
+function openScheduleModal() { document.getElementById('scheduleModalOverlay').style.display = 'flex'; }
+
+function closeScheduleModal() { document.getElementById('scheduleModalOverlay').style.display = 'none'; }
+
+function confirmSchedule() {
+  var name = document.getElementById('intro-name').value.trim();
+  var dateVal = document.getElementById('intro-date').value;
+  var msgEl = document.getElementById('schedule-msg');
+  var btn = document.getElementById('confirm-date-btn');
+
+  if (!name) {
+    msgEl.style.display = 'block';
+    msgEl.style.color = '#dc2626';
+    msgEl.textContent = 'Please enter your name.';
+    return;
+  }
+  if (!dateVal) {
+    msgEl.style.display = 'block';
+    msgEl.style.color = '#dc2626';
+    msgEl.textContent = 'Please select a date and time.';
+    return;
+  }
+
+  var dateObj = new Date(dateVal);
+  var formatted = dateObj.toLocaleString('en-ZA', {
+    weekday: 'long', year: 'numeric', month: 'long',
+    day: 'numeric', hour: '2-digit', minute: '2-digit'
+  });
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  msgEl.style.display = 'none';
+
+  emailjs.send("service_p681kf8", "template_as7hpdb", {
+    to_email: "jaidon.outofsight@gmail.com",
+    client_name: name,
+    scheduled_date: formatted
+  }).then(function() {
+    btn.textContent = 'Confirmed!';
+    btn.style.background = '#16a34a';
+    msgEl.style.display = 'block';
+    msgEl.style.color = '#16a34a';
+    msgEl.textContent = "✓ We've received your booking. See you on " + formatted + "!";
+    setTimeout(function() { closeScheduleModal(); btn.disabled = false; btn.textContent = 'Confirm Date'; btn.style.background = '#2563eb'; msgEl.style.display = 'none'; document.getElementById('intro-name').value = ''; document.getElementById('intro-date').value = ''; }, 4000);
+  }, function(err) {
+    btn.disabled = false;
+    btn.textContent = 'Confirm Date';
+    msgEl.style.display = 'block';
+    msgEl.style.color = '#dc2626';
+    msgEl.textContent = 'Something went wrong. Please try again.';
+    console.error('EmailJS error:', err);
+  });
+}
+
+function openPrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'flex'; }
+
+function closePrivacyModal() { document.getElementById('privacyModalOverlay').style.display = 'none'; }
+
+function openTermsModal() { document.getElementById('termsModalOverlay').style.display = 'flex'; }
+
+function closeTermsModal() { document.getElementById('termsModalOverlay').style.display = 'none'; }
+
+function openContactModal() { document.getElementById('contactModalOverlay').style.display = 'flex'; }
+
+function closeContactModal() { document.getElementById('contactModalOverlay').style.display = 'none'; }
+
+function openSocialsModal() { document.getElementById('socialsModalOverlay').style.display = 'flex'; }
+
+function closeSocialsModal() { document.getElementById('socialsModalOverlay').style.display = 'none'; }
+
+/* Chatbot Core Engine */
+
+const chatWindow = document.getElementById('chat-window');
+
+const chatBody = document.getElementById('chat-body');
+
+const chatInput = document.getElementById('chat-input');
+
+let isChatOpen = false;
+
+function toggleChat() {
+
+isChatOpen = !isChatOpen;
+
+if (isChatOpen) {
+
+chatWindow.style.display = 'flex';
+
+if(chatBody.innerHTML.trim() === '') {
+
+setTimeout(() => {
+
+// Change 9: Updated greeting message
+
+triggerBotMessage("Hey! 👋 I'm Jess, OutofSight's solar AI. Want to see how we can get your solar business dominating online? ☀️🚀");
+
+}, 300);
+
+}
+
+} else {
+
+chatWindow.style.display = 'none';
+
+}
+
+}
+
+function handleKeydown(e) {
+
+if (e.key === 'Enter' && !e.shiftKey) {
+
+e.preventDefault();
+
+sendMessage();
+
+}
+
+}
+
+function sendQuickReply(text, btnElement) {
+
+chatInput.value = text;
+
+sendMessage();
+
+}
+
+function escapeHTML(str) {
+
+return str.replace(/[&<>'"]/g,
+
+tag => ({
+
+'&': '&',
+
+'<': '<',
+
+'>': '>',
+
+"'": '&#39;',
+
+'"': '&quot;'
+
+}[tag] || tag)
+
+);
+
+}
+
+function triggerBotMessage(htmlContent) {
+
+const botDiv = document.createElement('div');
+
+botDiv.className = 'chat-msg msg-bot';
+
+botDiv.innerHTML = htmlContent;
+
+chatBody.appendChild(botDiv);
+
+scrollToBottom();
+
+}
+
+function sendMessage() {
+
+const rawText = chatInput.value.trim();
+
+if (!rawText) return;
+
+const userDiv = document.createElement('div');
+
+userDiv.className = 'chat-msg msg-user';
+
+userDiv.innerHTML = escapeHTML(rawText).replace(/\n/g, '<br>');
+
+chatBody.appendChild(userDiv);
+
+chatInput.value = '';
+
+scrollToBottom();
+
+setTimeout(() => {
+
+const lowerText = rawText.toLowerCase();
+
+let replyText = "";
+
+if (lowerText.match(/^(hello|hallo|hi|hey|howdy)/)) {
+
+replyText = "System Online. 👋 I'm Jess, OutofSight's automated solar operative. Ready to configure your digital dominance? ☀️🚀";
+
+}
+
+else if (lowerText.match(/about|who are you|story|diagnostics/)) {
+
+replyText = "At OutofSight, we operate as your outsourced technical squad! 🌍 We specialize in engineering high-converting platforms, deploying AI chatbots, and establishing automated systems to scale your solar operations. 💡";
+
+}
+
+else if (lowerText.match(/contact|email|number|cell|support|touch|comm/)) {
+
+replyText = "Secure comm links established:<br><br><b>Jaidon Vermeulen</b><br>Email: Jaidonvermeulen@gmail.com<br>Phone: 078 120 08888<br><br>For direct support, click the WhatsApp button above to connect with our core team instantly. 📞";
+}
+
+else if (lowerText.match(/complaint|log complaint|issue|unhappy|complain/)) {
+
+replyText = "Error detected. 😔 Please transmit details directly to <b>Support@oosco.com</b> with the subject 'URGENT: System Error' so we can deploy a patch immediately.<br><br>To bypass automation and speak with operatives directly, call the <b>OOS Team - 0781200888</b>. 📞<br><br>" +
+
+`<div class="quick-replies" id="dynamic-replies" style="margin-top:10px;">
+
+<a href="mailto:Support@oosco.com?subject=URGENT:%20System%20Error" style="text-decoration:none; width:100%;"><button class="quick-reply-btn" style="width:100%;">✉️ Transmit Error Log</button></a>
+
+</div>`;
+
+}
+
+else if (lowerText.includes('what do you do') || lowerText.includes('services') || lowerText.includes('protocols')) {
+
+replyText = "We engineer lightning-fast Web Infrastructure 🌐, deploy AI Operatives 🤖 (like me!), and integrate Sales Automation ⚡ to ensure your pipeline runs flawlessly.";
+
+}
+
+else if (lowerText.includes('how does it work') || lowerText.includes('process') || lowerText.includes('systems')) {
+
+replyText = "Deployment is calculated! ✨<br><br>🗣️ 1. Transmit your objectives.<br>🤝 2. We align the correct technical squad.<br>🚀 3. We build, manage, and deploy the final system.";
+
+}
+
+else if (lowerText.includes('price') || lowerText.includes('pricing')) {
+
+replyText = "System deployments are once-off. Tiers Include:<br><br>🥈 Standard <br>🥇 Advanced <br>💎 Elite<br>☑️ Custom Architecture<br><br>We also provide ongoing maintenance protocols for all deployed systems 🚀";
+
+}
+
+else {
+
+replyText = "I am programmed to assist your scale! 🚀 Query me on our web infrastructure, AI bots, deployment tiers, or request a direct comm link. 📞";
+
+}
+
+triggerBotMessage(replyText);
+
+}, 1000);
+
+}
+
+function scrollToBottom() {
+
+chatBody.scrollTop = chatBody.scrollHeight;
+
+}
+
+</script>
+
 </body>
 
 </html>
