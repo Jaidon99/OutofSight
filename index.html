@@ -17,6 +17,129 @@
   <link href="vendor/aos/aos.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
   <link href="css/outofsight.css" rel="stylesheet">
+
+  <style>
+    /* Portfolio filmstrip — luxury auto-scroll redesign (scoped, no other sections affected) */
+    #portfolio.portfolio-noir {
+      --portfolio-accent: #7dd3fc;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(125, 211, 252, 0.08), transparent 55%),
+        linear-gradient(180deg, #000000 0%, #05070c 45%, #000000 100%);
+    }
+
+    #portfolio.portfolio-noir .section-title .eyebrow {
+      color: var(--portfolio-accent);
+    }
+
+    .portfolio-banner {
+      display: block;
+      margin: 0 auto clamp(2.5rem, 6vw, 3.5rem);
+      max-width: 1100px;
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    .portfolio-strip {
+      overflow: hidden;
+      padding: 0.5rem 0 1rem;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+
+    .portfolio-track {
+      animation: portfolio-scroll 52s linear infinite;
+      display: flex;
+      gap: 1.75rem;
+      width: max-content;
+    }
+
+    .portfolio-strip:hover .portfolio-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes portfolio-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .portfolio-slide {
+      flex-shrink: 0;
+      transition: transform 0.45s ease;
+      width: min(78vw, 340px);
+    }
+
+    .portfolio-slide:hover {
+      transform: translateY(-6px) scale(1.035);
+    }
+
+    .portfolio-slide-frame {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.85));
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 1.2rem;
+      position: relative;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    }
+
+    .portfolio-slide:hover .portfolio-slide-frame {
+      border-color: rgba(125, 211, 252, 0.6);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(125, 211, 252, 0.14);
+      filter: brightness(1.06);
+    }
+
+    .portfolio-slide-frame img.portfolio-slide-mockup {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .portfolio-slide-badge {
+      align-items: center;
+      background: rgba(2, 6, 23, 0.72);
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      left: 0.75rem;
+      padding: 0.3rem 0.5rem;
+      position: absolute;
+      top: 0.75rem;
+    }
+
+    .portfolio-slide-badge img {
+      max-height: 16px;
+      object-fit: contain;
+      width: auto;
+    }
+
+    .portfolio-slide-caption {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.1rem;
+    }
+
+    .portfolio-slide-caption h3 {
+      color: #f8fafc;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .portfolio-track {
+        animation: none;
+      }
+    }
+
+  </style>
 </head>
 
 <body>
@@ -302,92 +425,158 @@
       </div>
     </section>
 
-    <section id="portfolio" class="section-band alt split-line">
+    <section id="portfolio" class="section-band alt split-line portfolio-noir">
       <div class="container">
         <div class="section-title text-center mx-auto" data-aos="fade-up">
           <span class="eyebrow">Client work</span>
           <h2>Digital systems already in motion</h2>
         </div>
+        <img class="portfolio-banner" src="img/oos/website-development-banner.png" alt="Website Development — UI/UX visual architect design showcase" data-aos="fade-up">
+      </div>
 
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/laptop-4.png" alt="Dhaka City Solar logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/mockup-dhaka-city-solar.png" alt="Dhaka City Solar website mockup"></div>
-              <div class="portfolio-meta"><h3>Dhaka City Solar</h3></div>
-            </article>
+      <div class="portfolio-strip" data-aos="fade-up">
+        <div class="portfolio-track">
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-dhaka-city-solar.png" alt="Dhaka City Solar website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-4.png" alt="Dhaka City Solar logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Dhaka City Solar</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-sunnymac-solar.png" alt="SunnyMac Solar website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-3.png" alt="SunnyMac Solar logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>SunnyMac Solar</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-unique-solar.png" alt="Unique Solar Residential website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-2.png" alt="Unique Solar Residential logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Unique Solar Residential</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-solar-caribbean.png" alt="Solar Caribbean website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-1.png" alt="Solar Caribbean logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Solar Caribbean</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="engineering">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-praman-cad.png" alt="PramanCAD Engineering website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-5.png" alt="PramanCAD Engineering logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>PramanCAD Engineering</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="plumbing">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-hudini-plumbing.png" alt="Hudini Plumbing website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-6.png" alt="Hudini Plumbing logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Hudini Plumbing</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Bublez.png" alt="Bubblez website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/BublezLogo.png" alt="Bubblez logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Bubblez</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/BBR.png" alt="Blushed by Rosery website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-10.png" alt="Blushed by Rosery logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Blushed by Rosery</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/JLH.png" alt="Juan Look website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/JLLogo.png" alt="Juan Look logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Juan Look</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Iridescence.png" alt="Iridescence website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-8.jpeg" alt="Iridescence logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Iridescence</h3></div>
           </div>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/laptop-3.png" alt="SunnyMac Solar logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/mockup-sunnymac-solar.png" alt="SunnyMac Solar website mockup"></div>
-              <div class="portfolio-meta"><h3>SunnyMac Solar</h3></div>
-            </article>
+          <!-- duplicate set for seamless infinite loop -->
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-dhaka-city-solar.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-4.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Dhaka City Solar</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/laptop-2.png" alt="Unique Solar Residential logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/mockup-unique-solar.png" alt="Unique Solar Residential website mockup"></div>
-              <div class="portfolio-meta"><h3>Unique Solar Residential</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-sunnymac-solar.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-3.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>SunnyMac Solar</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/laptop-1.png" alt="Solar Caribbean logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/mockup-solar-caribbean.png" alt="Solar Caribbean website mockup"></div>
-              <div class="portfolio-meta"><h3>Solar Caribbean</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-unique-solar.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-2.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Unique Solar Residential</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="engineering" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/laptop-5.png" alt="PramanCAD Engineering logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/mockup-praman-cad.png" alt="PramanCAD Engineering website mockup"></div>
-              <div class="portfolio-meta"><h3>PramanCAD Engineering</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-solar-caribbean.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-1.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Solar Caribbean</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="plumbing" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/laptop-6.png" alt="Hudini Plumbing logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/mockup-hudini-plumbing.png" alt="Hudini Plumbing website mockup"></div>
-              <div class="portfolio-meta"><h3>Hudini Plumbing</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="engineering" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-praman-cad.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-5.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>PramanCAD Engineering</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="other" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/BublezLogo.png" alt="Bubblez logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/Bublez.png" alt="Bubblez website mockup"></div>
-              <div class="portfolio-meta"><h3>Bubblez</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="plumbing" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-hudini-plumbing.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-6.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Hudini Plumbing</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="other" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo is-large"><img src="img/oos/laptop-10.png" alt="Blushed by Rosery logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/BBR.png" alt="Blushed by Rosery website mockup"></div>
-              <div class="portfolio-meta"><h3>Blushed by Rosery</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Bublez.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/BublezLogo.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Bubblez</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="other" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="img/oos/JLLogo.png" alt="Juan Look logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/JLH.png" alt="Juan Look website mockup"></div>
-              <div class="portfolio-meta"><h3>Juan Look</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/BBR.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-10.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Blushed by Rosery</h3></div>
           </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="other" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo is-large"><img src="img/oos/laptop-8.jpeg" alt="Iridescence logo"></div>
-              <div class="portfolio-stage"><img src="img/oos/Iridescence.png" alt="Iridescence website mockup"></div>
-              <div class="portfolio-meta"><h3>Iridescence</h3></div>
-            </article>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/JLH.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/JLLogo.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Juan Look</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Iridescence.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-8.jpeg" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Iridescence</h3></div>
           </div>
         </div>
       </div>
