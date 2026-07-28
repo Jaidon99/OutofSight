@@ -193,16 +193,39 @@
   </header>
 
   <main>
-    <section id="home" class="hero-section hero-section-centered">
-      <div class="container">
-        <div class="hero-content hero-content-centered mx-auto" id="heroTextBlock" data-aos="fade-up">
-          <div class="eyebrow">Elite digital systems for African businesses</div>
-          <h1 class="hero-title">Creating <span class="neon-white">digital magic</span> for <span class="text-cyan neon-blue">business growth</span></h1>
-          <p class="hero-copy mx-auto">
+    <section id="home" class="hero-section hero-section-centered hero-video-section">
+      <!-- Looping background video -->
+      <video class="hero-bg-video" autoplay muted loop playsinline poster="img/oos/hero-bg-main.jpeg">
+        <source src="img/oos/Home Page Background Video.mp4" type="video/mp4">
+      </video>
+      <!-- Subtle dark scrim so text stays readable -->
+      <div class="hero-video-scrim"></div>
+
+      <div class="container" style="position:relative;z-index:2;">
+        <div class="hero-content hero-content-centered mx-auto" id="heroTextBlock">
+
+          <!-- Animated rotating hero heading -->
+          <h1 class="animated-hero-title" aria-label="Let's build something for your business">
+            <span class="animated-hero-static">Let's build something</span>
+
+            <!-- Rotating word slot -->
+            <span class="animated-hero-rotator" aria-hidden="true" id="heroRotator">
+              <span class="rotator-word rotator-word--visible">Unique</span>
+              <span class="rotator-word">Amazing</span>
+              <span class="rotator-word">New</span>
+              <span class="rotator-word">Wonderful</span>
+              <span class="rotator-word">Beautiful</span>
+              <span class="rotator-word">Creative</span>
+            </span>
+
+            <span class="animated-hero-static animated-hero-static--bottom">for your business.</span>
+          </h1>
+
+          <p class="hero-copy mx-auto" style="margin-top:2rem;">
             Custom-built digital presence, AI chatbots, social media systems, branding, SEO, and conversion infrastructure designed to help small and medium businesses stand out online.
           </p>
 
-          <div class="hero-badges hero-badges-centered" aria-label="OutofSight service highlights">
+          <div class="hero-badges hero-badges-centered" aria-label="OutofSight service highlights" style="margin-top:2rem;">
             <span class="hero-badge"><i class="bi bi-check2-circle"></i>Websites</span>
             <span class="hero-badge"><i class="bi bi-check2-circle"></i>AI Chatbots</span>
             <span class="hero-badge"><i class="bi bi-check2-circle"></i>Social Media</span>
@@ -941,6 +964,34 @@
   <script src="vendor/aos/aos.js"></script>
   <script src="vendor/swiper/swiper-bundle.min.js"></script>
   <script src="js/outofsight.js"></script>
+
+  <!-- Rotating-word hero animation -->
+  <script>
+    (function () {
+      const words = Array.from(document.querySelectorAll('#heroRotator .rotator-word'));
+      if (!words.length) return;
+      let current = 0;
+
+      function rotate() {
+        const prev = current;
+        current = (current + 1) % words.length;
+
+        // Slide old word up and out
+        words[prev].classList.remove('rotator-word--visible');
+        words[prev].classList.add('rotator-word--exit');
+
+        // After exit transition, reset so it can re-enter from below next time
+        setTimeout(function () {
+          words[prev].classList.remove('rotator-word--exit');
+        }, 600);
+
+        // Slide new word in from below
+        words[current].classList.add('rotator-word--visible');
+      }
+
+      setInterval(rotate, 2000);
+    })();
+  </script>
 </body>
 
 </html>
