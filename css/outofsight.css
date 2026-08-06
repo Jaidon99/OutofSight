@@ -1319,6 +1319,118 @@ img {
   margin-bottom: 2rem;
 }
 
+.subpage-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.subpage-hero .hero-gradient-canvas {
+  z-index: 0;
+}
+
+.subpage-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.subpage-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--oos-muted);
+  font-weight: 700;
+  font-size: 0.86rem;
+  margin-bottom: 1.6rem;
+  transition: color 0.24s ease;
+}
+
+.subpage-back-top:hover {
+  color: var(--oos-cyan);
+}
+
+.insight-grid {
+  margin-top: clamp(2rem, 5vw, 2.8rem);
+}
+
+.insight-card {
+  background: var(--oos-panel-soft);
+  border: 1px solid rgba(56, 189, 248, 0.16);
+  border-radius: 8px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.23);
+  height: 100%;
+  padding: 1.7rem 1.5rem;
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.insight-card:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.38), inset 0 0 28px rgba(56, 189, 248, 0.04);
+  transform: translateY(-5px);
+}
+
+.insight-icon {
+  align-items: center;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  border-radius: 50%;
+  color: var(--oos-cyan);
+  display: flex;
+  font-size: 1.3rem;
+  height: 52px;
+  justify-content: center;
+  margin-bottom: 1.1rem;
+  width: 52px;
+}
+
+.insight-card h3 {
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 900;
+  margin-bottom: 0.6rem;
+}
+
+.insight-card p {
+  color: var(--oos-muted);
+  font-size: 0.94rem;
+  margin: 0;
+}
+
+.commitment-banner {
+  align-items: center;
+  background: linear-gradient(120deg, rgba(34, 197, 94, 0.12), rgba(56, 189, 248, 0.08));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  justify-content: space-between;
+  margin-top: clamp(2rem, 5vw, 2.8rem);
+  padding: 1.8rem clamp(1.4rem, 4vw, 2.4rem);
+}
+
+.commitment-banner-text {
+  align-items: center;
+  color: #bbf7d0;
+  display: flex;
+  font-size: 1.05rem;
+  font-weight: 800;
+  gap: 0.9rem;
+  margin: 0;
+  max-width: 620px;
+}
+
+.commitment-banner-text .bi {
+  color: var(--oos-green);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.commitment-banner .btn-oos {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
 .about-photo {
   background: linear-gradient(145deg, rgba(251, 176, 59, 0.18), rgba(56, 189, 248, 0.1));
   border: 1px solid rgba(56, 189, 248, 0.22);
