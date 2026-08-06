@@ -8,15 +8,156 @@
   <meta name="description" content="OutofSight builds high-converting websites, AI chatbots, social media systems, branding, SEO, and digital infrastructure for small and medium businesses across Africa.">
   <meta name="keywords" content="OutofSight, web design, AI chatbot, digital agency, social media, SEO, website development">
 
-  <link href="assets/img/oos/favicons/favicon.ico" rel="icon" sizes="any">
-  <link href="assets/img/oos/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
-  <link href="assets/img/oos/favicons/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img/oos/favicons/favicon.ico" rel="icon" sizes="any">
+  <link href="img/oos/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="img/oos/favicons/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/outofsight.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="vendor/aos/aos.css" rel="stylesheet">
+  <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="css/outofsight.css" rel="stylesheet">
+
+  <style>
+    /* Portfolio filmstrip — luxury auto-scroll redesign (scoped, no other sections affected) */
+    #portfolio.portfolio-noir {
+      --portfolio-accent: #7dd3fc;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(125, 211, 252, 0.08), transparent 55%),
+        linear-gradient(180deg, #000000 0%, #05070c 45%, #000000 100%);
+    }
+
+    #portfolio.portfolio-noir .section-title .eyebrow {
+      color: var(--portfolio-accent);
+    }
+
+    .portfolio-banner {
+      display: block;
+      margin: 0 auto clamp(2.5rem, 6vw, 3.5rem);
+      max-width: 1100px;
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    .portfolio-strip {
+      overflow: hidden;
+      padding: 0.5rem 0 1rem;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+    }
+
+    .portfolio-track {
+      animation: portfolio-scroll 52s linear infinite;
+      display: flex;
+      gap: 1.75rem;
+      width: max-content;
+    }
+
+    .portfolio-strip:hover .portfolio-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes portfolio-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .portfolio-slide {
+      flex-shrink: 0;
+      transition: transform 0.45s ease;
+      width: min(78vw, 340px);
+    }
+
+    .portfolio-slide:hover {
+      transform: translateY(-6px) scale(1.035);
+    }
+
+    .portfolio-slide-frame {
+      aspect-ratio: 16 / 10;
+      background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.85));
+      border: 1px solid rgba(125, 211, 252, 0.18);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 1.2rem;
+      position: relative;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+    }
+
+    .portfolio-slide:hover .portfolio-slide-frame {
+      border-color: rgba(125, 211, 252, 0.6);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(125, 211, 252, 0.14);
+      filter: brightness(1.06);
+    }
+
+    .portfolio-slide-frame img.portfolio-slide-mockup {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .portfolio-slide-badge {
+      align-items: center;
+      background: rgba(2, 6, 23, 0.72);
+      border: 1px solid rgba(125, 211, 252, 0.28);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      left: 0.75rem;
+      padding: 0.3rem 0.5rem;
+      position: absolute;
+      top: 0.75rem;
+    }
+
+    .portfolio-slide-badge img {
+      max-height: 16px;
+      object-fit: contain;
+      width: auto;
+    }
+
+    .portfolio-slide-caption {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.1rem;
+    }
+
+    .portfolio-slide-caption h3 {
+      color: #f8fafc;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-align: center;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .portfolio-track {
+        animation: none;
+      }
+    }
+
+    /* Combined About section */
+    .about-subsection-title {
+      color: #f8fafc;
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-subsection-title i {
+      color: var(--portfolio-accent, #7dd3fc);
+    }
+
+    .about-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin: clamp(2.5rem, 6vw, 3.5rem) 0;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -40,7 +181,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#home" aria-label="OutofSight home">
-          <img src="assets/img/oos/outofsight-logo.png" alt="OutofSight logo">
+          <img src="img/oos/outofsight-logo.png" alt="OutofSight logo">
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-controls="navmenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,16 +194,9 @@
             <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="#systems">Systems</a></li>
             <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">About</a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="about-outofsight.html">About OutofSight</a></li>
-                <li><a class="dropdown-item" href="oos-vision-mission.html">OOS Vision &amp; Mission</a></li>
-                <li><a class="dropdown-item" href="why-we-do-what-we-do.html">Why We Do What We Do</a></li>
-              </ul>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
             <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-            <li class="nav-item ms-lg-2 mt-3 mt-lg-0"><a class="btn btn-oos" href="#contact"><i class="bi bi-stars"></i>Free Custom Design</a></li>
+            <li class="nav-item ms-lg-2 mt-3 mt-lg-0"><a class="btn btn-oos" href="#contact"><i class="bi bi-stars"></i>Request Custom Design</a></li>
           </ul>
         </div>
       </div>
@@ -70,12 +204,37 @@
   </header>
 
   <main>
-    <section id="home" class="hero-section hero-section-centered">
-      <div class="container">
-        <div class="hero-content hero-content-centered mx-auto" id="heroTextBlock" data-aos="fade-up">
-          <div class="eyebrow">Elite digital systems for African businesses</div>
-          <h1 class="hero-title">Creating <span class="neon-white">digital magic</span> for <span class="text-cyan neon-blue">business growth</span></h1>
-          <p class="hero-copy mx-auto">
+    <section id="home" class="hero-section hero-section-centered hero-gradient-section">
+
+      <!-- Animated flowing gradient orbs -->
+      <div class="hero-gradient-canvas" aria-hidden="true">
+        <div class="gradient-orb gradient-orb-1"></div>
+        <div class="gradient-orb gradient-orb-2"></div>
+        <div class="gradient-orb gradient-orb-3"></div>
+        <div class="gradient-orb gradient-orb-4"></div>
+        <div class="gradient-noise"></div>
+      </div>
+
+      <div class="container" style="position:relative;z-index:2;">
+        <div class="hero-content hero-content-centered mx-auto" id="heroTextBlock">
+
+          <!-- Animated rotating hero heading -->
+          <h1 class="animated-hero-title" aria-label="Let's build something for your business">
+            <span class="animated-hero-static">Design Something</span>
+
+            <!-- Rotating word slot -->
+            <span class="animated-hero-rotator" aria-hidden="true" id="heroRotator">
+              <span class="rotator-word rotator-word--visible">AMAZING</span>
+              <span class="rotator-word">CREATIVE</span>
+              <span class="rotator-word">WONDERFUL</span>
+              <span class="rotator-word">BEAUTIFUL</span>
+              <span class="rotator-word">UNIQUE</span>
+            </span>
+
+            <span class="animated-hero-static animated-hero-static--bottom">For Your BUSINESS.</span>
+          </h1>
+
+          <p class="hero-copy mx-auto hero-copy-gradient">
             Custom-built digital presence, AI chatbots, social media systems, branding, SEO, and conversion infrastructure designed to help small and medium businesses stand out online.
           </p>
 
@@ -87,7 +246,7 @@
           </div>
 
           <div class="hero-actions hero-actions-centered">
-            <a class="btn btn-oos-gold" href="#contact"><i class="bi bi-lightning-charge-fill"></i>Get Your Free Custom Design</a>
+            <a class="btn btn-oos-gold" href="#contact"><i class="bi bi-lightning-charge-fill"></i>Let's Create Your Custom Design</a>
             <a class="btn btn-oos-outline" href="#portfolio"><i class="bi bi-arrow-up-right-circle"></i>View Client Work</a>
           </div>
         </div>
@@ -134,7 +293,7 @@
             <div class="swiper-slide">
               <article class="service-card">
                 <div class="service-media">
-                  <img src="assets/img/oos/custom-built-websites.jpeg" alt="Custom website displayed on a laptop">
+                  <img src="img/oos/custom-built-websites.jpeg" alt="Custom website displayed on a laptop">
                 </div>
                 <div class="service-body">
                   <h3>Custom Website Design</h3>
@@ -151,7 +310,7 @@
             <div class="swiper-slide">
               <article class="service-card">
                 <div class="service-media">
-                  <img src="assets/img/oos/google-domination-suite.jpeg" alt="Google domination suite visual">
+                  <img src="img/oos/google-domination-suite.jpeg" alt="Google domination suite visual">
                 </div>
                 <div class="service-body">
                   <h3>Google Domination Suite</h3>
@@ -168,7 +327,7 @@
             <div class="swiper-slide">
               <article class="service-card">
                 <div class="service-media">
-                  <img src="assets/img/oos/social-media-domination.jpeg" alt="Social media domination visual">
+                  <img src="img/oos/social-media-domination.jpeg" alt="Social media domination visual">
                 </div>
                 <div class="service-body">
                   <h3>Social Media Systems</h3>
@@ -185,7 +344,7 @@
             <div class="swiper-slide">
               <article class="service-card">
                 <div class="service-media">
-                  <img src="assets/img/oos/paid-ads-management.jpeg" alt="Paid ads management visual">
+                  <img src="img/oos/paid-ads-management.jpeg" alt="Paid ads management visual">
                 </div>
                 <div class="service-body">
                   <h3>Paid Ads And Funnels</h3>
@@ -202,7 +361,7 @@
             <div class="swiper-slide">
               <article class="service-card">
                 <div class="service-media">
-                  <img src="assets/img/oos/outofsight-mark.png" alt="OutofSight brand mark">
+                  <img src="img/oos/AI Chatbot.jpeg" alt="OutofSight brand mark">
                 </div>
                 <div class="service-body">
                   <h3>AI Chatbots And Automation</h3>
@@ -302,69 +461,278 @@
       </div>
     </section>
 
-    <section id="portfolio" class="section-band alt split-line">
+    <section id="portfolio" class="section-band alt split-line portfolio-noir">
       <div class="container">
         <div class="section-title text-center mx-auto" data-aos="fade-up">
           <span class="eyebrow">Client work</span>
           <h2>Digital systems already in motion</h2>
-          <p class="mx-auto">Portfolio cards use the current OOS project logos and laptop mockups from the uploaded redesign pack.</p>
+        </div>
+        <img class="portfolio-banner" src="img/oos/WB Design Section.png" alt="Website Development — UI/UX visual architect design showcase" data-aos="fade-up">
+      </div>
+
+      <div class="portfolio-strip" data-aos="fade-up">
+        <div class="portfolio-track">
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-dhaka-city-solar.png" alt="Dhaka City Solar website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-4.png" alt="Dhaka City Solar logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Dhaka City Solar</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-sunnymac-solar.png" alt="SunnyMac Solar website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-3.png" alt="SunnyMac Solar logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>SunnyMac Solar</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-unique-solar.png" alt="Unique Solar Residential website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-2.png" alt="Unique Solar Residential logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Unique Solar Residential</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-solar-caribbean.png" alt="Solar Caribbean website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-1.png" alt="Solar Caribbean logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Solar Caribbean</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="engineering">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-praman-cad.png" alt="PramanCAD Engineering website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-5.png" alt="PramanCAD Engineering logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>PramanCAD Engineering</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="plumbing">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-hudini-plumbing.png" alt="Hudini Plumbing website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-6.png" alt="Hudini Plumbing logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Hudini Plumbing</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Bublez.png" alt="Bubblez website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/BublezLogo.png" alt="Bubblez logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Bubblez</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/BBR.png" alt="Blushed by Rosery website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-10.png" alt="Blushed by Rosery logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Blushed by Rosery</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/JLH.png" alt="Juan Look website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/JLLogo.png" alt="Juan Look logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Juan Look</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Iridescence.png" alt="Iridescence website mockup">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-8.jpeg" alt="Iridescence logo"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Iridescence</h3></div>
+          </div>
+
+          <!-- duplicate set for seamless infinite loop -->
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-dhaka-city-solar.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-4.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Dhaka City Solar</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-sunnymac-solar.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-3.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>SunnyMac Solar</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-unique-solar.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-2.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Unique Solar Residential</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="solar" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-solar-caribbean.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-1.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Solar Caribbean</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="engineering" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-praman-cad.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-5.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>PramanCAD Engineering</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="plumbing" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/mockup-hudini-plumbing.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-6.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Hudini Plumbing</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Bublez.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/BublezLogo.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Bubblez</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/BBR.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-10.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Blushed by Rosery</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/JLH.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/JLLogo.png" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Juan Look</h3></div>
+          </div>
+          <div class="portfolio-slide" data-portfolio-category="other" aria-hidden="true">
+            <div class="portfolio-slide-frame">
+              <img class="portfolio-slide-mockup" src="img/oos/Iridescence.png" alt="" aria-hidden="true">
+              <div class="portfolio-slide-badge"><img src="img/oos/laptop-8.jpeg" alt="" aria-hidden="true"></div>
+            </div>
+            <div class="portfolio-slide-caption"><h3>Iridescence</h3></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-band">
+      <div class="container">
+        <div class="section-title text-center mx-auto" data-aos="fade-up">
+          <span class="eyebrow">About OutofSight</span>
+          <h2>Who we are, why we build, and where we're headed</h2>
+          <p class="mx-auto">Everything you'd want to know about OutofSight in one place, the team, the purpose behind the work, and the vision driving it.</p>
         </div>
 
-        <div class="portfolio-filter" aria-label="Portfolio filters" data-aos="fade-up">
-          <button class="active" type="button" data-portfolio-filter="all">All</button>
-          <button type="button" data-portfolio-filter="solar">Solar</button>
-          <button type="button" data-portfolio-filter="engineering">Engineering</button>
-          <button type="button" data-portfolio-filter="plumbing">Plumbing</button>
+        <div class="about-subsection" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="about-subsection-title"><i class="bi bi-people me-2"></i>About OutofSight</h3>
+          <div class="subpage-content">
+            <p class="lead">Your vision. Our infrastructure.</p>
+            <p>OutofSight is the technical squad behind high-performance digital platforms for growing businesses.</p>
+            <p>Hello, we are the team behind OutofSight. We help small and medium businesses move from digital invisibility to professional online presence with websites, AI chatbots, social media systems, and brand infrastructure.</p>
+            <p>We do not just design websites. We analyze how customers find you, what stops them from reaching out, and which digital assets can turn attention into paying clients.</p>
+          </div>
+
+          <div class="row g-4 insight-grid">
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-people"></i></div>
+                <h3>Who We Are</h3>
+                <p>A technical squad building high-performance digital platforms for growing African businesses.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-diagram-3"></i></div>
+                <h3>What We Build</h3>
+                <p>Websites, AI chatbots, social media systems, and brand infrastructure, engineered to work as one connected system.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-graph-up-arrow"></i></div>
+                <h3>How We Work</h3>
+                <p>We study how customers find you and what stops them from reaching out, then build to turn that attention into clients.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="row g-4">
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-4.png" alt="Dhaka City Solar logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-dhaka-city-solar.png" alt="Dhaka City Solar website mockup"></div>
-              <div class="portfolio-meta"><h3>Dhaka City Solar</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
+        <hr class="about-divider">
+
+        <div class="about-subsection" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="about-subsection-title"><i class="bi bi-compass me-2"></i>Our Vision &amp; Mission</h3>
+          <div class="subpage-content">
+            <p class="lead">Our vision is a continent where no small or medium business is invisible online.</p>
+            <p>Across South Africa and the wider African market, too many great businesses are still running on outdated websites, inconsistent social media, and zero automated follow-up. OutofSight exists to close that gap. We see a future where a local plumber, a boutique clinic, or a family-run engineering firm can look just as credible online as a national brand, without the enterprise price tag or timeline.</p>
+            <p>Our mission is simple: build the digital infrastructure that lets small and medium businesses compete and win. That means custom websites, AI chatbots, social media systems, and branding that work together as one system, not a pile of disconnected assets.</p>
           </div>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-3.png" alt="SunnyMac Solar logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-sunnymac-solar.png" alt="SunnyMac Solar website mockup"></div>
-              <div class="portfolio-meta"><h3>SunnyMac Solar</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
+          <div class="row g-4 insight-grid">
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-eye"></i></div>
+                <h3>Our Vision</h3>
+                <p>A continent where no small or medium business is invisible online, no matter its size or budget.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-compass"></i></div>
+                <h3>Our Mission</h3>
+                <p>Build the digital infrastructure that lets SMBs compete and win, as one connected system, not scattered assets.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-graph-up"></i></div>
+                <h3>How We Measure Success</h3>
+                <p>Enquiries answered, leads captured, and customers converted, the same way our clients measure it.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="about-divider">
+
+        <div class="about-subsection" data-aos="fade-up" data-aos-delay="50">
+          <h3 class="about-subsection-title"><i class="bi bi-lightbulb me-2"></i>Why We Do What We Do</h3>
+          <div class="subpage-content">
+            <p class="lead">Too many good businesses lose customers before a conversation even starts.</p>
+            <p>A customer searches, lands on a slow or dated website, gets no reply on social media, and moves on to a competitor. That moment, repeated thousands of times a day across small and medium businesses, is what OutofSight was built to fix.</p>
+            <p>We do not believe a business should need an in-house tech team to look professional online. Every business we work with deserves the same tools that big brands use to capture and convert attention: fast websites, AI chatbots that respond instantly, consistent social media, and a clear path from visitor to paying customer.</p>
           </div>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-2.png" alt="Unique Solar Residential logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-unique-solar.png" alt="Unique Solar Residential website mockup"></div>
-              <div class="portfolio-meta"><h3>Unique Solar Residential</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
+          <div class="row g-4 insight-grid">
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-exclamation-octagon"></i></div>
+                <h3>The Problem</h3>
+                <p>Slow, dated websites and silent social media send customers straight to competitors, thousands of times a day.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-lightbulb"></i></div>
+                <h3>Our Belief</h3>
+                <p>No business should need an in-house tech team to look professional and respond instantly online.</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="insight-card">
+                <div class="insight-icon"><i class="bi bi-gear"></i></div>
+                <h3>How We Build</h3>
+                <p>No templates, no recycled code. Every system is built around the specific business and its customers.</p>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div class="col-md-6 col-xl-4" data-portfolio-category="solar" data-aos="fade-up">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-1.png" alt="Solar Caribbean logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-solar-caribbean.png" alt="Solar Caribbean website mockup"></div>
-              <div class="portfolio-meta"><h3>Solar Caribbean</h3><span class="portfolio-tag">Solar</span></div>
-            </article>
-          </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="engineering" data-aos="fade-up" data-aos-delay="50">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-5.png" alt="PramanCAD Engineering logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-praman-cad.png" alt="PramanCAD Engineering website mockup"></div>
-              <div class="portfolio-meta"><h3>PramanCAD Engineering</h3><span class="portfolio-tag">Engineering</span></div>
-            </article>
-          </div>
-
-          <div class="col-md-6 col-xl-4" data-portfolio-category="plumbing" data-aos="fade-up" data-aos-delay="100">
-            <article class="portfolio-card">
-              <div class="portfolio-logo"><img src="assets/img/oos/laptop-6.png" alt="Hudini Plumbing logo"></div>
-              <div class="portfolio-stage"><img src="assets/img/oos/mockup-hudini-plumbing.png" alt="Hudini Plumbing website mockup"></div>
-              <div class="portfolio-meta"><h3>Hudini Plumbing</h3><span class="portfolio-tag">Plumbing</span></div>
-            </article>
-          </div>
+        <div class="commitment-banner" data-aos="fade-up">
+          <p class="commitment-banner-text"><i class="bi bi-patch-check-fill"></i>No generic templates. No recycled codebases. Just a precision-built digital presence designed to capture and convert.</p>
+          <a class="btn btn-oos" href="#contact"><i class="bi bi-stars"></i>Free Custom Design</a>
         </div>
       </div>
     </section>
@@ -578,25 +946,23 @@
     <div class="container position-relative footer-hover-inner">
       <div class="row g-5 pb-4">
         <div class="col-md-6 col-lg-3">
-          <img class="footer-brand-logo" src="assets/img/oos/outofsight-logo.png" alt="OutofSight logo">
+          <img class="footer-brand-logo" src="img/oos/outofsight-logo.png" alt="OutofSight logo">
           <p class="footer-brand-copy">Elite web engineering, AI chatbots, social media systems, branding, SEO, and digital automation for businesses ready to look sharper and convert better online.</p>
         </div>
 
         <div class="col-6 col-lg-3">
           <h4 class="footer-col-title">Company</h4>
           <ul class="footer-link-list">
-            <li><a href="about-outofsight.html">About OutofSight</a></li>
-            <li><a href="oos-vision-mission.html">OOS Vision &amp; Mission</a></li>
-            <li><a href="why-we-do-what-we-do.html">Why We Do What We Do</a></li>
-            <li><a href="OutofSightIndex.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#about">About OutofSight</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
           </ul>
         </div>
 
         <div class="col-6 col-lg-3">
           <h4 class="footer-col-title">Helpful Links</h4>
           <ul class="footer-link-list">
-            <li><a href="OutofSightIndex.html#faq">FAQs</a></li>
-            <li><a href="OutofSightIndex.html#contact">Support</a></li>
+            <li><a href="index.html#faq">FAQs</a></li>
+            <li><a href="index.html#contact">Support</a></li>
             <li class="position-relative"><a href="#" id="footerLiveChat">Live Chat<span class="footer-pulse"></span></a></li>
           </ul>
         </div>
@@ -724,10 +1090,38 @@
     </div>
   </div>
 
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/js/outofsight.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/aos/aos.js"></script>
+  <script src="vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="js/outofsight.js"></script>
+
+  <!-- Rotating-word hero animation -->
+  <script>
+    (function () {
+      const words = Array.from(document.querySelectorAll('#heroRotator .rotator-word'));
+      if (!words.length) return;
+      let current = 0;
+
+      function rotate() {
+        const prev = current;
+        current = (current + 1) % words.length;
+
+        // Slide old word up and out
+        words[prev].classList.remove('rotator-word--visible');
+        words[prev].classList.add('rotator-word--exit');
+
+        // After exit transition, reset so it can re-enter from below next time
+        setTimeout(function () {
+          words[prev].classList.remove('rotator-word--exit');
+        }, 600);
+
+        // Slide new word in from below
+        words[current].classList.add('rotator-word--visible');
+      }
+
+      setInterval(rotate, 2000);
+    })();
+  </script>
 </body>
 
 </html>
