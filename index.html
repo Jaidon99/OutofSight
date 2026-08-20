@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+  <!-- =========================================
+       GOOGLE ANALYTICS
+  ========================================== -->
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H9K6R343LX"></script>
   <script>
@@ -12,22 +15,184 @@
     gtag('config', 'G-H9K6R343LX');
   </script>
 
+
+  <!-- =========================================
+       BASIC WEBSITE SETTINGS
+  ========================================== -->
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>OutofSight | Elite Digital Systems</title>
-  <meta name="description" content="OutofSight builds high-converting websites, AI chatbots, social media systems, branding, SEO, and digital infrastructure for small and medium businesses across Africa.">
-  <meta name="keywords" content="OutofSight, web design, AI chatbot, digital agency, social media, SEO, website development">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
+  <!-- =========================================
+       PRIMARY SEO
+  ========================================== -->
+  <title>Web Design, SEO &amp; Digital Marketing Agency | OutofSight</title>
+
+  <meta
+  name="description"
+  content="OutofSight is a digital growth agency providing website design, SEO, lead generation, AI automation and digital marketing systems that help businesses grow online."
+>
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://ooscu.com/">
+
+
+  <!-- =========================================
+       OPEN GRAPH / FACEBOOK / LINKEDIN
+  ========================================== -->
+  <meta property="og:type" content="website">
+
+  <meta property="og:url" content="https://ooscu.com/">
+
+  <meta
+    property="og:title"
+    content="Web Design, SEO & Digital Growth Systems | OutofSight"
+  >
+
+  <meta
+    property="og:description"
+    content="OutofSight builds high-converting websites, SEO strategies, lead generation systems, AI automation and digital infrastructure that help businesses grow."
+  >
+
+  <!-- IMPORTANT:
+       Change this image path if your social sharing
+       image is stored somewhere else. -->
+  <meta
+    property="og:image"
+    content="https://ooscu.com/img/oos/outofsight-social-share.jpg"
+  >
+
+  <meta property="og:site_name" content="OutofSight">
+
+  <meta property="og:locale" content="en_ZA">
+
+
+  <!-- =========================================
+       X / TWITTER SOCIAL SHARING
+  ========================================== -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta
+    name="twitter:title"
+    content="Web Design, SEO & Digital Growth Systems | OutofSight"
+  >
+
+  <meta
+    name="twitter:description"
+    content="High-converting websites, SEO, lead generation, AI automation and digital growth systems built for ambitious businesses."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://ooscu.com/img/oos/outofsight-social-share.jpg"
+  >
+
+
+  <!-- =========================================
+       FAVICONS
+  ========================================== -->
   <link href="img/oos/favicons/favicon.ico" rel="icon" sizes="any">
-  <link href="img/oos/favicons/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">
-  <link href="img/oos/favicons/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <link
+    href="img/oos/favicons/favicon-32x32.png"
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+  >
+
+  <link
+    href="img/oos/favicons/apple-touch-icon.png"
+    rel="apple-touch-icon"
+  >
+
+
+  <!-- =========================================
+       ORGANIZATION + WEBSITE + SERVICE SCHEMA
+  ========================================== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ooscu.com/#organization",
+        "name": "OutofSight",
+        "alternateName": "OOSCU",
+        "url": "https://ooscu.com/",
+        "description": "OutofSight builds high-converting websites, SEO strategies, lead generation systems, AI automation and digital infrastructure for growing businesses.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://ooscu.com/img/oos/logo.png"
+        }
+      },
+
+      {
+        "@type": "WebSite",
+        "@id": "https://ooscu.com/#website",
+        "url": "https://ooscu.com/",
+        "name": "OutofSight",
+        "alternateName": "OOSCU",
+        "publisher": {
+          "@id": "https://ooscu.com/#organization"
+        }
+      },
+
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://ooscu.com/#business",
+        "name": "OutofSight",
+        "url": "https://ooscu.com/",
+        "description": "OutofSight provides website design, search engine optimization, lead generation, AI automation and digital marketing systems for businesses.",
+        "parentOrganization": {
+          "@id": "https://ooscu.com/#organization"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "South Africa"
+        },
+        "serviceType": [
+  "Website Design",
+  "Website Development",
+  "Search Engine Optimization",
+  "SEO",
+  "Google Business Profile Optimization",
+  "Local SEO",
+  "Lead Generation",
+  "Lead Generation Systems",
+  "AI Chatbots",
+  "AI Automation",
+  "Business Automation",
+  "Social Media Marketing",
+  "Branding",
+  "Digital Marketing",
+  "Digital Growth Systems"
+]
+      }
+    ]
+  }
+  </script>
+
+
+  <!-- =========================================
+       VENDOR CSS
+  ========================================== -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="vendor/aos/aos.css" rel="stylesheet">
   <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+
+  <!-- =========================================
+       MAIN OUTOFSIGHT STYLESHEET
+  ========================================== -->
   <link href="css/outofsight.css" rel="stylesheet">
 
+
+  <!-- =========================================
+       PORTFOLIO FILMSTRIP STYLING
+       Existing styling kept unchanged
+  ========================================== -->
   <style>
     /* Portfolio filmstrip — luxury auto-scroll redesign (scoped, no other sections affected) */
     #portfolio.portfolio-noir {
@@ -73,83 +238,87 @@
     }
 
     .portfolio-slide {
-      flex-shrink: 0;
-      transition: transform 0.45s ease;
-      width: min(78vw, 340px);
-    }
+  flex-shrink: 0;
+  transition: transform 0.45s ease;
+  width: min(82vw, 410px);
+  padding-top: 14px;
+}
 
-    .portfolio-slide:hover {
-      transform: translateY(-6px) scale(1.035);
-    }
+.portfolio-slide:hover {
+  transform: translateY(-2px) scale(1.04);
+  z-index: 5;
+}
 
-    .portfolio-slide-frame {
-      aspect-ratio: 16 / 10;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.04), rgba(0, 0, 0, 0.85));
-      border: 1px solid rgba(125, 211, 252, 0.18);
-      border-radius: 18px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      padding: 1.2rem;
-      position: relative;
-      transition: border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
-    }
+.portfolio-slide-frame {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(0, 0, 0, 0.85)
+  );
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 0.45rem 0.75rem 0.2rem;
+  position: relative;
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    filter 0.4s ease;
+}
 
-    .portfolio-slide:hover .portfolio-slide-frame {
-      border-color: rgba(125, 211, 252, 0.6);
-      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(125, 211, 252, 0.14);
-      filter: brightness(1.06);
-    }
+.portfolio-slide:hover .portfolio-slide-frame {
+  border-color: rgba(125, 211, 252, 0.6);
+  box-shadow:
+    0 28px 70px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(125, 211, 252, 0.14);
+  filter: brightness(1.06);
+}
 
-    .portfolio-slide-frame img.portfolio-slide-mockup {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
-    }
+.portfolio-slide-frame img.portfolio-slide-mockup {
+  display: block;
+  max-width: 108%;
+  max-height: 108%;
+  object-fit: contain;
+  transform: translateY(10px) scale(1.06);
+  transform-origin: center center;
+}
 
-    .portfolio-slide-badge {
-      align-items: center;
-      background: rgba(2, 6, 23, 0.72);
-      border: 1px solid rgba(125, 211, 252, 0.28);
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      left: 0.75rem;
-      padding: 0.3rem 0.5rem;
-      position: absolute;
-      top: 0.75rem;
-    }
+.portfolio-slide-badge {
+  align-items: center;
+  background: rgba(2, 6, 23, 0.72);
+  border: 1px solid rgba(125, 211, 252, 0.28);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  left: 0.75rem;
+  padding: 0.3rem 0.5rem;
+  position: absolute;
+  top: 0.75rem;
+}
 
-    .portfolio-slide-badge img {
-      max-height: 16px;
-      object-fit: contain;
-      width: auto;
-    }
+.portfolio-slide-badge img {
+  max-height: 16px;
+  object-fit: contain;
+  width: auto;
+}
 
-    .portfolio-slide-caption {
-      display: flex;
-      justify-content: center;
-      margin-top: 1.1rem;
-    }
-
-    .portfolio-slide-caption h3 {
-      color: #f8fafc;
-      font-size: 0.95rem;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-      margin: 0;
-      text-align: center;
-    }
+/* Hide company names below portfolio laptop screens */
+.portfolio-slide-caption {
+  display: none;
+}
 
     @media (prefers-reduced-motion: reduce) {
       .portfolio-track {
         animation: none;
       }
     }
-
   </style>
+
 </head>
 
 <body>
@@ -217,25 +386,41 @@
       <div class="container" style="position:relative;z-index:2;">
         <div class="hero-content hero-content-centered mx-auto" id="heroTextBlock">
 
-          <!-- Animated rotating hero heading -->
-          <h1 class="animated-hero-title" aria-label="Let's build something for your business">
-            <span class="animated-hero-static">Design Something</span>
+ <!-- Main SEO heading -->
+<h1
+class="animated-hero-title"
+aria-label="We build websites, SEO, lead generation and automation systems for growing businesses"
+>
 
-            <!-- Rotating word slot -->
-            <span class="animated-hero-rotator" aria-hidden="true" id="heroRotator">
-              <span class="rotator-word rotator-word--visible">AMAZING</span>
-              <span class="rotator-word">CREATIVE</span>
-              <span class="rotator-word">WONDERFUL</span>
-              <span class="rotator-word">BEAUTIFUL</span>
-              <span class="rotator-word">UNIQUE</span>
-            </span>
+<span class="animated-hero-static">
+  We Build
+</span>
 
-            <span class="animated-hero-static animated-hero-static--bottom">For Your BUSINESS.</span>
-          </h1>
+<span
+  class="animated-hero-rotator"
+  aria-hidden="true"
+  id="heroRotator"
+>
+  <span class="rotator-word rotator-word--visible">WEBSITES</span>
+  <span class="rotator-word">SEO</span>
+  <span class="rotator-word">LEAD SYSTEMS</span>
+  <span class="rotator-word">AUTOMATION</span>
+  <span class="rotator-word">DIGITAL SYSTEMS</span>
+</span>
 
-          <p class="hero-copy mx-auto hero-copy-gradient">
-            Custom-built digital presence, AI chatbots, social media systems, branding, SEO, and conversion infrastructure designed to help small and medium businesses stand out online.
-          </p>
+<span class="animated-hero-static animated-hero-static--bottom">
+  For Your BUSINESS.
+</span>
+
+</h1>
+
+<p class="hero-copy mx-auto hero-copy-gradient">
+Custom-built websites, SEO, lead generation and automation systems for your business.
+</p>
+
+<p class="hero-description">
+OutofSight builds high-converting websites, SEO strategies, lead generation systems and AI-powered automation that help businesses attract more customers, improve their online visibility and grow.
+</p>
 
           <div class="hero-badges hero-badges-centered" aria-label="OutofSight service highlights">
             <span class="hero-badge"><i class="bi bi-check2-circle"></i>Websites</span>
@@ -279,110 +464,321 @@
       </div>
     </section>
 
-    <section id="services" class="section-band">
-      <div class="container">
-        <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Our services</span>
-          <h2>Websites, bots, content, and visibility</h2>
-          <p class="mx-auto">OutofSight builds the digital assets a modern business needs to look credible, capture demand, and turn visitors into enquiries.</p>
+  <!-- =========================================
+     SERVICES
+========================================== -->
+<section id="services" class="section-band">
+
+  <div class="container">
+
+    <!-- Section heading -->
+    <div class="section-title text-center mx-auto" data-aos="fade-up">
+
+      <span class="eyebrow">
+        Our Digital Growth Services
+      </span>
+
+      <h2>
+        Website Design, SEO, Lead Generation &amp; AI Automation
+      </h2>
+
+      <p class="mx-auto">
+        OutofSight builds high-converting digital systems that help businesses
+        improve their online visibility, attract qualified leads, convert more
+        customers and grow with the right technology.
+      </p>
+
+    </div>
+
+
+    <!-- Services carousel -->
+    <div
+      class="services-carousel swiper"
+      data-aos="fade-up"
+      data-aos-delay="50"
+    >
+
+      <div class="swiper-wrapper">
+
+
+        <!-- ================================
+             CUSTOM WEBSITE DESIGN
+        ================================= -->
+        <div class="swiper-slide">
+
+          <article class="service-card">
+
+            <div class="service-media">
+              <img
+                src="img/oos/custom-built-websites.jpeg"
+                alt="Custom high-converting website design and development for businesses"
+              >
+            </div>
+
+            <div class="service-body">
+
+              <h3>
+                Custom Website Design &amp; Development
+              </h3>
+
+              <p>
+                High-converting, professionally designed websites built to
+                establish trust, improve user experience, perform on mobile
+                devices and turn more visitors into enquiries and customers.
+              </p>
+
+              <ul class="feature-list">
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Business websites and high-converting landing pages</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Responsive website design for mobile and desktop</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>SEO-ready website structure and technical foundations</span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
         </div>
 
-        <div class="services-carousel swiper" data-aos="fade-up" data-aos-delay="50">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="img/oos/custom-built-websites.jpeg" alt="Custom website displayed on a laptop">
-                </div>
-                <div class="service-body">
-                  <h3>Custom Website Design</h3>
-                  <p>High-converting websites built around trust, speed, mobile performance, and clear calls to action.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>Landing pages and full websites</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Responsive layouts for mobile and desktop</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Launch-ready SEO structure</span></li>
-                  </ul>
-                </div>
-              </article>
+
+        <!-- ================================
+             SEO & GOOGLE VISIBILITY
+        ================================= -->
+        <div class="swiper-slide">
+
+          <article class="service-card">
+
+            <div class="service-media">
+              <img
+                src="img/oos/google-domination-suite.jpeg"
+                alt="SEO and Google visibility strategy for businesses"
+              >
             </div>
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="img/oos/google-domination-suite.jpeg" alt="Google domination suite visual">
-                </div>
-                <div class="service-body">
-                  <h3>Google Domination Suite</h3>
-                  <p>Local search infrastructure that helps customers find you when they are already looking for a solution.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>SEO and local keyword strategy</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Google profile optimisation</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Content structure for rankings</span></li>
-                  </ul>
-                </div>
-              </article>
+            <div class="service-body">
+
+              <h3>
+                SEO &amp; Google Visibility
+              </h3>
+
+              <p>
+                Search engine optimisation and local SEO strategies designed
+                to help your business improve its Google visibility, rank for
+                relevant search terms and attract customers already looking
+                for your products or services.
+              </p>
+
+              <ul class="feature-list">
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Keyword research and SEO strategy</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Google Business Profile and local SEO optimisation</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>SEO content structure and on-page optimisation</span>
+                </li>
+
+              </ul>
+
             </div>
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="img/oos/social-media-domination.jpeg" alt="Social media domination visual">
-                </div>
-                <div class="service-body">
-                  <h3>Social Media Systems</h3>
-                  <p>Designed content, brand presence, and campaign structures that keep your business visible and consistent.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>Branded content templates</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Offer-driven social campaigns</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Consistent visual identity</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
+          </article>
 
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="img/oos/paid-ads-management.jpeg" alt="Paid ads management visual">
-                </div>
-                <div class="service-body">
-                  <h3>Paid Ads And Funnels</h3>
-                  <p>Campaign pages, lead magnets, and conversion paths built to make marketing spend easier to measure.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>Offer and landing page strategy</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Lead capture forms and follow-up paths</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Analytics-friendly structure</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-
-            <div class="swiper-slide">
-              <article class="service-card">
-                <div class="service-media">
-                  <img src="img/oos/AI Chatbot.jpeg" alt="OutofSight brand mark">
-                </div>
-                <div class="service-body">
-                  <h3>AI Chatbots And Automation</h3>
-                  <p>Smart assistants and automated follow-up systems that answer questions, qualify leads, and keep conversations moving.</p>
-                  <ul class="feature-list">
-                    <li><i class="bi bi-check-circle-fill"></i><span>AI chatbot design and integration</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>Lead qualification scripts</span></li>
-                    <li><i class="bi bi-check-circle-fill"></i><span>CRM and email workflow support</span></li>
-                  </ul>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
         </div>
+
+
+        <!-- ================================
+             SOCIAL MEDIA MARKETING
+        ================================= -->
+        <div class="swiper-slide">
+
+          <article class="service-card">
+
+            <div class="service-media">
+              <img
+                src="img/oos/social-media-domination.jpeg"
+                alt="Social media marketing and content systems for businesses"
+              >
+            </div>
+
+            <div class="service-body">
+
+              <h3>
+                Social Media Marketing &amp; Content Systems
+              </h3>
+
+              <p>
+                Strategic social media content and digital marketing systems
+                designed to strengthen your brand presence, maintain
+                consistency and keep your business visible to the right
+                audience.
+              </p>
+
+              <ul class="feature-list">
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Branded social media content and templates</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Offer-driven campaigns and marketing content</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Consistent brand messaging and visual identity</span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- ================================
+             PAID ADS & LEAD GENERATION
+        ================================= -->
+        <div class="swiper-slide">
+
+          <article class="service-card">
+
+            <div class="service-media">
+              <img
+                src="img/oos/paid-ads-management.jpeg"
+                alt="Paid advertising and lead generation funnel for businesses"
+              >
+            </div>
+
+            <div class="service-body">
+
+              <h3>
+                Paid Ads &amp; Lead Generation Systems
+              </h3>
+
+              <p>
+                Paid advertising, landing pages and conversion funnels designed
+                to generate qualified leads, capture customer information and
+                create a clearer path from first click to enquiry.
+              </p>
+
+              <ul class="feature-list">
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Paid advertising and campaign strategy</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Lead generation landing pages and offers</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Lead capture, tracking and follow-up systems</span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- ================================
+             AI CHATBOTS & AUTOMATION
+        ================================= -->
+        <div class="swiper-slide">
+
+          <article class="service-card">
+
+            <div class="service-media">
+              <img
+                src="img/oos/AI Chatbot.jpeg"
+                alt="AI chatbot and business automation system"
+              >
+            </div>
+
+            <div class="service-body">
+
+              <h3>
+                AI Chatbots &amp; Business Automation
+              </h3>
+
+              <p>
+                AI-powered chatbots and business automation systems that help
+                answer customer questions, qualify leads, automate follow-ups
+                and keep your sales conversations moving.
+              </p>
+
+              <ul class="feature-list">
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>AI chatbot design and website integration</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>Automated lead qualification and follow-up</span>
+                </li>
+
+                <li>
+                  <i class="bi bi-check-circle-fill"></i>
+                  <span>CRM, email and business workflow automation</span>
+                </li>
+
+              </ul>
+
+            </div>
+
+          </article>
+
+        </div>
+
       </div>
-    </section>
 
-    <div class="marquee-title">Deploying Digital Infrastructure Across</div>
+
+      <!-- Carousel controls -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div class="marquee-title">
+  Building Digital Growth Systems for Businesses Across Africa
+</div>
     <div class="logo-marquee">
       <div class="logo-marquee-content">
         <span>🇿🇦 South Africa</span><span>🇳🇬 Nigeria</span><span>🇰🇪 Kenya</span><span>🇬🇭 Ghana</span><span>🇧🇼 Botswana</span><span>🇿🇼 Zimbabwe</span><span>🇳🇦 Namibia</span><span>🇲🇿 Mozambique</span><span>🇹🇿 Tanzania</span><span>🇺🇬 Uganda</span>
@@ -393,34 +789,60 @@
     <section id="process" class="section-band">
       <div class="container">
         <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Our process</span>
-          <h2>A clear path from idea to launch</h2>
-          <p class="mx-auto">Each project starts with strategy, then moves into a build process that keeps the final system practical, polished, and launch-ready.</p>
+          <span class="eyebrow">Our Digital Growth Process</span>
+
+<h2>From Digital Strategy to Business Growth</h2>
+
+<p class="mx-auto">
+  OutofSight develops complete digital growth systems designed to improve
+  your online presence, attract qualified leads and create scalable systems
+  that support long-term business growth.
+</p>
         </div>
 
         <div class="row g-4 process-grid">
           <div class="col-md-6 col-xl-3" data-aos="fade-up">
             <div class="process-item">
               <h3>Diagnostic</h3>
-              <p>We map the business, current lead flow, target customer, service area, and the biggest visibility gaps.</p>
+
+<p>
+  We analyse your current digital presence, website performance, customer
+  journey and growth opportunities to identify what is working, what is
+  missing and where your business can improve.
+</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="75">
             <div class="process-item">
               <h3>Blueprint</h3>
-              <p>We create the page structure, offer, conversion journey, visual direction, and system plan.</p>
+
+<p>
+  We create a clear digital strategy covering your website, SEO, lead
+  generation, marketing and automation requirements, giving your business
+  a structured plan for growth.
+</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="150">
             <div class="process-item">
               <h3>Build</h3>
-              <p>We design and develop the website, chatbot, content assets, and supporting automation.</p>
+
+<p>
+  We design and develop the digital infrastructure your business needs,
+  including high-converting websites, SEO foundations, lead generation
+  systems and automated customer journeys.
+</p>
             </div>
           </div>
           <div class="col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="225">
             <div class="process-item">
               <h3>Deploy</h3>
-              <p>We launch, test, refine, and hand over a digital system ready for growth.</p>
+
+<p>
+  We launch, connect and optimise your digital systems so your business can
+  improve online visibility, generate opportunities and create a stronger
+  foundation for continued growth.
+</p>
             </div>
           </div>
         </div>
@@ -463,10 +885,11 @@
     <section id="portfolio" class="section-band alt split-line portfolio-noir">
       <div class="container">
         <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Client work</span>
-          <h2>Digital systems already in motion</h2>
+          <span class="eyebrow">Our Portfolio</span>
+
+<h2>High-Converting Websites & Digital Systems Built for Real Businesses</h2>
         </div>
-        <img class="portfolio-banner" src="img/oos/WB Design Section.png" alt="Website Development — UI/UX visual architect design showcase" data-aos="fade-up">
+        <img class="portfolio-banner" src="img/oos/WB Design Section.png" alt="OutofSight website design and digital systems portfolio showcase" data-aos="fade-up">
       </div>
 
       <div class="portfolio-strip" data-aos="fade-up">
@@ -620,9 +1043,15 @@
     <section id="contact" class="section-band alt split-line">
       <div class="container">
         <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">Start the build</span>
-          <h2>Your business. Our blueprint.</h2>
-          <p class="mx-auto">Fill in the form and OutofSight will come back with a clear, tailored plan for your website, chatbot, social presence, or full digital system.</p>
+          <span class="eyebrow">Start Your Digital Growth Journey</span>
+
+<h2>Let's Build a Digital System That Helps Your Business Grow</h2>
+
+<p class="mx-auto">
+  Tell us about your business and goals. OutofSight will help you identify
+  the right combination of website design, SEO, lead generation, AI
+  automation and digital marketing to build a stronger online presence.
+</p>
         </div>
 
         <div class="row g-4">
@@ -649,12 +1078,13 @@
                   <label class="form-label" for="service">What do you need?</label>
                   <select class="form-select" id="service" name="service" required>
                     <option value="">Select a focus</option>
-                    <option>New website</option>
-                    <option>Website redesign</option>
-                    <option>AI chatbot</option>
-                    <option>Social media system</option>
+                    <option>Website design and development</option>
+                    <option>Website redesign and optimisation</option>
                     <option>SEO and Google visibility</option>
-                    <option>Full digital ecosystem</option>
+                    <option>Lead generation system</option>
+                    <option>AI chatbot and business automation</option>
+                    <option>Social media marketing</option>
+                    <option>Full digital growth system</option>
                   </select>
                 </div>
                 <div class="col-12">
@@ -710,67 +1140,143 @@
     <section id="faq" class="section-band">
       <div class="container">
         <div class="section-title text-center mx-auto" data-aos="fade-up">
-          <span class="eyebrow">FAQ</span>
-          <h2>Frequently asked questions</h2>
-          <p class="mx-auto">Pulled from the current OutofSight content and tightened for the new redesign.</p>
+          <span class="eyebrow">Frequently Asked Questions</span>
+          <h2>Answers to Common Questions About Our Digital Growth Services</h2>
+          <p class="mx-auto">
+            Find answers about website design, SEO, lead generation, AI automation,
+            social media marketing and building a stronger digital presence for your business.
+          </p>
         </div>
-
         <div class="accordion mx-auto" id="faqAccordion" style="max-width: 980px;">
           <div class="accordion-item" data-aos="fade-up">
             <h3 class="accordion-header">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">What services does OutofSight offer?</button>
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne" aria-expanded="true" aria-controls="faqOne">
+                What does OutofSight do?
+              </button>
             </h3>
             <div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">OutofSight provides website design and development, AI chatbot design and integration, hosting, maintenance, SEO, Google visibility, branding, social media design, and strategic online marketing support.</div>
+              <div class="accordion-body">
+                OutofSight is a digital growth agency that helps businesses build stronger online presences and generate more customers. Our services include website design and development, SEO, lead generation, AI chatbots, business automation, social media marketing, branding, and complete digital growth systems.
+              </div>
             </div>
           </div>
 
           <div class="accordion-item" data-aos="fade-up">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">How does the website design process work?</button>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
+                How can a professional website help my business?
+              </button>
             </h3>
             <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">The process starts by understanding your business, goals, audience, and current online gaps. From there, OutofSight creates the strategy, designs the structure, builds the system, tests it, and prepares it for launch.</div>
+              <div class="accordion-body">
+                A professional website gives your business a strong online presence, builds credibility, and makes it easier for potential customers to find and contact you. We design fast, modern, conversion-focused websites that are built around your brand, services, customers, and business goals.
+              </div>
             </div>
           </div>
 
           <div class="accordion-item" data-aos="fade-up">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">How long does it take to design a website?</button>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
+                Can OutofSight help my business appear higher on Google?
+              </button>
             </h3>
             <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Timelines depend on scope and complexity, but a typical standard website build is planned around a 3 to 4 week window.</div>
+              <div class="accordion-body">
+                Yes. Our SEO and Google visibility services are designed to help businesses improve their search presence and attract more relevant traffic. We focus on technical SEO, website optimisation, content, local visibility, keyword targeting, and other strategies that can improve your chances of being discovered by potential customers.
+              </div>
             </div>
           </div>
 
           <div class="accordion-item" data-aos="fade-up">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">Can you help update an existing website?</button>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFour" aria-expanded="false" aria-controls="faqFour">
+                Can you help my business generate more leads?
+              </button>
             </h3>
             <div id="faqFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Yes. OutofSight can refresh, redesign, reposition, or rebuild an existing website so it better reflects your brand and captures enquiries more effectively.</div>
+              <div class="accordion-body">
+                Yes. OutofSight can build digital lead generation systems designed to attract, capture, and convert potential customers. Depending on your business, this can include a high-converting website, SEO, landing pages, enquiry forms, AI chatbots, automated follow-ups, and other digital marketing systems.
+              </div>
             </div>
           </div>
 
           <div class="accordion-item" data-aos="fade-up">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">Do you offer website hosting?</button>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqFive" aria-expanded="false" aria-controls="faqFive">
+                What are AI chatbots and business automation?
+              </button>
             </h3>
             <div id="faqFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Yes. OutofSight offers hosting and maintenance support so your website stays reliable, secure, and easier to manage after launch.</div>
+              <div class="accordion-body">
+                AI chatbots and automation can handle repetitive customer interactions and business processes automatically. OutofSight can create AI-powered systems that answer questions, qualify leads, collect information, assist customers, and help businesses respond faster without requiring someone to manually handle every enquiry.
+              </div>
             </div>
           </div>
 
           <div class="accordion-item" data-aos="fade-up">
             <h3 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSix" aria-expanded="false" aria-controls="faqSix">How do I get started?</button>
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSix" aria-expanded="false" aria-controls="faqSix">
+                Do you offer website redesign and optimisation?
+              </button>
             </h3>
             <div id="faqSix" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body">Use the strategy form, send an email, or open the WhatsApp chat. The team will review your goals, map a plan, and outline the recommended build path.</div>
+              <div class="accordion-body">
+                Yes. If you already have a website, we can redesign and optimise it to improve its appearance, user experience, performance, SEO, mobile responsiveness, and ability to convert visitors into customers. We can work with your existing brand or create a more modern digital direction.
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+
+          <div class="accordion-item" data-aos="fade-up">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSeven" aria-expanded="false" aria-controls="faqSeven">
+                Can OutofSight manage my social media?
+              </button>
+            </h3>
+            <div id="faqSeven" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Yes. We can help businesses create a consistent social media presence through strategy, content, creative design, and ongoing marketing. Social media can also be integrated with your website, lead generation, branding, and wider digital growth strategy.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqEight" aria-expanded="false" aria-controls="faqEight">
+                How much does a website or digital system cost?
+              </button>
+            </h3>
+            <div id="faqEight" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                The cost depends on the scope of the project and the specific systems your business needs. Rather than offering a one-size-fits-all package, OutofSight creates tailored solutions based on your goals, services, audience, and growth requirements. Contact us to discuss your project and receive a tailored plan.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqNine" aria-expanded="false" aria-controls="faqNine">
+                How long does it take to build a website?
+              </button>
+            </h3>
+            <div id="faqNine" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Project timelines depend on the size and complexity of the website and how quickly content and feedback are provided. A straightforward business website can typically be completed much faster than a larger website that includes advanced functionality, SEO, integrations, AI systems, or automation.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item" data-aos="fade-up">
+            <h3 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTen" aria-expanded="false" aria-controls="faqTen">
+                Why should I choose OutofSight?
+              </button>
+            </h3>
+            <div id="faqTen" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                OutofSight focuses on building digital systems rather than simply creating websites. We combine website design, SEO, lead generation, AI, automation, branding, and digital marketing to create a connected online presence designed around your business goals.
+              </div>
+            </div>
+          </div>
     </section>
 
     <section id="systems" class="section-band alt split-line">
