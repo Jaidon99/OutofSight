@@ -317,6 +317,137 @@
         animation: none;
       }
     }
+
+    /* Embedded PDF modals — Privacy Policy / Terms & Conditions */
+    .pdf-modal-dialog .modal-content {
+      height: 90vh;
+    }
+
+    .pdf-modal-body {
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    .pdf-modal-frame {
+      border: 0;
+      flex: 1 1 auto;
+      width: 100%;
+      background: #f4f4f4;
+    }
+
+    .pdf-modal-fallback {
+      font-size: 0.85rem;
+      margin: 0;
+      padding: 0.6rem 1rem;
+      text-align: center;
+    }
+
+    .pdf-open-new-tab {
+      margin-left: auto;
+      margin-right: 0.75rem;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 767.98px) {
+      .pdf-modal-dialog .modal-content {
+        height: 100vh;
+      }
+    }
+
+    /* Cookie consent banner */
+    .cookie-consent {
+      background: rgba(5, 8, 15, 0.97);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid rgba(125, 211, 252, 0.28);
+      bottom: 0;
+      box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.55);
+      display: none;
+      left: 0;
+      padding: 1rem 1.25rem;
+      position: fixed;
+      right: 0;
+      z-index: 2000;
+    }
+
+    .cookie-consent.cookie-consent--visible {
+      display: block;
+    }
+
+    .cookie-consent-inner {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-between;
+      margin: 0 auto;
+      max-width: 1100px;
+    }
+
+    .cookie-consent-text {
+      color: #cbd5e1;
+      flex: 1 1 420px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .cookie-consent-link {
+      background: none;
+      border: 0;
+      color: #7dd3fc;
+      cursor: pointer;
+      font: inherit;
+      padding: 0;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .cookie-consent-actions {
+      display: flex;
+      flex: 0 0 auto;
+      gap: 0.75rem;
+    }
+
+    .cookie-btn {
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.55rem 1.1rem;
+      white-space: nowrap;
+    }
+
+    .cookie-btn-outline {
+      background: transparent;
+      border: 1px solid rgba(203, 213, 225, 0.4);
+      color: #cbd5e1;
+    }
+
+    .cookie-btn-outline:hover {
+      border-color: rgba(203, 213, 225, 0.7);
+    }
+
+    .cookie-btn-solid {
+      background: linear-gradient(135deg, #7dd3fc, #38bdf8);
+      border: 1px solid transparent;
+      color: #05070c;
+    }
+
+    .cookie-btn-solid:hover {
+      filter: brightness(1.06);
+    }
+
+    @media (max-width: 575.98px) {
+      .cookie-consent-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cookie-consent-actions {
+        justify-content: flex-end;
+      }
+    }
   </style>
 
 </head>
@@ -1433,47 +1564,49 @@ OutofSight builds high-converting websites, SEO strategies, lead generation syst
   </div>
 
   <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-md-down modal-xl modal-dialog-scrollable pdf-modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title fs-4" id="privacyModalLabel">Privacy Policy</h2>
+          <a class="footer-legal-btn pdf-open-new-tab" href="legal/OutofSight-Privacy-Policy.pdf" target="_blank" rel="noopener">Open in new tab</a>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <p><strong>Last updated: May 13, 2026</strong></p>
-          <p>OutofSight is committed to protecting the privacy and security of client, project, and business information shared through our website, development services, AI chatbot implementations, and automation systems.</p>
-          <h3 class="h5 text-white mt-4">Information We Collect</h3>
-          <p>We may collect contact details, company details, project requirements, branding assets, website usage data, and information needed to deliver digital services.</p>
-          <h3 class="h5 text-white mt-4">AI And Automation Data</h3>
-          <p>When implementing chatbots or automated workflows, OutofSight acts as a processor of the data handled by those systems. Clients remain responsible for the data they collect from their customers.</p>
-          <h3 class="h5 text-white mt-4">How Information Is Used</h3>
-          <p>Information is used to plan, build, test, deploy, support, and improve websites, chatbots, automation workflows, and related digital systems.</p>
-          <h3 class="h5 text-white mt-4">Contact</h3>
-          <p>For privacy questions, contact Jaidon Vermeulen at <a href="mailto:hallo.outofsight@gmail.com">hallo.outofsight@gmail.com</a> or <a href="tel:+27781200888">078 120 0888</a>.</p>
+        <div class="modal-body pdf-modal-body">
+          <iframe src="legal/OutofSight-Privacy-Policy.pdf" class="pdf-modal-frame" title="OutofSight Privacy Policy PDF"></iframe>
+          <p class="pdf-modal-fallback">Can't see the document? <a href="legal/OutofSight-Privacy-Policy.pdf" target="_blank" rel="noopener">Open the Privacy Policy PDF directly</a>.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-dialog modal-fullscreen-md-down modal-xl modal-dialog-scrollable pdf-modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <h2 class="modal-title fs-4" id="termsModalLabel">Terms And Conditions</h2>
+          <a class="footer-legal-btn pdf-open-new-tab" href="legal/OutofSight-Terms-and-Conditions.pdf" target="_blank" rel="noopener">Open in new tab</a>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
-          <p><strong>Last updated: May 13, 2026</strong></p>
-          <p>By engaging OutofSight, clients agree that each project scope, timeline, fee, revision allowance, deliverable, and responsibility will be defined in a proposal or written agreement.</p>
-          <h3 class="h5 text-white mt-4">Services</h3>
-          <p>Services may include website development, AI chatbot implementation, automation systems, branding, SEO, social media design, hosting, and maintenance.</p>
-          <h3 class="h5 text-white mt-4">Payments And Revisions</h3>
-          <p>Deposits may be required before work begins. Work outside the agreed scope may be billed separately. Due to the custom nature of digital services, payments are generally non-refundable once work has commenced unless otherwise agreed in writing.</p>
-          <h3 class="h5 text-white mt-4">AI And Third-Party Services</h3>
-          <p>AI chatbot, automation, hosting, analytics, and third-party integrations may depend on external providers. OutofSight cannot guarantee uninterrupted third-party service availability.</p>
-          <h3 class="h5 text-white mt-4">Confidentiality</h3>
-          <p>Project information shared during the work will be treated confidentially and used only for service delivery, support, and agreed project purposes.</p>
+        <div class="modal-body pdf-modal-body">
+          <iframe src="legal/OutofSight-Terms-and-Conditions.pdf" class="pdf-modal-frame" title="OutofSight Terms and Conditions PDF"></iframe>
+          <p class="pdf-modal-fallback">Can't see the document? <a href="legal/OutofSight-Terms-and-Conditions.pdf" target="_blank" rel="noopener">Open the Terms and Conditions PDF directly</a>.</p>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookieConsent" class="cookie-consent" role="dialog" aria-live="polite" aria-label="Cookie and privacy notice">
+    <div class="cookie-consent-inner">
+      <p class="cookie-consent-text">
+        <strong>OutofSight</strong> builds high-converting websites, AI chatbots, and automation systems for businesses across Africa.
+        We use cookies and collect basic contact and usage information whenever you message us, chat with our AI assistant, or interact with this site, in line with our
+        <button type="button" class="cookie-consent-link" data-bs-toggle="modal" data-bs-target="#privacyModal">Privacy Policy</button>
+        and
+        <button type="button" class="cookie-consent-link" data-bs-toggle="modal" data-bs-target="#termsModal">Terms &amp; Conditions</button>.
+      </p>
+      <div class="cookie-consent-actions">
+        <button type="button" id="cookieDecline" class="cookie-btn cookie-btn-outline">Decline</button>
+        <button type="button" id="cookieAccept" class="cookie-btn cookie-btn-solid">Accept</button>
       </div>
     </div>
   </div>
@@ -1508,6 +1641,40 @@ OutofSight builds high-converting websites, SEO strategies, lead generation syst
       }
 
       setInterval(rotate, 2000);
+    })();
+  </script>
+
+  <!-- Cookie consent banner -->
+  <script>
+    (function () {
+      var STORAGE_KEY = 'outofsightCookieConsent';
+      var banner = document.getElementById('cookieConsent');
+      if (!banner) return;
+
+      var accepted;
+      try {
+        accepted = localStorage.getItem(STORAGE_KEY);
+      } catch (e) {
+        accepted = null;
+      }
+
+      if (!accepted) {
+        banner.classList.add('cookie-consent--visible');
+      }
+
+      function setChoice(value) {
+        try {
+          localStorage.setItem(STORAGE_KEY, value);
+        } catch (e) {
+          /* localStorage unavailable — banner will simply reappear next visit */
+        }
+        banner.classList.remove('cookie-consent--visible');
+      }
+
+      var acceptBtn = document.getElementById('cookieAccept');
+      var declineBtn = document.getElementById('cookieDecline');
+      if (acceptBtn) acceptBtn.addEventListener('click', function () { setChoice('accepted'); });
+      if (declineBtn) declineBtn.addEventListener('click', function () { setChoice('declined'); });
     })();
   </script>
 </body>
